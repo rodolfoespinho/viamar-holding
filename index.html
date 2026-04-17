@@ -152,6 +152,13 @@
       cursor: not-allowed;
       user-select: none;
     }
+    .nav-link-item {
+      font-size: 13.5px; font-weight: 500;
+      color: rgba(255,255,255,0.65);
+      text-decoration: none;
+      transition: color .2s;
+    }
+    .nav-link-item:hover { color: #fff; }
     .nav-right { display: flex; align-items: center; gap: 16px; }
     .nav-phone { font-size: 13px; color: rgba(255,255,255,0.45); text-decoration: none; pointer-events: none; }
     .nav-lang { display: flex; align-items: center; gap: 4px; }
@@ -489,33 +496,46 @@
 
     /* ── Mobile drawer ── */
     .mobile-menu {
-      display: none;
+      display: flex;
       position: fixed; top: 0; left: 0; right: 0; bottom: 0;
-      background: rgba(7,17,31,0.98);
+      background: rgba(7,17,31,0.99);
       backdrop-filter: blur(20px);
       -webkit-backdrop-filter: blur(20px);
-      z-index: 150;
+      z-index: 300;
       flex-direction: column;
-      padding: 130px 32px 48px;
-      opacity: 0; pointer-events: none;
-      transition: opacity .25s;
+      padding: 96px 32px 40px;
+      overflow-y: auto;
+      overscroll-behavior: contain;
+      opacity: 0; pointer-events: none; visibility: hidden;
+      transition: opacity .3s, visibility .3s;
     }
-    .mobile-menu.open { opacity: 1; pointer-events: all; display: flex; }
-    .mobile-menu-links { list-style: none; flex: 1; display: flex; flex-direction: column; gap: 0; }
-    .mobile-menu-links li a,
-    .mobile-menu-links li span {
-      display: block; font-size: 30px; font-weight: 700;
+    .mobile-menu.open { opacity: 1; pointer-events: all; visibility: visible; }
+    .mobile-menu-close {
+      position: absolute; top: 18px; right: 20px;
+      background: none; border: none; cursor: pointer;
+      color: rgba(255,255,255,0.6); padding: 10px;
+      transition: color .2s;
+    }
+    .mobile-menu-close:hover { color: #fff; }
+    .mobile-menu-links { list-style: none; display: flex; flex-direction: column; gap: 0; }
+    .mobile-menu-links li a {
+      display: block; font-size: 28px; font-weight: 700;
       font-family: 'Playfair Display', serif;
-      padding: 18px 0;
+      padding: 16px 0;
       border-bottom: 1px solid rgba(255,255,255,0.06);
-      text-decoration: none;
+      text-decoration: none; color: #fff;
       transition: color .15s;
     }
-    .mobile-menu-links li a { color: #fff; }
     .mobile-menu-links li a:hover { color: var(--gold); }
-    .mobile-menu-links li span { color: rgba(255,255,255,0.2); cursor: not-allowed; }
+    .mobile-menu-links li.mm-small a {
+      font-size: 13px; font-weight: 500;
+      font-family: 'Inter', sans-serif;
+      color: rgba(255,255,255,0.35);
+      padding: 12px 0;
+    }
+    .mobile-menu-links li.mm-small a:hover { color: rgba(255,255,255,0.7); }
     .mobile-menu-cta {
-      display: flex; flex-direction: column; gap: 12px; margin-top: 32px;
+      margin-top: 28px;
     }
     .mobile-menu-cta a {
       display: flex; align-items: center; justify-content: center; gap: 10px;
@@ -524,9 +544,14 @@
       padding: 18px 24px; border-radius: 12px;
       text-decoration: none;
     }
-    .mobile-menu-social { display: flex; gap: 20px; margin-top: 24px; padding-top: 24px; border-top: 1px solid rgba(255,255,255,0.08); }
+    .mobile-menu-bottom {
+      margin-top: auto; padding-top: 28px;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .mobile-menu-social { display: flex; gap: 20px; }
     .mobile-menu-social a { color: rgba(255,255,255,0.4); transition: color .2s; display: flex; align-items: center; }
     .mobile-menu-social a:hover { color: #fff; }
+    .mobile-menu-lang { display: flex; align-items: center; gap: 4px; }
 
     /* ── Responsive ── */
     @media (max-width: 900px) {
@@ -538,6 +563,7 @@
       .nav-phone { display: none; }
       .nav-cta { display: none; }
       .nav-social { display: none; }
+      .nav-lang { display: none; }
       .nav-hamburger { display: flex; }
     }
     @media (max-width: 600px) {
@@ -781,6 +807,43 @@
       .pkg-grid .pkg-card:nth-child(4),
       .pkg-grid .pkg-card:nth-child(5) { grid-column: auto; }
     }
+
+    /* ── Cookie banner ── */
+    .cookie-banner {
+      position: fixed; bottom: 0; left: 0; right: 0; z-index: 500;
+      background: rgba(10,20,40,0.97);
+      border-top: 1px solid rgba(255,255,255,0.1);
+      backdrop-filter: blur(16px);
+      padding: 20px 32px;
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 24px; flex-wrap: wrap;
+      transform: translateY(0); transition: transform .4s ease;
+    }
+    .cookie-banner.hidden { transform: translateY(110%); }
+    .cookie-text { flex: 1; min-width: 260px; }
+    .cookie-text strong { display: block; font-size: 13px; font-weight: 700; color: #fff; margin-bottom: 4px; }
+    .cookie-text p { font-size: 12px; color: rgba(255,255,255,0.5); line-height: 1.6; margin: 0; }
+    .cookie-text a { color: var(--aqua); text-decoration: underline; text-underline-offset: 2px; }
+    .cookie-actions { display: flex; gap: 10px; flex-shrink: 0; }
+    .cookie-accept {
+      background: var(--aqua); color: var(--navy);
+      border: none; border-radius: 8px;
+      padding: 10px 20px; font-size: 13px; font-weight: 700;
+      cursor: pointer; font-family: inherit; transition: background .2s;
+    }
+    .cookie-accept:hover { background: #0891b2; }
+    .cookie-reject {
+      background: transparent; color: rgba(255,255,255,0.5);
+      border: 1px solid rgba(255,255,255,0.15); border-radius: 8px;
+      padding: 10px 20px; font-size: 13px; font-weight: 500;
+      cursor: pointer; font-family: inherit; transition: all .2s;
+    }
+    .cookie-reject:hover { color: #fff; border-color: rgba(255,255,255,0.4); }
+    @media (max-width: 600px) {
+      .cookie-banner { padding: 16px 20px; }
+      .cookie-actions { width: 100%; }
+      .cookie-accept, .cookie-reject { flex: 1; }
+    }
   </style>
 </head>
 <body>
@@ -799,11 +862,9 @@
       <img src="/logo-viamar.png" alt="Viamar Ferry Berlenga" />
     </div>
     <ul class="nav-links">
-      <li><span data-i18n="nav_schedules">Horários</span></li>
-      <li><a href="#pacotes" data-i18n="nav_packages" style="color:rgba(255,255,255,0.65);text-decoration:none;font-size:14px;font-weight:500;transition:color .2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.65)'">Pacotes</a></li>
-      <li><span data-i18n="nav_island">A Ilha</span></li>
-      <li><span>FAQ</span></li>
-      <li><a href="/historia.html" style="color:rgba(255,255,255,0.65);text-decoration:none;font-size:14px;font-weight:500;transition:color .2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.65)'">História</a></li>
+      <li><a href="/pacotes.html" class="nav-link-item">Pacotes</a></li>
+      <li><a href="/historia.html" class="nav-link-item">História</a></li>
+      <li><a href="https://berlengaspass.pt" target="_blank" rel="noopener" class="nav-link-item">Berlengas Pass</a></li>
     </ul>
     <div class="nav-right">
       <span class="nav-phone">+351 911 001 099</span>
@@ -829,12 +890,15 @@
 
   <!-- Mobile menu drawer -->
   <div class="mobile-menu" id="mobileMenu">
+    <button class="mobile-menu-close" id="menuClose" aria-label="Fechar menu">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
     <ul class="mobile-menu-links">
-      <li><span data-i18n="nav_schedules">Horários</span></li>
-      <li><a href="#pacotes" data-i18n="nav_packages">Pacotes</a></li>
-      <li><span data-i18n="nav_island">A Ilha</span></li>
-      <li><span>FAQ</span></li>
+      <li><a href="/pacotes.html">Pacotes</a></li>
       <li><a href="/historia.html">História</a></li>
+      <li><a href="#faq">FAQ's</a></li>
+      <li><a href="https://berlengaspass.pt" target="_blank" rel="noopener">Berlengas Pass</a></li>
+      <li class="mm-small"><a href="/termos.html">Termos e Condições</a></li>
     </ul>
     <div class="mobile-menu-cta">
       <a href="https://fareharbor.com/embeds/book/viamar-berlenga/items/?full-items=yes&flow=738388">
@@ -842,13 +906,20 @@
         <span data-i18n="cta_book">Reservar travessia</span>
       </a>
     </div>
-    <div class="mobile-menu-social">
-      <a href="https://www.instagram.com/viamar_berlenga/" target="_blank" rel="noopener" aria-label="Instagram">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
-      </a>
-      <a href="https://www.facebook.com/berlengapenicheportugal/" target="_blank" rel="noopener" aria-label="Facebook">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
-      </a>
+    <div class="mobile-menu-bottom">
+      <div class="mobile-menu-social">
+        <a href="https://www.instagram.com/viamar_berlenga/" target="_blank" rel="noopener" aria-label="Instagram">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+        </a>
+        <a href="https://www.facebook.com/berlengapenicheportugal/" target="_blank" rel="noopener" aria-label="Facebook">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+        </a>
+      </div>
+      <div class="mobile-menu-lang">
+        <button class="lang-btn" data-lang-switch="pt">PT</button>
+        <span class="lang-sep">|</span>
+        <button class="lang-btn" data-lang-switch="en">EN</button>
+      </div>
     </div>
   </div>
 
@@ -1034,18 +1105,6 @@
     <div class="gb-item"><div class="gb-label">A ilha ao longe</div></div>
   </div>
 
-  <!-- PACKAGES -->
-  <section class="sec packages-sec" id="pacotes">
-    <div class="sec-inner">
-      <div class="sec-tag" data-i18n="pkg.tag">O que queres fazer?</div>
-      <h2 class="sec-h" data-i18n="pkg.h2">Escolhe a tua experiência</h2>
-      <p class="sec-sub" data-i18n="pkg.sub">Desde a travessia simples até atividades na ilha — temos algo para cada aventureiro.</p>
-      <div class="pkg-grid" id="pkgGrid">
-        <!-- Renderizado dinamicamente a partir de data/products.json -->
-      </div>
-    </div>
-  </section>
-
   <!-- REVIEWS -->
   <section class="sec reviews-sec">
     <div class="sec-inner">
@@ -1131,6 +1190,18 @@
     <p>Viamar Ferry Berlenga · Porto de Pesca de Peniche, Portugal</p>
     <p>© 2026 Viamar. Todos os direitos reservados. · <a href="https://berlengaspass.pt" rel="noopener">BerlengasPass</a></p>
   </footer>
+
+  <!-- Cookie Banner -->
+  <div class="cookie-banner" id="cookieBanner">
+    <div class="cookie-text">
+      <strong>Privacidade e Cookies</strong>
+      <p>Utilizamos cookies essenciais para o funcionamento do site e cookies analíticos para melhorar a experiência. Consulte a nossa <a href="/termos.html">política de privacidade</a>.</p>
+    </div>
+    <div class="cookie-actions">
+      <button class="cookie-accept" onclick="setCookieChoice('all')">Aceitar tudo</button>
+      <button class="cookie-reject" onclick="setCookieChoice('essential')">Só essenciais</button>
+    </div>
+  </div>
 
   <!-- WhatsApp FAB -->
   <a href="https://wa.me/351911001099?text=Estou%20interessado%20em%20visitar%20a%20Ilha%20da%20Berlenga%20com%20a%20Viamar!" class="whatsapp-fab" target="_blank" rel="noopener" aria-label="Contactar via WhatsApp">
@@ -1280,14 +1351,46 @@
     }
     setInterval(() => goSlide((slide + 1) % slides.length), 5000);
 
-    // Hamburger menu
+    // Hamburger menu — iOS-safe scroll lock
     const hamburger = document.getElementById('hamburger');
     const mobileMenu = document.getElementById('mobileMenu');
-    hamburger.addEventListener('click', () => {
-      const isOpen = mobileMenu.classList.toggle('open');
-      hamburger.classList.toggle('open', isOpen);
-      document.body.style.overflow = isOpen ? 'hidden' : '';
-    });
+    const menuClose  = document.getElementById('menuClose');
+    let _scrollY = 0;
+
+    function openMenu() {
+      _scrollY = window.scrollY;
+      document.body.style.position = 'fixed';
+      document.body.style.top = `-${_scrollY}px`;
+      document.body.style.width = '100%';
+      mobileMenu.classList.add('open');
+      hamburger.classList.add('open');
+    }
+    function closeMenu() {
+      mobileMenu.classList.remove('open');
+      hamburger.classList.remove('open');
+      document.body.style.position = '';
+      document.body.style.top = '';
+      document.body.style.width = '';
+      window.scrollTo(0, _scrollY);
+    }
+
+    hamburger.addEventListener('click', () => mobileMenu.classList.contains('open') ? closeMenu() : openMenu());
+    menuClose.addEventListener('click', closeMenu);
+
+    // Close on any link click inside the drawer
+    mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMenu));
+
+    // Cookie banner
+    function setCookieChoice(choice) {
+      localStorage.setItem('viamar_cookie', choice);
+      document.getElementById('cookieBanner').classList.add('hidden');
+    }
+    if (!localStorage.getItem('viamar_cookie')) {
+      document.getElementById('cookieBanner').classList.remove('hidden');
+    } else {
+      document.getElementById('cookieBanner').classList.add('hidden');
+    }
+
   </script>
 
   <script defer src="/_vercel/insights/script.js"></script>

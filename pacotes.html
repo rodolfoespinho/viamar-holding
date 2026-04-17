@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="pt-PT" data-lang="pt">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pacotes | Viamar Ferry Berlenga — Travessias e Experiências</title>
+  <meta name="description" content="Bilhetes de ferry e experiências na Ilha da Berlenga — ida e volta a partir de €19,90. Escolhe a tua experiência com a Viamar." />
+  <link rel="canonical" href="https://viamar-berlenga.com/pacotes.html" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Pacotes Viamar — Travessias e Experiências na Berlenga" />
+  <meta property="og:description" content="Bilhetes de ferry e experiências na Ilha da Berlenga a partir de €19,90." />
+  <meta property="og:image" content="https://viamar-berlenga.com/img/hero.webp" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,700;0,900;1,700;1,900&display=swap" rel="stylesheet" />
+  <script src="https://fareharbor.com/embeds/script/calendar/viamar-berlenga/?full-items=yes&flow=738388&u=0add1569-0a96-4a96-bd93-bfeafd85b4a5&from-ssl=yes&language=pt-pt" async></script>
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="apple-touch-icon" href="/logo-viamar.png" />
+  <meta name="theme-color" content="#07111f" />
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --navy:  #07111f;
+      --aqua:  #06b6d4;
+      --gold:  #f59e0b;
+      --gold-h:#d97706;
+      --g400:  #94a3b8;
+      --g600:  #475569;
+      --r:     12px;
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', sans-serif; background: var(--navy); color: #fff; overflow-x: hidden; }
+
+    /* ── Nav ── */
+    nav {
+      position: sticky; top: 0; z-index: 200;
+      background: rgba(7,17,31,0.96);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      padding: 0 40px;
+      display: flex; align-items: center; justify-content: space-between;
+      height: 64px;
+    }
+    .nav-logo img { height: 40px; width: auto; display: block; }
+    .nav-links { display: flex; align-items: center; gap: 28px; list-style: none; }
+    .nav-link-item { font-size: 13.5px; font-weight: 500; color: rgba(255,255,255,0.65); text-decoration: none; transition: color .2s; }
+    .nav-link-item:hover, .nav-link-item.active { color: #fff; }
+    .nav-right { display: flex; align-items: center; gap: 16px; }
+    .nav-lang { display: flex; align-items: center; gap: 4px; }
+    .lang-btn { background: none; border: none; cursor: pointer; font-size: 12px; font-weight: 700; letter-spacing: 1px; color: rgba(255,255,255,0.3); padding: 3px 6px; border-radius: 4px; transition: color .15s; font-family: inherit; }
+    .lang-btn.active { color: #fff; background: rgba(255,255,255,0.12); }
+    .lang-sep { color: rgba(255,255,255,0.15); font-size: 11px; }
+    .nav-cta { background: var(--gold); color: var(--navy); padding: 10px 20px; border-radius: 8px; font-weight: 700; font-size: 13.5px; text-decoration: none; white-space: nowrap; transition: background .2s; }
+    .nav-cta:hover { background: var(--gold-h); }
+    .nav-hamburger { display: none; flex-direction: column; justify-content: center; align-items: center; gap: 5px; width: 40px; height: 40px; background: none; border: none; cursor: pointer; padding: 8px; }
+    .nav-hamburger span { display: block; width: 22px; height: 2px; background: #fff; border-radius: 2px; transition: transform .25s, opacity .25s; }
+    .nav-hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .nav-hamburger.open span:nth-child(2) { opacity: 0; }
+    .nav-hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    /* ── Mobile drawer ── */
+    .mobile-menu {
+      display: flex; position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(7,17,31,0.99); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+      z-index: 300; flex-direction: column; padding: 96px 32px 40px;
+      overflow-y: auto; overscroll-behavior: contain;
+      opacity: 0; pointer-events: none; visibility: hidden;
+      transition: opacity .3s, visibility .3s;
+    }
+    .mobile-menu.open { opacity: 1; pointer-events: all; visibility: visible; }
+    .mobile-menu-close { position: absolute; top: 18px; right: 20px; background: none; border: none; cursor: pointer; color: rgba(255,255,255,0.6); padding: 10px; transition: color .2s; }
+    .mobile-menu-close:hover { color: #fff; }
+    .mobile-menu-links { list-style: none; display: flex; flex-direction: column; gap: 0; }
+    .mobile-menu-links li a { display: block; font-size: 28px; font-weight: 700; font-family: 'Playfair Display', serif; padding: 16px 0; border-bottom: 1px solid rgba(255,255,255,0.06); text-decoration: none; color: #fff; transition: color .15s; }
+    .mobile-menu-links li a:hover { color: var(--gold); }
+    .mobile-menu-links li.mm-small a { font-size: 13px; font-weight: 500; font-family: 'Inter', sans-serif; color: rgba(255,255,255,0.35); padding: 12px 0; }
+    .mobile-menu-links li.mm-small a:hover { color: rgba(255,255,255,0.7); }
+    .mobile-menu-cta { margin-top: 28px; }
+    .mobile-menu-cta a { display: flex; align-items: center; justify-content: center; gap: 10px; background: var(--gold); color: var(--navy); font-weight: 800; font-size: 16px; padding: 18px 24px; border-radius: 12px; text-decoration: none; }
+    .mobile-menu-bottom { margin-top: auto; padding-top: 28px; display: flex; align-items: center; justify-content: space-between; }
+    .mobile-menu-social { display: flex; gap: 20px; }
+    .mobile-menu-social a { color: rgba(255,255,255,0.4); transition: color .2s; display: flex; align-items: center; }
+    .mobile-menu-social a:hover { color: #fff; }
+    .mobile-menu-lang { display: flex; align-items: center; gap: 4px; }
+
+    /* ── Page header ── */
+    .page-hero {
+      padding: 80px 40px 64px;
+      background: linear-gradient(180deg, #0a1628 0%, var(--navy) 100%);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .page-hero-inner { max-width: 1280px; margin: 0 auto; }
+    .page-tag { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; color: var(--aqua); margin-bottom: 12px; }
+    .page-h1 { font-family: 'Playfair Display', serif; font-size: clamp(32px, 4vw, 52px); font-weight: 900; color: #fff; line-height: 1.1; margin-bottom: 16px; }
+    .page-sub { font-size: 16px; color: rgba(255,255,255,0.5); max-width: 520px; line-height: 1.75; }
+
+    /* ── Packages ── */
+    .packages-wrap { max-width: 1280px; margin: 0 auto; padding: 72px 40px; }
+    .pkg-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    @media (min-width: 961px) {
+      .pkg-grid .pkg-card:nth-child(4) { grid-column: 1 / 2; }
+      .pkg-grid .pkg-card:nth-child(5) { grid-column: 2 / 3; }
+    }
+    .pkg-card { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.09); border-radius: var(--r); padding: 28px; transition: all .25s; cursor: pointer; position: relative; overflow: hidden; }
+    .pkg-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: transparent; transition: background .25s; }
+    .pkg-card:hover { background: rgba(255,255,255,0.07); transform: translateY(-4px); border-color: rgba(255,255,255,0.18); }
+    .pkg-card:hover::before { background: var(--aqua); }
+    .pkg-card.featured { background: rgba(6,182,212,0.08); border-color: rgba(6,182,212,0.3); }
+    .pkg-card.featured::before { background: var(--aqua); }
+    .pkg-card.coming-soon { opacity: 0.6; }
+    .pkg-card.coming-soon:hover { transform: none; }
+    .pkg-badge { display: inline-block; font-size: 10px; font-weight: 700; padding: 3px 9px; border-radius: 100px; margin-bottom: 16px; text-transform: uppercase; letter-spacing: .8px; }
+    .pkg-icon { width: 48px; height: 48px; margin-bottom: 16px; display: flex; align-items: center; justify-content: center; background: rgba(255,255,255,0.07); border-radius: 12px; }
+    .pkg-icon svg { width: 24px; height: 24px; stroke: rgba(255,255,255,0.8); }
+    .pkg-name { font-size: 18px; font-weight: 800; color: #fff; margin-bottom: 8px; }
+    .pkg-desc { font-size: 13.5px; color: rgba(255,255,255,0.55); line-height: 1.65; margin-bottom: 20px; }
+    .pkg-list { list-style: none; margin-bottom: 24px; }
+    .pkg-list li { font-size: 13px; color: rgba(255,255,255,0.65); padding: 5px 0; display: flex; gap: 8px; align-items: flex-start; }
+    .pkg-list li::before { content: '✓'; color: var(--aqua); font-weight: 700; flex-shrink: 0; margin-top: 1px; }
+    .pkg-price { margin-bottom: 20px; }
+    .pkg-from { font-size: 11px; color: rgba(255,255,255,0.35); }
+    .pkg-amount { font-size: 36px; font-weight: 900; color: #fff; line-height: 1; }
+    .pkg-unit { font-size: 12px; color: rgba(255,255,255,0.35); }
+    .btn-pkg { width: 100%; padding: 13px; border: 1.5px solid rgba(255,255,255,0.2); background: transparent; color: #fff; border-radius: 8px; font-weight: 700; font-size: 14px; cursor: pointer; transition: all .2s; font-family: inherit; text-decoration: none; display: block; text-align: center; }
+    .btn-pkg:hover { background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.4); }
+    .btn-pkg.solid { background: var(--aqua); border-color: var(--aqua); color: var(--navy); }
+    .btn-pkg.solid:hover { background: #0891b2; border-color: #0891b2; }
+    .btn-soon { display: block; width: 100%; padding: 13px; border: 1.5px dashed rgba(255,255,255,0.2); border-radius: 8px; text-align: center; font-size: 13px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; color: rgba(255,255,255,0.35); cursor: default; }
+
+    /* ── Footer ── */
+    .site-footer { background: #050d18; border-top: 1px solid rgba(255,255,255,0.06); padding: 32px 40px; text-align: center; }
+    .site-footer p { font-size: 13px; color: rgba(255,255,255,0.3); line-height: 1.8; }
+    .site-footer a { color: rgba(255,255,255,0.45); text-decoration: none; }
+    .site-footer a:hover { color: #fff; }
+
+    /* ── Responsive ── */
+    @media (max-width: 900px) {
+      nav { padding: 0 16px; }
+      .nav-links { display: none; }
+      .nav-cta { display: none; }
+      .nav-lang { display: none; }
+      .nav-hamburger { display: flex; }
+      .page-hero { padding: 48px 20px 40px; }
+      .packages-wrap { padding: 48px 20px; }
+      .pkg-grid { grid-template-columns: 1fr; }
+      .pkg-grid .pkg-card:nth-child(4),
+      .pkg-grid .pkg-card:nth-child(5) { grid-column: auto; }
+      .site-footer { padding: 24px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Nav -->
+  <nav>
+    <div class="nav-logo">
+      <a href="/"><img src="/logo-viamar.png" alt="Viamar Ferry Berlenga" /></a>
+    </div>
+    <ul class="nav-links">
+      <li><a href="/pacotes.html" class="nav-link-item active">Pacotes</a></li>
+      <li><a href="/historia.html" class="nav-link-item">História</a></li>
+      <li><a href="https://berlengaspass.pt" target="_blank" rel="noopener" class="nav-link-item">Berlengas Pass</a></li>
+    </ul>
+    <div class="nav-right">
+      <div class="nav-lang">
+        <button class="lang-btn active" data-lang-switch="pt">PT</button>
+        <span class="lang-sep">|</span>
+        <button class="lang-btn" data-lang-switch="en">EN</button>
+      </div>
+      <a href="https://fareharbor.com/embeds/book/viamar-berlenga/items/?full-items=yes&flow=738388" class="nav-cta">Reservar agora →</a>
+      <button class="nav-hamburger" id="hamburger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile menu -->
+  <div class="mobile-menu" id="mobileMenu">
+    <button class="mobile-menu-close" id="menuClose" aria-label="Fechar menu">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+    <ul class="mobile-menu-links">
+      <li><a href="/pacotes.html">Pacotes</a></li>
+      <li><a href="/historia.html">História</a></li>
+      <li><a href="/#faq">FAQ's</a></li>
+      <li><a href="https://berlengaspass.pt" target="_blank" rel="noopener">Berlengas Pass</a></li>
+      <li class="mm-small"><a href="/termos.html">Termos e Condições</a></li>
+    </ul>
+    <div class="mobile-menu-cta">
+      <a href="https://fareharbor.com/embeds/book/viamar-berlenga/items/?full-items=yes&flow=738388">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 9a3 3 0 0 1 0 6v2a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-2a3 3 0 0 1 0-6V7a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2Z"/></svg>
+        Reservar travessia
+      </a>
+    </div>
+    <div class="mobile-menu-bottom">
+      <div class="mobile-menu-social">
+        <a href="https://www.instagram.com/viamar_berlenga/" target="_blank" rel="noopener" aria-label="Instagram">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+        </a>
+        <a href="https://www.facebook.com/berlengapenicheportugal/" target="_blank" rel="noopener" aria-label="Facebook">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+        </a>
+      </div>
+      <div class="mobile-menu-lang">
+        <button class="lang-btn" data-lang-switch="pt">PT</button>
+        <span class="lang-sep">|</span>
+        <button class="lang-btn" data-lang-switch="en">EN</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Page header -->
+  <div class="page-hero">
+    <div class="page-hero-inner">
+      <div class="page-tag">Travessias &amp; Experiências</div>
+      <h1 class="page-h1">Escolhe a tua experiência</h1>
+      <p class="page-sub">Desde a travessia simples até atividades na ilha — temos algo para cada aventureiro.</p>
+    </div>
+  </div>
+
+  <!-- Packages grid -->
+  <div class="packages-wrap">
+    <div class="pkg-grid" id="pkgGrid">
+      <!-- Rendered from data/products.json -->
+    </div>
+  </div>
+
+  <footer class="site-footer">
+    <p>Viamar Ferry Berlenga · Porto de Pesca de Peniche, Portugal</p>
+    <p>© 2026 Viamar. Todos os direitos reservados. · <a href="https://berlengaspass.pt" rel="noopener">BerlengasPass</a> · <a href="/termos.html">Termos e Condições</a></p>
+  </footer>
+
+  <script>
+    // Lang
+    const translations = {
+      pt: { pkg_tag: 'Travessias & Experiências', pkg_h1: 'Escolhe a tua experiência', pkg_sub: 'Desde a travessia simples até atividades na ilha — temos algo para cada aventureiro.', book: 'Reservar agora →' },
+      en: { pkg_tag: 'Crossings & Experiences', pkg_h1: 'Choose your experience', pkg_sub: 'From a simple crossing to island activities — we have something for every adventurer.', book: 'Book now →' }
+    };
+    const browserLang = navigator.language?.startsWith('en') ? 'en' : 'pt';
+
+    function setLang(lang) {
+      document.documentElement.setAttribute('data-lang', lang);
+      document.querySelectorAll('[data-lang-switch]').forEach(b => b.classList.toggle('active', b.dataset.langSwitch === lang));
+      document.documentElement.lang = lang === 'pt' ? 'pt-PT' : 'en';
+      const t = translations[lang];
+      if (t) {
+        document.querySelector('.page-tag').textContent  = t.pkg_tag;
+        document.querySelector('.page-h1').textContent   = t.pkg_h1;
+        document.querySelector('.page-sub').textContent  = t.pkg_sub;
+        document.querySelector('.nav-cta').textContent   = t.book;
+      }
+    }
+    document.querySelectorAll('[data-lang-switch]').forEach(b => b.addEventListener('click', () => setLang(b.dataset.langSwitch)));
+    setLang(browserLang);
+
+    // Hamburger
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const menuClose  = document.getElementById('menuClose');
+    let _scrollY = 0;
+    function openMenu() {
+      _scrollY = window.scrollY;
+      document.body.style.position = 'fixed';
+      document.body.style.top = `-${_scrollY}px`;
+      document.body.style.width = '100%';
+      mobileMenu.classList.add('open');
+      hamburger.classList.add('open');
+    }
+    function closeMenu() {
+      mobileMenu.classList.remove('open');
+      hamburger.classList.remove('open');
+      document.body.style.position = '';
+      document.body.style.top = '';
+      document.body.style.width = '';
+      window.scrollTo(0, _scrollY);
+    }
+    hamburger.addEventListener('click', () => mobileMenu.classList.contains('open') ? closeMenu() : openMenu());
+    menuClose.addEventListener('click', closeMenu);
+    mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMenu));
+
+    // Products
+    const BADGE_STYLES = {
+      gold:  'background:#f59e0b;color:#07111f',
+      pop:   'background:#06b6d4;color:#07111f',
+      aqua:  'background:rgba(6,182,212,0.15);color:#06b6d4;border:1px solid #06b6d4',
+      amber: 'background:rgba(245,158,11,0.15);color:#f59e0b;border:1px solid rgba(245,158,11,0.4)',
+    };
+    function esc(s) { return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
+    function fmtPrice(n) { return Number(n).toLocaleString('pt-PT', { minimumFractionDigits: 2, maximumFractionDigits: 2 }); }
+
+    async function loadProducts() {
+      const grid = document.getElementById('pkgGrid');
+      try {
+        const res  = await fetch('data/products.json');
+        if (!res.ok) throw new Error();
+        const data = await res.json();
+        const isEN = browserLang === 'en';
+        grid.innerHTML = data.items.map(item => {
+          const badge    = isEN ? (item.badge_en || item.badge) : item.badge;
+          const name     = isEN ? (item.name_en  || item.name)  : item.name;
+          const desc     = isEN ? (item.desc_en  || item.desc)  : item.desc;
+          const features = isEN ? (item.features_en || item.features) : item.features;
+          const priceUnit = item.price_child
+            ? (isEN ? `/ adult · ${fmtPrice(item.price_child)}€ child` : `/ adulto · ${fmtPrice(item.price_child)}€ criança`)
+            : (isEN ? '/ person' : '/ pessoa');
+          const cardClass = item.featured ? 'pkg-card featured' : item.coming_soon ? 'pkg-card coming-soon' : 'pkg-card';
+          const priceBlock = item.coming_soon
+            ? `<div class="pkg-price"><div class="pkg-from">${isEN ? 'Coming soon' : 'Em breve'}</div></div>`
+            : `<div class="pkg-price"><div class="pkg-from">${isEN ? 'From' : 'A partir de'}</div><div><span class="pkg-amount">${fmtPrice(item.price_adult)}€</span> <span class="pkg-unit">${esc(priceUnit)}</span></div></div>`;
+          const ctaBlock = item.coming_soon
+            ? `<span class="btn-soon">${isEN ? 'Coming Soon' : 'Em Breve'}</span>`
+            : `<a href="${esc(data.booking_url)}" class="btn-pkg${item.featured ? ' solid' : ''}">${isEN ? 'Book now' : 'Reservar'}</a>`;
+          return `<div class="${cardClass}">
+  <span class="pkg-badge" style="${BADGE_STYLES[item.badge_type] || BADGE_STYLES.gold}">${esc(badge)}</span>
+  <span class="pkg-icon"><i data-lucide="${esc(item.icon)}"></i></span>
+  <div class="pkg-name">${esc(name)}</div>
+  <div class="pkg-desc">${esc(desc)}</div>
+  <ul class="pkg-list">${features.map(f => `<li>${esc(f)}</li>`).join('')}</ul>
+  ${priceBlock}${ctaBlock}
+</div>`;
+        }).join('');
+        lucide.createIcons();
+      } catch(e) {
+        grid.innerHTML = '<p style="color:rgba(255,255,255,0.4);padding:24px 0">Erro ao carregar pacotes.</p>';
+      }
+    }
+    loadProducts();
+  </script>
+
+  <script defer src="/_vercel/insights/script.js"></script>
+</body>
+</html>
