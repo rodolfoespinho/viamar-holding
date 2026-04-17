@@ -1,6 +1,6 @@
 {
   "_meta": {
-    "updated": "2026-04-07",
+    "updated": "2026-04-17",
     "source": "FareHarbor — viamar-berlenga (sync manual via dashboard)",
     "note": "Preços base sem taxa FareHarbor. Adulto €19,90 + 6% IVA incluído. Embed FH mostra €21,03 (inclui taxa de reserva FH ~5,7%)."
   },
@@ -12,20 +12,13 @@
       "badge_en": "Simple ticket",
       "badge_type": "gold",
       "icon": "arrow-right",
+      "image": "img/freepik__enhance-the-cinematic-feel-on-this-photo__34301.webp",
       "name": "Bilhete de Ida",
       "name_en": "One-Way Ticket",
       "desc": "Só precisas de chegar à Berlenga — bilhete de ida de Peniche. Volta quando quiseres com outra operadora.",
       "desc_en": "Just need to get to Berlenga — one-way ticket from Peniche. Return whenever you like with another operator.",
-      "features": [
-        "Peniche → Berlenga",
-        "45 min de travessia",
-        "Bilhete digital QR"
-      ],
-      "features_en": [
-        "Peniche → Berlenga",
-        "45-min boat ride",
-        "Digital QR ticket"
-      ],
+      "features": ["Peniche → Berlenga", "45 min de travessia", "Bilhete digital QR"],
+      "features_en": ["Peniche → Berlenga", "45-min boat ride", "Digital QR ticket"],
       "price_adult": 14.90,
       "price_child": null,
       "featured": false,
@@ -37,20 +30,13 @@
       "badge_en": "Simple ticket",
       "badge_type": "gold",
       "icon": "arrow-left",
+      "image": "img/freepik__enhance-the-cinematic-feel-of-this-shot__34300.webp",
       "name": "Bilhete de Volta",
       "name_en": "Return Ticket",
       "desc": "Já estás na Berlenga e precisas de regressar a Peniche. Reserva o teu lugar de regresso.",
       "desc_en": "Already on Berlenga and need to get back to Peniche. Book your return seat.",
-      "features": [
-        "Berlenga → Peniche",
-        "45 min de travessia",
-        "Bilhete digital QR"
-      ],
-      "features_en": [
-        "Berlenga → Peniche",
-        "45-min boat ride",
-        "Digital QR ticket"
-      ],
+      "features": ["Berlenga → Peniche", "45 min de travessia", "Bilhete digital QR"],
+      "features_en": ["Berlenga → Peniche", "45-min boat ride", "Digital QR ticket"],
       "price_adult": 14.90,
       "price_child": null,
       "featured": false,
@@ -62,22 +48,13 @@
       "badge_en": "Most popular",
       "badge_type": "pop",
       "icon": "anchor",
-      "name": "Visita à Ilha da Berlenga",
-      "name_en": "Berlenga Island Visit",
-      "desc": "Travessia ida e volta + dia livre na ilha para explorar as praias, falésias e a Fortaleza histórica.",
-      "desc_en": "Return trip + a free day on the island to explore the beaches, cliffs and historic Fortress.",
-      "features": [
-        "Peniche → Berlenga → Peniche",
-        "45 min de travessia cada sentido",
-        "Dia livre na ilha (5 horas)",
-        "Bilhete digital QR"
-      ],
-      "features_en": [
-        "Peniche → Berlenga → Peniche",
-        "45-min boat ride each way",
-        "Free day on the island (5 hours)",
-        "Digital QR ticket"
-      ],
+      "image": "img/hero.webp",
+      "name": "Roundtrip",
+      "name_en": "Roundtrip",
+      "desc": "Travessia ida e volta — dia livre na ilha para explorar as praias, falésias e a Fortaleza histórica.",
+      "desc_en": "Return crossing — a free day on the island to explore the beaches, cliffs and the historic Fortress.",
+      "features": ["Peniche → Berlenga → Peniche", "45 min de travessia cada sentido", "Dia livre na ilha (5 horas)", "Bilhete digital QR"],
+      "features_en": ["Peniche → Berlenga → Peniche", "45-min boat ride each way", "Free day on the island (5 hours)", "Digital QR ticket"],
       "price_adult": 19.90,
       "price_child": 13.90,
       "featured": true,
@@ -89,24 +66,13 @@
       "badge_en": "Coming Soon",
       "badge_type": "aqua",
       "icon": "waves",
+      "image": "img/freepik__enhance-the-cinematic-feel-on-this-photo__59586.webp",
       "name": "Kayak Tour",
       "name_en": "Kayak Tour",
       "desc": "Explora a costa da Berlenga em kayak. Single ou duplo — perfeito para descobrir as grutas e reentrâncias da ilha.",
       "desc_en": "Explore the Berlenga coastline by kayak. Single or double — perfect for discovering the island's caves and coves.",
-      "features": [
-        "Kayak single ou duplo",
-        "60 min de passeio",
-        "Guia certificado",
-        "Equipamento incluído",
-        "Partida da ilha"
-      ],
-      "features_en": [
-        "Single or double kayak",
-        "60-min tour",
-        "Certified guide",
-        "Equipment included",
-        "Departing from the island"
-      ],
+      "features": ["Kayak single ou duplo", "60 min de passeio", "Guia certificado", "Equipamento incluído", "Partida da ilha"],
+      "features_en": ["Single or double kayak", "60-min tour", "Certified guide", "Equipment included", "Departing from the island"],
       "price_adult": 15.00,
       "price_child": null,
       "coming_soon": true,
@@ -119,24 +85,13 @@
       "badge_en": "Coming Soon",
       "badge_type": "amber",
       "icon": "ship",
+      "image": "img/freepik__enhance-the-cinematic-feeling-on-this-shot__37651.webp",
       "name": "Passeio às Grutas",
       "name_en": "Sea Caves Tour",
       "desc": "Passeio de barco de fundo de vidro pelas grutas marinhas da Berlenga — espectacular para famílias e mergulhadores.",
       "desc_en": "Glass-bottom boat tour through Berlenga's sea caves — spectacular for families and divers.",
-      "features": [
-        "Barco de fundo de vidro",
-        "25 min de passeio",
-        "Grutas marinhas únicas",
-        "Partida da ilha",
-        "Para todas as idades"
-      ],
-      "features_en": [
-        "Glass-bottom boat",
-        "25-min tour",
-        "Unique sea caves",
-        "Departing from the island",
-        "All ages welcome"
-      ],
+      "features": ["Barco de fundo de vidro", "25 min de passeio", "Grutas marinhas únicas", "Partida da ilha", "Para todas as idades"],
+      "features_en": ["Glass-bottom boat", "25-min tour", "Unique sea caves", "Departing from the island", "All ages welcome"],
       "price_adult": 10.00,
       "price_child": null,
       "coming_soon": true,

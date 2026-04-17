@@ -821,6 +821,7 @@
     }
     .cookie-banner.hidden { transform: translateY(110%); }
     body:has(.cookie-banner:not(.hidden)) .whatsapp-fab { bottom: calc(80px + 28px); transition: bottom .4s ease; }
+    body.menu-open .whatsapp-fab { display: none !important; }
     @media (max-width: 600px) {
       body:has(.cookie-banner:not(.hidden)) .whatsapp-fab { display: none; }
     }
@@ -874,8 +875,12 @@
       <span class="nav-phone">+351 911 001 099</span>
       <div class="nav-lang">
         <button class="lang-btn active" data-lang-switch="pt">PT</button>
-        <span class="lang-sep">|</span>
+        <span class="lang-sep">·</span>
         <button class="lang-btn" data-lang-switch="en">EN</button>
+        <span class="lang-sep">·</span>
+        <button class="lang-btn" data-lang-switch="es">ES</button>
+        <span class="lang-sep">·</span>
+        <button class="lang-btn" data-lang-switch="fr">FR</button>
       </div>
       <a href="https://fareharbor.com/embeds/book/viamar-berlenga/items/?full-items=yes&flow=738388" class="nav-cta" data-i18n="nav_book">Reservar agora →</a>
       <div class="nav-social">
@@ -921,8 +926,12 @@
       </div>
       <div class="mobile-menu-lang">
         <button class="lang-btn" data-lang-switch="pt">PT</button>
-        <span class="lang-sep">|</span>
+        <span class="lang-sep">·</span>
         <button class="lang-btn" data-lang-switch="en">EN</button>
+        <span class="lang-sep">·</span>
+        <button class="lang-btn" data-lang-switch="es">ES</button>
+        <span class="lang-sep">·</span>
+        <button class="lang-btn" data-lang-switch="fr">FR</button>
       </div>
     </div>
   </div>
@@ -1259,6 +1268,64 @@
         ck_accept: "Aceitar tudo", ck_reject: "Só essenciais",
         ft_copy: '© 2026 Viamar. Todos os direitos reservados. · <a href="https://berlengaspass.icnf.pt" rel="noopener">BerlengasPass</a>'
       },
+      es: {
+        ann_main: "¡Fines de semana de <strong>julio</strong> y <strong>agosto</strong> casi agotados!", ann_season: "Temporada abre el 9 de mayo —", ann_cta: "¡Reserva tu plaza!",
+        nav_book: "Reservar →", badge: "Patrimonio Mundial UNESCO",
+        h1_line1: "Berlenga te espera.", h1_line2: 'Temporada abre el <span class="date-highlight">9 de mayo</span>',
+        hero_sub: "Las plazas son limitadas. Reserva tu travesía y asegura tu lugar en la reserva natural más bonita de Portugal.",
+        stat1: "pasajeros/año", stat2: "Google Reviews", stat3: "años de travesías", stat4: "desde",
+        cta_book: "Reservar travesía", cta_island: "Obtener BerlengasPass", overlay_soon: "Próximamente",
+        card_title: "Reservar travesía", card_sub: "Elige fecha · Confirma · Embarca",
+        avail_txt: "Disponible para reserva", spots: "Pocas plazas",
+        select_date: "Selecciona fecha en el siguiente paso →", select_type: "Ida y vuelta (recomendado)",
+        adults: "Adultos", children: "Niños", price_detail: "2 Adultos × 22€", total: "Total",
+        btn_confirm: "Confirmar reserva", bc_footer: "Pago seguro · Cancelación gratuita 48h antes",
+        wa_text: "Hablemos",
+        "pkg.tag": "¿Qué quieres hacer?", "pkg.h2": "Elige tu experiencia", "pkg.sub": "Desde una travesía simple hasta actividades en la isla — tenemos algo para cada aventurero.",
+        "rev.tag": "Opiniones reales", "rev.h2": "Lo que dicen nuestros pasajeros", "rev.sub": "Más de 700 opiniones verificadas en Google. Escritas por familias, parejas y grupos que cruzaron con nosotros.",
+        nav_pack: "Paquetes", nav_hist: "Historia", menu_terms: "Términos y Condiciones",
+        tb1t: "Operador Autorizado IMT", tb1s: "Autoridad Marítima Nacional",
+        tb2t: "45 min de travesía", tb2s: "Puerto de Pesca de Peniche",
+        tb3s: "Trip Protection incluida", tb4t: "Cancelación Gratuita", tb4s: "Hasta 24h antes de la salida",
+        isl_pill: "Reserva Natural", isl_h2: 'Una isla que <em>no se olvida</em>',
+        isl_desc: "Berlenga es la única isla habitada del archipiélago — Reserva de la Biosfera UNESCO desde 1984. Aguas turquesas, acantilados dramáticos, cuevas marinas y una biodiversidad única en Portugal.",
+        isl_f1: "de travesía desde Peniche", isl_f2: "de isla para explorar", isl_f3: "Reserva de la Biosfera", isl_f4: "Fortaleza histórica",
+        isl_cta: "Reservar →",
+        gal1: "Playa de Berlenga", gal2: "Vista panorámica", gal3: "A bordo", gal4: "Salida de Peniche", gal5: "La isla a lo lejos",
+        r_label: "706 opiniones verificadas", r_google: "Google Reviews · Verificado",
+        ck_title: "Privacidad y Cookies", ck_txt: 'Utilizamos cookies esenciales para el funcionamiento del sitio y cookies analíticas para mejorar la experiencia. Consulta nuestra <a href="/termos.html">política de privacidad</a>.',
+        ck_accept: "Aceptar todo", ck_reject: "Solo esenciales",
+        ft_copy: '© 2026 Viamar. Todos los derechos reservados. · <a href="https://berlengaspass.icnf.pt" rel="noopener">BerlengasPass</a>'
+      },
+      fr: {
+        ann_main: "Les week-ends de <strong>juillet</strong> et <strong>août</strong> sont presque complets !", ann_season: "Saison du 9 mai —", ann_cta: "Réservez votre place !",
+        nav_book: "Réserver →", badge: "Patrimoine Mondial UNESCO",
+        h1_line1: "Berlenga vous attend.", h1_line2: 'Saison du <span class="date-highlight">9 mai</span>',
+        hero_sub: "Les places sont limitées. Réservez votre traversée et assurez votre place dans la plus belle réserve naturelle du Portugal.",
+        stat1: "passagers/an", stat2: "Google Reviews", stat3: "ans de traversées", stat4: "à partir de",
+        cta_book: "Réserver la traversée", cta_island: "Obtenir BerlengasPass", overlay_soon: "Bientôt",
+        card_title: "Réserver la traversée", card_sub: "Choisissez · Confirmez · Embarquez",
+        avail_txt: "Disponible à la réservation", spots: "Peu de places",
+        select_date: "Sélectionnez la date à l'étape suivante →", select_type: "Aller-retour (recommandé)",
+        adults: "Adultes", children: "Enfants", price_detail: "2 Adultes × 22€", total: "Total",
+        btn_confirm: "Confirmer la réservation", bc_footer: "Paiement sécurisé · Annulation gratuite 48h avant",
+        wa_text: "Contactez-nous",
+        "pkg.tag": "Que souhaitez-vous faire ?", "pkg.h2": "Choisissez votre expérience", "pkg.sub": "De la simple traversée aux activités sur l'île — nous avons quelque chose pour chaque aventurier.",
+        "rev.tag": "Avis authentiques", "rev.h2": "Ce que disent nos passagers", "rev.sub": "Plus de 700 avis vérifiés sur Google. Rédigés par des familles, des couples et des groupes ayant traversé avec nous.",
+        nav_pack: "Forfaits", nav_hist: "Histoire", menu_terms: "Conditions générales",
+        tb1t: "Opérateur agréé IMT", tb1s: "Autorité Maritime Nationale",
+        tb2t: "45 min de traversée", tb2s: "Port de pêche de Peniche",
+        tb3s: "Trip Protection incluse", tb4t: "Annulation gratuite", tb4s: "Jusqu'à 24h avant le départ",
+        isl_pill: "Réserve Naturelle", isl_h2: "Une île qu'on <em>n'oublie jamais</em>",
+        isl_desc: "Berlenga est la seule île habitée de l'archipel des Berlengas — Réserve de biosphère UNESCO depuis 1984. Eaux turquoise, falaises spectaculaires, grottes marines et une biodiversité unique au Portugal.",
+        isl_f1: "de traversée depuis Peniche", isl_f2: "d'île à explorer", isl_f3: "Réserve de biosphère", isl_f4: "Forteresse historique",
+        isl_cta: "Réserver →",
+        gal1: "Plage de Berlenga", gal2: "Vue panoramique", gal3: "À bord", gal4: "Départ de Peniche", gal5: "L'île au loin",
+        r_label: "706 avis vérifiés", r_google: "Google Reviews · Vérifié",
+        ck_title: "Confidentialité & Cookies", ck_txt: 'Nous utilisons des cookies essentiels au fonctionnement du site et des cookies analytiques pour améliorer votre expérience. Consultez notre <a href="/termos.html">politique de confidentialité</a>.',
+        ck_accept: "Tout accepter", ck_reject: "Essentiels uniquement",
+        ft_copy: '© 2026 Viamar. Tous droits réservés. · <a href="https://berlengaspass.icnf.pt" rel="noopener">BerlengasPass</a>'
+      },
       en: {
         ann_main: "<strong>July</strong> and <strong>August</strong> weekends almost sold out!",
         ann_season: "Season opens 9th May —",
@@ -1322,7 +1389,8 @@
     });
 
     // Auto-detect browser language
-    const browserLang = navigator.language?.startsWith('en') ? 'en' : 'pt';
+    const _nav = navigator.language?.slice(0,2);
+    const browserLang = ['pt','en','es','fr'].includes(_nav) ? _nav : 'pt';
     setLang(browserLang);
 
     // ─── PRODUCTS ─────────────────────────────────────────────────────────────
@@ -1398,12 +1466,14 @@
       document.body.style.position = 'fixed';
       document.body.style.top = `-${_scrollY}px`;
       document.body.style.width = '100%';
+      document.body.classList.add('menu-open');
       mobileMenu.classList.add('open');
       hamburger.classList.add('open');
     }
     function closeMenu() {
       mobileMenu.classList.remove('open');
       hamburger.classList.remove('open');
+      document.body.classList.remove('menu-open');
       document.body.style.position = '';
       document.body.style.top = '';
       document.body.style.width = '';

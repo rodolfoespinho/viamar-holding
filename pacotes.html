@@ -100,7 +100,10 @@
     .packages-wrap { max-width: 1280px; margin: 0 auto; padding: 72px 40px; }
     .pkg-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
     .pkg-card { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.09); border-radius: var(--r); padding: 28px; transition: all .25s; cursor: pointer; position: relative; overflow: hidden; }
-    .pkg-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: transparent; transition: background .25s; }
+    .pkg-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: transparent; transition: background .25s; z-index: 2; }
+    .pkg-card-img { position: absolute; inset: 0; background-size: cover; background-position: center; opacity: 0.13; filter: blur(4px); transform: scale(1.1); z-index: 0; pointer-events: none; }
+    .pkg-card.featured .pkg-card-img { opacity: 0.2; }
+    .pkg-card > *:not(.pkg-card-img) { position: relative; z-index: 1; }
     .pkg-card:hover { background: rgba(255,255,255,0.07); transform: translateY(-4px); border-color: rgba(255,255,255,0.18); }
     .pkg-card:hover::before { background: var(--aqua); }
     .pkg-card.featured { grid-column: 1 / -1; background: rgba(245,158,11,0.07); border-color: rgba(245,158,11,0.35); }
@@ -162,8 +165,12 @@
     <div class="nav-right">
       <div class="nav-lang">
         <button class="lang-btn active" data-lang-switch="pt">PT</button>
-        <span class="lang-sep">|</span>
+        <span class="lang-sep">·</span>
         <button class="lang-btn" data-lang-switch="en">EN</button>
+        <span class="lang-sep">·</span>
+        <button class="lang-btn" data-lang-switch="es">ES</button>
+        <span class="lang-sep">·</span>
+        <button class="lang-btn" data-lang-switch="fr">FR</button>
       </div>
       <a href="https://fareharbor.com/embeds/book/viamar-berlenga/items/?full-items=yes&flow=738388" class="nav-cta">Reservar agora →</a>
       <button class="nav-hamburger" id="hamburger" aria-label="Menu">
@@ -201,8 +208,12 @@
       </div>
       <div class="mobile-menu-lang">
         <button class="lang-btn" data-lang-switch="pt">PT</button>
-        <span class="lang-sep">|</span>
+        <span class="lang-sep">·</span>
         <button class="lang-btn" data-lang-switch="en">EN</button>
+        <span class="lang-sep">·</span>
+        <button class="lang-btn" data-lang-switch="es">ES</button>
+        <span class="lang-sep">·</span>
+        <button class="lang-btn" data-lang-switch="fr">FR</button>
       </div>
     </div>
   </div>
@@ -231,10 +242,13 @@
   <script>
     // Lang
     const translations = {
-      pt: { pkg_tag: 'Travessias & Experiências', pkg_h1: 'Escolhe a tua experiência', pkg_sub: 'Desde a travessia simples até atividades na ilha — temos algo para cada aventureiro.', book: 'Reservar agora →' },
-      en: { pkg_tag: 'Crossings & Experiences', pkg_h1: 'Choose your experience', pkg_sub: 'From a simple crossing to island activities — we have something for every adventurer.', book: 'Book now →' }
+      pt: { pkg_tag: 'Travessias & Experiências', pkg_h1: 'Escolhe a tua experiência', pkg_sub: 'Desde a travessia simples até atividades na ilha — temos algo para cada aventureiro.', book: 'Reservar agora →', nav_pack: 'Pacotes', nav_hist: 'História', menu_terms: 'Termos e Condições', cta_mm: 'Reservar travessia' },
+      en: { pkg_tag: 'Crossings & Experiences', pkg_h1: 'Choose your experience', pkg_sub: 'From a simple crossing to island activities — we have something for every adventurer.', book: 'Book now →', nav_pack: 'Packages', nav_hist: 'History', menu_terms: 'Terms & Conditions', cta_mm: 'Book crossing' },
+      es: { pkg_tag: 'Travesías & Experiencias', pkg_h1: 'Elige tu experiencia', pkg_sub: 'Desde una travesía simple hasta actividades en la isla — tenemos algo para cada aventurero.', book: 'Reservar →', nav_pack: 'Paquetes', nav_hist: 'Historia', menu_terms: 'Términos y Condiciones', cta_mm: 'Reservar travesía' },
+      fr: { pkg_tag: 'Traversées & Expériences', pkg_h1: 'Choisissez votre expérience', pkg_sub: 'De la simple traversée aux activités sur l\'île — nous avons quelque chose pour chaque aventurier.', book: 'Réserver →', nav_pack: 'Forfaits', nav_hist: 'Histoire', menu_terms: 'Conditions générales', cta_mm: 'Réserver la traversée' }
     };
-    let currentLang = navigator.language?.startsWith('en') ? 'en' : 'pt';
+    const nav = navigator.language?.slice(0,2);
+    let currentLang = ['pt','en','es','fr'].includes(nav) ? nav : 'pt';
 
     function setLang(lang) {
       currentLang = lang;
@@ -247,6 +261,10 @@
         document.querySelector('.page-h1').textContent   = t.pkg_h1;
         document.querySelector('.page-sub').textContent  = t.pkg_sub;
         document.querySelector('.nav-cta').textContent   = t.book;
+        document.querySelectorAll('[data-i18n="nav_pack"]').forEach(e => e.textContent = t.nav_pack);
+        document.querySelectorAll('[data-i18n="nav_hist"]').forEach(e => e.textContent = t.nav_hist);
+        document.querySelectorAll('[data-i18n="menu_terms"]').forEach(e => e.textContent = t.menu_terms);
+        document.querySelectorAll('[data-i18n="cta_mm"]').forEach(e => e.textContent = t.cta_mm);
       }
       loadProducts();
     }
@@ -294,7 +312,7 @@
         const res  = await fetch('data/products.json');
         if (!res.ok) throw new Error();
         const data = await res.json();
-        const isEN = currentLang === 'en';
+        const isEN = currentLang !== 'pt';
         const sorted = data.items.slice().sort((a, b) =>
           (b.featured ? 2 : b.coming_soon ? 0 : 1) - (a.featured ? 2 : a.coming_soon ? 0 : 1)
         );
@@ -304,10 +322,14 @@
           const desc     = isEN ? (item.desc_en  || item.desc)  : item.desc;
           const features = isEN ? (item.features_en || item.features) : item.features;
           const cardClass = item.featured ? 'pkg-card featured' : item.coming_soon ? 'pkg-card coming-soon' : 'pkg-card';
+          const btnText  = {pt:'Reservar', en:'Book now', es:'Reservar', fr:'Réserver'}[currentLang] || 'Book now';
+          const soonText = {pt:'Em Breve', en:'Coming Soon', es:'Próximamente', fr:'Bientôt'}[currentLang] || 'Coming Soon';
           const ctaBlock = item.coming_soon
-            ? `<span class="btn-soon">${isEN ? 'Coming Soon' : 'Em Breve'}</span>`
-            : `<a href="${esc(data.booking_url)}" class="btn-pkg solid">${isEN ? 'Book now' : 'Reservar'}</a>`;
+            ? `<span class="btn-soon">${soonText}</span>`
+            : `<a href="${esc(data.booking_url)}" class="btn-pkg solid">${btnText}</a>`;
+          const bgDiv = item.image ? `<div class="pkg-card-img" style="background-image:url('${esc(item.image)}')"></div>` : '';
           return `<div class="${cardClass}">
+  ${bgDiv}
   <span class="pkg-badge" style="${BADGE_STYLES[item.badge_type] || BADGE_STYLES.gold}">${esc(badge)}</span>
   <span class="pkg-icon"><i data-lucide="${esc(item.icon)}"></i></span>
   <div class="pkg-name">${esc(name)}</div>
