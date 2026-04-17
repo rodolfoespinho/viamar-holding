@@ -157,7 +157,7 @@
     <ul class="nav-links">
       <li><a href="/pacotes.html" class="nav-link-item active">Pacotes</a></li>
       <li><a href="/historia.html" class="nav-link-item">História</a></li>
-      <li><a href="https://berlengaspass.pt" target="_blank" rel="noopener" class="nav-link-item">Berlengas Pass</a></li>
+      <li><a href="https://berlengaspass.icnf.pt" target="_blank" rel="noopener" class="nav-link-item">Berlengas Pass</a></li>
     </ul>
     <div class="nav-right">
       <div class="nav-lang">
@@ -181,7 +181,7 @@
       <li><a href="/pacotes.html">Pacotes</a></li>
       <li><a href="/historia.html">História</a></li>
       <li><a href="/#faq">FAQ's</a></li>
-      <li><a href="https://berlengaspass.pt" target="_blank" rel="noopener">Berlengas Pass</a></li>
+      <li><a href="https://berlengaspass.icnf.pt" target="_blank" rel="noopener">Berlengas Pass</a></li>
       <li class="mm-small"><a href="/termos.html">Termos e Condições</a></li>
     </ul>
     <div class="mobile-menu-cta">
@@ -225,7 +225,7 @@
 
   <footer class="site-footer">
     <p>Viamar Ferry Berlenga · Porto de Pesca de Peniche, Portugal</p>
-    <p>© 2026 Viamar. Todos os direitos reservados. · <a href="https://berlengaspass.pt" rel="noopener">BerlengasPass</a> · <a href="/termos.html">Termos e Condições</a></p>
+    <p>© 2026 Viamar. Todos os direitos reservados. · <a href="https://berlengaspass.icnf.pt" rel="noopener">BerlengasPass</a> · <a href="/termos.html">Termos e Condições</a></p>
   </footer>
 
   <script>
@@ -234,9 +234,10 @@
       pt: { pkg_tag: 'Travessias & Experiências', pkg_h1: 'Escolhe a tua experiência', pkg_sub: 'Desde a travessia simples até atividades na ilha — temos algo para cada aventureiro.', book: 'Reservar agora →' },
       en: { pkg_tag: 'Crossings & Experiences', pkg_h1: 'Choose your experience', pkg_sub: 'From a simple crossing to island activities — we have something for every adventurer.', book: 'Book now →' }
     };
-    const browserLang = navigator.language?.startsWith('en') ? 'en' : 'pt';
+    let currentLang = navigator.language?.startsWith('en') ? 'en' : 'pt';
 
     function setLang(lang) {
+      currentLang = lang;
       document.documentElement.setAttribute('data-lang', lang);
       document.querySelectorAll('[data-lang-switch]').forEach(b => b.classList.toggle('active', b.dataset.langSwitch === lang));
       document.documentElement.lang = lang === 'pt' ? 'pt-PT' : 'en';
@@ -247,9 +248,10 @@
         document.querySelector('.page-sub').textContent  = t.pkg_sub;
         document.querySelector('.nav-cta').textContent   = t.book;
       }
+      loadProducts();
     }
     document.querySelectorAll('[data-lang-switch]').forEach(b => b.addEventListener('click', () => setLang(b.dataset.langSwitch)));
-    setLang(browserLang);
+    setLang(currentLang);
 
     // Hamburger
     const hamburger = document.getElementById('hamburger');
@@ -292,7 +294,7 @@
         const res  = await fetch('data/products.json');
         if (!res.ok) throw new Error();
         const data = await res.json();
-        const isEN = browserLang === 'en';
+        const isEN = currentLang === 'en';
         const sorted = data.items.slice().sort((a, b) =>
           (b.featured ? 2 : b.coming_soon ? 0 : 1) - (a.featured ? 2 : a.coming_soon ? 0 : 1)
         );
