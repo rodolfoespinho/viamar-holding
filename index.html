@@ -91,6 +91,7 @@
   <!-- FareHarbor embed script — abre lightbox nativo ao clicar em links de reserva -->
   <script src="https://fareharbor.com/embeds/script/calendar/viamar-berlenga/?full-items=yes&flow=738388&u=0add1569-0a96-4a96-bd93-bfeafd85b4a5&from-ssl=yes&language=pt-pt" async></script>
 
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   <link rel="apple-touch-icon" href="/logo-viamar.png" />
   <link rel="manifest" href="/manifest.json" />
@@ -111,6 +112,7 @@
       --g600:  #475569;
       --g800:  #1e293b;
       --off:   #f0f4f8;
+      --r:     12px;
     }
 
     html { scroll-behavior: smooth; }
@@ -706,6 +708,79 @@
       }
       .gb-item:nth-child(1) { grid-column: 1 / 3; grid-row: auto; }
     }
+
+    /* ─── SECTIONS (shared) ─── */
+    .sec { padding: 88px 40px; }
+    .sec-inner { max-width: 1280px; margin: 0 auto; }
+    .sec-tag { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; color: var(--aqua); margin-bottom: 10px; }
+    .sec-h { font-family: 'Playfair Display', serif; font-size: clamp(30px, 3.5vw, 46px); color: #fff; line-height: 1.1; margin-bottom: 14px; font-weight: 900; }
+    .sec-sub { font-size: 16px; color: rgba(255,255,255,0.5); max-width: 540px; line-height: 1.75; margin-bottom: 52px; }
+
+    /* ─── PACKAGES ─── */
+    .packages-sec { background: #0a1628; }
+    .pkg-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    @media (min-width: 961px) {
+      .pkg-grid .pkg-card:nth-child(4) { grid-column: 1 / 2; }
+      .pkg-grid .pkg-card:nth-child(5) { grid-column: 2 / 3; }
+    }
+    .pkg-card {
+      background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.09);
+      border-radius: var(--r); padding: 28px;
+      transition: all .25s; cursor: pointer; position: relative; overflow: hidden;
+    }
+    .pkg-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: transparent; transition: background .25s; }
+    .pkg-card:hover { background: rgba(255,255,255,0.07); transform: translateY(-4px); border-color: rgba(255,255,255,0.18); }
+    .pkg-card:hover::before { background: var(--aqua); }
+    .pkg-card.featured { background: rgba(6,182,212,0.08); border-color: rgba(6,182,212,0.3); }
+    .pkg-card.featured::before { background: var(--aqua); }
+    .pkg-card.coming-soon { opacity: 0.6; }
+    .pkg-card.coming-soon:hover { transform: none; }
+    .pkg-badge { display: inline-block; font-size: 10px; font-weight: 700; padding: 3px 9px; border-radius: 100px; margin-bottom: 16px; text-transform: uppercase; letter-spacing: .8px; }
+    .pkg-icon { width: 48px; height: 48px; margin-bottom: 16px; display: flex; align-items: center; justify-content: center; background: rgba(255,255,255,0.07); border-radius: 12px; }
+    .pkg-icon svg { width: 24px; height: 24px; stroke: rgba(255,255,255,0.8); }
+    .pkg-name { font-size: 18px; font-weight: 800; color: #fff; margin-bottom: 8px; }
+    .pkg-desc { font-size: 13.5px; color: rgba(255,255,255,0.55); line-height: 1.65; margin-bottom: 20px; }
+    .pkg-list { list-style: none; margin-bottom: 24px; }
+    .pkg-list li { font-size: 13px; color: rgba(255,255,255,0.65); padding: 5px 0; display: flex; gap: 8px; align-items: flex-start; }
+    .pkg-list li::before { content: '✓'; color: var(--aqua); font-weight: 700; flex-shrink: 0; margin-top: 1px; }
+    .pkg-price { margin-bottom: 20px; }
+    .pkg-from { font-size: 11px; color: rgba(255,255,255,0.35); }
+    .pkg-amount { font-size: 36px; font-weight: 900; color: #fff; line-height: 1; }
+    .pkg-unit { font-size: 12px; color: rgba(255,255,255,0.35); }
+    .btn-pkg { width: 100%; padding: 13px; border: 1.5px solid rgba(255,255,255,0.2); background: transparent; color: #fff; border-radius: 8px; font-weight: 700; font-size: 14px; cursor: pointer; transition: all .2s; font-family: 'Inter', sans-serif; text-decoration: none; display: block; text-align: center; }
+    .btn-pkg:hover { background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.4); }
+    .btn-pkg.solid { background: var(--aqua); border-color: var(--aqua); color: var(--navy); }
+    .btn-pkg.solid:hover { background: #0891b2; border-color: #0891b2; }
+    .btn-soon { display: block; width: 100%; padding: 13px; border: 1.5px dashed rgba(255,255,255,0.2); border-radius: 8px; text-align: center; font-size: 13px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; color: rgba(255,255,255,0.35); cursor: default; }
+
+    /* ─── REVIEWS ─── */
+    .reviews-sec { background: var(--navy); }
+    .reviews-top { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 48px; gap: 24px; }
+    .reviews-top > div:first-child { flex: 1; }
+    .rating-card { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 14px; padding: 24px 28px; display: flex; align-items: center; gap: 20px; flex-shrink: 0; }
+    .r-score { font-size: 56px; font-weight: 900; color: #fff; line-height: 1; }
+    .r-stars { color: var(--gold); font-size: 18px; letter-spacing: 2px; }
+    .r-label { font-size: 12px; color: rgba(255,255,255,0.4); margin-top: 4px; }
+    .r-google { display: flex; align-items: center; gap: 5px; font-size: 11.5px; color: rgba(255,255,255,0.35); margin-top: 8px; }
+    .reviews-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 18px; }
+    .rev-card { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 22px; transition: background .2s, border-color .2s; }
+    .rev-card:hover { background: rgba(255,255,255,0.07); border-color: rgba(255,255,255,0.15); }
+    .rev-stars { color: var(--gold); font-size: 14px; margin-bottom: 12px; }
+    .rev-text { font-size: 14px; color: rgba(255,255,255,0.7); line-height: 1.7; margin-bottom: 16px; font-style: italic; }
+    .rev-author { display: flex; align-items: center; gap: 10px; }
+    .rev-av { width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: 700; color: #fff; flex-shrink: 0; }
+    .rev-name { font-size: 13.5px; font-weight: 700; color: #fff; }
+    .rev-org { font-size: 11.5px; color: rgba(255,255,255,0.35); }
+    .rev-date { font-size: 11px; color: rgba(255,255,255,0.25); margin-top: 2px; }
+
+    @media (max-width: 960px) {
+      .sec { padding: 56px 20px; }
+      .pkg-grid { grid-template-columns: 1fr; }
+      .reviews-grid { grid-template-columns: 1fr; }
+      .reviews-top { flex-direction: column; }
+      .pkg-grid .pkg-card:nth-child(4),
+      .pkg-grid .pkg-card:nth-child(5) { grid-column: auto; }
+    }
   </style>
 </head>
 <body>
@@ -725,7 +800,7 @@
     </div>
     <ul class="nav-links">
       <li><span data-i18n="nav_schedules">Horários</span></li>
-      <li><span data-i18n="nav_packages">Pacotes</span></li>
+      <li><a href="#pacotes" data-i18n="nav_packages" style="color:rgba(255,255,255,0.65);text-decoration:none;font-size:14px;font-weight:500;transition:color .2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.65)'">Pacotes</a></li>
       <li><span data-i18n="nav_island">A Ilha</span></li>
       <li><span>FAQ</span></li>
       <li><a href="/historia.html" style="color:rgba(255,255,255,0.65);text-decoration:none;font-size:14px;font-weight:500;transition:color .2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.65)'">História</a></li>
@@ -756,7 +831,7 @@
   <div class="mobile-menu" id="mobileMenu">
     <ul class="mobile-menu-links">
       <li><span data-i18n="nav_schedules">Horários</span></li>
-      <li><span data-i18n="nav_packages">Pacotes</span></li>
+      <li><a href="#pacotes" data-i18n="nav_packages">Pacotes</a></li>
       <li><span data-i18n="nav_island">A Ilha</span></li>
       <li><span>FAQ</span></li>
       <li><a href="/historia.html">História</a></li>
@@ -959,6 +1034,80 @@
     <div class="gb-item"><div class="gb-label">A ilha ao longe</div></div>
   </div>
 
+  <!-- PACKAGES -->
+  <section class="sec packages-sec" id="pacotes">
+    <div class="sec-inner">
+      <div class="sec-tag" data-i18n="pkg.tag">O que queres fazer?</div>
+      <h2 class="sec-h" data-i18n="pkg.h2">Escolhe a tua experiência</h2>
+      <p class="sec-sub" data-i18n="pkg.sub">Desde a travessia simples até atividades na ilha — temos algo para cada aventureiro.</p>
+      <div class="pkg-grid" id="pkgGrid">
+        <!-- Renderizado dinamicamente a partir de data/products.json -->
+      </div>
+    </div>
+  </section>
+
+  <!-- REVIEWS -->
+  <section class="sec reviews-sec">
+    <div class="sec-inner">
+      <div class="reviews-top">
+        <div>
+          <div class="sec-tag" data-i18n="rev.tag">Avaliações reais</div>
+          <h2 class="sec-h" data-i18n="rev.h2">O que dizem os nossos passageiros</h2>
+          <p class="sec-sub" style="margin-bottom:0" data-i18n="rev.sub">Mais de 700 avaliações verificadas no Google. Escrito por famílias, casais e grupos que fizeram a travessia connosco.</p>
+        </div>
+        <div class="rating-card">
+          <div class="r-score">4.5</div>
+          <div>
+            <div class="r-stars">★★★★½</div>
+            <div class="r-label">706 avaliações verificadas</div>
+            <div class="r-google">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+              Google Reviews · Verificado
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="reviews-grid">
+        <div class="rev-card">
+          <div class="rev-stars">★★★★★</div>
+          <div class="rev-text">"Experiência que fica para a vida. A equipa é super profissional, a travessia em si já é uma aventura. Chegámos à ilha completamente apaixonados — as grutas são de tirar o fôlego."</div>
+          <div class="rev-author">
+            <div class="rev-av" style="background:#3b82f6">M</div>
+            <div>
+              <div class="rev-name">Mariana Ferreira</div>
+              <div class="rev-org">Lisboa</div>
+              <div class="rev-date">Agosto 2024</div>
+            </div>
+          </div>
+        </div>
+        <div class="rev-card">
+          <div class="rev-stars">★★★★★</div>
+          <div class="rev-text">"Fomos com 3 crianças pequenas e foi perfeito. Organização impecável, o barco é seguro e confortável. As crianças adoraram. Já estamos a planear voltar no próximo verão!"</div>
+          <div class="rev-author">
+            <div class="rev-av" style="background:#8b5cf6">R</div>
+            <div>
+              <div class="rev-name">Ricardo & Família</div>
+              <div class="rev-org">Porto</div>
+              <div class="rev-date">Julho 2024</div>
+            </div>
+          </div>
+        </div>
+        <div class="rev-card">
+          <div class="rev-stars">★★★★★</div>
+          <div class="rev-text">"We came from Germany specifically to visit Berlenga Island. Viamar made the whole experience seamless — easy booking, punctual, knowledgeable crew. Best day trip in Portugal!"</div>
+          <div class="rev-author">
+            <div class="rev-av" style="background:#10b981">K</div>
+            <div>
+              <div class="rev-name">Klaus Wagner</div>
+              <div class="rev-org">Alemanha</div>
+              <div class="rev-date">Junho 2024</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- SEO content (crawlable, below the fold) -->
   <section class="seo-section" aria-label="Sobre as travessias Viamar à Ilha da Berlenga">
     <div class="seo-inner">
@@ -969,12 +1118,12 @@
         <p>Com uma avaliação de 4.5 estrelas em mais de 706 avaliações verificadas no Google, licença IMT (Instituto da Mobilidade e Transportes) e mais de 25 000 passageiros transportados por ano, a Viamar é a escolha de confiança para visitar a Ilha da Berlenga. Todos os bilhetes incluem cancelamento gratuito até 24 horas antes da partida. A época de 2026 inicia a <strong>9 de Maio</strong> — os fins de semana de julho e agosto esgotam-se rapidamente. Reserve com antecedência para garantir o seu lugar.</p>
       </div>
       <div class="seo-feature-img">
-        <img src="img/photo1.webp" alt="Vista da Ilha da Berlenga — falésias e águas cristalinas" loading="lazy" />
+        <img src="img/photo1.webp" alt="Praia da Ilha da Berlenga — baía principal e cais de desembarque" loading="lazy" />
       </div>
     </div>
     <div class="seo-photo-duo">
-      <div class="photo-item"><img src="img/photo2.webp" alt="Travessia de ferry Peniche–Berlenga ao pôr do sol" loading="lazy" /></div>
-      <div class="photo-item"><img src="img/photo3.webp" alt="Praia da Ilha da Berlenga — Reserva Natural UNESCO" loading="lazy" /></div>
+      <div class="photo-item"><img src="img/photo2.webp" alt="Vista aérea da Ilha da Berlenga ao pôr do sol — Reserva Natural UNESCO" loading="lazy" /></div>
+      <div class="photo-item"><img src="img/photo3.webp" alt="Passageiros a embarcar com a Viamar — cais da Ilha da Berlenga" loading="lazy" /></div>
     </div>
   </section>
 
@@ -1015,7 +1164,9 @@
         price_detail: "2 Adultos × 22€", total: "Total",
         btn_confirm: "Confirmar reserva",
         bc_footer: "Pagamento seguro · Cancelamento gratuito 48h antes",
-        wa_text: "Fale connosco"
+        wa_text: "Fale connosco",
+        "pkg.tag": "O que queres fazer?", "pkg.h2": "Escolhe a tua experiência", "pkg.sub": "Desde a travessia simples até atividades na ilha — temos algo para cada aventureiro.",
+        "rev.tag": "Avaliações reais", "rev.h2": "O que dizem os nossos passageiros", "rev.sub": "Mais de 700 avaliações verificadas no Google. Escrito por famílias, casais e grupos que fizeram a travessia connosco."
       },
       en: {
         ann_main: "<strong>July</strong> and <strong>August</strong> weekends almost sold out!",
@@ -1038,7 +1189,9 @@
         price_detail: "2 Adults × €22", total: "Total",
         btn_confirm: "Confirm booking",
         bc_footer: "Secure payment · Free cancellation 48h before",
-        wa_text: "Chat with us"
+        wa_text: "Chat with us",
+        "pkg.tag": "What do you want to do?", "pkg.h2": "Choose your experience", "pkg.sub": "From a simple crossing to island activities — we have something for every adventurer.",
+        "rev.tag": "Real reviews", "rev.h2": "What our passengers say", "rev.sub": "Over 700 verified Google reviews. Written by families, couples and groups who crossed with us."
       }
     };
 
@@ -1064,6 +1217,58 @@
     // Auto-detect browser language
     const browserLang = navigator.language?.startsWith('en') ? 'en' : 'pt';
     setLang(browserLang);
+
+    // ─── PRODUCTS ─────────────────────────────────────────────────────────────
+    const BADGE_STYLES = {
+      gold:  'background:var(--gold);color:var(--navy)',
+      pop:   'background:var(--aqua);color:var(--navy)',
+      aqua:  'background:rgba(6,182,212,0.15);color:var(--aqua);border:1px solid var(--aqua)',
+      amber: 'background:rgba(245,158,11,0.15);color:var(--gold);border:1px solid rgba(245,158,11,0.4)',
+    };
+    function esc(s) { return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
+    function fmtPrice(n) { return Number(n).toLocaleString('pt-PT', { minimumFractionDigits: 2, maximumFractionDigits: 2 }); }
+
+    async function loadProducts() {
+      const grid = document.getElementById('pkgGrid');
+      if (!grid) return;
+      try {
+        const res  = await fetch('data/products.json');
+        if (!res.ok) throw new Error();
+        const data = await res.json();
+        const isEN = window._lang === 'en' || browserLang === 'en';
+        grid.innerHTML = data.items.map(item => {
+          const badgeStyle = BADGE_STYLES[item.badge_type] || BADGE_STYLES.gold;
+          const badge    = isEN ? (item.badge_en || item.badge) : item.badge;
+          const name     = isEN ? (item.name_en  || item.name)  : item.name;
+          const desc     = isEN ? (item.desc_en  || item.desc)  : item.desc;
+          const features = isEN ? (item.features_en || item.features) : item.features;
+          const priceUnit = item.price_child
+            ? (isEN ? `/ adult · ${fmtPrice(item.price_child)}€ child` : `/ adulto · ${fmtPrice(item.price_child)}€ criança`)
+            : (isEN ? '/ person' : '/ pessoa');
+          const cardClass = item.featured ? 'pkg-card featured' : item.coming_soon ? 'pkg-card coming-soon' : 'pkg-card';
+          const priceBlock = item.coming_soon
+            ? `<div class="pkg-price"><div class="pkg-from">${isEN ? 'Coming soon' : 'Em breve'}</div></div>`
+            : `<div class="pkg-price"><div class="pkg-from">${isEN ? 'From' : 'A partir de'}</div><div><span class="pkg-amount">${fmtPrice(item.price_adult)}€</span> <span class="pkg-unit">${esc(priceUnit)}</span></div></div>`;
+          const ctaBlock = item.coming_soon
+            ? `<span class="btn-soon">${isEN ? 'Coming Soon' : 'Em Breve'}</span>`
+            : `<a href="${esc(data.booking_url)}" class="btn-pkg${item.featured ? ' solid' : ''}">${isEN ? 'Book now' : 'Reservar'}</a>`;
+          return `<div class="${cardClass}">
+  <span class="pkg-badge" style="${badgeStyle}">${esc(badge)}</span>
+  <span class="pkg-icon"><i data-lucide="${esc(item.icon)}"></i></span>
+  <div class="pkg-name">${esc(name)}</div>
+  <div class="pkg-desc">${esc(desc)}</div>
+  <ul class="pkg-list">${features.map(f => `<li>${esc(f)}</li>`).join('')}</ul>
+  ${priceBlock}
+  ${ctaBlock}
+</div>`;
+        }).join('');
+        lucide.createIcons();
+      } catch(e) {
+        console.warn('[Viamar] Could not load products.json');
+        grid.innerHTML = '<p style="color:rgba(255,255,255,0.4);padding:24px 0">Erro ao carregar pacotes.</p>';
+      }
+    }
+    loadProducts();
 
     // Hero slideshow
     let slide = 0;
