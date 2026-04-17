@@ -1,0 +1,17 @@
+{
+  "name": "Viamar Ferry Berlenga",
+  "short_name": "Viamar",
+  "description": "Travessias de ferry entre Peniche e a Ilha da Berlenga. Reservas online.",
+  "start_url": "/",
+  "display": "browser",
+  "background_color": "#07111f",
+  "theme_color": "#07111f",
+  "lang": "pt-PT",
+  "icons": [
+    {
+      "src": "/logo-viamar.png",
+      "sizes": "any",
+      "type": "image/png"
+    }
+  ]
+}

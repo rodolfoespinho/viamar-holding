@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "viamar-holding",
+      "runtimeExecutable": "node",
+      "runtimeArgs": ["/tmp/viamar-holding-serve.js"],
+      "port": 3007
+    }
+  ]
+}

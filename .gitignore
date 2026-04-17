@@ -1,0 +1,29 @@
+# OS
+.DS_Store
+Thumbs.db
+
+# Editor
+.vscode/
+*.swp
+
+# Originals replaced by WebP — keep only the WebP versions in git
+img/hero.jpg
+img/photo1.jpg
+img/photo2.jpg
+img/photo3.jpg
+img/IMG_0984.jpg
+img/IMG_1027.jpg
+img/1-eaad637a.jpg
+img/freepik__*.jpg
+img/freepik_generate-a-cinematic-stor_2372975338.png
+img/freepik_generate-a-cinematic-stor_2372975358.png
+img/freepik_generate-a-cinematic-stor_2372975361.png
+img/freepik_photo-a-group-of-people-a_2414328797.png
+img/freepik_generate-9-different-angl_2372974037.png
+img/O-primeiro-Cabo-Avelar-anos-70-e-80-poyuojkcmu97a1zvxrkt19dvs6ra9zdncblv2cwg74.jpeg
+img/image00075-1-poyuqg6mmxhavec1goi65xkeulphqq01rblnr1nwxc.jpeg
+img/Novo-Rumo-Anos-50-poyuoa5yqhwc1ydjgnijcbr9uc1m50cbz1309ladxc-2.jpeg
+img/wmremove-transformed.jpeg
+
+# Vercel
+.vercel
