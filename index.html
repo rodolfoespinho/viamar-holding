@@ -634,6 +634,72 @@
       .whatsapp-fab { padding: 14px; border-radius: 50%; bottom: 20px; right: 20px; }
       .site-footer { padding: 20px; }
     }
+
+    /* ── POPUP ───────────────────────────────────────────────────────────── */
+    #popup-overlay {
+      position: fixed; inset: 0; z-index: 9000;
+      background: rgba(7,17,31,0.55);
+      backdrop-filter: blur(3px);
+      display: flex; align-items: center; justify-content: center;
+      opacity: 0; transition: opacity 0.35s ease;
+      pointer-events: none;
+      padding: 24px;
+    }
+    #popup-overlay.visible { opacity: 1; pointer-events: all; }
+    #popup-sheet {
+      width: 100%; max-width: 440px;
+      background: #fff; border-radius: 20px;
+      padding: 0 0 20px;
+      transform: scale(0.92) translateY(16px);
+      transition: transform 0.4s cubic-bezier(0.32, 0.72, 0, 1);
+      user-select: none;
+    }
+    #popup-overlay.visible #popup-sheet { transform: scale(1) translateY(0); }
+    #popup-sheet.dragging { transition: none; }
+    .popup-topbar {
+      display: flex; align-items: center; justify-content: center;
+      padding: 14px 16px 10px; position: relative;
+    }
+    .popup-handle { display: none; } /* hidden on desktop */
+    .popup-close {
+      position: absolute; right: 12px; top: 50%; transform: translateY(-50%);
+      width: 30px; height: 30px; border-radius: 50%;
+      background: #f1f5f9; border: none; cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      color: #64748b; font-size: 13px;
+      transition: background 0.15s;
+    }
+    .popup-close:hover { background: #e2e8f0; }
+    .popup-img-placeholder {
+      margin: 0 16px;
+      border-radius: 12px; overflow: hidden;
+      line-height: 0; cursor: pointer;
+    }
+    .popup-img-placeholder img {
+      width: 100%; height: auto; display: block;
+      transition: opacity 0.15s;
+    }
+    .popup-img-placeholder:hover img { opacity: 0.93; }
+
+    /* mobile: bottom sheet */
+    @media (max-width: 600px) {
+      #popup-overlay {
+        align-items: flex-end; justify-content: center;
+        padding: 0;
+      }
+      #popup-sheet {
+        max-width: 100%;
+        border-radius: 24px 24px 0 0;
+        padding: 0 0 28px;
+        transform: translateY(100%);
+      }
+      #popup-overlay.visible #popup-sheet { transform: translateY(0); }
+      #popup-sheet.dragging { transition: none; }
+      .popup-topbar { cursor: grab; }
+      .popup-topbar:active { cursor: grabbing; }
+      .popup-handle { display: block; width: 44px; height: 5px; border-radius: 3px; background: #d1d5db; }
+      .popup-img-placeholder { margin: 0 16px; border-radius: 14px; }
+    }
   </style>
 
   <style>
@@ -1179,7 +1245,7 @@
         <svg class="tb-icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
         <div class="tb-text">
           <strong data-i18n="tb2t">45 min de travessia</strong>
-          <span data-i18n="tb2s">Porto de Pesca de Peniche</span>
+          <span data-i18n="tb2s">Marina de Peniche</span>
         </div>
       </div>
       <div class="tb-item">
@@ -1494,7 +1560,7 @@
         "rev.tag": "Avaliações reais", "rev.h2": "O que dizem os nossos passageiros", "rev.sub": "Mais de 700 avaliações verificadas no Google. Escrito por famílias, casais e grupos que fizeram a travessia connosco.",
         nav_pack: "Pacotes", nav_hist: "História", menu_terms: "Termos e Condições",
         tb1t: "Operador Licenciado IMT", tb1s: "Autoridade Marítima Nacional",
-        tb2t: "45 min de travessia", tb2s: "Porto de Pesca de Peniche",
+        tb2t: "45 min de travessia", tb2s: "Marina de Peniche",
         tb3s: "Trip Protection",
         tb4t: "Cancelamento Gratuito", tb4s: "Até 24h antes da partida",
         isl_pill: "Reserva Natural",
@@ -1540,7 +1606,7 @@
         "rev.tag": "Opiniones reales", "rev.h2": "Lo que dicen nuestros pasajeros", "rev.sub": "Más de 700 opiniones verificadas en Google. Escritas por familias, parejas y grupos que cruzaron con nosotros.",
         nav_pack: "Paquetes", nav_hist: "Historia", menu_terms: "Términos y Condiciones",
         tb1t: "Operador Autorizado IMT", tb1s: "Autoridad Marítima Nacional",
-        tb2t: "45 min de travesía", tb2s: "Puerto de Pesca de Peniche",
+        tb2t: "45 min de travesía", tb2s: "Marina de Peniche",
         tb3s: "Trip Protection", tb4t: "Cancelación Gratuita", tb4s: "Hasta 24h antes de la salida",
         isl_pill: "Reserva Natural", isl_h2: 'Una isla que <em>no se olvida</em>',
         isl_desc: "Berlenga es la única isla habitada del archipiélago — Reserva de la Biosfera UNESCO desde 1984. Aguas turquesas, acantilados dramáticos, cuevas marinas y una biodiversidad única en Portugal.",
@@ -1584,7 +1650,7 @@
         "rev.tag": "Avis authentiques", "rev.h2": "Ce que disent nos passagers", "rev.sub": "Plus de 700 avis vérifiés sur Google. Rédigés par des familles, des couples et des groupes ayant traversé avec nous.",
         nav_pack: "Forfaits", nav_hist: "Histoire", menu_terms: "Conditions générales",
         tb1t: "Opérateur agréé IMT", tb1s: "Autorité Maritime Nationale",
-        tb2t: "45 min de traversée", tb2s: "Port de pêche de Peniche",
+        tb2t: "45 min de traversée", tb2s: "Marina de Peniche",
         tb3s: "Trip Protection", tb4t: "Annulation gratuite", tb4s: "Jusqu'à 24h avant le départ",
         isl_pill: "Réserve Naturelle", isl_h2: "Une île qu'on <em>n'oublie jamais</em>",
         isl_desc: "Berlenga est la seule île habitée de l'archipel des Berlengas — Réserve de biosphère UNESCO depuis 1984. Eaux turquoise, falaises spectaculaires, grottes marines et une biodiversité unique au Portugal.",
@@ -1637,7 +1703,7 @@
         "rev.tag": "Real reviews", "rev.h2": "What our passengers say", "rev.sub": "Over 700 verified Google reviews. Written by families, couples and groups who crossed with us.",
         nav_pack: "Packages", nav_hist: "History", menu_terms: "Terms & Conditions",
         tb1t: "IMT Licensed Operator", tb1s: "National Maritime Authority",
-        tb2t: "45-min crossing", tb2s: "Port of Peniche",
+        tb2t: "45-min crossing", tb2s: "Marina de Peniche",
         tb3s: "Trip Protection",
         tb4t: "Free Cancellation", tb4s: "Up to 24h before departure",
         isl_pill: "Nature Reserve",
@@ -1925,6 +1991,84 @@
 
   <script defer src="/_vercel/insights/script.js"></script>
 
+  <!-- ── POPUP BOTTOM SHEET ──────────────────────────────────────────────── -->
+  <div id="popup-overlay" role="dialog" aria-modal="true">
+    <div id="popup-sheet">
+      <div class="popup-topbar" id="popup-drag-handle">
+        <div class="popup-handle"></div>
+        <button class="popup-close" id="popup-close" aria-label="Fechar">✕</button>
+      </div>
+      <div class="popup-img-placeholder" id="popup-img">
+        <img src="img/2-Abril.png" alt="Promoção Viamar">
+      </div>
+    </div>
+  </div>
+
+  <script>
+    (function() {
+      const overlay = document.getElementById('popup-overlay');
+      const sheet   = document.getElementById('popup-sheet');
+      const btn     = document.getElementById('popup-close');
+      const handle  = document.getElementById('popup-drag-handle');
+      const img     = document.getElementById('popup-img');
+
+      function closePopup() {
+        sheet.style.transform = 'translateY(100%)';
+        overlay.style.opacity = '0';
+        overlay.style.pointerEvents = 'none';
+        setTimeout(() => overlay.classList.remove('visible'), 400);
+        sessionStorage.setItem('popup_dismissed', '1');
+      }
+
+      /* ── drag to close ── */
+      let startY = 0, currentY = 0, dragging = false;
+      function onDragStart(e) {
+        dragging = true;
+        startY = (e.touches ? e.touches[0].clientY : e.clientY);
+        sheet.classList.add('dragging');
+      }
+      function onDragMove(e) {
+        if (!dragging) return;
+        currentY = (e.touches ? e.touches[0].clientY : e.clientY) - startY;
+        if (currentY < 0) currentY = 0;
+        sheet.style.transform = `translateY(${currentY}px)`;
+        overlay.style.opacity = Math.max(0, 1 - currentY / 300);
+      }
+      function onDragEnd() {
+        if (!dragging) return;
+        dragging = false;
+        sheet.classList.remove('dragging');
+        if (currentY > 100) { closePopup(); }
+        else { sheet.style.transform = ''; overlay.style.opacity = ''; }
+        currentY = 0;
+      }
+      handle.addEventListener('mousedown',  onDragStart);
+      handle.addEventListener('touchstart', onDragStart, { passive: true });
+      window.addEventListener('mousemove',  onDragMove);
+      window.addEventListener('touchmove',  onDragMove, { passive: true });
+      window.addEventListener('mouseup',    onDragEnd);
+      window.addEventListener('touchend',   onDragEnd);
+
+      /* ── close on button / overlay click ── */
+      btn.addEventListener('click', closePopup);
+      overlay.addEventListener('click', function(e) {
+        if (e.target === overlay) closePopup();
+      });
+
+      /* ── image click → scroll to booking ── */
+      img.addEventListener('click', function() {
+        closePopup();
+        setTimeout(() => {
+          const target = document.querySelector('.booking-card') || document.querySelector('.hero-actions');
+          if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }, 200);
+      });
+
+      if (!sessionStorage.getItem('popup_dismissed')) {
+        setTimeout(() => overlay.classList.add('visible'), 600);
+      }
+    })();
+  </script>
 
 </body>
 </html>
