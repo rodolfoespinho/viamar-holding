@@ -845,11 +845,73 @@
     .rev-org { font-size: 11.5px; color: rgba(255,255,255,0.35); }
     .rev-date { font-size: 11px; color: rgba(255,255,255,0.25); margin-top: 2px; }
 
+    /* ─── SCHEDULES ─── */
+    .sched-sec { background: var(--off); }
+    .sched-sec .sec-h { color: var(--navy); }
+    .sched-sec .sec-sub { color: rgba(7,17,31,0.55); }
+    .sched-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; align-items: start; }
+    .sched-card { background: #fff; border-radius: var(--r); overflow: hidden; box-shadow: 0 4px 24px rgba(0,0,0,0.08); border: 1.5px solid #e2e8f0; }
+    .sched-card.peak { border-color: var(--gold); box-shadow: 0 4px 32px rgba(245,158,11,0.18); }
+    .sched-head { background: var(--navy); color: #fff; padding: 12px 20px; display: flex; justify-content: space-between; align-items: center; gap: 12px; }
+    .sched-card.peak .sched-head { background: var(--gold); }
+    .sched-dates { font-size: 13px; font-weight: 700; color: #fff; }
+    .sched-card.peak .sched-dates { color: var(--navy); }
+    .sched-season { font-size: 10px; font-weight: 800; letter-spacing: 1px; text-transform: uppercase; background: rgba(255,255,255,0.15); color: rgba(255,255,255,0.9); padding: 4px 10px; border-radius: 20px; white-space: nowrap; }
+    .sched-card.peak .sched-season { background: rgba(0,0,0,0.12); color: var(--navy); }
+    .sched-trip-row { display: flex; align-items: stretch; border-top: 1px solid #f1f5f9; }
+    .sched-trip-row:first-child { border-top: none; }
+    .sched-trip-label { background: #f8fafc; border-right: 1px solid #f1f5f9; padding: 14px 16px; min-width: 158px; max-width: 158px; display: flex; align-items: center; gap: 8px; flex-shrink: 0; }
+    .sched-trip-icon { font-size: 15px; flex-shrink: 0; line-height: 1; }
+    .sched-trip-days { font-size: 11px; font-weight: 700; color: var(--navy); line-height: 1.4; white-space: nowrap; }
+    .sched-trip-days span { font-weight: 400; color: #94a3b8; display: block; font-size: 10px; margin-top: 1px; }
+    .sched-trip-times { flex: 1; display: flex; align-items: center; gap: 8px; padding: 12px 16px; flex-wrap: wrap; }
+    .time-chip { display: flex; align-items: center; gap: 5px; background: var(--navy); color: #fff; border-radius: 8px; padding: 7px 13px; }
+    .sched-card.peak .time-chip { background: var(--gold); color: var(--navy); }
+    .time-chip.secondary { background: #e0f7fa; color: var(--navy); }
+    .sched-card.peak .time-chip.secondary { background: #fff8e1; color: var(--navy); }
+    .time-chip .t { font-size: 14px; font-weight: 800; font-variant-numeric: tabular-nums; letter-spacing: -0.3px; }
+    .time-chip .arr { font-size: 11px; opacity: 0.4; margin: 0 1px; }
+    .tc-divider { width: 1px; height: 20px; background: #e2e8f0; flex-shrink: 0; }
+
+    /* ─── DEPART FROM PENICHE ─── */
+    .depart-sec {
+      position: relative; overflow: hidden; min-height: 480px;
+      display: flex; align-items: center;
+      background: var(--navy);
+    }
+    .depart-bg {
+      position: absolute; inset: 0;
+      background: url('img/peniche-aerial.jpg') center/cover no-repeat;
+    }
+    .depart-bg::after {
+      content: ''; position: absolute; inset: 0;
+      background: linear-gradient(90deg, rgba(7,17,31,0.88) 40%, rgba(7,17,31,0.25) 100%);
+    }
+    .depart-content {
+      position: relative; z-index: 2;
+      max-width: 860px; margin: 0 auto; padding: 88px 40px;
+      width: 100%; text-align: center;
+    }
+    .depart-content .sec-tag { color: var(--aqua); }
+    .depart-content .sec-h { color: #fff; max-width: 100%; }
+    .depart-content .sec-desc { font-size: 16px; color: rgba(255,255,255,0.6); max-width: 500px; line-height: 1.75; margin: 0 auto 36px; }
+    .depart-actions { display: flex; align-items: center; justify-content: center; gap: 14px; flex-wrap: wrap; }
+    .depart-addr-btn {
+      display: inline-flex; align-items: center; gap: 10px;
+      background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.14);
+      border-radius: 10px; padding: 14px 20px;
+      text-decoration: none; transition: background .2s, border-color .2s;
+    }
+    .depart-addr-btn:hover { background: rgba(255,255,255,0.13); border-color: rgba(255,255,255,0.25); }
+    .depart-addr-btn svg { color: var(--aqua); flex-shrink: 0; }
+    .depart-addr-btn span { font-size: 14px; color: rgba(255,255,255,0.8); font-weight: 500; }
+
     @media (max-width: 960px) {
       .sec { padding: 56px 20px; }
       .pkg-grid { grid-template-columns: 1fr; }
       .reviews-grid { grid-template-columns: 1fr; }
       .reviews-top { flex-direction: column; }
+      .sched-grid { grid-template-columns: 1fr; }
       .pkg-grid .pkg-card:nth-child(4),
       .pkg-grid .pkg-card:nth-child(5) { grid-column: auto; }
     }
@@ -1053,30 +1115,30 @@
             <span class="bw-chip-icon">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22 C12 22 3 17 3 10 V5 L12 2 L21 5 V10 C21 17 12 22 12 22Z"/><circle cx="12" cy="10" r="3"/></svg>
             </span>
-            <span class="bw-chip-name">Visita à Ilha</span>
+            <span class="bw-chip-name" data-i18n="bw.island">Visita à Ilha</span>
           </button>
           <button class="bw-chip" data-id="ida" data-pk="377884" onclick="selectProduct(this)">
             <span class="bw-chip-icon">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
             </span>
-            <span class="bw-chip-name">Só Ida</span>
+            <span class="bw-chip-name" data-i18n="bw.oneway">Só Ida</span>
           </button>
           <button class="bw-chip" data-id="volta" data-pk="377906" onclick="selectProduct(this)">
             <span class="bw-chip-icon">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
             </span>
-            <span class="bw-chip-name">Regresso</span>
+            <span class="bw-chip-name" data-i18n="bw.return_trip">Regresso</span>
           </button>
         </div>
 
         <!-- Data -->
         <div class="bw-divider"></div>
-        <div class="bw-field-label">Data da viagem</div>
+        <div class="bw-field-label" data-i18n="bw.date">Data da viagem</div>
         <div class="bw-calendar" id="bwCalendar"></div>
 
         <!-- Horário -->
         <div class="bw-divider"></div>
-        <div class="bw-field-label">Horário de partida</div>
+        <div class="bw-field-label" data-i18n="bw.departure_time">Horário de partida</div>
         <div class="bw-slots">
           <button class="bw-slot" disabled>09:30</button>
           <button class="bw-slot" disabled>11:00</button>
@@ -1087,16 +1149,16 @@
         <div class="bw-divider"></div>
         <a class="bc-btn-confirm" id="btnBookNow" href="#" onclick="return bookNow(this, event)">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 9a3 3 0 0 1 0 6v2a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-2a3 3 0 0 1 0-6V7a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2Z"/><path d="M13 5v2"/><path d="M13 17v2"/><path d="M13 11v2"/></svg>
-          Confirmar reserva
+          <span data-i18n="btn_confirm">Confirmar reserva</span>
         </a>
         <div class="bc-footer">
           <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="11" x="3" y="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
-          Pagamento seguro · Cancelamento gratuito 24h antes
+          <span data-i18n="bc_footer">Pagamento seguro · Cancelamento gratuito 24h antes</span>
         </div>
 
         <!-- Coming soon overlay — whole card -->
         <div class="bw-card-overlay">
-          <span class="bw-card-soon-pill">Em breve</span>
+          <span class="bw-card-soon-pill" data-i18n="overlay_soon">Em breve</span>
         </div>
 
       </div>
@@ -1230,6 +1292,135 @@
     </div>
   </section>
 
+  <!-- SCHEDULES -->
+  <section class="sec sched-sec" id="horarios">
+    <div class="sec-inner">
+      <div class="sec-tag" data-i18n="sched.tag">Horários 2026</div>
+      <h2 class="sec-h" data-i18n="sched.h2">Saídas regulares de Peniche</h2>
+      <p class="sec-sub" data-i18n="sched.sub">Os fins-de-semana de verão esgotam semanas antes. Reserva com antecedência.</p>
+      <div class="sched-grid">
+
+        <!-- Época Baixa -->
+        <div class="sched-card">
+          <div class="sched-head">
+            <div class="sched-dates" data-i18n="sched.d1">9 Maio — 5 Junho 2026</div>
+            <div class="sched-season" data-i18n="sched.s_low">Época Baixa</div>
+          </div>
+          <div class="sched-rows">
+            <div class="sched-trip-row">
+              <div class="sched-trip-label">
+                <span class="sched-trip-icon">📅</span>
+                <div class="sched-trip-days" data-i18n="sched.daily">Todos os dias</div>
+              </div>
+              <div class="sched-trip-times">
+                <div class="time-chip"><span class="t">11h00</span><span class="arr">→</span><span class="t">17h00</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Época Média Jun–Jul -->
+        <div class="sched-card">
+          <div class="sched-head">
+            <div class="sched-dates" data-i18n="sched.d2">6 Junho — 10 Julho 2026</div>
+            <div class="sched-season" data-i18n="sched.s_mid">Época Média</div>
+          </div>
+          <div class="sched-rows">
+            <div class="sched-trip-row">
+              <div class="sched-trip-label">
+                <span class="sched-trip-icon">📅</span>
+                <div class="sched-trip-days" data-i18n="sched.weekday_row">Dias de semana<span>Seg — Sex</span></div>
+              </div>
+              <div class="sched-trip-times">
+                <div class="time-chip"><span class="t">11h00</span><span class="arr">→</span><span class="t">17h00</span></div>
+              </div>
+            </div>
+            <div class="sched-trip-row">
+              <div class="sched-trip-label">
+                <span class="sched-trip-icon">🌊</span>
+                <div class="sched-trip-days" data-i18n="sched.weekend_row">Fim de semana<span>Sáb + Dom</span></div>
+              </div>
+              <div class="sched-trip-times">
+                <div class="time-chip"><span class="t">10h00</span><span class="arr">→</span><span class="t">16h00</span></div>
+                <div class="tc-divider"></div>
+                <div class="time-chip secondary"><span class="t">12h00</span><span class="arr">→</span><span class="t">18h00</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Época Alta -->
+        <div class="sched-card peak">
+          <div class="sched-head">
+            <div class="sched-dates" data-i18n="sched.d3">11 Julho — 6 Setembro 2026</div>
+            <div class="sched-season" data-i18n="sched.s_high">Época Alta</div>
+          </div>
+          <div class="sched-rows">
+            <div class="sched-trip-row">
+              <div class="sched-trip-label">
+                <span class="sched-trip-icon">☀️</span>
+                <div class="sched-trip-days" data-i18n="sched.daily">Todos os dias</div>
+              </div>
+              <div class="sched-trip-times">
+                <div class="time-chip"><span class="t">10h00</span><span class="arr">→</span><span class="t">16h00</span></div>
+                <div class="tc-divider"></div>
+                <div class="time-chip secondary"><span class="t">12h00</span><span class="arr">→</span><span class="t">18h00</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Época Média Set -->
+        <div class="sched-card">
+          <div class="sched-head">
+            <div class="sched-dates" data-i18n="sched.d4">7 — 30 Setembro 2026</div>
+            <div class="sched-season" data-i18n="sched.s_mid">Época Média</div>
+          </div>
+          <div class="sched-rows">
+            <div class="sched-trip-row">
+              <div class="sched-trip-label">
+                <span class="sched-trip-icon">📅</span>
+                <div class="sched-trip-days" data-i18n="sched.weekday_row">Dias de semana<span>Seg — Sex</span></div>
+              </div>
+              <div class="sched-trip-times">
+                <div class="time-chip"><span class="t">11h00</span><span class="arr">→</span><span class="t">17h00</span></div>
+              </div>
+            </div>
+            <div class="sched-trip-row">
+              <div class="sched-trip-label">
+                <span class="sched-trip-icon">🌊</span>
+                <div class="sched-trip-days" data-i18n="sched.weekend_row">Fim de semana<span>Sáb + Dom</span></div>
+              </div>
+              <div class="sched-trip-times">
+                <div class="time-chip"><span class="t">10h00</span><span class="arr">→</span><span class="t">16h00</span></div>
+                <div class="tc-divider"></div>
+                <div class="time-chip secondary"><span class="t">12h00</span><span class="arr">→</span><span class="t">18h00</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- DEPART FROM PENICHE -->
+  <section class="depart-sec">
+    <div class="depart-bg"></div>
+    <div class="depart-content">
+      <div class="sec-tag" data-i18n="dep.tag">Ponto de partida</div>
+      <h2 class="sec-h" data-i18n="dep.h2">Partimos de Peniche, cidade à beira-mar</h2>
+      <p class="sec-desc" data-i18n="dep.desc">O Cais da Ribeira de Peniche é o ponto de embarque para todas as travessias. Chega 20 minutos antes da partida. Existe parque de estacionamento nas imediações.</p>
+      <div class="depart-actions">
+        <a href="https://www.google.com/maps/search/Viamar+Ferry+Berlenga+Peniche" target="_blank" rel="noopener" class="depart-addr-btn">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+          <span data-i18n="dep.addr">Cais da Ribeira, Peniche — 39°35′N 9°22′W</span>
+        </a>
+        <a href="https://fareharbor.com/embeds/book/viamar-berlenga/items/?full-items=yes&flow=738388" target="_blank" rel="noopener" class="island-cta" data-i18n="dep.book">Reservar travessia →</a>
+      </div>
+    </div>
+  </section>
+
   <!-- SEO content (crawlable, below the fold) -->
   <section class="seo-section" aria-label="Sobre as travessias Viamar à Ilha da Berlenga">
     <div class="seo-inner">
@@ -1316,7 +1507,21 @@
         ck_title: "Privacidade e Cookies",
         ck_txt: 'Utilizamos cookies essenciais para o funcionamento do site e cookies analíticos para melhorar a experiência. Consulte a nossa <a href="/termos.html">política de privacidade</a>.',
         ck_accept: "Aceitar tudo", ck_reject: "Só essenciais",
-        ft_copy: '© 2026 Viamar. Todos os direitos reservados. · Powered by <a href="https://atlas-web.pt" target="_blank" rel="noopener" class="ft-atlas">ATLAS</a>'
+        ft_copy: '© 2026 Viamar. Todos os direitos reservados. · Powered by <a href="https://atlas-web.pt" target="_blank" rel="noopener" class="ft-atlas">ATLAS</a>',
+        "bw.island": "Visita à Ilha", "bw.oneway": "Só Ida", "bw.return_trip": "Regresso",
+        "bw.date": "Data da viagem", "bw.departure_time": "Horário de partida",
+        "sched.tag": "Horários 2026", "sched.h2": "Saídas regulares de Peniche",
+        "sched.sub": "Os fins-de-semana de verão esgotam semanas antes. Reserva com antecedência.",
+        "sched.d1": "9 Maio — 5 Junho 2026", "sched.d2": "6 Junho — 10 Julho 2026",
+        "sched.d3": "11 Julho — 6 Setembro 2026", "sched.d4": "7 — 30 Setembro 2026",
+        "sched.s_low": "Época Baixa", "sched.s_mid": "Época Média", "sched.s_high": "Época Alta",
+        "sched.daily": "Todos os dias",
+        "sched.weekday_row": "Dias de semana<span>Seg — Sex</span>",
+        "sched.weekend_row": "Fim de semana<span>Sáb + Dom</span>",
+        "dep.tag": "Ponto de partida", "dep.h2": "Partimos de Peniche, cidade à beira-mar",
+        "dep.desc": "O Cais da Ribeira de Peniche é o ponto de embarque para todas as travessias. Chega 20 minutos antes da partida. Existe parque de estacionamento nas imediações.",
+        "dep.addr": "Cais da Ribeira, Peniche — 39°35′N 9°22′W",
+        "dep.book": "Reservar travessia →"
       },
       es: {
         ann_main: "¡Fines de semana de <strong>julio</strong> y <strong>agosto</strong> casi agotados!", ann_season: "Temporada abre el 9 de mayo —", ann_cta: "¡Reserva tu plaza!",
@@ -1345,7 +1550,22 @@
         r_label: "706 opiniones verificadas", r_google: "Google Reviews · Verificado",
         ck_title: "Privacidad y Cookies", ck_txt: 'Utilizamos cookies esenciales para el funcionamiento del sitio y cookies analíticas para mejorar la experiencia. Consulta nuestra <a href="/termos.html">política de privacidad</a>.',
         ck_accept: "Aceptar todo", ck_reject: "Solo esenciales",
-        ft_copy: '© 2026 Viamar. Todos los derechos reservados. · Powered by <a href="https://atlas-web.pt" target="_blank" rel="noopener" class="ft-atlas">ATLAS</a>'
+        ft_copy: '© 2026 Viamar. Todos los derechos reservados. · Powered by <a href="https://atlas-web.pt" target="_blank" rel="noopener" class="ft-atlas">ATLAS</a>',
+        construction_label: "Sitio web en construcción",
+        "bw.island": "Visita a la Isla", "bw.oneway": "Solo Ida", "bw.return_trip": "Regreso",
+        "bw.date": "Fecha del viaje", "bw.departure_time": "Horario de salida",
+        "sched.tag": "Horarios 2026", "sched.h2": "Salidas regulares desde Peniche",
+        "sched.sub": "Los fines de semana de verano se agotan semanas antes. Reserva con antelación.",
+        "sched.d1": "9 Mayo — 5 Junio 2026", "sched.d2": "6 Junio — 10 Julio 2026",
+        "sched.d3": "11 Julio — 6 Septiembre 2026", "sched.d4": "7 — 30 Septiembre 2026",
+        "sched.s_low": "Temporada Baja", "sched.s_mid": "Temporada Media", "sched.s_high": "Temporada Alta",
+        "sched.daily": "Todos los días",
+        "sched.weekday_row": "Días de semana<span>Lun — Vie</span>",
+        "sched.weekend_row": "Fin de semana<span>Sáb + Dom</span>",
+        "dep.tag": "Punto de salida", "dep.h2": "Salimos desde Peniche, ciudad frente al mar",
+        "dep.desc": "El Cais da Ribeira de Peniche es el punto de embarque para todas las travesías. Llega 20 minutos antes de la salida. Hay aparcamiento disponible en las inmediaciones.",
+        "dep.addr": "Cais da Ribeira, Peniche — 39°35′N 9°22′O",
+        "dep.book": "Reservar travesía →"
       },
       fr: {
         ann_main: "Les week-ends de <strong>juillet</strong> et <strong>août</strong> sont presque complets !", ann_season: "Saison du 9 mai —", ann_cta: "Réservez votre place !",
@@ -1374,7 +1594,22 @@
         r_label: "706 avis vérifiés", r_google: "Google Reviews · Vérifié",
         ck_title: "Confidentialité & Cookies", ck_txt: 'Nous utilisons des cookies essentiels au fonctionnement du site et des cookies analytiques pour améliorer votre expérience. Consultez notre <a href="/termos.html">politique de confidentialité</a>.',
         ck_accept: "Tout accepter", ck_reject: "Essentiels uniquement",
-        ft_copy: '© 2026 Viamar. Tous droits réservés. · Powered by <a href="https://atlas-web.pt" target="_blank" rel="noopener" class="ft-atlas">ATLAS</a>'
+        ft_copy: '© 2026 Viamar. Tous droits réservés. · Powered by <a href="https://atlas-web.pt" target="_blank" rel="noopener" class="ft-atlas">ATLAS</a>',
+        construction_label: "Site en construction",
+        "bw.island": "Visite de l'Île", "bw.oneway": "Aller simple", "bw.return_trip": "Retour",
+        "bw.date": "Date du voyage", "bw.departure_time": "Horaire de départ",
+        "sched.tag": "Horaires 2026", "sched.h2": "Départs réguliers depuis Peniche",
+        "sched.sub": "Les week-ends d'été se réservent des semaines à l'avance. Réservez tôt.",
+        "sched.d1": "9 Mai — 5 Juin 2026", "sched.d2": "6 Juin — 10 Juillet 2026",
+        "sched.d3": "11 Juillet — 6 Septembre 2026", "sched.d4": "7 — 30 Septembre 2026",
+        "sched.s_low": "Basse Saison", "sched.s_mid": "Saison Intermédiaire", "sched.s_high": "Haute Saison",
+        "sched.daily": "Tous les jours",
+        "sched.weekday_row": "Jours de semaine<span>Lun — Ven</span>",
+        "sched.weekend_row": "Week-end<span>Sam + Dim</span>",
+        "dep.tag": "Point de départ", "dep.h2": "Nous partons de Peniche, ville en bord de mer",
+        "dep.desc": "Le Cais da Ribeira de Peniche est le point d'embarquement pour toutes les traversées. Arrivez 20 minutes avant le départ. Un parking est disponible à proximité.",
+        "dep.addr": "Cais da Ribeira, Peniche — 39°35′N 9°22′O",
+        "dep.book": "Réserver la traversée →"
       },
       en: {
         ann_main: "<strong>July</strong> and <strong>August</strong> weekends almost sold out!",
@@ -1415,7 +1650,21 @@
         ck_title: "Privacy & Cookies",
         ck_txt: 'We use essential cookies to make the site work and analytics cookies to improve your experience. See our <a href="/termos.html">privacy policy</a>.',
         ck_accept: "Accept all", ck_reject: "Essential only",
-        ft_copy: '© 2026 Viamar. All rights reserved. · Powered by <a href="https://atlas-web.pt" target="_blank" rel="noopener" class="ft-atlas">ATLAS</a>'
+        ft_copy: '© 2026 Viamar. All rights reserved. · Powered by <a href="https://atlas-web.pt" target="_blank" rel="noopener" class="ft-atlas">ATLAS</a>',
+        "bw.island": "Island Visit", "bw.oneway": "One Way", "bw.return_trip": "Return",
+        "bw.date": "Travel date", "bw.departure_time": "Departure time",
+        "sched.tag": "Schedules 2026", "sched.h2": "Regular departures from Peniche",
+        "sched.sub": "Summer weekends sell out weeks in advance. Book ahead.",
+        "sched.d1": "9 May — 5 June 2026", "sched.d2": "6 June — 10 July 2026",
+        "sched.d3": "11 July — 6 September 2026", "sched.d4": "7 — 30 September 2026",
+        "sched.s_low": "Low Season", "sched.s_mid": "Mid Season", "sched.s_high": "High Season",
+        "sched.daily": "Every day",
+        "sched.weekday_row": "Weekdays<span>Mon — Fri</span>",
+        "sched.weekend_row": "Weekend<span>Sat + Sun</span>",
+        "dep.tag": "Departure point", "dep.h2": "We depart from Peniche, a seaside city",
+        "dep.desc": "Cais da Ribeira in Peniche is the boarding point for all island crossings. Arrive 20 minutes before departure. Parking is available nearby.",
+        "dep.addr": "Cais da Ribeira, Peniche — 39°35′N 9°22′W",
+        "dep.book": "Book your crossing →"
       }
     };
 
