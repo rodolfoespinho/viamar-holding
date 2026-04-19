@@ -100,36 +100,96 @@
 
     /* ── Packages ── */
     .packages-wrap { max-width: 1280px; margin: 0 auto; padding: 72px 40px; }
-    .pkg-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
-    .pkg-card { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.09); border-radius: var(--r); padding: 28px; transition: all .25s; cursor: pointer; position: relative; overflow: hidden; }
-    .pkg-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: transparent; transition: background .25s; z-index: 2; }
-    .pkg-card-img { position: absolute; inset: 0; background-size: cover; background-position: center; opacity: 0.13; filter: blur(4px); transform: scale(1.1); z-index: 0; pointer-events: none; }
-    .pkg-card.featured .pkg-card-img { opacity: 0.2; }
-    .pkg-card > *:not(.pkg-card-img) { position: relative; z-index: 1; }
-    .pkg-card:hover { background: rgba(255,255,255,0.07); transform: translateY(-4px); border-color: rgba(255,255,255,0.18); }
-    .pkg-card:hover::before { background: var(--aqua); }
-    .pkg-card.featured { grid-column: 1 / -1; background: rgba(245,158,11,0.07); border-color: rgba(245,158,11,0.35); }
-    .pkg-card.featured::before { background: var(--gold); }
-    .pkg-card.featured .pkg-name { font-size: 22px; }
-    .pkg-card.coming-soon { opacity: 0.6; }
-    .pkg-card.coming-soon:hover { transform: none; }
-    .pkg-badge { display: inline-block; font-size: 10px; font-weight: 700; padding: 3px 9px; border-radius: 100px; margin-bottom: 16px; text-transform: uppercase; letter-spacing: .8px; }
-    .pkg-icon { width: 48px; height: 48px; margin-bottom: 16px; display: flex; align-items: center; justify-content: center; background: rgba(255,255,255,0.07); border-radius: 12px; }
-    .pkg-icon svg { width: 24px; height: 24px; stroke: rgba(255,255,255,0.8); }
-    .pkg-name { font-size: 18px; font-weight: 800; color: #fff; margin-bottom: 8px; }
-    .pkg-desc { font-size: 13.5px; color: rgba(255,255,255,0.55); line-height: 1.65; margin-bottom: 20px; }
-    .pkg-list { list-style: none; margin-bottom: 24px; }
-    .pkg-list li { font-size: 13px; color: rgba(255,255,255,0.65); padding: 5px 0; display: flex; gap: 8px; align-items: flex-start; }
-    .pkg-list li::before { content: '✓'; color: var(--aqua); font-weight: 700; flex-shrink: 0; margin-top: 1px; }
-    .pkg-price { margin-bottom: 20px; }
-    .pkg-from { font-size: 11px; color: rgba(255,255,255,0.35); }
-    .pkg-amount { font-size: 36px; font-weight: 900; color: #fff; line-height: 1; }
-    .pkg-unit { font-size: 12px; color: rgba(255,255,255,0.35); }
-    .btn-pkg { width: 100%; padding: 13px; border: 1.5px solid rgba(255,255,255,0.2); background: transparent; color: #fff; border-radius: 8px; font-weight: 700; font-size: 14px; cursor: pointer; transition: all .2s; font-family: inherit; text-decoration: none; display: block; text-align: center; }
-    .btn-pkg:hover { background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.4); }
-    .btn-pkg.solid { background: var(--gold); border-color: var(--gold); color: var(--navy); }
-    .btn-pkg.solid:hover { background: var(--gold-h); border-color: var(--gold-h); }
-    .btn-soon { display: block; width: 100%; padding: 13px; border: 1.5px dashed rgba(255,255,255,0.2); border-radius: 8px; text-align: center; font-size: 13px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; color: rgba(255,255,255,0.35); cursor: default; }
+    .pkg-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+
+    /* Card base */
+    .pkg-card {
+      position: relative; height: 380px;
+      border-radius: 20px; overflow: hidden;
+      cursor: pointer;
+      transition: transform .35s cubic-bezier(.4,0,.2,1), box-shadow .35s;
+    }
+    .pkg-card:hover { transform: translateY(-6px); box-shadow: 0 28px 60px rgba(0,0,0,0.6); }
+    .pkg-card.featured { grid-column: 1 / -1; height: 440px; }
+    .pkg-card.coming-soon { cursor: default; }
+    .pkg-card.coming-soon:hover { transform: none; box-shadow: none; }
+    .pkg-card.coming-soon .pkg-footer { justify-content: flex-end; }
+    .pkg-grid .pkg-card.coming-soon:last-child { grid-column: 1 / -1; height: 260px; }
+
+    /* Photo layer */
+    .pkg-card-img {
+      position: absolute; inset: 0; z-index: 0;
+      background-size: cover; background-position: center;
+      background-color: #0a1a2e;
+      transition: transform .55s cubic-bezier(.4,0,.2,1);
+    }
+    .pkg-card:hover .pkg-card-img { transform: scale(1.06); }
+    .pkg-card.coming-soon .pkg-card-img { filter: saturate(0.4) brightness(0.65); }
+
+    /* Content layer */
+    .pkg-card-content {
+      position: absolute; inset: 0; z-index: 2;
+      display: flex; flex-direction: column; justify-content: space-between;
+      padding: 20px;
+      background: linear-gradient(to top,
+        rgba(7,17,31,0.97) 28%,
+        rgba(7,17,31,0.18) 58%,
+        transparent 100%);
+    }
+    .pkg-card-top { display: flex; justify-content: flex-start; }
+    .pkg-card-bottom { display: flex; flex-direction: column; gap: 8px; }
+
+    /* Badge */
+    .pkg-badge {
+      display: inline-flex; align-items: center;
+      font-size: 10.5px; font-weight: 700;
+      padding: 5px 13px; border-radius: 100px;
+      text-transform: uppercase; letter-spacing: .75px;
+      backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+    }
+
+    /* Name */
+    .pkg-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 18px; font-weight: 900; color: #fff; line-height: 1.15;
+    }
+    .pkg-card.featured .pkg-name { font-size: 26px; }
+
+    /* Feature chips */
+    .pkg-feats { display: flex; gap: 14px; flex-wrap: wrap; }
+    .pkg-feats span { font-size: 12px; color: rgba(255,255,255,0.6); display: flex; align-items: center; gap: 5px; }
+    .pkg-feats span::before { content: '·'; color: var(--aqua); font-size: 18px; line-height: 1; font-weight: 900; }
+
+    /* Footer row */
+    .pkg-footer { display: flex; align-items: flex-end; justify-content: space-between; gap: 12px; padding-top: 4px; }
+    .pkg-price-info { display: flex; flex-direction: column; gap: 1px; }
+    .pkg-from { font-size: 11px; color: rgba(255,255,255,0.45); text-transform: uppercase; letter-spacing: .06em; }
+    .pkg-amount { font-size: 30px; font-weight: 900; color: #fff; line-height: 1; }
+    .pkg-card.featured .pkg-amount { font-size: 36px; }
+    .pkg-unit { font-size: 12px; color: rgba(255,255,255,0.45); font-weight: 400; }
+
+    /* CTA button */
+    .btn-reserve {
+      flex-shrink: 0; padding: 12px 22px;
+      background: var(--gold); color: var(--navy);
+      border-radius: 10px; font-weight: 800; font-size: 13px;
+      text-decoration: none; text-align: center;
+      transition: background .2s, transform .15s;
+      white-space: nowrap; letter-spacing: .02em;
+    }
+    .btn-reserve:hover { background: var(--gold-h); transform: scale(1.03); }
+    .pkg-card:not(.featured) .btn-reserve {
+      background: rgba(255,255,255,0.13); color: #fff;
+      backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+      border: 1px solid rgba(255,255,255,0.22);
+    }
+    .pkg-card:not(.featured) .btn-reserve:hover { background: rgba(255,255,255,0.24); }
+    .btn-soon {
+      flex-shrink: 0; padding: 12px 22px;
+      border: 1.5px dashed rgba(255,255,255,0.22); border-radius: 10px;
+      font-size: 12px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase;
+      color: rgba(255,255,255,0.35); cursor: default; white-space: nowrap;
+    }
 
     /* ── Footer ── */
     .site-footer { background: #050d18; border-top: 1px solid rgba(255,255,255,0.06); padding: 32px 40px; text-align: center; }
@@ -147,7 +207,9 @@
       .page-hero { padding: 48px 20px 40px; }
       .packages-wrap { padding: 48px 20px; }
       .pkg-grid { grid-template-columns: 1fr; }
-      .pkg-card.featured { grid-column: auto; }
+      .pkg-card { height: 320px; }
+      .pkg-card.featured { grid-column: auto; height: 380px; }
+      .pkg-grid .pkg-card.coming-soon:last-child { grid-column: auto; height: 280px; }
       .site-footer { padding: 24px 20px; }
     }
   </style>
@@ -239,6 +301,7 @@
   <footer class="site-footer">
     <p>Viamar Ferry Berlenga · Porto de Pesca de Peniche, Portugal</p>
     <p>© 2026 Viamar. Todos os direitos reservados. · <a href="https://berlengaspass.icnf.pt" rel="noopener">BerlengasPass</a> · <a href="/termos.html">Termos e Condições</a></p>
+    <p style="margin-top:12px;font-size:11px;color:rgba(255,255,255,0.2);">Powered by <a href="https://www.atlas-web.pt" target="_blank" rel="noopener" style="color:rgba(255,255,255,0.35);font-weight:600;letter-spacing:0.03em;">ATLAS</a></p>
   </footer>
 
   <script>
@@ -331,18 +394,38 @@
           const itemUrl  = item.fh_pk
             ? `${FH_BASE_URL}items/${item.fh_pk}/?${FH_COMMON}`
             : data.booking_url;
+          const priceUnit = item.price_child
+            ? (isEN ? '/ adult' : '/ adulto')
+            : (isEN ? '/ person' : '/ pessoa');
+          const priceBlock = !item.price_adult
+            ? ``
+            : `<div class="pkg-price-info">
+                <div class="pkg-from">${isEN ? 'From' : 'A partir de'}</div>
+                <div><span class="pkg-amount">${fmtPrice(item.price_adult)}€</span><span class="pkg-unit"> ${esc(priceUnit)}</span></div>
+              </div>`;
           const ctaBlock = item.coming_soon
             ? `<span class="btn-soon">${soonText}</span>`
-            : `<a href="${esc(itemUrl)}" class="btn-pkg solid">${btnText}</a>`;
-          const bgDiv = item.image ? `<div class="pkg-card-img" style="background-image:url('${esc(item.image)}')"></div>` : '';
+            : `<a href="${esc(itemUrl)}" class="btn-reserve">${btnText} →</a>`;
+          const bgDiv = `<div class="pkg-card-img"${item.image ? ` style="background-image:url('${esc(item.image)}')"` : ''}></div>`;
+          const feat1 = features[0] || '';
+          const feat2 = features[1] || '';
+          const feat3 = features[2] || '';
           return `<div class="${cardClass}">
   ${bgDiv}
-  <span class="pkg-badge" style="${BADGE_STYLES[item.badge_type] || BADGE_STYLES.gold}">${esc(badge)}</span>
-  <span class="pkg-icon"><i data-lucide="${esc(item.icon)}"></i></span>
-  <div class="pkg-name">${esc(name)}</div>
-  <div class="pkg-desc">${esc(desc)}</div>
-  <ul class="pkg-list">${features.map(f => `<li>${esc(f)}</li>`).join('')}</ul>
-  ${ctaBlock}
+  <div class="pkg-card-content">
+    <div class="pkg-card-top">
+      <span class="pkg-badge" style="${BADGE_STYLES[item.badge_type] || BADGE_STYLES.gold}">${esc(badge)}</span>
+    </div>
+    <div class="pkg-card-bottom">
+      <div class="pkg-name">${esc(name)}</div>
+      <div class="pkg-feats">
+        ${feat1 ? `<span>${esc(feat1)}</span>` : ''}
+        ${feat2 ? `<span>${esc(feat2)}</span>` : ''}
+        ${feat3 ? `<span>${esc(feat3)}</span>` : ''}
+      </div>
+      <div class="pkg-footer">${priceBlock}${ctaBlock}</div>
+    </div>
+  </div>
 </div>`;
         }).join('');
         lucide.createIcons();
