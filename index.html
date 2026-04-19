@@ -871,7 +871,7 @@
     .sched-card.peak .time-chip.secondary { background: #fff8e1; color: var(--navy); }
     .time-chip .t { font-size: 14px; font-weight: 800; font-variant-numeric: tabular-nums; letter-spacing: -0.3px; }
     .time-chip .arr { font-size: 11px; opacity: 0.4; margin: 0 1px; }
-    .tc-divider { width: 1px; height: 20px; background: #e2e8f0; flex-shrink: 0; }
+    .tc-divider { display: none; }
 
     /* ─── DEPART FROM PENICHE ─── */
     .depart-sec {
@@ -1186,7 +1186,7 @@
         <svg class="tb-icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 9a3 3 0 0 1 0 6v2a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-2a3 3 0 0 1 0-6V7a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2Z"/><path d="M13 5v2"/><path d="M13 17v2"/><path d="M13 11v2"/></svg>
         <div class="tb-text">
           <strong>Flex Ticket</strong>
-          <span data-i18n="tb3s">Trip Protection incluída</span>
+          <span data-i18n="tb3s">Trip Protection</span>
         </div>
       </div>
       <div class="tb-item">
@@ -1211,8 +1211,8 @@
         <h2 class="island-h2" data-i18n="isl_h2">Uma ilha que <em>não se esquece</em></h2>
         <p class="island-desc" data-i18n="isl_desc">A Berlenga é a única ilha habitada do arquipélago das Berlengas — Reserva da Biosfera da UNESCO desde 1984. Águas turquesa, falésias dramáticas, grutas marinhas e uma biodiversidade única em Portugal.</p>
         <div class="island-facts">
-          <div class="island-fact"><div class="fact-num">40 min</div><div class="fact-lbl" data-i18n="isl_f1">de travessia desde Peniche</div></div>
-          <div class="island-fact"><div class="fact-num">1 km²</div><div class="fact-lbl" data-i18n="isl_f2">de ilha para explorar</div></div>
+          <div class="island-fact"><div class="fact-num">45 min</div><div class="fact-lbl" data-i18n="isl_f1">de travessia desde Peniche</div></div>
+          <div class="island-fact"><div class="fact-num">788.000 m²</div><div class="fact-lbl" data-i18n="isl_f2">de ilha para explorar</div></div>
           <div class="island-fact"><div class="fact-num">UNESCO</div><div class="fact-lbl" data-i18n="isl_f3">Reserva da Biosfera</div></div>
           <div class="island-fact"><div class="fact-num">1509</div><div class="fact-lbl" data-i18n="isl_f4">Fortaleza histórica</div></div>
         </div>
@@ -1495,7 +1495,7 @@
         nav_pack: "Pacotes", nav_hist: "História", menu_terms: "Termos e Condições",
         tb1t: "Operador Licenciado IMT", tb1s: "Autoridade Marítima Nacional",
         tb2t: "45 min de travessia", tb2s: "Porto de Pesca de Peniche",
-        tb3s: "Trip Protection incluída",
+        tb3s: "Trip Protection",
         tb4t: "Cancelamento Gratuito", tb4s: "Até 24h antes da partida",
         isl_pill: "Reserva Natural",
         isl_h2: 'Uma ilha que <em>não se esquece</em>',
@@ -1541,7 +1541,7 @@
         nav_pack: "Paquetes", nav_hist: "Historia", menu_terms: "Términos y Condiciones",
         tb1t: "Operador Autorizado IMT", tb1s: "Autoridad Marítima Nacional",
         tb2t: "45 min de travesía", tb2s: "Puerto de Pesca de Peniche",
-        tb3s: "Trip Protection incluida", tb4t: "Cancelación Gratuita", tb4s: "Hasta 24h antes de la salida",
+        tb3s: "Trip Protection", tb4t: "Cancelación Gratuita", tb4s: "Hasta 24h antes de la salida",
         isl_pill: "Reserva Natural", isl_h2: 'Una isla que <em>no se olvida</em>',
         isl_desc: "Berlenga es la única isla habitada del archipiélago — Reserva de la Biosfera UNESCO desde 1984. Aguas turquesas, acantilados dramáticos, cuevas marinas y una biodiversidad única en Portugal.",
         isl_f1: "de travesía desde Peniche", isl_f2: "de isla para explorar", isl_f3: "Reserva de la Biosfera", isl_f4: "Fortaleza histórica",
@@ -1585,7 +1585,7 @@
         nav_pack: "Forfaits", nav_hist: "Histoire", menu_terms: "Conditions générales",
         tb1t: "Opérateur agréé IMT", tb1s: "Autorité Maritime Nationale",
         tb2t: "45 min de traversée", tb2s: "Port de pêche de Peniche",
-        tb3s: "Trip Protection incluse", tb4t: "Annulation gratuite", tb4s: "Jusqu'à 24h avant le départ",
+        tb3s: "Trip Protection", tb4t: "Annulation gratuite", tb4s: "Jusqu'à 24h avant le départ",
         isl_pill: "Réserve Naturelle", isl_h2: "Une île qu'on <em>n'oublie jamais</em>",
         isl_desc: "Berlenga est la seule île habitée de l'archipel des Berlengas — Réserve de biosphère UNESCO depuis 1984. Eaux turquoise, falaises spectaculaires, grottes marines et une biodiversité unique au Portugal.",
         isl_f1: "de traversée depuis Peniche", isl_f2: "d'île à explorer", isl_f3: "Réserve de biosphère", isl_f4: "Forteresse historique",
@@ -1638,7 +1638,7 @@
         nav_pack: "Packages", nav_hist: "History", menu_terms: "Terms & Conditions",
         tb1t: "IMT Licensed Operator", tb1s: "National Maritime Authority",
         tb2t: "45-min crossing", tb2s: "Port of Peniche",
-        tb3s: "Trip Protection included",
+        tb3s: "Trip Protection",
         tb4t: "Free Cancellation", tb4s: "Up to 24h before departure",
         isl_pill: "Nature Reserve",
         isl_h2: 'An island you <em>never forget</em>',
