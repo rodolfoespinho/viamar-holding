@@ -671,9 +671,11 @@
     }
     .popup-close:hover { background: #e2e8f0; }
     .popup-img-placeholder {
+      display: block;
       margin: 0 16px;
       border-radius: 12px; overflow: hidden;
       line-height: 0; cursor: pointer;
+      text-decoration: none;
     }
     .popup-img-placeholder img {
       width: 100%; height: auto; display: block;
@@ -1998,9 +2000,9 @@
         <div class="popup-handle"></div>
         <button class="popup-close" id="popup-close" aria-label="Fechar">✕</button>
       </div>
-      <div class="popup-img-placeholder" id="popup-img">
+      <a href="https://fareharbor.com/embeds/book/viamar-berlenga/items/?full-items=yes&flow=738388" class="popup-img-placeholder" id="popup-img">
         <img src="img/2-Abril.png" alt="Promoção Viamar">
-      </div>
+      </a>
     </div>
   </div>
 
@@ -2055,13 +2057,10 @@
         if (e.target === overlay) closePopup();
       });
 
-      /* ── image click → scroll to booking ── */
+      /* ── image click → close popup, FareHarbor script handles the modal ── */
       img.addEventListener('click', function() {
-        closePopup();
-        setTimeout(() => {
-          const target = document.querySelector('.booking-card') || document.querySelector('.hero-actions');
-          if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }, 200);
+        overlay.classList.remove('visible');
+        sessionStorage.setItem('popup_dismissed', '1');
       });
 
       if (!sessionStorage.getItem('popup_dismissed')) {
