@@ -87,8 +87,10 @@
 
     /* ── Page header ── */
     .page-hero {
-      padding: 80px 40px 64px;
-      background: linear-gradient(180deg, #0a1628 0%, var(--navy) 100%);
+      padding: 100px 40px 80px;
+      background:
+        linear-gradient(180deg, rgba(7,17,31,0.62) 0%, rgba(7,17,31,0.88) 100%),
+        url('img/freepik__upgrade-this-cinematic-shot__91289.webp') center 40% / cover no-repeat;
       border-bottom: 1px solid rgba(255,255,255,0.06);
     }
     .page-hero-inner { max-width: 1280px; margin: 0 auto; }
@@ -297,6 +299,8 @@
     mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMenu));
 
     // Products
+    const FH_BASE_URL = 'https://fareharbor.com/embeds/book/viamar-berlenga/';
+    const FH_COMMON   = 'flow=738388&u=0add1569-0a96-4a96-bd93-bfeafd85b4a5&from-ssl=yes&language=pt-pt&back=https%3A%2F%2Fviamar-berlenga.com%2F';
     const BADGE_STYLES = {
       gold:  'background:#f59e0b;color:#07111f',
       pop:   'background:#06b6d4;color:#07111f',
@@ -324,9 +328,12 @@
           const cardClass = item.featured ? 'pkg-card featured' : item.coming_soon ? 'pkg-card coming-soon' : 'pkg-card';
           const btnText  = {pt:'Reservar', en:'Book now', es:'Reservar', fr:'Réserver'}[currentLang] || 'Book now';
           const soonText = {pt:'Em Breve', en:'Coming Soon', es:'Próximamente', fr:'Bientôt'}[currentLang] || 'Coming Soon';
+          const itemUrl  = item.fh_pk
+            ? `${FH_BASE_URL}items/${item.fh_pk}/?${FH_COMMON}`
+            : data.booking_url;
           const ctaBlock = item.coming_soon
             ? `<span class="btn-soon">${soonText}</span>`
-            : `<a href="${esc(data.booking_url)}" class="btn-pkg solid">${btnText}</a>`;
+            : `<a href="${esc(itemUrl)}" class="btn-pkg solid">${btnText}</a>`;
           const bgDiv = item.image ? `<div class="pkg-card-img" style="background-image:url('${esc(item.image)}')"></div>` : '';
           return `<div class="${cardClass}">
   ${bgDiv}

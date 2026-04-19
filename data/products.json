@@ -22,6 +22,7 @@
       "price_adult": 14.90,
       "price_child": null,
       "featured": false,
+      "fh_pk": 377884,
       "fh_flow": "738388"
     },
     {
@@ -40,6 +41,7 @@
       "price_adult": 14.90,
       "price_child": null,
       "featured": false,
+      "fh_pk": 377906,
       "fh_flow": "738388"
     },
     {
@@ -58,6 +60,7 @@
       "price_adult": 19.90,
       "price_child": 13.90,
       "featured": true,
+      "fh_pk": 377881,
       "fh_flow": "738388"
     },
     {

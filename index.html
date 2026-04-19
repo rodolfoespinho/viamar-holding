@@ -318,70 +318,114 @@
     }
     .btn-ghost:hover { background: #e8e8e8; transform: translateY(-1px); }
 
-    /* ── Booking card (right) ── */
+    /* ── Booking card — airline style ── */
     .booking-card {
-      background: rgba(255,255,255,0.97);
+      background: #fff;
       border-radius: 16px;
-      padding: 24px;
-      box-shadow: 0 20px 80px rgba(0,0,0,0.5);
+      padding: 20px;
+      box-shadow: 0 24px 80px rgba(0,0,0,0.55);
       position: relative;
       overflow: hidden;
     }
-    .bc-title { font-size: 17px; font-weight: 800; color: var(--navy); margin-bottom: 4px; }
-    .bc-sub { font-size: 12px; color: var(--g400); margin-bottom: 16px; }
-    .avail-pill {
-      display: flex; align-items: center; gap: 8px;
-      background: #ecfdf5; border: 1px solid #6ee7b7;
-      border-radius: 8px; padding: 9px 12px; margin-bottom: 14px;
-    }
-    .avail-dot { width: 7px; height: 7px; background: var(--green); border-radius: 50%; animation: blink 1.8s infinite; }
-    @keyframes blink { 0%,100%{opacity:1} 50%{opacity:.3} }
-    .avail-txt { font-size: 12.5px; font-weight: 600; color: #065f46; flex: 1; }
-    .spots-badge { font-size: 11px; font-weight: 700; background: #fee2e2; color: var(--red); padding: 2px 8px; border-radius: 100px; }
-    .bc-select {
-      width: 100%; border: 1.5px solid var(--g200); border-radius: 8px;
-      padding: 11px 14px; font-size: 13.5px; color: var(--g800);
-      background: var(--off); margin-bottom: 10px;
-      font-family: 'Inter', sans-serif; appearance: none;
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%2394a3b8' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
-      background-repeat: no-repeat; background-position: right 12px center;
-      pointer-events: none;
-    }
-    .pax-row { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 12px; }
-    .pax-group label { display: block; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .6px; color: var(--g400); margin-bottom: 5px; }
-    .pax-ctrl { display: flex; align-items: center; border: 1.5px solid var(--g200); border-radius: 8px; overflow: hidden; }
-    .pax-btn { width: 34px; height: 36px; border: none; background: var(--off); font-size: 17px; color: var(--g400); display: flex; align-items: center; justify-content: center; pointer-events: none; }
-    .pax-val { flex: 1; text-align: center; font-size: 15px; font-weight: 700; color: var(--navy); }
-    .price-box { background: var(--off); border-radius: 8px; padding: 12px 14px; margin-bottom: 14px; }
-    .price-line { display: flex; justify-content: space-between; font-size: 12.5px; color: var(--g600); margin-bottom: 4px; }
-    .price-line.total { font-weight: 800; font-size: 14px; color: var(--navy); border-top: 1px solid var(--g200); padding-top: 8px; margin-bottom: 0; margin-top: 4px; }
-    .bc-btn-confirm {
-      width: 100%; background: var(--navy); color: #fff;
-      font-weight: 800; font-size: 15px;
-      padding: 15px; border: none; border-radius: 10px;
-      cursor: not-allowed; display: flex; align-items: center; justify-content: center; gap: 8px;
-      font-family: 'Inter', sans-serif;
-      opacity: 0.5;
-    }
-    .bc-footer { display: flex; align-items: center; justify-content: center; gap: 6px; margin-top: 10px; font-size: 11.5px; color: var(--g400); }
-
-    /* Em breve overlay */
-    .card-overlay {
+    .bw-card-overlay {
       position: absolute; inset: 0;
-      background: rgba(7,17,31,0.75);
-      backdrop-filter: blur(8px);
-      -webkit-backdrop-filter: blur(8px);
-      border-radius: 16px;
       display: flex; align-items: center; justify-content: center;
+      background: rgba(7,17,31,0.76);
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+      border-radius: 16px;
       z-index: 10;
     }
-    .overlay-soon {
-      font-size: 11px; font-weight: 600;
-      letter-spacing: 0.18em; text-transform: uppercase;
-      color: rgba(255,255,255,0.45);
-      border: 1px solid rgba(255,255,255,0.15);
-      padding: 6px 14px; border-radius: 100px;
+    .bw-card-soon-pill {
+      color: rgba(255,255,255,0.88);
+      padding: 6px 20px; border-radius: 20px;
+      border: 1.5px solid rgba(255,255,255,0.35);
+      font-size: 10px; font-weight: 700; letter-spacing: 1.5px;
+      text-transform: uppercase; font-family: 'Inter', sans-serif;
     }
+    /* Product chips */
+    .bw-chips { display: grid; grid-template-columns: repeat(3,1fr); gap: 6px; }
+    .bw-chip {
+      display: flex; flex-direction: column; align-items: center; gap: 6px;
+      padding: 13px 4px 12px; border: 1.5px solid var(--g200); border-radius: 10px;
+      background: var(--off); cursor: pointer; transition: all .15s; font-family: 'Inter', sans-serif;
+    }
+    .bw-chip:hover { border-color: rgba(7,17,31,0.3); background: #e8edf3; }
+    .bw-chip.active { border-color: var(--navy); background: var(--navy); }
+    .bw-chip-icon { display: flex; align-items: center; justify-content: center; }
+    .bw-chip-icon svg { width: 16px; height: 16px; stroke: var(--g600); }
+    .bw-chip.active .bw-chip-icon svg { stroke: var(--aqua); }
+    .bw-chip-name { font-size: 11.5px; font-weight: 700; color: var(--g600); text-align: center; line-height: 1.3; }
+    .bw-chip.active .bw-chip-name { color: #fff; }
+    /* Divider + label */
+    .bw-divider { height: 1px; background: var(--g200); margin: 12px 0; }
+    .bw-field-label { font-size: 10px; font-weight: 800; text-transform: uppercase; letter-spacing: 1.2px; color: var(--g400); margin-bottom: 9px; }
+    /* Calendar */
+    .cal-nav { display: flex; align-items: center; justify-content: space-between; margin-bottom: 7px; }
+    .cal-nav-btn {
+      width: 28px; height: 28px; border: 1.5px solid var(--g200); border-radius: 7px;
+      background: var(--off); font-size: 16px; cursor: pointer; line-height: 1;
+      display: flex; align-items: center; justify-content: center;
+      color: var(--navy); transition: all .15s; font-family: 'Inter', sans-serif; user-select: none;
+    }
+    .cal-nav-btn:hover:not(:disabled) { border-color: var(--navy); background: var(--navy); color: #fff; }
+    .cal-nav-btn:disabled { opacity: 0.25; cursor: default; }
+    .cal-month { font-size: 13.5px; font-weight: 800; color: var(--navy); }
+    .cal-grid { display: grid; grid-template-columns: repeat(7,1fr); gap: 2px; }
+    .cal-dow { font-size: 9px; font-weight: 700; color: var(--g400); text-align: center; padding: 2px 0 5px; text-transform: uppercase; }
+    .cal-empty { height: 32px; }
+    .cal-day {
+      position: relative; height: 32px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 12.5px; font-weight: 500; color: var(--navy);
+      border-radius: 7px; cursor: pointer; transition: background .1s, color .1s; user-select: none;
+    }
+    .cal-day:not(.past):hover { background: rgba(6,182,212,0.13); color: var(--aqua); font-weight: 700; }
+    .cal-day.past { color: #d1d5db; cursor: default; font-weight: 400; }
+    .cal-day.today { font-weight: 800; }
+    .cal-today-dot {
+      position: absolute; bottom: 3px; left: 50%; transform: translateX(-50%);
+      width: 3px; height: 3px; border-radius: 50%; background: var(--aqua);
+    }
+    .cal-day.sel { background: var(--navy) !important; color: #fff !important; font-weight: 800; }
+    .cal-day.sel .cal-today-dot { background: var(--gold); }
+    @keyframes calShake { 0%,100%{transform:translateX(0)} 20%,60%{transform:translateX(-5px)} 40%,80%{transform:translateX(5px)} }
+    .cal-shake { animation: calShake .35s ease; outline: 2px solid var(--red); outline-offset: 3px; border-radius: 10px; }
+    /* Time slots */
+    .bw-slots { display: flex; flex-wrap: wrap; gap: 6px; min-height: 34px; }
+    .bw-slot {
+      padding: 7px 16px; border: 1.5px solid var(--g200); border-radius: 8px;
+      background: var(--off); cursor: pointer; transition: all .15s;
+      font-size: 13.5px; font-weight: 700; color: var(--navy);
+      font-family: 'Inter', sans-serif; letter-spacing: 0.3px;
+    }
+    .bw-slot:hover { border-color: rgba(7,17,31,0.3); background: #e8edf3; }
+    .bw-slot.active { border-color: var(--navy); background: var(--navy); color: #fff; }
+    /* Pax */
+    .bw-pax-row { display: flex; flex-direction: column; gap: 9px; }
+    .bw-pax-group { display: flex; align-items: center; justify-content: space-between; }
+    .bw-pax-info { display: flex; flex-direction: column; }
+    .bw-pax-name { font-size: 13px; font-weight: 600; color: var(--navy); }
+    .bw-pax-age { font-size: 11px; color: var(--g400); margin-top: 1px; }
+    .pax-ctrl { display: flex; align-items: center; border: 1.5px solid var(--g200); border-radius: 8px; overflow: hidden; }
+    .pax-btn { width: 32px; height: 34px; border: none; background: var(--off); font-size: 16px; color: var(--g600); cursor: pointer; display: flex; align-items: center; justify-content: center; transition: background .15s; font-family: 'Inter', sans-serif; }
+    .pax-btn:hover { background: var(--g200); }
+    .pax-val { min-width: 32px; text-align: center; font-size: 15px; font-weight: 700; color: var(--navy); padding: 0 4px; }
+    /* Price + CTA */
+    .bw-price-row { display: flex; align-items: center; justify-content: space-between; margin-bottom: 11px; }
+    .bw-price-detail { font-size: 12px; color: var(--g400); }
+    .bw-price-total { font-size: 22px; font-weight: 900; color: var(--navy); letter-spacing: -0.5px; }
+    .bc-btn-confirm {
+      display: flex; align-items: center; justify-content: center; gap: 8px;
+      width: 100%; background: var(--gold); color: var(--navy);
+      font-weight: 800; font-size: 15px; padding: 15px; border-radius: 10px;
+      text-decoration: none; cursor: pointer; border: none; font-family: 'Inter', sans-serif;
+      transition: background .2s, transform .15s;
+      box-shadow: 0 4px 20px rgba(245,158,11,0.35);
+      animation: pulse-gold 2.5s infinite;
+    }
+    .bc-btn-confirm:hover { background: var(--gold-hover); transform: translateY(-1px); animation: none; box-shadow: 0 6px 28px rgba(245,158,11,0.45); }
+    .bc-footer { display: flex; align-items: center; justify-content: center; gap: 6px; margin-top: 10px; font-size: 11px; color: var(--g400); }
 
     /* ── WhatsApp FAB ── */
     .whatsapp-fab {
@@ -477,6 +521,8 @@
     }
     .site-footer p { font-size: 12px; color: rgba(255,255,255,0.22); line-height: 1.7; }
     .site-footer a { color: rgba(255,255,255,0.35); text-decoration: none; }
+    .ft-atlas { font-weight: 800; letter-spacing: 1px; color: rgba(255,255,255,0.55) !important; transition: color .2s; }
+    .ft-atlas:hover { color: rgba(255,255,255,0.85) !important; }
 
     /* ── Hamburger button ── */
     .nav-hamburger {
@@ -671,7 +717,7 @@
     }
     .gb-item:nth-child(1) {
       grid-row: 1 / 3;
-      background-image: url('img/freepik__enhance-the-cinematic-feel-on-this-photo__34301.webp');
+      background-image: url('img/farol-peniche.png');
       background-color: #0d3b2e;
     }
     .gb-item:nth-child(2) {
@@ -998,57 +1044,61 @@
         </div>
       </div>
 
-      <!-- Right column: booking card with overlay -->
+      <!-- Right column: booking card — airline style -->
       <div class="booking-card">
-        <!-- Em breve overlay — clicável → FareHarbor -->
-        <a href="https://fareharbor.com/embeds/book/viamar-berlenga/items/?full-items=yes&flow=738388" class="card-overlay" style="cursor:pointer;text-decoration:none;">
-          <span class="overlay-soon" data-i18n="overlay_soon">Em Breve</span>
-        </a>
 
-        <!-- Card content (blurred behind) -->
-        <div class="bc-title" data-i18n="card_title">Reservar travessia</div>
-        <div class="bc-sub" data-i18n="card_sub">Escolhe data · Confirma · Embarca</div>
-        <div class="avail-pill">
-          <span class="avail-dot"></span>
-          <span class="avail-txt" data-i18n="avail_txt">Disponível para reserva</span>
-          <span class="spots-badge" data-i18n="spots">Poucos lugares</span>
+        <!-- Tipo de viagem -->
+        <div class="bw-chips" id="bwChips">
+          <button class="bw-chip active" data-id="idavolta" data-pk="377881" onclick="selectProduct(this)">
+            <span class="bw-chip-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22 C12 22 3 17 3 10 V5 L12 2 L21 5 V10 C21 17 12 22 12 22Z"/><circle cx="12" cy="10" r="3"/></svg>
+            </span>
+            <span class="bw-chip-name">Visita à Ilha</span>
+          </button>
+          <button class="bw-chip" data-id="ida" data-pk="377884" onclick="selectProduct(this)">
+            <span class="bw-chip-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </span>
+            <span class="bw-chip-name">Só Ida</span>
+          </button>
+          <button class="bw-chip" data-id="volta" data-pk="377906" onclick="selectProduct(this)">
+            <span class="bw-chip-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+            </span>
+            <span class="bw-chip-name">Regresso</span>
+          </button>
         </div>
-        <select class="bc-select" disabled>
-          <option data-i18n="select_date">Seleciona data no próximo passo →</option>
-        </select>
-        <select class="bc-select" disabled>
-          <option data-i18n="select_type">Ida e Volta (recomendado)</option>
-        </select>
-        <div class="pax-row">
-          <div class="pax-group">
-            <label data-i18n="adults">Adultos</label>
-            <div class="pax-ctrl">
-              <button class="pax-btn">−</button>
-              <span class="pax-val">2</span>
-              <button class="pax-btn">+</button>
-            </div>
-          </div>
-          <div class="pax-group">
-            <label data-i18n="children">Crianças</label>
-            <div class="pax-ctrl">
-              <button class="pax-btn">−</button>
-              <span class="pax-val">0</span>
-              <button class="pax-btn">+</button>
-            </div>
-          </div>
+
+        <!-- Data -->
+        <div class="bw-divider"></div>
+        <div class="bw-field-label">Data da viagem</div>
+        <div class="bw-calendar" id="bwCalendar"></div>
+
+        <!-- Horário -->
+        <div class="bw-divider"></div>
+        <div class="bw-field-label">Horário de partida</div>
+        <div class="bw-slots">
+          <button class="bw-slot" disabled>09:30</button>
+          <button class="bw-slot" disabled>11:00</button>
+          <button class="bw-slot" disabled>14:30</button>
         </div>
-        <div class="price-box">
-          <div class="price-line"><span data-i18n="price_detail">2 Adultos × 22€</span><span>44,00€</span></div>
-          <div class="price-line total"><span data-i18n="total">Total</span><span>44,00€</span></div>
-        </div>
-        <a href="https://fareharbor.com/embeds/book/viamar-berlenga/items/?full-items=yes&flow=738388" class="bc-btn-confirm" style="cursor:pointer;opacity:1;text-decoration:none;">
+
+        <!-- CTA -->
+        <div class="bw-divider"></div>
+        <a class="bc-btn-confirm" id="btnBookNow" href="#" onclick="return bookNow(this, event)">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 9a3 3 0 0 1 0 6v2a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-2a3 3 0 0 1 0-6V7a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2Z"/><path d="M13 5v2"/><path d="M13 17v2"/><path d="M13 11v2"/></svg>
-          <span data-i18n="btn_confirm">Confirmar reserva</span>
+          Confirmar reserva
         </a>
         <div class="bc-footer">
           <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="11" x="3" y="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
-          <span data-i18n="bc_footer">Pagamento seguro · Cancelamento gratuito 48h antes</span>
+          Pagamento seguro · Cancelamento gratuito 24h antes
         </div>
+
+        <!-- Coming soon overlay — whole card -->
+        <div class="bw-card-overlay">
+          <span class="bw-card-soon-pill">Em breve</span>
+        </div>
+
       </div>
     </div>
   </section>
@@ -1194,14 +1244,14 @@
       </div>
     </div>
     <div class="seo-photo-duo">
-      <div class="photo-item"><img src="img/photo2.webp" alt="Vista aérea da Ilha da Berlenga ao pôr do sol — Reserva Natural UNESCO" loading="lazy" /></div>
+      <div class="photo-item"><img src="img/Berlengas14[1].jpg" alt="Vista panorâmica da Ilha da Berlenga — falésias e fortaleza histórica" loading="lazy" /></div>
       <div class="photo-item"><img src="img/photo3.webp" alt="Passageiros a embarcar com a Viamar — cais da Ilha da Berlenga" loading="lazy" /></div>
     </div>
   </section>
 
   <footer class="site-footer">
     <p>Viamar Ferry Berlenga · Porto de Pesca de Peniche, Portugal</p>
-    <p data-i18n="ft_copy">© 2026 Viamar. Todos os direitos reservados. · <a href="https://berlengaspass.icnf.pt" rel="noopener">BerlengasPass</a></p>
+    <p data-i18n="ft_copy">© 2026 Viamar. Todos os direitos reservados. · Powered by <a href="https://atlas-web.pt" target="_blank" rel="noopener" class="ft-atlas">ATLAS</a></p>
   </footer>
 
   <!-- Cookie Banner -->
@@ -1247,7 +1297,7 @@
         adults: "Adultos", children: "Crianças",
         price_detail: "2 Adultos × 22€", total: "Total",
         btn_confirm: "Confirmar reserva",
-        bc_footer: "Pagamento seguro · Cancelamento gratuito 48h antes",
+        bc_footer: "Pagamento seguro · Cancelamento gratuito 24h antes",
         wa_text: "Fale connosco",
         "pkg.tag": "O que queres fazer?", "pkg.h2": "Escolhe a tua experiência", "pkg.sub": "Desde a travessia simples até atividades na ilha — temos algo para cada aventureiro.",
         "rev.tag": "Avaliações reais", "rev.h2": "O que dizem os nossos passageiros", "rev.sub": "Mais de 700 avaliações verificadas no Google. Escrito por famílias, casais e grupos que fizeram a travessia connosco.",
@@ -1266,7 +1316,7 @@
         ck_title: "Privacidade e Cookies",
         ck_txt: 'Utilizamos cookies essenciais para o funcionamento do site e cookies analíticos para melhorar a experiência. Consulte a nossa <a href="/termos.html">política de privacidade</a>.',
         ck_accept: "Aceitar tudo", ck_reject: "Só essenciais",
-        ft_copy: '© 2026 Viamar. Todos os direitos reservados. · <a href="https://berlengaspass.icnf.pt" rel="noopener">BerlengasPass</a>'
+        ft_copy: '© 2026 Viamar. Todos os direitos reservados. · Powered by <a href="https://atlas-web.pt" target="_blank" rel="noopener" class="ft-atlas">ATLAS</a>'
       },
       es: {
         ann_main: "¡Fines de semana de <strong>julio</strong> y <strong>agosto</strong> casi agotados!", ann_season: "Temporada abre el 9 de mayo —", ann_cta: "¡Reserva tu plaza!",
@@ -1279,7 +1329,7 @@
         avail_txt: "Disponible para reserva", spots: "Pocas plazas",
         select_date: "Selecciona fecha en el siguiente paso →", select_type: "Ida y vuelta (recomendado)",
         adults: "Adultos", children: "Niños", price_detail: "2 Adultos × 22€", total: "Total",
-        btn_confirm: "Confirmar reserva", bc_footer: "Pago seguro · Cancelación gratuita 48h antes",
+        btn_confirm: "Confirmar reserva", bc_footer: "Pago seguro · Cancelación gratuita 24h antes",
         wa_text: "Hablemos",
         "pkg.tag": "¿Qué quieres hacer?", "pkg.h2": "Elige tu experiencia", "pkg.sub": "Desde una travesía simple hasta actividades en la isla — tenemos algo para cada aventurero.",
         "rev.tag": "Opiniones reales", "rev.h2": "Lo que dicen nuestros pasajeros", "rev.sub": "Más de 700 opiniones verificadas en Google. Escritas por familias, parejas y grupos que cruzaron con nosotros.",
@@ -1295,7 +1345,7 @@
         r_label: "706 opiniones verificadas", r_google: "Google Reviews · Verificado",
         ck_title: "Privacidad y Cookies", ck_txt: 'Utilizamos cookies esenciales para el funcionamiento del sitio y cookies analíticas para mejorar la experiencia. Consulta nuestra <a href="/termos.html">política de privacidad</a>.',
         ck_accept: "Aceptar todo", ck_reject: "Solo esenciales",
-        ft_copy: '© 2026 Viamar. Todos los derechos reservados. · <a href="https://berlengaspass.icnf.pt" rel="noopener">BerlengasPass</a>'
+        ft_copy: '© 2026 Viamar. Todos los derechos reservados. · Powered by <a href="https://atlas-web.pt" target="_blank" rel="noopener" class="ft-atlas">ATLAS</a>'
       },
       fr: {
         ann_main: "Les week-ends de <strong>juillet</strong> et <strong>août</strong> sont presque complets !", ann_season: "Saison du 9 mai —", ann_cta: "Réservez votre place !",
@@ -1308,7 +1358,7 @@
         avail_txt: "Disponible à la réservation", spots: "Peu de places",
         select_date: "Sélectionnez la date à l'étape suivante →", select_type: "Aller-retour (recommandé)",
         adults: "Adultes", children: "Enfants", price_detail: "2 Adultes × 22€", total: "Total",
-        btn_confirm: "Confirmer la réservation", bc_footer: "Paiement sécurisé · Annulation gratuite 48h avant",
+        btn_confirm: "Confirmer la réservation", bc_footer: "Paiement sécurisé · Annulation gratuite 24h avant",
         wa_text: "Contactez-nous",
         "pkg.tag": "Que souhaitez-vous faire ?", "pkg.h2": "Choisissez votre expérience", "pkg.sub": "De la simple traversée aux activités sur l'île — nous avons quelque chose pour chaque aventurier.",
         "rev.tag": "Avis authentiques", "rev.h2": "Ce que disent nos passagers", "rev.sub": "Plus de 700 avis vérifiés sur Google. Rédigés par des familles, des couples et des groupes ayant traversé avec nous.",
@@ -1324,7 +1374,7 @@
         r_label: "706 avis vérifiés", r_google: "Google Reviews · Vérifié",
         ck_title: "Confidentialité & Cookies", ck_txt: 'Nous utilisons des cookies essentiels au fonctionnement du site et des cookies analytiques pour améliorer votre expérience. Consultez notre <a href="/termos.html">politique de confidentialité</a>.',
         ck_accept: "Tout accepter", ck_reject: "Essentiels uniquement",
-        ft_copy: '© 2026 Viamar. Tous droits réservés. · <a href="https://berlengaspass.icnf.pt" rel="noopener">BerlengasPass</a>'
+        ft_copy: '© 2026 Viamar. Tous droits réservés. · Powered by <a href="https://atlas-web.pt" target="_blank" rel="noopener" class="ft-atlas">ATLAS</a>'
       },
       en: {
         ann_main: "<strong>July</strong> and <strong>August</strong> weekends almost sold out!",
@@ -1346,7 +1396,7 @@
         adults: "Adults", children: "Children",
         price_detail: "2 Adults × €22", total: "Total",
         btn_confirm: "Confirm booking",
-        bc_footer: "Secure payment · Free cancellation 48h before",
+        bc_footer: "Secure payment · Free cancellation 24h before",
         wa_text: "Chat with us",
         "pkg.tag": "What do you want to do?", "pkg.h2": "Choose your experience", "pkg.sub": "From a simple crossing to island activities — we have something for every adventurer.",
         "rev.tag": "Real reviews", "rev.h2": "What our passengers say", "rev.sub": "Over 700 verified Google reviews. Written by families, couples and groups who crossed with us.",
@@ -1365,7 +1415,7 @@
         ck_title: "Privacy & Cookies",
         ck_txt: 'We use essential cookies to make the site work and analytics cookies to improve your experience. See our <a href="/termos.html">privacy policy</a>.',
         ck_accept: "Accept all", ck_reject: "Essential only",
-        ft_copy: '© 2026 Viamar. All rights reserved. · <a href="https://berlengaspass.icnf.pt" rel="noopener">BerlengasPass</a>'
+        ft_copy: '© 2026 Viamar. All rights reserved. · Powered by <a href="https://atlas-web.pt" target="_blank" rel="noopener" class="ft-atlas">ATLAS</a>'
       }
     };
 
@@ -1486,6 +1536,131 @@
     // Close on any link click inside the drawer
     mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMenu));
 
+    // ── BOOKING WIDGET — airline style ──────────────────────────────────────
+    const BW_PRODUCTS = [
+      { id: 'idavolta', pk: 377881, price_adult: 19.90, price_child: 13.90 },
+      { id: 'ida',      pk: 377884, price_adult: 14.90, price_child: null  },
+      { id: 'volta',    pk: 377906, price_adult: 14.90, price_child: null  },
+    ];
+    const FH_BASE   = 'https://fareharbor.com/embeds/book/viamar-berlenga/';
+    const FH_U      = 'u=0add1569-0a96-4a96-bd93-bfeafd85b4a5&from-ssl=yes&language=pt-pt&back=https%3A%2F%2Fviamar-berlenga.com%2F';
+    const FH_PARAMS = 'flow=738388&' + FH_U;
+
+    let _selectedProduct = 'idavolta';
+    let _selectedDate    = null;
+    let _calYear, _calMonth;
+
+    const CAL_MONTHS = ['Janeiro','Fevereiro','Março','Abril','Maio','Junho','Julho','Agosto','Setembro','Outubro','Novembro','Dezembro'];
+    const CAL_DAYS   = ['Seg','Ter','Qua','Qui','Sex','Sáb','Dom'];
+    const SEASON_START = { m: 4, d: 9 };  // May 9
+    const SEASON_END   = { m: 8, d: 30 }; // Sep 30
+
+    function fmtDate(d) {
+      return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`;
+    }
+
+    function outOfSeason(m, d) {
+      if (m < SEASON_START.m || m > SEASON_END.m) return true;
+      if (m === SEASON_START.m && d < SEASON_START.d) return true;
+      return false;
+    }
+
+    function selectProduct(btn) {
+      document.querySelectorAll('.bw-chip').forEach(c => c.classList.remove('active'));
+      btn.classList.add('active');
+      _selectedProduct = btn.dataset.id;
+      updateBookBtn();
+    }
+
+    function renderCalendar() {
+      const el = document.getElementById('bwCalendar');
+      if (!el) return;
+      const now    = new Date(); now.setHours(0,0,0,0);
+      const first  = new Date(_calYear, _calMonth, 1);
+      const last   = new Date(_calYear, _calMonth + 1, 0);
+      const startDow = (first.getDay() + 6) % 7;
+      const canPrev  = _calMonth > SEASON_START.m;
+      const canNext  = _calMonth < SEASON_END.m;
+
+      let html = `<div class="cal-nav">
+        <button class="cal-nav-btn" onclick="prevMonth()" ${canPrev ? '' : 'disabled'}>&#8249;</button>
+        <span class="cal-month">${CAL_MONTHS[_calMonth]} ${_calYear}</span>
+        <button class="cal-nav-btn" onclick="nextMonth()" ${canNext ? '' : 'disabled'}>&#8250;</button>
+      </div><div class="cal-grid">`;
+
+      CAL_DAYS.forEach(d => { html += `<div class="cal-dow">${d}</div>`; });
+      for (let i = 0; i < startDow; i++) html += '<div class="cal-empty"></div>';
+
+      for (let d = 1; d <= last.getDate(); d++) {
+        const date    = new Date(_calYear, _calMonth, d);
+        const isPast  = date < now;
+        const isOOS   = outOfSeason(_calMonth, d);
+        const disabled = isPast || isOOS;
+        const isToday = date.getTime() === now.getTime();
+        const isSel   = _selectedDate &&
+                        date.getFullYear() === _selectedDate.getFullYear() &&
+                        date.getMonth()    === _selectedDate.getMonth()    &&
+                        date.getDate()     === _selectedDate.getDate();
+        const cls = 'cal-day' + (disabled ? ' past' : '') + (isToday ? ' today' : '') + (isSel ? ' sel' : '');
+        const ds  = fmtDate(new Date(_calYear, _calMonth, d));
+        html += `<div class="${cls}" ${disabled ? '' : `onclick="calSelect('${ds}')"`}>${d}${isToday ? '<span class="cal-today-dot"></span>' : ''}</div>`;
+      }
+      html += '</div>';
+      el.innerHTML = html;
+    }
+
+    function prevMonth() {
+      if (_calMonth <= SEASON_START.m) return;
+      _calMonth--;
+      renderCalendar();
+    }
+
+    function nextMonth() {
+      if (_calMonth >= SEASON_END.m) return;
+      _calMonth++;
+      renderCalendar();
+    }
+
+    function calSelect(ds) {
+      _selectedDate = new Date(ds + 'T00:00:00');
+      renderCalendar();
+      updateBookBtn();
+    }
+
+    function updateBookBtn() {
+      const btn  = document.getElementById('btnBookNow');
+      if (!btn) return;
+      const prod = BW_PRODUCTS.find(p => p.id === _selectedProduct);
+      if (!_selectedDate || !prod) { btn.href = '#'; return; }
+      btn.href = `${FH_BASE}items/${prod.pk}/?${FH_PARAMS}&date=${fmtDate(_selectedDate)}`;
+    }
+
+    function bookNow(anchor, event) {
+      if (!_selectedDate) {
+        event.preventDefault();
+        const cal = document.getElementById('bwCalendar');
+        cal.classList.add('cal-shake');
+        setTimeout(() => cal.classList.remove('cal-shake'), 400);
+        return false;
+      }
+      return true;
+    }
+
+    // Init: pre-select first available season date and load slots
+    (function initBookingWidget() {
+      const now   = new Date(); now.setHours(0,0,0,0);
+      const year  = now.getFullYear();
+      const seasonStart = new Date(year, SEASON_START.m, SEASON_START.d);
+      const seasonEnd   = new Date(year, SEASON_END.m,   SEASON_END.d);
+      const first = now < seasonStart ? seasonStart : (now > seasonEnd ? null : new Date(now.getTime() + 86400000));
+      _selectedDate = first;
+      _calYear  = first ? first.getFullYear() : seasonStart.getFullYear();
+      _calMonth = first ? first.getMonth() : SEASON_START.m;
+      renderCalendar();
+      updateBookBtn();
+    })();
+    // ────────────────────────────────────────────────────────────────────────
+
     // Cookie banner
     function setCookieChoice(choice) {
       localStorage.setItem('viamar_cookie', choice);
@@ -1500,5 +1675,7 @@
   </script>
 
   <script defer src="/_vercel/insights/script.js"></script>
+
+
 </body>
 </html>
