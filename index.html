@@ -861,7 +861,7 @@
     .sched-trip-row { display: flex; align-items: stretch; border-top: 1px solid #f1f5f9; }
     .sched-trip-row:first-child { border-top: none; }
     .sched-trip-label { background: #f8fafc; border-right: 1px solid #f1f5f9; padding: 14px 16px; min-width: 158px; max-width: 158px; display: flex; align-items: center; gap: 8px; flex-shrink: 0; }
-    .sched-trip-icon { font-size: 15px; flex-shrink: 0; line-height: 1; }
+    .sched-trip-icon { display: flex; align-items: center; flex-shrink: 0; }
     .sched-trip-days { font-size: 11px; font-weight: 700; color: var(--navy); line-height: 1.4; white-space: nowrap; }
     .sched-trip-days span { font-weight: 400; color: #94a3b8; display: block; font-size: 10px; margin-top: 1px; }
     .sched-trip-times { flex: 1; display: flex; align-items: center; gap: 8px; padding: 12px 16px; flex-wrap: wrap; }
@@ -1309,7 +1309,7 @@
           <div class="sched-rows">
             <div class="sched-trip-row">
               <div class="sched-trip-label">
-                <span class="sched-trip-icon">📅</span>
+                <span class="sched-trip-icon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color:var(--navy)"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></span>
                 <div class="sched-trip-days" data-i18n="sched.daily">Todos os dias</div>
               </div>
               <div class="sched-trip-times">
@@ -1328,7 +1328,7 @@
           <div class="sched-rows">
             <div class="sched-trip-row">
               <div class="sched-trip-label">
-                <span class="sched-trip-icon">📅</span>
+                <span class="sched-trip-icon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color:var(--navy)"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></span>
                 <div class="sched-trip-days" data-i18n="sched.weekday_row">Dias de semana<span>Seg — Sex</span></div>
               </div>
               <div class="sched-trip-times">
@@ -1337,7 +1337,7 @@
             </div>
             <div class="sched-trip-row">
               <div class="sched-trip-label">
-                <span class="sched-trip-icon">🌊</span>
+                <span class="sched-trip-icon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color:#0891b2"><path d="M2 6c.6.5 1.2 1 2.5 1C7 7 7 5 9.5 5c2.6 0 2.4 2 5 2 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1"/><path d="M2 12c.6.5 1.2 1 2.5 1 2.5 0 2.5-2 5-2 2.6 0 2.4 2 5 2 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1"/><path d="M2 18c.6.5 1.2 1 2.5 1 2.5 0 2.5-2 5-2 2.6 0 2.4 2 5 2 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1"/></svg></span>
                 <div class="sched-trip-days" data-i18n="sched.weekend_row">Fim de semana<span>Sáb + Dom</span></div>
               </div>
               <div class="sched-trip-times">
@@ -1358,7 +1358,7 @@
           <div class="sched-rows">
             <div class="sched-trip-row">
               <div class="sched-trip-label">
-                <span class="sched-trip-icon">☀️</span>
+                <span class="sched-trip-icon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color:var(--gold)"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg></span>
                 <div class="sched-trip-days" data-i18n="sched.daily">Todos os dias</div>
               </div>
               <div class="sched-trip-times">
@@ -1379,7 +1379,7 @@
           <div class="sched-rows">
             <div class="sched-trip-row">
               <div class="sched-trip-label">
-                <span class="sched-trip-icon">📅</span>
+                <span class="sched-trip-icon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color:var(--navy)"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></span>
                 <div class="sched-trip-days" data-i18n="sched.weekday_row">Dias de semana<span>Seg — Sex</span></div>
               </div>
               <div class="sched-trip-times">
@@ -1388,7 +1388,7 @@
             </div>
             <div class="sched-trip-row">
               <div class="sched-trip-label">
-                <span class="sched-trip-icon">🌊</span>
+                <span class="sched-trip-icon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color:#0891b2"><path d="M2 6c.6.5 1.2 1 2.5 1C7 7 7 5 9.5 5c2.6 0 2.4 2 5 2 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1"/><path d="M2 12c.6.5 1.2 1 2.5 1 2.5 0 2.5-2 5-2 2.6 0 2.4 2 5 2 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1"/><path d="M2 18c.6.5 1.2 1 2.5 1 2.5 0 2.5-2 5-2 2.6 0 2.4 2 5 2 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1"/></svg></span>
                 <div class="sched-trip-days" data-i18n="sched.weekend_row">Fim de semana<span>Sáb + Dom</span></div>
               </div>
               <div class="sched-trip-times">
