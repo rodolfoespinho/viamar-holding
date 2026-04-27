@@ -146,6 +146,23 @@
   .tc-detail-icon { flex-shrink: 0; margin-top: 1px; color: var(--aqua); }
   .tc-detail-icon svg { width: 14px; height: 14px; stroke: var(--aqua); }
   .tc-detail-text { font-size: 12.5px; color: rgba(255,255,255,0.35); line-height: 1.6; }
+  .tc-links {
+    margin-top: 18px; padding-top: 18px; border-top: 1px solid rgba(255,255,255,0.07);
+    display: flex; gap: 10px; flex-wrap: wrap;
+  }
+  .tc-link-btn {
+    display: inline-flex; align-items: center; gap: 7px;
+    font-size: 12.5px; font-weight: 700; letter-spacing: 0.02em;
+    padding: 9px 16px; border-radius: 8px; text-decoration: none;
+    transition: background .2s, border-color .2s, color .2s;
+    color: rgba(255,255,255,0.65); background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1);
+  }
+  .tc-link-btn:hover { background: rgba(255,255,255,0.09); border-color: rgba(255,255,255,0.22); color: #fff; }
+  .tc-link-btn svg { flex-shrink: 0; }
+  .tc-link-btn.aqua { background: rgba(6,182,212,0.1); border-color: rgba(6,182,212,0.3); color: var(--aqua); }
+  .tc-link-btn.aqua:hover { background: rgba(6,182,212,0.2); border-color: rgba(6,182,212,0.5); }
+  .tc-link-btn.flix { background: rgba(115,215,0,0.07); border-color: rgba(115,215,0,0.28); color: #73d700; }
+  .tc-link-btn.flix:hover { background: rgba(115,215,0,0.14); border-color: rgba(115,215,0,0.45); }
 
   /* ── island facilities ── */
   .island-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
@@ -330,10 +347,10 @@
           <div class="tc-detail-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
           <div class="tc-detail-text" data-i18n="ilha.car.gps">GPS: Marina de Peniche, Porto de Pesca de Peniche, 2520 Peniche. Parque de estacionamento disponível junto à marina.</div>
         </div>
-        <div class="tc-detail" style="border-top:none; padding-top:10px;">
-          <a href="https://www.google.com/maps/dir/?api=1&destination=Marina+de+Peniche%2C+Porto+de+Pesca%2C+2520+Peniche+Portugal" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:6px;font-size:13px;font-weight:700;color:var(--aqua);text-decoration:none;padding:8px 14px;border:1px solid rgba(6,182,212,0.3);border-radius:8px;transition:background .2s;" onmouseover="this.style.background='rgba(6,182,212,0.08)'" onmouseout="this.style.background=''" data-i18n="ilha.car.mapsbtn">
+        <div class="tc-links">
+          <a href="https://www.google.com/maps/dir/?api=1&destination=Marina+de+Peniche%2C+Porto+de+Pesca%2C+2520+Peniche+Portugal" target="_blank" rel="noopener" class="tc-link-btn aqua">
             <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-            Calcular rota →
+            <span data-i18n="ilha.car.mapsbtn">Calcular rota →</span>
           </a>
         </div>
       </div>
@@ -349,7 +366,17 @@
         </div>
         <div class="tc-detail">
           <div class="tc-detail-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
-          <div class="tc-detail-text" data-i18n="ilha.bus.note">Bilhetes em <a href="https://www.rede-expressos.pt" target="_blank" rel="noopener">rede-expressos.pt</a> ou <a href="https://www.flixbus.pt" target="_blank" rel="noopener">flixbus.pt</a>. A paragem de Peniche fica a ~15 min a pé da marina de embarque.</div>
+          <div class="tc-detail-text" data-i18n="ilha.bus.note">A paragem de Peniche fica a ~15 min a pé da marina de embarque.</div>
+        </div>
+        <div class="tc-links">
+          <a href="https://www.rede-expressos.pt" target="_blank" rel="noopener" class="tc-link-btn">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+            Rede Expressos
+          </a>
+          <a href="https://www.flixbus.pt" target="_blank" rel="noopener" class="tc-link-btn flix">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+            FlixBus
+          </a>
         </div>
       </div>
 
@@ -522,10 +549,10 @@
       'ilha.car.title': 'De carro',
       'ilha.car.body': '<strong>De Lisboa:</strong> ~1h30 via A8 → IC1 (saída Peniche).<br><strong>Do Porto:</strong> ~3h via A1 → A8 → IC1.<br><strong>De Espanha:</strong> ~2h30 de Badajoz via A6 → A8.',
       'ilha.car.gps': 'GPS: Marina de Peniche, Porto de Pesca de Peniche, 2520 Peniche. Parque de estacionamento disponível junto à marina.',
-      'ilha.car.mapsbtn': '<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg> Calcular rota →',
+      'ilha.car.mapsbtn': 'Calcular rota →',
       'ilha.bus.title': 'De autocarro',
       'ilha.bus.body': '<strong>Rede Expressos</strong> e <strong>FlixBus</strong> operam ligações diárias entre Lisboa e Peniche com várias partidas ao longo do dia. Duração aproximada: 2 horas.',
-      'ilha.bus.note': 'Bilhetes em <a href="https://www.rede-expressos.pt" target="_blank" rel="noopener">rede-expressos.pt</a> ou <a href="https://www.flixbus.pt" target="_blank" rel="noopener">flixbus.pt</a>. A paragem de Peniche fica a ~15 min a pé da marina de embarque.',
+      'ilha.bus.note': 'A paragem de Peniche fica a ~15 min a pé da marina de embarque.',
       'ilha.s2.tag': 'Na ilha',
       'ilha.s2.title': 'Alojamento e restauração',
       'ilha.s2.sub': 'A Berlenga tem o essencial para tornar a visita inesquecível — sem o supérfluo. Os serviços disponíveis são deliberadamente limitados para proteger a reserva natural.',
@@ -578,10 +605,10 @@
       'ilha.car.title': 'By car',
       'ilha.car.body': '<strong>From Lisbon:</strong> ~1h30 via A8 → IC1 (Peniche exit).<br><strong>From Porto:</strong> ~3h via A1 → A8 → IC1.<br><strong>From Spain:</strong> ~2h30 from Badajoz via A6 → A8.',
       'ilha.car.gps': 'GPS: Marina de Peniche, Porto de Pesca de Peniche, 2520 Peniche. Parking available near the marina.',
-      'ilha.car.mapsbtn': '<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg> Get directions →',
+      'ilha.car.mapsbtn': 'Get directions →',
       'ilha.bus.title': 'By bus',
       'ilha.bus.body': '<strong>Rede Expressos</strong> and <strong>FlixBus</strong> run daily coach services from Lisbon to Peniche, with several departures throughout the day. Journey time: approx. 2 hours.',
-      'ilha.bus.note': 'Tickets at <a href="https://www.rede-expressos.pt" target="_blank" rel="noopener">rede-expressos.pt</a> or <a href="https://www.flixbus.pt" target="_blank" rel="noopener">flixbus.pt</a>. The Peniche bus stop is ~15 min walk from the boarding marina.',
+      'ilha.bus.note': 'The Peniche bus stop is ~15 min walk from the boarding marina.',
       'ilha.s2.tag': 'On the island',
       'ilha.s2.title': 'Accommodation & dining',
       'ilha.s2.sub': 'Berlenga has everything you need for an unforgettable visit — and nothing more. Services are deliberately limited to protect the nature reserve.',
@@ -634,10 +661,10 @@
       'ilha.car.title': 'En coche',
       'ilha.car.body': '<strong>Desde Lisboa:</strong> ~1h30 por A8 → IC1 (salida Peniche).<br><strong>Desde Oporto:</strong> ~3h por A1 → A8 → IC1.<br><strong>Desde España:</strong> ~2h30 desde Badajoz por A6 → A8.',
       'ilha.car.gps': 'GPS: Marina de Peniche, Porto de Pesca de Peniche, 2520 Peniche. Aparcamiento disponible junto a la marina.',
-      'ilha.car.mapsbtn': '<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg> Cómo llegar →',
+      'ilha.car.mapsbtn': 'Cómo llegar →',
       'ilha.bus.title': 'En autobús',
       'ilha.bus.body': '<strong>Rede Expressos</strong> y <strong>FlixBus</strong> operan servicios de autocar diarios desde Lisboa a Peniche, con varias salidas a lo largo del día. Duración aproximada: 2 horas.',
-      'ilha.bus.note': 'Billetes en <a href="https://www.rede-expressos.pt" target="_blank" rel="noopener">rede-expressos.pt</a> o <a href="https://www.flixbus.pt" target="_blank" rel="noopener">flixbus.pt</a>. La parada de Peniche está a ~15 min a pie de la marina de embarque.',
+      'ilha.bus.note': 'La parada de Peniche está a ~15 min a pie de la marina de embarque.',
       'ilha.s2.tag': 'En la isla',
       'ilha.s2.title': 'Alojamiento y restauración',
       'ilha.s2.sub': 'Berlenga tiene lo esencial para hacer la visita inolvidable — sin superfluidades. Los servicios son deliberadamente limitados para proteger la reserva natural.',
@@ -690,10 +717,10 @@
       'ilha.car.title': 'En voiture',
       'ilha.car.body': "<strong>Depuis Lisbonne :</strong> ~1h30 via A8 → IC1 (sortie Peniche).<br><strong>Depuis Porto :</strong> ~3h via A1 → A8 → IC1.<br><strong>Depuis l'Espagne :</strong> ~2h30 depuis Badajoz via A6 → A8.",
       'ilha.car.gps': "GPS : Marina de Peniche, Porto de Pesca de Peniche, 2520 Peniche. Parking disponible à proximité de la marina.",
-      'ilha.car.mapsbtn': '<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg> Calculer l\'itinéraire →',
+      'ilha.car.mapsbtn': "Calculer l'itinéraire →",
       'ilha.bus.title': 'En bus',
       'ilha.bus.body': "<strong>Rede Expressos</strong> et <strong>FlixBus</strong> assurent des liaisons quotidiennes en autocar depuis Lisbonne jusqu'à Peniche, avec plusieurs départs dans la journée. Durée approximative : 2 heures.",
-      'ilha.bus.note': 'Billets sur <a href="https://www.rede-expressos.pt" target="_blank" rel="noopener">rede-expressos.pt</a> ou <a href="https://www.flixbus.pt" target="_blank" rel="noopener">flixbus.pt</a>. L\'arrêt de Peniche est à ~15 min à pied de la marina d\'embarquement.',
+      'ilha.bus.note': "L'arrêt de Peniche est à ~15 min à pied de la marina d'embarquement.",
       'ilha.s2.tag': "Sur l'île",
       'ilha.s2.title': 'Hébergement et restauration',
       'ilha.s2.sub': "Berlenga a tout le nécessaire pour une visite inoubliable — sans le superflu. Les services sont délibérément limités pour protéger la réserve naturelle.",
