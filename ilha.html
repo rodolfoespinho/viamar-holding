@@ -186,11 +186,20 @@
   .ic-desc { font-size: 14px; color: rgba(255,255,255,0.5); line-height: 1.75; }
   .ic-desc a { color: var(--aqua); text-decoration: none; }
   .ic-desc a:hover { text-decoration: underline; }
-  .ic-note {
-    margin-top: 14px; font-size: 12px; color: rgba(255,255,255,0.3);
-    display: flex; gap: 6px; align-items: flex-start;
+  .ic-actions { margin-top: 18px; display: flex; gap: 8px; flex-wrap: wrap; }
+  .ic-btn {
+    display: inline-flex; align-items: center; gap: 7px;
+    font-size: 12px; font-weight: 700; letter-spacing: 0.03em;
+    padding: 8px 14px; border-radius: 8px; text-decoration: none;
+    transition: background .2s, border-color .2s, color .2s;
+    color: rgba(255,255,255,0.6); background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1);
   }
-  .ic-note svg { flex-shrink: 0; margin-top: 1px; }
+  .ic-btn:hover { background: rgba(255,255,255,0.09); border-color: rgba(255,255,255,0.22); color: #fff; }
+  .ic-btn svg { flex-shrink: 0; }
+  .ic-btn.fb { background: rgba(24,119,242,0.1); border-color: rgba(24,119,242,0.3); color: #4e9af1; }
+  .ic-btn.fb:hover { background: rgba(24,119,242,0.2); border-color: rgba(24,119,242,0.5); }
+  .ic-btn.mail { background: rgba(6,182,212,0.1); border-color: rgba(6,182,212,0.3); color: var(--aqua); }
+  .ic-btn.mail:hover { background: rgba(6,182,212,0.2); border-color: rgba(6,182,212,0.5); }
 
   /* ── conduct ── */
   .conduct-wrap {
@@ -402,9 +411,11 @@
           <span class="ic-label" data-i18n="ilha.penso.label">Alojamento &amp; Restaurante</span>
           <div class="ic-name" data-i18n="ilha.penso.name">Berlenga Bed &amp; Breakfast</div>
           <div class="ic-desc" data-i18n="ilha.penso.desc">O principal espaço de alojamento e restauração da ilha. Quartos simples com vista para o mar e um restaurante com peixe e marisco frescos — adormecer ao som das ondas e acordar com a ilha para si só. Abertura sazonal (Junho a Setembro).</div>
-          <div class="ic-note">
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
-            <span data-i18n="ilha.penso.note">Reservas via Câmara Municipal de Peniche: <a href="https://www.cm-peniche.pt" target="_blank" rel="noopener">cm-peniche.pt</a></span>
+          <div class="ic-actions">
+            <a href="https://www.facebook.com/Mesadailha/" target="_blank" rel="noopener" class="ic-btn fb">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+              Facebook
+            </a>
           </div>
         </div>
       </div>
@@ -418,9 +429,11 @@
           <span class="ic-label" data-i18n="ilha.rest.label">Alojamento Histórico</span>
           <div class="ic-name" data-i18n="ilha.rest.name">Forte de São João Baptista</div>
           <div class="ic-desc" data-i18n="ilha.rest.desc">A Pensão da AABerlenga funciona dentro do histórico Forte de São João Baptista, construído no século XVII. Uma experiência única — dormir entre muralhas seculares com o oceano Atlântico a toda a volta. Abertura sazonal.</div>
-          <div class="ic-note">
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
-            <span data-i18n="ilha.rest.note">Reservas e informações via Câmara Municipal de Peniche: <a href="https://www.cm-peniche.pt" target="_blank" rel="noopener">cm-peniche.pt</a></span>
+          <div class="ic-actions">
+            <a href="https://www.facebook.com/aaberlenga/" target="_blank" rel="noopener" class="ic-btn fb">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+              AABerlenga
+            </a>
           </div>
         </div>
       </div>
@@ -434,9 +447,11 @@
           <span class="ic-label" data-i18n="ilha.snack.label">Snack Bar</span>
           <div class="ic-name" data-i18n="ilha.snack.name">Castelinho Snack Bar</div>
           <div class="ic-desc" data-i18n="ilha.snack.desc">Refeições leves, sandes, gelados, bebidas e sumos frescos numa das localizações mais fotogénicas da ilha — com vista directa para a Fortaleza de São João Baptista. O sítio perfeito para uma pausa a meio da exploração.</div>
-          <div class="ic-note">
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
-            <span data-i18n="ilha.snack.note">Esplanada exterior com vistas panorâmicas. Abertura sazonal.</span>
+          <div class="ic-actions">
+            <a href="https://www.facebook.com/pages/Castelinho-Bar/1581870775464621/" target="_blank" rel="noopener" class="ic-btn fb">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+              Facebook
+            </a>
           </div>
         </div>
       </div>
@@ -450,9 +465,11 @@
           <span class="ic-label" data-i18n="ilha.camp.label">Campismo</span>
           <div class="ic-name" data-i18n="ilha.camp.name">Parque de Campismo</div>
           <div class="ic-desc" data-i18n="ilha.camp.desc">A única área de campismo autorizada da ilha. Experiência minimalista sob o céu estrelado da reserva natural. É também possível alugar socalcos — terraços rochosos sobranceiros ao mar — para uma vivência ainda mais próxima da ilha.</div>
-          <div class="ic-note">
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
-            <span data-i18n="ilha.camp.note">Reservas de socalcos e campismo via Posto de Turismo de Peniche: <a href="https://www.cm-peniche.pt" target="_blank" rel="noopener">cm-peniche.pt</a></span>
+          <div class="ic-actions">
+            <a href="mailto:cmpeniche@cm-peniche.pt" class="ic-btn mail">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              Reservar por email
+            </a>
           </div>
         </div>
       </div>
