@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="pt-PT" data-lang="pt">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Termos e Condições | Viamar Ferry Berlenga</title>
+  <meta name="description" content="Termos e Condições das travessias Viamar à Ilha da Berlenga: cancelamentos, reembolsos, embarque, segurança, pagamento e política de privacidade." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://viamar-berlenga.com/termos.html" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Viamar Ferry Berlenga" />
+  <meta property="og:title" content="Termos e Condições | Viamar Ferry Berlenga" />
+  <meta property="og:description" content="Termos e Condições das travessias Viamar à Ilha da Berlenga." />
+  <meta property="og:url" content="https://viamar-berlenga.com/termos.html" />
+  <meta property="og:image" content="https://viamar-berlenga.com/img/hero.webp" />
+  <meta property="og:locale" content="pt_PT" />
+
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="apple-touch-icon" href="/logo-viamar.png" />
+  <link rel="manifest" href="/manifest.json" />
+  <meta name="theme-color" content="#07111f" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,700;0,900;1,700;1,900&display=swap" rel="stylesheet" />
+
+  <style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --navy:  #07111f;
+    --aqua:  #06b6d4;
+    --gold:  #f59e0b;
+    --r: 14px;
+  }
+
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Inter', sans-serif; background: var(--navy); color: rgba(255,255,255,0.6); overflow-x: hidden; }
+
+  /* ── grain ── */
+  .grain {
+    position: fixed; inset: 0; z-index: 999; pointer-events: none;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+    opacity: 0.35;
+  }
+
+  /* ── nav ── */
+  #nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 40px; height: 64px;
+    transition: background .3s, backdrop-filter .3s;
+  }
+  #nav.solid { background: rgba(7,17,31,0.92); backdrop-filter: blur(12px); }
+  .nav-back-btn {
+    font-size: 13px; font-weight: 600; color: rgba(255,255,255,0.7);
+    text-decoration: none; letter-spacing: 0.02em;
+    display: flex; align-items: center; gap: 6px;
+    transition: color .2s;
+  }
+  .nav-back-btn:hover { color: #fff; }
+  .nav-lang { display: flex; align-items: center; gap: 4px; }
+  .lang-btn {
+    background: none; border: none; cursor: pointer;
+    font-size: 11px; font-weight: 700; letter-spacing: 0.08em;
+    color: rgba(255,255,255,0.45); padding: 4px 6px; border-radius: 4px;
+    transition: color .15s, background .15s; font-family: 'Inter', sans-serif;
+  }
+  .lang-btn:hover { color: rgba(255,255,255,0.8); }
+  .lang-btn.active { color: #fff; background: rgba(255,255,255,0.12); }
+  .lang-sep { color: rgba(255,255,255,0.15); font-size: 11px; }
+
+  /* ── page header ── */
+  .pg-header {
+    position: relative;
+    padding: 160px 40px 88px;
+    text-align: center;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+    background: url('img/photo1.webp') center/cover no-repeat;
+    overflow: hidden;
+  }
+  .pg-header::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: linear-gradient(to bottom, rgba(7,17,31,0.50) 0%, rgba(7,17,31,0.80) 100%);
+  }
+  .pg-header > * { position: relative; z-index: 1; }
+  .pg-tag {
+    display: block;
+    font-size: 11px; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 2px; color: var(--aqua); margin-bottom: 14px;
+  }
+  .pg-h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(28px, 4.5vw, 50px);
+    font-weight: 900; color: #fff;
+    line-height: 1.15; letter-spacing: -0.02em;
+    max-width: 640px; margin: 0 auto;
+  }
+
+  /* ── terms content ── */
+  .terms-wrap { max-width: 800px; margin: 0 auto; padding: 72px 40px 88px; }
+  .terms-section { margin-bottom: 60px; }
+  .terms-section:last-child { margin-bottom: 0; }
+  .terms-h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 20px; font-weight: 700; color: #fff;
+    margin-bottom: 22px; padding-bottom: 14px;
+    border-bottom: 1px solid rgba(255,255,255,0.09);
+  }
+  .terms-h3 {
+    font-size: 13px; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.07em; color: var(--aqua);
+    margin: 24px 0 10px;
+  }
+  .terms-p {
+    font-size: 14px; line-height: 1.85; color: rgba(255,255,255,0.5);
+    margin-bottom: 14px;
+  }
+  .terms-p:last-child { margin-bottom: 0; }
+  .terms-p strong { color: rgba(255,255,255,0.8); font-weight: 700; }
+  .terms-p a { color: var(--aqua); text-decoration: none; }
+  .terms-p a:hover { text-decoration: underline; }
+  .terms-p ul { margin: 8px 0 0; padding-left: 20px; }
+  .terms-p li { margin-bottom: 6px; }
+
+  /* ── footer ── */
+  footer {
+    display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap;
+    gap: 16px; padding: 28px 40px;
+    border-top: 1px solid rgba(255,255,255,0.07);
+    background: #030a14;
+  }
+  .f-logo img { height: 28px; opacity: 0.7; display: block; }
+  .f-copy { font-size: 12px; color: rgba(255,255,255,0.3); }
+  .f-legal { display: flex; align-items: center; gap: 16px; }
+  .f-legal a {
+    font-size: 12px; color: rgba(255,255,255,0.4);
+    text-decoration: none; transition: color .2s;
+  }
+  .f-legal a:hover { color: rgba(255,255,255,0.8); }
+  .f-back {
+    font-size: 12px; font-weight: 600; color: rgba(255,255,255,0.5);
+    text-decoration: none; transition: color .2s;
+  }
+  .f-back:hover { color: #fff; }
+
+  @media (max-width: 600px) {
+    #nav { padding: 0 20px; }
+    .pg-header { padding: 110px 24px 56px; }
+    .terms-wrap { padding: 48px 20px 64px; }
+    footer { padding: 24px 20px; flex-direction: column; align-items: flex-start; }
+  }
+  </style>
+</head>
+<body>
+
+<div class="grain" aria-hidden="true"></div>
+
+<!-- NAV -->
+<nav id="nav">
+  <a href="/" class="nav-back-btn">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="15 18 9 12 15 6"/></svg>
+    <span data-i18n="nav_back">Início</span>
+  </a>
+  <div class="nav-lang">
+    <button class="lang-btn active" data-lang-switch="pt">PT</button>
+    <span class="lang-sep">·</span>
+    <button class="lang-btn" data-lang-switch="en">EN</button>
+    <span class="lang-sep">·</span>
+    <button class="lang-btn" data-lang-switch="es">ES</button>
+    <span class="lang-sep">·</span>
+    <button class="lang-btn" data-lang-switch="fr">FR</button>
+  </div>
+</nav>
+
+<!-- PAGE HEADER -->
+<header class="pg-header">
+  <span class="pg-tag" data-i18n="t.tag">Termos e Condições</span>
+  <h1 class="pg-h1" data-i18n="t.h1">O que precisa de saber antes de viajar</h1>
+</header>
+
+<!-- TERMS CONTENT -->
+<main class="terms-wrap">
+
+  <!-- S1 Cancelamentos e Reembolsos -->
+  <section class="terms-section">
+    <h2 class="terms-h2" data-i18n="t.s1.title">Cancelamentos e Reembolsos</h2>
+    <h3 class="terms-h3" data-i18n="t.s1.sub1">Cancelamentos por parte da empresa</h3>
+    <p class="terms-p" data-i18n="t.s1.p1">Devido a condições meteorológicas adversas (ex.: mar agitado), avarias mecânicas ou ordens das autoridades marítimas, poderão ocorrer sem aviso prévio. Nestas situações, o cliente tem direito a um reembolso total ou ao reagendamento da viagem, sem custos adicionais.</p>
+    <h3 class="terms-h3" data-i18n="t.s1.sub2">Cancelamentos efectuados pelo cliente</h3>
+    <p class="terms-p" data-i18n="t.s1.p2">Aconselhamos que nos contate com pelo menos 48 horas de antecedência face à hora prevista de partida; cancelamentos nessas condições serão reembolsados ou poderão ser remarcados. Cancelamentos efectuados com menos de 24 horas de antecedência não são reembolsáveis, excepto em casos de doença comprovada ou caso tenha adquirido o <strong>bilhete flexível («trip protection»)</strong> — onde pode alterar tudo até 30 minutos antes da partida.</p>
+    <p class="terms-p" data-i18n="t.s1.p3">A não comparência na porta de embarque pelo menos 5 minutos antes da hora prevista de partida implica a perda do bilhete e do valor pago, sem direito a reembolso.</p>
+  </section>
+
+  <!-- S2 Horários e Alterações Operacionais -->
+  <section class="terms-section">
+    <h2 class="terms-h2" data-i18n="t.s2.title">Horários e Alterações Operacionais</h2>
+    <p class="terms-p" data-i18n="t.s2.p1">As horas de partida seguem o horário publicado na secção «Horários» do nosso website, podendo, no entanto, sofrer ajustamentos ou cancelamentos por razões operacionais, como insuficiência de passageiros ou condições marítimas adversas.</p>
+    <p class="terms-p" data-i18n="t.s2.p2">Nesse caso a VIAMAR entrará em contacto com os passageiros para proceder ao reembolso ou ao reagendamento da viagem cancelada.</p>
+    <p class="terms-p" data-i18n="t.s2.p3">A empresa reserva-se o direito de substituir a embarcação por outra de capacidade diferente, sem aviso prévio, desde que estejam garantidas as condições de segurança e transporte.</p>
+  </section>
+
+  <!-- S3 Condições de Embarque -->
+  <section class="terms-section">
+    <h2 class="terms-h2" data-i18n="t.s3.title">Condições de Embarque</h2>
+    <p class="terms-p" data-i18n="t.s3.p1">Os passageiros devem apresentar-se no ponto de embarque (Marina de Peniche) pelo menos 30 minutos antes da hora de partida para check-in e levantamento dos bilhetes físicos. Para grupos, é recomendada a comparência com pelo menos 1 hora de antecedência.</p>
+    <p class="terms-p" data-i18n="t.s3.p2">Os menores têm de ser acompanhados por um adulto responsável ou apresentar uma autorização devidamente certificada.</p>
+    <p class="terms-p" data-i18n="t.s3.p3">Não é permitida a presença de animais a bordo, salvo cães-guia, com aviso prévio.</p>
+  </section>
+
+  <!-- S4 Segurança e Responsabilidade -->
+  <section class="terms-section">
+    <h2 class="terms-h2" data-i18n="t.s4.title">Segurança e Responsabilidade</h2>
+    <p class="terms-p" data-i18n="t.s4.p1">Os passageiros devem cumprir todas as instruções da tripulação, nomeadamente as relativas à segurança a bordo, utilização de coletes salva-vidas e permanência na embarcação. O incumprimento destas instruções pode levar à recusa de embarque ou à interrupção da viagem, sem direito a reembolso, sempre que tal se justifique por razões de segurança.</p>
+    <p class="terms-p" data-i18n="t.s4.p2">É proibido fumar a bordo.</p>
+    <p class="terms-p" data-i18n="t.s4.p3">É proibido o consumo de bebidas alcoólicas a bordo, bem como o embarque de passageiros visivelmente alcoolizados, podendo nestas situações o embarque ser recusado pela tripulação.</p>
+    <p class="terms-p" data-i18n="t.s4.p4">Durante a viagem, os passageiros devem permanecer sentados, excepto nas deslocações estritamente necessárias, designadamente para utilização da casa de banho.</p>
+    <p class="terms-p" data-i18n="t.s4.p5">A empresa não se responsabiliza por perda ou danos em objectos pessoais resultantes de exposição à água, manuseamento inadequado ou negligência do passageiro, sem prejuízo dos direitos legalmente previstos.</p>
+    <p class="terms-p" data-i18n="t.s4.p6">Passageiros com mobilidade reduzida ou condições de saúde específicas devem informar previamente a empresa; o embarque poderá ser recusado se tal colocar em risco a segurança do próprio passageiro, da embarcação ou dos demais passageiros.</p>
+  </section>
+
+  <!-- S5 Taxas da Ilha -->
+  <section class="terms-section">
+    <h2 class="terms-h2" data-i18n="t.s5.title">Taxas da Ilha — BerlengasPass</h2>
+    <p class="terms-p" data-i18n="t.s5.p1">É da responsabilidade do cliente adquirir o BerlengasPass (através da plataforma do ICNF) e efectuar o pagamento da taxa de acesso à ilha (até 3 € por pessoa). Esta taxa não está incluída no preço do bilhete de transporte.</p>
+    <p class="terms-p" data-i18n="t.s5.p2">Pode adquirir esta autorização directamente em <a href="https://berlengaspass.icnf.pt" target="_blank" rel="noopener">berlengaspass.icnf.pt</a> ou através do botão «Obter BerlengasPass» no nosso website.</p>
+  </section>
+
+  <!-- S6 Pagamento e Reservas -->
+  <section class="terms-section">
+    <h2 class="terms-h2" data-i18n="t.s6.title">Pagamento e Reservas</h2>
+    <p class="terms-p" data-i18n="t.s6.p1">As reservas podem ser efectuadas por telefone ou presencialmente. Para garantir a reserva, recomendamos que o pagamento seja concluído até 48 horas antes da hora de embarque.</p>
+    <p class="terms-p" data-i18n="t.s6.p2">As reservas são aceites sem custos, mas a viagem apenas será confirmada após o pagamento, que deverá ocorrer, no máximo, até 24 horas antes da partida.</p>
+    <p class="terms-p" data-i18n="t.s6.p3">Caso pretenda remarcar a sua viagem com menos de 24 horas de antecedência, deve adquirir o bilhete flexível (trip protection).</p>
+  </section>
+
+  <!-- S7 Condições Meteorológicas -->
+  <section class="terms-section">
+    <h2 class="terms-h2" data-i18n="t.s7.title">Condições Meteorológicas e do Mar</h2>
+    <p class="terms-p" data-i18n="t.s7.p1">A empresa reserva-se o direito de suspender viagens em caso de vento forte, fecho de porto pelas autoridades marítimas, ondulação elevada ou avisos emitidos pela Capitania do Porto.</p>
+    <p class="terms-p" data-i18n="t.s7.p2">Nestas situações, a sua viagem poderá ser reagendada sem qualquer custo.</p>
+    <p class="terms-p" data-i18n="t.s7.p3">Recomendamos que os passageiros tragam consigo medicação adequada contra o enjoo, caso necessário. A empresa apenas presta assistência de primeiros socorros básicos.</p>
+  </section>
+
+  <!-- S8 Comportamento na Ilha -->
+  <section class="terms-section">
+    <h2 class="terms-h2" data-i18n="t.s8.title">Comportamento na Ilha</h2>
+    <p class="terms-p" data-i18n="t.s8.p1">É estritamente proibido deixar lixo, acampar fora das áreas designadas ou perturbar a fauna e a flora da ilha. O incumprimento destas normas pode resultar na exclusão de futuras viagens com a empresa.</p>
+  </section>
+
+  <!-- S9 Privacidade e Cookies -->
+  <section class="terms-section">
+    <h2 class="terms-h2" data-i18n="t.s9.title">Política de Privacidade e Cookies</h2>
+    <p class="terms-p" data-i18n="t.s9.p1">Os dados pessoais fornecidos no acto da reserva (nome, dados de contacto) serão utilizados apenas para fins operacionais e poderão ser partilhados com as autoridades caso tal seja legalmente exigido.</p>
+    <p class="terms-p" data-i18n="t.s9.p2">O website da empresa utiliza cookies para optimizar a sua experiência online. Os clientes podem ajustar as definições de cookies nas preferências do seu navegador.</p>
+  </section>
+
+</main>
+
+<!-- FOOTER -->
+<footer>
+  <a href="/" class="f-logo"><img src="/logo-viamar.png" alt="Viamar Ferry Berlenga" /></a>
+  <span class="f-copy">© 2026 Viamar — Travessias à Ilha da Berlenga · Peniche</span>
+  <div class="f-legal">
+    <a href="/faqs.html" data-i18n="ft.faqs">FAQ's</a>
+    <a href="/termos.html" data-i18n="ft.terms">Termos e Condições</a>
+  </div>
+</footer>
+
+<script>
+  const translations = {
+    pt: {
+      nav_back: 'Início', nav_back_full: '← Voltar ao início',
+      'ft.faqs': "FAQ's", 'ft.terms': 'Termos e Condições',
+      't.tag': 'Termos e Condições',
+      't.h1': 'O que precisa de saber antes de viajar',
+      't.s1.title': 'Cancelamentos e Reembolsos',
+      't.s1.sub1': 'Cancelamentos por parte da empresa',
+      't.s1.p1': 'Devido a condições meteorológicas adversas (ex.: mar agitado), avarias mecânicas ou ordens das autoridades marítimas, poderão ocorrer sem aviso prévio. Nestas situações, o cliente tem direito a um reembolso total ou ao reagendamento da viagem, sem custos adicionais.',
+      't.s1.sub2': 'Cancelamentos efectuados pelo cliente',
+      't.s1.p2': 'Aconselhamos que nos contate com pelo menos 48 horas de antecedência face à hora prevista de partida; cancelamentos nessas condições serão reembolsados ou poderão ser remarcados. Cancelamentos efectuados com menos de 24 horas de antecedência não são reembolsáveis, excepto em casos de doença comprovada ou caso tenha adquirido o <strong>bilhete flexível («trip protection»)</strong> — onde pode alterar tudo até 30 minutos antes da partida.',
+      't.s1.p3': 'A não comparência na porta de embarque pelo menos 5 minutos antes da hora prevista de partida implica a perda do bilhete e do valor pago, sem direito a reembolso.',
+      't.s2.title': 'Horários e Alterações Operacionais',
+      't.s2.p1': 'As horas de partida seguem o horário publicado na secção «Horários» do nosso website, podendo, no entanto, sofrer ajustamentos ou cancelamentos por razões operacionais, como insuficiência de passageiros ou condições marítimas adversas.',
+      't.s2.p2': 'Nesse caso a VIAMAR entrará em contacto com os passageiros para proceder ao reembolso ou ao reagendamento da viagem cancelada.',
+      't.s2.p3': 'A empresa reserva-se o direito de substituir a embarcação por outra de capacidade diferente, sem aviso prévio, desde que estejam garantidas as condições de segurança e transporte.',
+      't.s3.title': 'Condições de Embarque',
+      't.s3.p1': 'Os passageiros devem apresentar-se no ponto de embarque (Marina de Peniche) pelo menos 30 minutos antes da hora de partida para check-in e levantamento dos bilhetes físicos. Para grupos, é recomendada a comparência com pelo menos 1 hora de antecedência.',
+      't.s3.p2': 'Os menores têm de ser acompanhados por um adulto responsável ou apresentar uma autorização devidamente certificada.',
+      't.s3.p3': 'Não é permitida a presença de animais a bordo, salvo cães-guia, com aviso prévio.',
+      't.s4.title': 'Segurança e Responsabilidade',
+      't.s4.p1': 'Os passageiros devem cumprir todas as instruções da tripulação, nomeadamente as relativas à segurança a bordo, utilização de coletes salva-vidas e permanência na embarcação. O incumprimento destas instruções pode levar à recusa de embarque ou à interrupção da viagem, sem direito a reembolso, sempre que tal se justifique por razões de segurança.',
+      't.s4.p2': 'É proibido fumar a bordo.',
+      't.s4.p3': 'É proibido o consumo de bebidas alcoólicas a bordo, bem como o embarque de passageiros visivelmente alcoolizados, podendo nestas situações o embarque ser recusado pela tripulação.',
+      't.s4.p4': 'Durante a viagem, os passageiros devem permanecer sentados, excepto nas deslocações estritamente necessárias, designadamente para utilização da casa de banho.',
+      't.s4.p5': 'A empresa não se responsabiliza por perda ou danos em objectos pessoais resultantes de exposição à água, manuseamento inadequado ou negligência do passageiro, sem prejuízo dos direitos legalmente previstos.',
+      't.s4.p6': 'Passageiros com mobilidade reduzida ou condições de saúde específicas devem informar previamente a empresa; o embarque poderá ser recusado se tal colocar em risco a segurança do próprio passageiro, da embarcação ou dos demais passageiros.',
+      't.s5.title': 'Taxas da Ilha — BerlengasPass',
+      't.s5.p1': 'É da responsabilidade do cliente adquirir o BerlengasPass (através da plataforma do ICNF) e efectuar o pagamento da taxa de acesso à ilha (até 3 € por pessoa). Esta taxa não está incluída no preço do bilhete de transporte.',
+      't.s5.p2': 'Pode adquirir esta autorização directamente em <a href="https://berlengaspass.icnf.pt" target="_blank" rel="noopener">berlengaspass.icnf.pt</a> ou através do botão «Obter BerlengasPass» no nosso website.',
+      't.s6.title': 'Pagamento e Reservas',
+      't.s6.p1': 'As reservas podem ser efectuadas por telefone ou presencialmente. Para garantir a reserva, recomendamos que o pagamento seja concluído até 48 horas antes da hora de embarque.',
+      't.s6.p2': 'As reservas são aceites sem custos, mas a viagem apenas será confirmada após o pagamento, que deverá ocorrer, no máximo, até 24 horas antes da partida.',
+      't.s6.p3': 'Caso pretenda remarcar a sua viagem com menos de 24 horas de antecedência, deve adquirir o bilhete flexível (trip protection).',
+      't.s7.title': 'Condições Meteorológicas e do Mar',
+      't.s7.p1': 'A empresa reserva-se o direito de suspender viagens em caso de vento forte, fecho de porto pelas autoridades marítimas, ondulação elevada ou avisos emitidos pela Capitania do Porto.',
+      't.s7.p2': 'Nestas situações, a sua viagem poderá ser reagendada sem qualquer custo.',
+      't.s7.p3': 'Recomendamos que os passageiros tragam consigo medicação adequada contra o enjoo, caso necessário. A empresa apenas presta assistência de primeiros socorros básicos.',
+      't.s8.title': 'Comportamento na Ilha',
+      't.s8.p1': 'É estritamente proibido deixar lixo, acampar fora das áreas designadas ou perturbar a fauna e a flora da ilha. O incumprimento destas normas pode resultar na exclusão de futuras viagens com a empresa.',
+      't.s9.title': 'Política de Privacidade e Cookies',
+      't.s9.p1': 'Os dados pessoais fornecidos no acto da reserva (nome, dados de contacto) serão utilizados apenas para fins operacionais e poderão ser partilhados com as autoridades caso tal seja legalmente exigido.',
+      't.s9.p2': 'O website da empresa utiliza cookies para optimizar a sua experiência online. Os clientes podem ajustar as definições de cookies nas preferências do seu navegador.'
+    },
+    en: {
+      nav_back: 'Home', nav_back_full: '← Back to home',
+      'ft.faqs': "FAQ's", 'ft.terms': 'Terms & Conditions',
+      't.tag': 'Terms & Conditions',
+      't.h1': 'What you need to know before you travel',
+      't.s1.title': 'Cancellations & Refunds',
+      't.s1.sub1': 'Company cancellations',
+      't.s1.p1': 'Due to adverse weather conditions (e.g. rough seas), mechanical failures or maritime authority orders, cancellations may occur without prior notice. In these situations, the client is entitled to a full refund or trip rescheduling at no additional cost.',
+      't.s1.sub2': 'Client cancellations',
+      't.s1.p2': 'We advise contacting us at least 48 hours before the scheduled departure; cancellations under these conditions will be refunded or rescheduled. Cancellations made less than 24 hours in advance are non-refundable, except in cases of proven illness or if you have purchased the <strong>flexible ticket ("trip protection")</strong> — which allows changes up to 30 minutes before departure.',
+      't.s1.p3': 'Failure to appear at the boarding gate at least 5 minutes before the scheduled departure implies the loss of the ticket and the amount paid, with no right to a refund.',
+      't.s2.title': 'Schedules & Operational Changes',
+      't.s2.p1': "Departure times follow the schedule published in the 'Schedules' section of our website, but may be subject to adjustments or cancellations for operational reasons, such as insufficient passengers or adverse maritime conditions.",
+      't.s2.p2': 'In such cases, VIAMAR will contact passengers to proceed with a refund or rescheduling of the cancelled trip.',
+      't.s2.p3': 'The company reserves the right to replace the vessel with one of different capacity, without prior notice, provided that safety and transport conditions are guaranteed.',
+      't.s3.title': 'Boarding Conditions',
+      't.s3.p1': 'Passengers must present themselves at the boarding point (Marina de Peniche) at least 30 minutes before departure for check-in and collection of physical tickets. For groups, arrival at least 1 hour in advance is recommended.',
+      't.s3.p2': 'Minors must be accompanied by a responsible adult or present a duly certified authorization.',
+      't.s3.p3': 'Animals are not permitted on board, except guide dogs, with prior notice.',
+      't.s4.title': 'Safety & Liability',
+      't.s4.p1': 'Passengers must comply with all crew instructions, particularly those relating to on-board safety, use of life jackets and remaining on the vessel. Non-compliance may lead to refusal of boarding or interruption of the trip, without the right to a refund, whenever justified for safety reasons.',
+      't.s4.p2': 'Smoking on board is strictly prohibited.',
+      't.s4.p3': 'Consumption of alcoholic beverages on board is prohibited, as well as boarding by visibly intoxicated passengers; in these situations, boarding may be refused by the crew.',
+      't.s4.p4': 'During the trip, passengers must remain seated, except for strictly necessary movements, namely to use the restroom.',
+      't.s4.p5': 'The company is not responsible for loss or damage to personal belongings resulting from exposure to water, improper handling or passenger negligence, without prejudice to any legally provided rights.',
+      't.s4.p6': 'Passengers with reduced mobility or specific health conditions must inform the company in advance; boarding may be refused if it poses a risk to the safety of the passenger, vessel or other passengers.',
+      't.s5.title': 'Island Fees — BerlengasPass',
+      't.s5.p1': "It is the client's responsibility to acquire the BerlengasPass (via the ICNF platform) and pay the island access fee (up to €3 per person). This fee is not included in the transport ticket price.",
+      't.s5.p2': 'You can purchase this authorization directly at <a href="https://berlengaspass.icnf.pt" target="_blank" rel="noopener">berlengaspass.icnf.pt</a> or via the "Get BerlengasPass" button on our website.',
+      't.s6.title': 'Payment & Reservations',
+      't.s6.p1': 'Reservations can be made by phone or in person. To secure your booking, we recommend that payment be completed at least 48 hours before the boarding time.',
+      't.s6.p2': 'Reservations are accepted free of charge, but the trip will only be confirmed after payment, which must be completed no later than 24 hours before departure.',
+      't.s6.p3': 'If you wish to reschedule your trip less than 24 hours in advance, you must purchase the flexible ticket (trip protection).',
+      't.s7.title': 'Weather & Sea Conditions',
+      't.s7.p1': 'The company reserves the right to suspend trips in case of strong winds, port closure by maritime authorities, heavy swell or warnings issued by the Port Authority.',
+      't.s7.p2': 'In these situations, your trip may be rescheduled at no cost.',
+      't.s7.p3': 'We recommend that passengers bring adequate seasickness medication if needed. The company provides basic first aid assistance only.',
+      't.s8.title': 'Behaviour on the Island',
+      't.s8.p1': "It is strictly prohibited to litter, camp outside designated areas or disturb the island's fauna and flora. Non-compliance with these rules may result in exclusion from future trips with the company.",
+      't.s9.title': 'Privacy & Cookies Policy',
+      't.s9.p1': 'Personal data provided at the time of booking (name, contact details) will be used for operational purposes only and may be shared with authorities if legally required.',
+      't.s9.p2': "The company's website uses cookies to optimize your online experience. Clients may adjust cookie settings in their browser preferences."
+    },
+    es: {
+      nav_back: 'Inicio', nav_back_full: '← Volver al inicio',
+      'ft.faqs': "FAQ's", 'ft.terms': 'Términos y Condiciones',
+      't.tag': 'Términos y Condiciones',
+      't.h1': 'Lo que necesita saber antes de viajar',
+      't.s1.title': 'Cancelaciones y Reembolsos',
+      't.s1.sub1': 'Cancelaciones por parte de la empresa',
+      't.s1.p1': 'Debidas a condiciones meteorológicas adversas (p.ej.: mar agitado), averías mecánicas u órdenes de las autoridades marítimas, podrán producirse sin previo aviso. En estas situaciones, el cliente tiene derecho a un reembolso total o al reagendamiento del viaje, sin costes adicionales.',
+      't.s1.sub2': 'Cancelaciones por parte del cliente',
+      't.s1.p2': 'Aconsejamos contactarnos con al menos 48 horas de antelación; las cancelaciones en estas condiciones serán reembolsadas o podrán ser remarcadas. Las cancelaciones efectuadas con menos de 24 horas de antelación no son reembolsables, excepto en casos de enfermedad probada o si ha adquirido el <strong>billete flexible («trip protection»)</strong> — que permite cambios hasta 30 minutos antes de la salida.',
+      't.s1.p3': 'La no comparecencia en la puerta de embarque al menos 5 minutos antes de la hora prevista implica la pérdida del billete y del importe pagado, sin derecho a reembolso.',
+      't.s2.title': 'Horarios y Cambios Operacionales',
+      't.s2.p1': 'Las horas de salida siguen el horario publicado en la sección «Horarios» de nuestro sitio web, pudiendo, no obstante, sufrir ajustes o cancelaciones por razones operativas, como insuficiencia de pasajeros o condiciones marítimas adversas.',
+      't.s2.p2': 'En ese caso, VIAMAR se pondrá en contacto con los pasajeros para proceder al reembolso o al reagendamiento del viaje cancelado.',
+      't.s2.p3': 'La empresa se reserva el derecho de sustituir la embarcación por otra de distinta capacidad, sin previo aviso, siempre que se garanticen las condiciones de seguridad y transporte.',
+      't.s3.title': 'Condiciones de Embarque',
+      't.s3.p1': 'Los pasajeros deben presentarse en el punto de embarque (Marina de Peniche) al menos 30 minutos antes de la salida para el check-in y recogida de billetes físicos. Para grupos, se recomienda la presencia con al menos 1 hora de antelación.',
+      't.s3.p2': 'Los menores deben ir acompañados de un adulto responsable o presentar una autorización debidamente certificada.',
+      't.s3.p3': 'No se permite la presencia de animales a bordo, excepto perros guía, con aviso previo.',
+      't.s4.title': 'Seguridad y Responsabilidad',
+      't.s4.p1': 'Los pasajeros deben cumplir todas las instrucciones de la tripulación, especialmente las relativas a la seguridad a bordo, uso de chalecos salvavidas y permanencia en la embarcación. El incumplimiento puede llevar a la denegación de embarque o a la interrupción del viaje, sin derecho a reembolso, cuando se justifique por razones de seguridad.',
+      't.s4.p2': 'Está prohibido fumar a bordo.',
+      't.s4.p3': 'Está prohibido el consumo de bebidas alcohólicas a bordo, así como el embarque de pasajeros visiblemente alcoholizados; en estas situaciones, el embarque podrá ser denegado por la tripulación.',
+      't.s4.p4': 'Durante el viaje, los pasajeros deben permanecer sentados, excepto en los desplazamientos estrictamente necesarios, especialmente para el uso del baño.',
+      't.s4.p5': 'La empresa no se responsabiliza por la pérdida o daños en objetos personales resultantes de exposición al agua, manejo inadecuado o negligencia del pasajero, sin perjuicio de los derechos legalmente previstos.',
+      't.s4.p6': 'Los pasajeros con movilidad reducida o condiciones de salud específicas deben informar previamente a la empresa; el embarque podrá ser denegado si supone un riesgo para la seguridad del propio pasajero, la embarcación o los demás pasajeros.',
+      't.s5.title': 'Tasas de la Isla — BerlengasPass',
+      't.s5.p1': 'Es responsabilidad del cliente adquirir el BerlengasPass (a través de la plataforma del ICNF) y efectuar el pago de la tasa de acceso a la isla (hasta 3 € por persona). Esta tasa no está incluida en el precio del billete de transporte.',
+      't.s5.p2': 'Puede adquirir esta autorización directamente en <a href="https://berlengaspass.icnf.pt" target="_blank" rel="noopener">berlengaspass.icnf.pt</a> o a través del botón «Obtener BerlengasPass» en nuestro sitio web.',
+      't.s6.title': 'Pago y Reservas',
+      't.s6.p1': 'Las reservas pueden efectuarse por teléfono o presencialmente. Para garantizar la reserva, recomendamos que el pago se complete hasta 48 horas antes de la hora de embarque.',
+      't.s6.p2': 'Las reservas se aceptan sin coste, pero el viaje solo será confirmado tras el pago, que deberá realizarse como máximo hasta 24 horas antes de la salida.',
+      't.s6.p3': 'Si desea remarcar su viaje con menos de 24 horas de antelación, debe adquirir el billete flexible (trip protection).',
+      't.s7.title': 'Condiciones Meteorológicas y del Mar',
+      't.s7.p1': 'La empresa se reserva el derecho de suspender viajes en caso de viento fuerte, cierre del puerto por las autoridades marítimas, oleaje elevado o avisos emitidos por la Capitanía del Puerto.',
+      't.s7.p2': 'En estas situaciones, su viaje podrá ser reagendado sin ningún coste.',
+      't.s7.p3': 'Recomendamos que los pasajeros traigan medicación adecuada contra el mareo si es necesario. La empresa solo presta asistencia de primeros auxilios básicos.',
+      't.s8.title': 'Comportamiento en la Isla',
+      't.s8.p1': 'Está estrictamente prohibido arrojar basura, acampar fuera de las zonas designadas o perturbar la fauna y flora de la isla. El incumplimiento de estas normas puede resultar en la exclusión de futuros viajes con la empresa.',
+      't.s9.title': 'Política de Privacidad y Cookies',
+      't.s9.p1': 'Los datos personales proporcionados en el momento de la reserva (nombre, datos de contacto) se utilizarán únicamente con fines operativos y podrán ser compartidos con las autoridades si es legalmente requerido.',
+      't.s9.p2': 'El sitio web de la empresa utiliza cookies para optimizar su experiencia online. Los clientes pueden ajustar la configuración de cookies en las preferencias de su navegador.'
+    },
+    fr: {
+      nav_back: 'Accueil', nav_back_full: "← Retour à l'accueil",
+      'ft.faqs': "FAQ's", 'ft.terms': 'Conditions Générales',
+      't.tag': 'Conditions Générales',
+      't.h1': 'Ce que vous devez savoir avant de voyager',
+      't.s1.title': 'Annulations et Remboursements',
+      't.s1.sub1': 'Annulations par la compagnie',
+      't.s1.p1': "En raison de conditions météorologiques défavorables (ex. : mer agitée), de pannes mécaniques ou d'ordres des autorités maritimes, des annulations peuvent survenir sans préavis. Dans ces situations, le client a droit à un remboursement intégral ou au report du voyage, sans frais supplémentaires.",
+      't.s1.sub2': 'Annulations par le client',
+      't.s1.p2': "Nous vous conseillons de nous contacter au moins 48 heures avant l'heure de départ prévue ; les annulations dans ces conditions seront remboursées ou reprogrammées. Les annulations effectuées moins de 24 heures à l'avance ne sont pas remboursables, sauf en cas de maladie prouvée ou si vous avez acquis le <strong>billet flexible (« trip protection »)</strong> — qui permet de modifier la réservation jusqu'à 30 minutes avant le départ.",
+      't.s1.p3': "L'absence à la porte d'embarquement au moins 5 minutes avant l'heure de départ prévue entraîne la perte du billet et du montant payé, sans droit au remboursement.",
+      't.s2.title': 'Horaires et Modifications Opérationnelles',
+      't.s2.p1': "Les heures de départ suivent le calendrier publié dans la section « Horaires » de notre site web, mais peuvent faire l'objet d'ajustements ou d'annulations pour des raisons opérationnelles, telles qu'un nombre insuffisant de passagers ou des conditions maritimes défavorables.",
+      't.s2.p2': 'Dans ce cas, VIAMAR contactera les passagers pour procéder au remboursement ou au report du voyage annulé.',
+      't.s2.p3': 'La compagnie se réserve le droit de remplacer le navire par un autre de capacité différente, sans préavis, à condition que les conditions de sécurité et de transport soient garanties.',
+      't.s3.title': "Conditions d'Embarquement",
+      't.s3.p1': "Les passagers doivent se présenter au point d'embarquement (Marina de Peniche) au moins 30 minutes avant le départ pour l'enregistrement et la collecte des billets physiques. Pour les groupes, il est recommandé d'arriver au moins 1 heure à l'avance.",
+      't.s3.p2': "Les mineurs doivent être accompagnés d'un adulte responsable ou présenter une autorisation dûment certifiée.",
+      't.s3.p3': "Les animaux ne sont pas autorisés à bord, sauf les chiens guides, avec préavis.",
+      't.s4.title': 'Sécurité et Responsabilité',
+      't.s4.p1': "Les passagers doivent respecter toutes les instructions de l'équipage, notamment celles relatives à la sécurité à bord, à l'utilisation des gilets de sauvetage et au maintien à bord. Le non-respect peut entraîner le refus d'embarquement ou l'interruption du voyage, sans droit au remboursement, lorsque cela est justifié pour des raisons de sécurité.",
+      't.s4.p2': "Il est strictement interdit de fumer à bord.",
+      't.s4.p3': "La consommation de boissons alcoolisées à bord est interdite, ainsi que l'embarquement de passagers visiblement ivres ; dans ces situations, l'embarquement peut être refusé par l'équipage.",
+      't.s4.p4': "Pendant le trajet, les passagers doivent rester assis, sauf pour les déplacements strictement nécessaires, notamment pour utiliser les toilettes.",
+      't.s4.p5': "La compagnie n'est pas responsable de la perte ou des dommages causés aux effets personnels résultant d'une exposition à l'eau, d'une manipulation inappropriée ou de la négligence du passager, sans préjudice des droits prévus par la loi.",
+      't.s4.p6': "Les passagers à mobilité réduite ou présentant des conditions de santé spécifiques doivent en informer la compagnie à l'avance ; l'embarquement peut être refusé si cela représente un risque pour la sécurité du passager, du navire ou des autres passagers.",
+      't.s5.title': 'Taxes Insulaires — BerlengasPass',
+      't.s5.p1': "Il appartient au client d'acquérir le BerlengasPass (via la plateforme de l'ICNF) et d'effectuer le paiement de la taxe d'accès à l'île (jusqu'à 3 € par personne). Cette taxe n'est pas incluse dans le prix du billet de transport.",
+      't.s5.p2': 'Vous pouvez acquérir cette autorisation directement sur <a href="https://berlengaspass.icnf.pt" target="_blank" rel="noopener">berlengaspass.icnf.pt</a> ou via le bouton « Obtenir BerlengasPass » sur notre site.',
+      't.s6.title': 'Paiement et Réservations',
+      't.s6.p1': "Les réservations peuvent être effectuées par téléphone ou en personne. Pour garantir votre réservation, nous vous recommandons d'effectuer le paiement au moins 48 heures avant l'heure d'embarquement.",
+      't.s6.p2': "Les réservations sont acceptées sans frais, mais le voyage ne sera confirmé qu'après le paiement, qui doit intervenir au plus tard 24 heures avant le départ.",
+      't.s6.p3': "Si vous souhaitez reporter votre voyage moins de 24 heures à l'avance, vous devez acquérir le billet flexible (trip protection).",
+      't.s7.title': 'Conditions Météorologiques et de la Mer',
+      't.s7.p1': "La compagnie se réserve le droit de suspendre les voyages en cas de vents forts, de fermeture du port par les autorités maritimes, de forte houle ou d'avertissements émis par la Capitainerie du Port.",
+      't.s7.p2': "Dans ces situations, votre voyage pourra être reporté sans aucun frais.",
+      't.s7.p3': "Nous recommandons aux passagers d'apporter des médicaments contre le mal de mer si nécessaire. La compagnie ne fournit qu'une assistance de premiers secours de base.",
+      't.s8.title': "Comportement sur l'Île",
+      't.s8.p1': "Il est strictement interdit de jeter des déchets, de camper en dehors des zones désignées ou de perturber la faune et la flore de l'île. Le non-respect de ces règles peut entraîner l'exclusion des futurs voyages avec la compagnie.",
+      't.s9.title': 'Politique de Confidentialité et Cookies',
+      't.s9.p1': "Les données personnelles fournies lors de la réservation (nom, coordonnées) seront utilisées uniquement à des fins opérationnelles et pourront être partagées avec les autorités si la loi l'exige.",
+      't.s9.p2': "Le site web de la compagnie utilise des cookies pour optimiser votre expérience en ligne. Les clients peuvent ajuster les paramètres de cookies dans les préférences de leur navigateur."
+    }
+  };
+
+  function setLang(lang) {
+    document.documentElement.setAttribute('data-lang', lang);
+    document.documentElement.lang = lang === 'pt' ? 'pt-PT' : lang;
+    document.querySelectorAll('[data-lang-switch]').forEach(btn => {
+      btn.classList.toggle('active', btn.dataset.langSwitch === lang);
+    });
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+      const key = el.dataset.i18n;
+      if (translations[lang] && translations[lang][key] !== undefined) {
+        el.innerHTML = translations[lang][key];
+      }
+    });
+  }
+
+  document.querySelectorAll('[data-lang-switch]').forEach(btn => {
+    btn.addEventListener('click', () => setLang(btn.dataset.langSwitch));
+  });
+
+  const _nav = navigator.language?.slice(0,2);
+  setLang(['pt','en','es','fr'].includes(_nav) ? _nav : 'pt');
+
+  // nav solid on scroll
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('solid', window.scrollY > 40);
+  }, { passive: true });
+</script>
+
+<script defer src="/_vercel/insights/script.js"></script>
+
+</body>
+</html>

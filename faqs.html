@@ -165,6 +165,9 @@
   }
   .f-logo img { height: 28px; opacity: 0.7; display: block; }
   .f-copy { font-size: 12px; color: rgba(255,255,255,0.3); }
+  .f-legal { display: flex; align-items: center; gap: 16px; }
+  .f-legal a { font-size: 12px; color: rgba(255,255,255,0.4); text-decoration: none; transition: color .2s; }
+  .f-legal a:hover { color: rgba(255,255,255,0.8); }
   .f-back {
     font-size: 12px; font-weight: 600; color: rgba(255,255,255,0.5);
     text-decoration: none; transition: color .2s;
@@ -312,13 +315,16 @@
 <footer>
   <a href="/" class="f-logo"><img src="/logo-viamar.png" alt="Viamar Ferry Berlenga" /></a>
   <span class="f-copy">© 2026 Viamar — Travessias à Ilha da Berlenga · Peniche</span>
-  <a href="/" class="f-back" data-i18n="nav_back_full">← Voltar ao início</a>
+  <div class="f-legal">
+    <a href="/faqs.html">FAQ's</a>
+    <a href="/termos.html" data-i18n="ft.terms">Termos e Condições</a>
+  </div>
 </footer>
 
 <script>
   const translations = {
     pt: {
-      nav_back: "Início", nav_back_full: "← Voltar ao início",
+      nav_back: "Início", nav_back_full: "← Voltar ao início", "ft.terms": "Termos e Condições",
       "faq.tag": "Perguntas Frequentes",
       "faq.h2": "Tudo o que precisa de saber",
       "faq.q1": "O que devo levar para uma viagem à Ilha da Berlenga?",
@@ -347,7 +353,7 @@
       "faq.a12": "Sim, e a nossa embarcação é uma das preferidas por famílias com crianças pequenas e passageiros idosos. O barco foi projectado especificamente para o conforto e a segurança, com lugares próprios para passageiros com dificuldades motoras e bebés de colo. Crianças devem estar sempre acompanhadas pelos responsáveis. Passageiros que necessitem de assistência especial podem informar-nos antecipadamente."
     },
     en: {
-      nav_back: "Home", nav_back_full: "← Back to home",
+      nav_back: "Home", nav_back_full: "← Back to home", "ft.terms": "Terms & Conditions",
       "faq.tag": "FAQ",
       "faq.h2": "Everything you need to know",
       "faq.q1": "What should I bring for a trip to Berlenga Island?",
@@ -376,7 +382,7 @@
       "faq.a12": "Absolutely — our vessel is one of the most popular choices for families with young children and elderly passengers. The boat was designed specifically for the Berlenga crossing with safety and comfort as priorities. Children must always be accompanied by a responsible adult. Passengers requiring special assistance are welcome to let us know in advance."
     },
     es: {
-      nav_back: "Inicio", nav_back_full: "← Volver al inicio",
+      nav_back: "Inicio", nav_back_full: "← Volver al inicio", "ft.terms": "Términos y Condiciones",
       "faq.tag": "Preguntas Frecuentes",
       "faq.h2": "Todo lo que necesita saber",
       "faq.q1": "¿Qué debo llevar para un viaje a la Isla Berlenga?",
@@ -405,7 +411,7 @@
       "faq.a12": "Sí, y nuestra embarcación es una de las preferidas por familias y personas mayores. El barco fue diseñado específicamente para este trayecto con la seguridad y el confort como prioridades. Los niños deben ir siempre acompañados de un adulto responsable. Los pasajeros que necesiten asistencia especial pueden informarnos con antelación."
     },
     fr: {
-      nav_back: "Accueil", nav_back_full: "← Retour à l'accueil",
+      nav_back: "Accueil", nav_back_full: "← Retour à l'accueil", "ft.terms": "Conditions Générales",
       "faq.tag": "Questions Fréquentes",
       "faq.h2": "Tout ce que vous devez savoir",
       "faq.q1": "Que dois-je apporter pour un voyage à l'Île Berlenga ?",
