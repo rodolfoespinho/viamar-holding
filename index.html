@@ -514,15 +514,36 @@
     .faq-item dd { font-size: 14px; line-height: 1.65; color: rgba(255,255,255,0.45); margin: 0; }
 
     /* ── Footer ── */
-    .site-footer {
-      background: rgba(0,0,0,0.3);
-      border-top: 1px solid rgba(255,255,255,0.05);
-      padding: 20px 40px; text-align: center;
+    .site-footer { background: #030a14; border-top: 1px solid rgba(255,255,255,0.07); }
+    .ft-inner {
+      max-width: 1100px; margin: 0 auto;
+      padding: 56px 40px 40px;
+      display: grid;
+      grid-template-columns: 1.7fr 1fr 1.3fr 1fr;
+      gap: 40px;
     }
-    .site-footer p { font-size: 12px; color: rgba(255,255,255,0.22); line-height: 1.7; }
-    .site-footer a { color: rgba(255,255,255,0.35); text-decoration: none; }
-    .ft-atlas { font-weight: 800; letter-spacing: 1px; color: rgba(255,255,255,0.55) !important; transition: color .2s; }
+    .ft-logo { height: 36px; width: auto; display: block; margin-bottom: 16px; }
+    .ft-tagline { font-size: 13px; color: rgba(255,255,255,0.38); line-height: 1.65; max-width: 220px; margin-bottom: 20px; }
+    .ft-social { display: flex; gap: 14px; }
+    .ft-social a { color: rgba(255,255,255,0.38); transition: color .2s; display: flex; align-items: center; }
+    .ft-social a:hover { color: #fff; }
+    .ft-col-label { font-size: 10px; font-weight: 800; letter-spacing: 1.5px; text-transform: uppercase; color: rgba(255,255,255,0.3); margin-bottom: 14px; display: block; }
+    .ft-col { display: flex; flex-direction: column; }
+    .ft-col a, .ft-col address { font-size: 13px; color: rgba(255,255,255,0.5); text-decoration: none; font-style: normal; padding: 4px 0; line-height: 1.55; transition: color .15s; }
+    .ft-col a:hover { color: rgba(255,255,255,0.88); }
+    .ft-bottom-wrap { border-top: 1px solid rgba(255,255,255,0.05); }
+    .ft-bottom { max-width: 1100px; margin: 0 auto; padding: 18px 40px; display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+    .ft-bottom p { font-size: 12px; color: rgba(255,255,255,0.22); line-height: 1.7; }
+    .ft-bottom a { color: rgba(255,255,255,0.35); text-decoration: none; }
+    .ft-atlas { font-weight: 800; letter-spacing: 1px; color: rgba(255,255,255,0.45) !important; transition: color .2s; }
     .ft-atlas:hover { color: rgba(255,255,255,0.85) !important; }
+    @media (max-width: 900px) {
+      .ft-inner { grid-template-columns: 1fr 1fr; gap: 28px; padding: 40px 20px 32px; }
+      .ft-bottom { padding: 16px 20px; flex-direction: column; align-items: flex-start; gap: 4px; }
+    }
+    @media (max-width: 480px) {
+      .ft-inner { grid-template-columns: 1fr; gap: 24px; }
+    }
 
     /* ── Hamburger button ── */
     .nav-hamburger {
@@ -632,76 +653,10 @@
       .seo-card { padding: 20px; }
       .whatsapp-fab .wa-text { display: none; }
       .whatsapp-fab { padding: 14px; border-radius: 50%; bottom: 20px; right: 20px; }
-      .site-footer { padding: 20px; }
+      .ft-inner { padding: 32px 20px 24px; }
+      .ft-bottom { padding: 14px 20px; }
     }
 
-    /* ── POPUP ───────────────────────────────────────────────────────────── */
-    #popup-overlay {
-      position: fixed; inset: 0; z-index: 9000;
-      background: rgba(7,17,31,0.55);
-      backdrop-filter: blur(3px);
-      display: flex; align-items: center; justify-content: center;
-      opacity: 0; transition: opacity 0.35s ease;
-      pointer-events: none;
-      padding: 24px;
-    }
-    #popup-overlay.visible { opacity: 1; pointer-events: all; }
-    #popup-sheet {
-      width: 100%; max-width: 440px;
-      background: #fff; border-radius: 20px;
-      padding: 0 0 20px;
-      transform: scale(0.92) translateY(16px);
-      transition: transform 0.4s cubic-bezier(0.32, 0.72, 0, 1);
-      user-select: none;
-    }
-    #popup-overlay.visible #popup-sheet { transform: scale(1) translateY(0); }
-    #popup-sheet.dragging { transition: none; }
-    .popup-topbar {
-      display: flex; align-items: center; justify-content: center;
-      padding: 14px 16px 10px; position: relative;
-    }
-    .popup-handle { display: none; } /* hidden on desktop */
-    .popup-close {
-      position: absolute; right: 12px; top: 50%; transform: translateY(-50%);
-      width: 30px; height: 30px; border-radius: 50%;
-      background: #f1f5f9; border: none; cursor: pointer;
-      display: flex; align-items: center; justify-content: center;
-      color: #64748b; font-size: 13px;
-      transition: background 0.15s;
-    }
-    .popup-close:hover { background: #e2e8f0; }
-    .popup-img-placeholder {
-      display: block;
-      margin: 0 16px;
-      border-radius: 12px; overflow: hidden;
-      line-height: 0; cursor: pointer;
-      text-decoration: none;
-    }
-    .popup-img-placeholder img {
-      width: 100%; height: auto; display: block;
-      transition: opacity 0.15s;
-    }
-    .popup-img-placeholder:hover img { opacity: 0.93; }
-
-    /* mobile: bottom sheet */
-    @media (max-width: 600px) {
-      #popup-overlay {
-        align-items: flex-end; justify-content: center;
-        padding: 0;
-      }
-      #popup-sheet {
-        max-width: 100%;
-        border-radius: 24px 24px 0 0;
-        padding: 0 0 28px;
-        transform: translateY(100%);
-      }
-      #popup-overlay.visible #popup-sheet { transform: translateY(0); }
-      #popup-sheet.dragging { transition: none; }
-      .popup-topbar { cursor: grab; }
-      .popup-topbar:active { cursor: grabbing; }
-      .popup-handle { display: block; width: 44px; height: 5px; border-radius: 3px; background: #d1d5db; }
-      .popup-img-placeholder { margin: 0 16px; border-radius: 14px; }
-    }
   </style>
 
   <style>
@@ -921,12 +876,16 @@
     .sched-sec .sec-sub { color: rgba(7,17,31,0.55); }
     .sched-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; align-items: start; }
     .sched-card { background: #fff; border-radius: var(--r); overflow: hidden; box-shadow: 0 4px 24px rgba(0,0,0,0.08); border: 1.5px solid #e2e8f0; }
+    .sched-card.low  { border-color: #94a3b8; }
+    .sched-card.mid  { border-color: #0e7490; box-shadow: 0 4px 24px rgba(14,116,144,0.12); }
     .sched-card.peak { border-color: var(--gold); box-shadow: 0 4px 32px rgba(245,158,11,0.18); }
     .sched-head { background: var(--navy); color: #fff; padding: 12px 20px; display: flex; justify-content: space-between; align-items: center; gap: 12px; }
+    .sched-card.low  .sched-head { background: #334155; }
+    .sched-card.mid  .sched-head { background: #0e7490; }
     .sched-card.peak .sched-head { background: var(--gold); }
     .sched-dates { font-size: 13px; font-weight: 700; color: #fff; }
     .sched-card.peak .sched-dates { color: var(--navy); }
-    .sched-season { font-size: 10px; font-weight: 800; letter-spacing: 1px; text-transform: uppercase; background: rgba(255,255,255,0.15); color: rgba(255,255,255,0.9); padding: 4px 10px; border-radius: 20px; white-space: nowrap; }
+    .sched-season { font-size: 10px; font-weight: 800; letter-spacing: 1px; text-transform: uppercase; background: rgba(255,255,255,0.18); color: rgba(255,255,255,0.92); padding: 4px 10px; border-radius: 20px; white-space: nowrap; }
     .sched-card.peak .sched-season { background: rgba(0,0,0,0.12); color: var(--navy); }
     .sched-trip-row { display: flex; align-items: stretch; border-top: 1px solid #f1f5f9; }
     .sched-trip-row:first-child { border-top: none; }
@@ -936,12 +895,27 @@
     .sched-trip-days span { font-weight: 400; color: #94a3b8; display: block; font-size: 10px; margin-top: 1px; }
     .sched-trip-times { flex: 1; display: flex; align-items: center; gap: 8px; padding: 12px 16px; flex-wrap: wrap; }
     .time-chip { display: flex; align-items: center; gap: 5px; background: var(--navy); color: #fff; border-radius: 8px; padding: 7px 13px; }
+    .sched-card.low  .time-chip { background: #334155; }
+    .sched-card.mid  .time-chip { background: #0e7490; }
     .sched-card.peak .time-chip { background: var(--gold); color: var(--navy); }
-    .time-chip.secondary { background: #e0f7fa; color: var(--navy); }
-    .sched-card.peak .time-chip.secondary { background: #fff8e1; color: var(--navy); }
+    .time-chip.secondary { background: #e2e8f0; color: #334155; }
+    .sched-card.mid  .time-chip.secondary { background: #cffafe; color: #0e7490; }
+    .sched-card.peak .time-chip.secondary { background: #fef3c7; color: #92400e; }
     .time-chip .t { font-size: 14px; font-weight: 800; font-variant-numeric: tabular-nums; letter-spacing: -0.3px; }
     .time-chip .arr { font-size: 11px; opacity: 0.4; margin: 0 1px; }
     .tc-divider { display: none; }
+
+    /* Schedule legend */
+    .sched-legend { display: flex; gap: 20px; flex-wrap: wrap; margin-bottom: 28px; }
+    .sched-legend-item { display: flex; align-items: center; gap: 8px; font-size: 12px; color: rgba(7,17,31,0.6); font-weight: 500; }
+    .sched-legend-dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
+    .sched-legend-item.low  .sched-legend-dot { background: #334155; }
+    .sched-legend-item.mid  .sched-legend-dot { background: #0e7490; }
+    .sched-legend-item.peak .sched-legend-dot { background: var(--gold); }
+    @media (max-width: 600px) {
+      .sched-legend { gap: 10px; margin-bottom: 20px; }
+      .sched-legend-item { font-size: 11px; }
+    }
 
     /* ─── DEPART FROM PENICHE ─── */
     .depart-sec {
@@ -1293,11 +1267,11 @@
 
   <!-- Photo gallery bento -->
   <div class="gallery-bento">
-    <div class="gb-item"><div class="gb-label" data-i18n="gal1">Praia da Berlenga</div></div>
+    <div class="gb-item"><div class="gb-label" data-i18n="gal1">Farol de Peniche</div></div>
     <div class="gb-item"><div class="gb-label" data-i18n="gal2">Vista panorâmica</div></div>
     <div class="gb-item"><div class="gb-label" data-i18n="gal3">A bordo</div></div>
     <div class="gb-item"><div class="gb-label" data-i18n="gal4">Partida de Peniche</div></div>
-    <div class="gb-item"><div class="gb-label" data-i18n="gal5">A ilha ao longe</div></div>
+    <div class="gb-item"><div class="gb-label" data-i18n="gal5">Praia da Berlenga</div></div>
   </div>
 
   <!-- REVIEWS -->
@@ -1368,10 +1342,16 @@
       <div class="sec-tag" data-i18n="sched.tag">Horários 2026</div>
       <h2 class="sec-h" data-i18n="sched.h2">Saídas regulares de Peniche</h2>
       <p class="sec-sub" data-i18n="sched.sub">Os fins-de-semana de verão esgotam semanas antes. Reserva com antecedência.</p>
+      <div class="sched-legend">
+        <div class="sched-legend-item low"><span class="sched-legend-dot"></span>Época Baixa — 1 saída/dia</div>
+        <div class="sched-legend-item mid"><span class="sched-legend-dot"></span>Época Média — 2 saídas ao fim de semana</div>
+        <div class="sched-legend-item peak"><span class="sched-legend-dot"></span>Época Alta — 2 saídas/dia</div>
+      </div>
+
       <div class="sched-grid">
 
         <!-- Época Baixa -->
-        <div class="sched-card">
+        <div class="sched-card low">
           <div class="sched-head">
             <div class="sched-dates" data-i18n="sched.d1">9 Maio — 5 Junho 2026</div>
             <div class="sched-season" data-i18n="sched.s_low">Época Baixa</div>
@@ -1390,7 +1370,7 @@
         </div>
 
         <!-- Época Média Jun–Jul -->
-        <div class="sched-card">
+        <div class="sched-card mid">
           <div class="sched-head">
             <div class="sched-dates" data-i18n="sched.d2">6 Junho — 10 Julho 2026</div>
             <div class="sched-season" data-i18n="sched.s_mid">Época Média</div>
@@ -1441,7 +1421,7 @@
         </div>
 
         <!-- Época Média Set -->
-        <div class="sched-card">
+        <div class="sched-card mid">
           <div class="sched-head">
             <div class="sched-dates" data-i18n="sched.d4">7 — 30 Setembro 2026</div>
             <div class="sched-season" data-i18n="sched.s_mid">Época Média</div>
@@ -1515,8 +1495,47 @@
   </section>
 
   <footer class="site-footer">
-    <p>Viamar Ferry Berlenga · Porto de Pesca de Peniche, Portugal</p>
-    <p data-i18n="ft_copy">© 2026 Viamar. Todos os direitos reservados. · Powered by <a href="https://atlas-web.pt" target="_blank" rel="noopener" class="ft-atlas">ATLAS</a></p>
+    <div class="ft-inner">
+      <div class="ft-brand">
+        <img src="/logo-viamar.png" alt="Viamar Ferry Berlenga" class="ft-logo" />
+        <p class="ft-tagline">Travessias marítimas entre Peniche e a Ilha da Berlenga desde 1958. Operador licenciado IMT.</p>
+        <div class="ft-social">
+          <a href="https://www.instagram.com/viamar_berlenga/" target="_blank" rel="noopener" aria-label="Instagram">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+          </a>
+          <a href="https://www.facebook.com/berlengapenicheportugal/" target="_blank" rel="noopener" aria-label="Facebook">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+          </a>
+          <a href="https://wa.me/351911001099" target="_blank" rel="noopener" aria-label="WhatsApp">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="ft-col">
+        <span class="ft-col-label">Navegação</span>
+        <a href="/pacotes.html">Pacotes</a>
+        <a href="/historia.html">História</a>
+        <a href="#horarios">Horários</a>
+        <a href="https://berlengaspass.icnf.pt" target="_blank" rel="noopener">BerlengasPass</a>
+      </div>
+      <div class="ft-col">
+        <span class="ft-col-label">Contacto</span>
+        <a href="tel:+351911001099">+351 911 001 099</a>
+        <a href="mailto:info@viamar.pt">info@viamar.pt</a>
+        <address>Porto de Pesca de Peniche<br>2520 Peniche, Portugal</address>
+      </div>
+      <div class="ft-col">
+        <span class="ft-col-label">Legal</span>
+        <a href="/termos.html">Termos e Condições</a>
+        <a href="/termos.html">Política de Privacidade</a>
+      </div>
+    </div>
+    <div class="ft-bottom-wrap">
+      <div class="ft-bottom">
+        <p>© 2026 Viamar. Todos os direitos reservados.</p>
+        <p>Powered by <a href="https://atlas-web.pt" target="_blank" rel="noopener" class="ft-atlas">ATLAS</a></p>
+      </div>
+    </div>
   </footer>
 
   <!-- Cookie Banner -->
@@ -1576,7 +1595,7 @@
         isl_desc: "A Berlenga é a única ilha habitada do arquipélago das Berlengas — Reserva da Biosfera da UNESCO desde 1984. Águas turquesa, falésias dramáticas, grutas marinhas e uma biodiversidade única em Portugal.",
         isl_f1: "de travessia desde Peniche", isl_f2: "de ilha para explorar", isl_f3: "Reserva da Biosfera", isl_f4: "Fortaleza histórica",
         isl_cta: "Reservar agora →",
-        gal1: "Praia da Berlenga", gal2: "Vista panorâmica", gal3: "A bordo", gal4: "Partida de Peniche", gal5: "A ilha ao longe",
+        gal1: "Farol de Peniche", gal2: "Vista panorâmica", gal3: "A bordo", gal4: "Partida de Peniche", gal5: "Praia da Berlenga",
         r_label: "706 avaliações verificadas", r_google: "Google Reviews · Verificado",
         ck_title: "Privacidade e Cookies",
         ck_txt: 'Utilizamos cookies essenciais para o funcionamento do site e cookies analíticos para melhorar a experiência. Consulte a nossa <a href="/termos.html">política de privacidade</a>.',
@@ -1620,7 +1639,7 @@
         isl_desc: "Berlenga es la única isla habitada del archipiélago — Reserva de la Biosfera UNESCO desde 1984. Aguas turquesas, acantilados dramáticos, cuevas marinas y una biodiversidad única en Portugal.",
         isl_f1: "de travesía desde Peniche", isl_f2: "de isla para explorar", isl_f3: "Reserva de la Biosfera", isl_f4: "Fortaleza histórica",
         isl_cta: "Reservar →",
-        gal1: "Playa de Berlenga", gal2: "Vista panorámica", gal3: "A bordo", gal4: "Salida de Peniche", gal5: "La isla a lo lejos",
+        gal1: "Faro de Peniche", gal2: "Vista panorámica", gal3: "A bordo", gal4: "Salida de Peniche", gal5: "Playa de Berlenga",
         r_label: "706 opiniones verificadas", r_google: "Google Reviews · Verificado",
         ck_title: "Privacidad y Cookies", ck_txt: 'Utilizamos cookies esenciales para el funcionamiento del sitio y cookies analíticas para mejorar la experiencia. Consulta nuestra <a href="/termos.html">política de privacidad</a>.',
         ck_accept: "Aceptar todo", ck_reject: "Solo esenciales",
@@ -1664,7 +1683,7 @@
         isl_desc: "Berlenga est la seule île habitée de l'archipel des Berlengas — Réserve de biosphère UNESCO depuis 1984. Eaux turquoise, falaises spectaculaires, grottes marines et une biodiversité unique au Portugal.",
         isl_f1: "de traversée depuis Peniche", isl_f2: "d'île à explorer", isl_f3: "Réserve de biosphère", isl_f4: "Forteresse historique",
         isl_cta: "Réserver →",
-        gal1: "Plage de Berlenga", gal2: "Vue panoramique", gal3: "À bord", gal4: "Départ de Peniche", gal5: "L'île au loin",
+        gal1: "Phare de Peniche", gal2: "Vue panoramique", gal3: "À bord", gal4: "Départ de Peniche", gal5: "Plage de Berlenga",
         r_label: "706 avis vérifiés", r_google: "Google Reviews · Vérifié",
         ck_title: "Confidentialité & Cookies", ck_txt: 'Nous utilisons des cookies essentiels au fonctionnement du site et des cookies analytiques pour améliorer votre expérience. Consultez notre <a href="/termos.html">politique de confidentialité</a>.',
         ck_accept: "Tout accepter", ck_reject: "Essentiels uniquement",
@@ -1719,7 +1738,7 @@
         isl_desc: "Berlenga is the only inhabited island in the Berlengas archipelago — a UNESCO Biosphere Reserve since 1984. Turquoise waters, dramatic cliffs, sea caves and unique biodiversity found nowhere else in Portugal.",
         isl_f1: "crossing from Peniche", isl_f2: "of island to explore", isl_f3: "Biosphere Reserve", isl_f4: "historic Fortress",
         isl_cta: "Book now →",
-        gal1: "Berlenga Beach", gal2: "Panoramic view", gal3: "On board", gal4: "Departing Peniche", gal5: "The island",
+        gal1: "Peniche Lighthouse", gal2: "Panoramic view", gal3: "On board", gal4: "Departing Peniche", gal5: "Berlenga Beach",
         r_label: "706 verified reviews", r_google: "Google Reviews · Verified",
         ck_title: "Privacy & Cookies",
         ck_txt: 'We use essential cookies to make the site work and analytics cookies to improve your experience. See our <a href="/termos.html">privacy policy</a>.',
@@ -1999,81 +2018,6 @@
 
   <script defer src="/_vercel/insights/script.js"></script>
 
-  <!-- ── POPUP BOTTOM SHEET ──────────────────────────────────────────────── -->
-  <div id="popup-overlay" role="dialog" aria-modal="true">
-    <div id="popup-sheet">
-      <div class="popup-topbar" id="popup-drag-handle">
-        <div class="popup-handle"></div>
-        <button class="popup-close" id="popup-close" aria-label="Fechar">✕</button>
-      </div>
-      <a href="https://fareharbor.com/embeds/book/viamar-berlenga/items/?full-items=yes&flow=738388" class="popup-img-placeholder" id="popup-img">
-        <img src="img/2-Abril.png" alt="Promoção Viamar">
-      </a>
-    </div>
-  </div>
-
-  <script>
-    (function() {
-      const overlay = document.getElementById('popup-overlay');
-      const sheet   = document.getElementById('popup-sheet');
-      const btn     = document.getElementById('popup-close');
-      const handle  = document.getElementById('popup-drag-handle');
-      const img     = document.getElementById('popup-img');
-
-      function closePopup() {
-        sheet.style.transform = 'translateY(100%)';
-        overlay.style.opacity = '0';
-        overlay.style.pointerEvents = 'none';
-        setTimeout(() => overlay.classList.remove('visible'), 400);
-        sessionStorage.setItem('popup_dismissed', '1');
-      }
-
-      /* ── drag to close ── */
-      let startY = 0, currentY = 0, dragging = false;
-      function onDragStart(e) {
-        dragging = true;
-        startY = (e.touches ? e.touches[0].clientY : e.clientY);
-        sheet.classList.add('dragging');
-      }
-      function onDragMove(e) {
-        if (!dragging) return;
-        currentY = (e.touches ? e.touches[0].clientY : e.clientY) - startY;
-        if (currentY < 0) currentY = 0;
-        sheet.style.transform = `translateY(${currentY}px)`;
-        overlay.style.opacity = Math.max(0, 1 - currentY / 300);
-      }
-      function onDragEnd() {
-        if (!dragging) return;
-        dragging = false;
-        sheet.classList.remove('dragging');
-        if (currentY > 100) { closePopup(); }
-        else { sheet.style.transform = ''; overlay.style.opacity = ''; }
-        currentY = 0;
-      }
-      handle.addEventListener('mousedown',  onDragStart);
-      handle.addEventListener('touchstart', onDragStart, { passive: true });
-      window.addEventListener('mousemove',  onDragMove);
-      window.addEventListener('touchmove',  onDragMove, { passive: true });
-      window.addEventListener('mouseup',    onDragEnd);
-      window.addEventListener('touchend',   onDragEnd);
-
-      /* ── close on button / overlay click ── */
-      btn.addEventListener('click', closePopup);
-      overlay.addEventListener('click', function(e) {
-        if (e.target === overlay) closePopup();
-      });
-
-      /* ── image click → close popup, FareHarbor script handles the modal ── */
-      img.addEventListener('click', function() {
-        overlay.classList.remove('visible');
-        sessionStorage.setItem('popup_dismissed', '1');
-      });
-
-      if (!sessionStorage.getItem('popup_dismissed')) {
-        setTimeout(() => overlay.classList.add('visible'), 600);
-      }
-    })();
-  </script>
 
 </body>
 </html>

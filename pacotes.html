@@ -104,22 +104,22 @@
 
     /* Card base */
     .pkg-card {
-      position: relative; height: 380px;
+      position: relative; height: 420px;
       border-radius: 20px; overflow: hidden;
       cursor: pointer;
       transition: transform .35s cubic-bezier(.4,0,.2,1), box-shadow .35s;
     }
     .pkg-card:hover { transform: translateY(-6px); box-shadow: 0 28px 60px rgba(0,0,0,0.6); }
-    .pkg-card.featured { grid-column: 1 / -1; height: 440px; }
+    .pkg-card.featured { grid-column: 1 / -1; height: 500px; }
     .pkg-card.coming-soon { cursor: default; }
     .pkg-card.coming-soon:hover { transform: none; box-shadow: none; }
     .pkg-card.coming-soon .pkg-footer { justify-content: flex-end; }
-    .pkg-grid .pkg-card.coming-soon:last-child { grid-column: 1 / -1; height: 260px; }
+    .pkg-grid .pkg-card.coming-soon:last-child { grid-column: 1 / -1; height: 300px; }
 
     /* Photo layer */
     .pkg-card-img {
       position: absolute; inset: 0; z-index: 0;
-      background-size: cover; background-position: center;
+      background-size: cover; background-position: center 25%;
       background-color: #0a1a2e;
       transition: transform .55s cubic-bezier(.4,0,.2,1);
     }
@@ -132,8 +132,8 @@
       display: flex; flex-direction: column; justify-content: space-between;
       padding: 20px;
       background: linear-gradient(to top,
-        rgba(7,17,31,0.97) 28%,
-        rgba(7,17,31,0.18) 58%,
+        rgba(7,17,31,0.96) 30%,
+        rgba(7,17,31,0.12) 62%,
         transparent 100%);
     }
     .pkg-card-top { display: flex; justify-content: flex-start; }
@@ -192,10 +192,28 @@
     }
 
     /* ── Footer ── */
-    .site-footer { background: #050d18; border-top: 1px solid rgba(255,255,255,0.06); padding: 32px 40px; text-align: center; }
-    .site-footer p { font-size: 13px; color: rgba(255,255,255,0.3); line-height: 1.8; }
-    .site-footer a { color: rgba(255,255,255,0.45); text-decoration: none; }
-    .site-footer a:hover { color: #fff; }
+    .site-footer { background: #030a14; border-top: 1px solid rgba(255,255,255,0.07); }
+    .ft-inner { max-width: 1100px; margin: 0 auto; padding: 56px 40px 40px; display: grid; grid-template-columns: 1.7fr 1fr 1.3fr 1fr; gap: 40px; }
+    .ft-logo { height: 36px; width: auto; display: block; margin-bottom: 16px; }
+    .ft-tagline { font-size: 13px; color: rgba(255,255,255,0.38); line-height: 1.65; max-width: 220px; margin-bottom: 20px; }
+    .ft-social { display: flex; gap: 14px; }
+    .ft-social a { color: rgba(255,255,255,0.38); transition: color .2s; display: flex; align-items: center; }
+    .ft-social a:hover { color: #fff; }
+    .ft-col-label { font-size: 10px; font-weight: 800; letter-spacing: 1.5px; text-transform: uppercase; color: rgba(255,255,255,0.3); margin-bottom: 14px; display: block; }
+    .ft-col { display: flex; flex-direction: column; }
+    .ft-col a, .ft-col address { font-size: 13px; color: rgba(255,255,255,0.5); text-decoration: none; font-style: normal; padding: 4px 0; line-height: 1.55; transition: color .15s; }
+    .ft-col a:hover { color: rgba(255,255,255,0.88); }
+    .ft-bottom-wrap { border-top: 1px solid rgba(255,255,255,0.05); }
+    .ft-bottom { max-width: 1100px; margin: 0 auto; padding: 18px 40px; display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+    .ft-bottom p { font-size: 12px; color: rgba(255,255,255,0.22); line-height: 1.7; }
+    .ft-bottom a { color: rgba(255,255,255,0.35); text-decoration: none; }
+    .ft-atlas { font-weight: 800; letter-spacing: 1px; color: rgba(255,255,255,0.45) !important; transition: color .2s; }
+    .ft-atlas:hover { color: rgba(255,255,255,0.85) !important; }
+    @media (max-width: 900px) {
+      .ft-inner { grid-template-columns: 1fr 1fr; gap: 28px; padding: 40px 20px 32px; }
+      .ft-bottom { padding: 16px 20px; flex-direction: column; align-items: flex-start; gap: 4px; }
+    }
+    @media (max-width: 480px) { .ft-inner { grid-template-columns: 1fr; gap: 24px; } }
 
     /* ── Responsive ── */
     @media (max-width: 900px) {
@@ -207,9 +225,9 @@
       .page-hero { padding: 48px 20px 40px; }
       .packages-wrap { padding: 48px 20px; }
       .pkg-grid { grid-template-columns: 1fr; }
-      .pkg-card { height: 320px; }
-      .pkg-card.featured { grid-column: auto; height: 380px; }
-      .pkg-grid .pkg-card.coming-soon:last-child { grid-column: auto; height: 280px; }
+      .pkg-card { height: 360px; }
+      .pkg-card.featured { grid-column: auto; height: 420px; }
+      .pkg-grid .pkg-card.coming-soon:last-child { grid-column: auto; height: 300px; }
       .site-footer { padding: 24px 20px; }
     }
   </style>
@@ -299,9 +317,47 @@
   </div>
 
   <footer class="site-footer">
-    <p>Viamar Ferry Berlenga · Porto de Pesca de Peniche, Portugal</p>
-    <p>© 2026 Viamar. Todos os direitos reservados. · <a href="https://berlengaspass.icnf.pt" rel="noopener">BerlengasPass</a> · <a href="/termos.html">Termos e Condições</a></p>
-    <p style="margin-top:12px;font-size:11px;color:rgba(255,255,255,0.2);">Powered by <a href="https://www.atlas-web.pt" target="_blank" rel="noopener" style="color:rgba(255,255,255,0.35);font-weight:600;letter-spacing:0.03em;">ATLAS</a></p>
+    <div class="ft-inner">
+      <div class="ft-brand">
+        <img src="/logo-viamar.png" alt="Viamar Ferry Berlenga" class="ft-logo" />
+        <p class="ft-tagline">Travessias marítimas entre Peniche e a Ilha da Berlenga desde 1958. Operador licenciado IMT.</p>
+        <div class="ft-social">
+          <a href="https://www.instagram.com/viamar_berlenga/" target="_blank" rel="noopener" aria-label="Instagram">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+          </a>
+          <a href="https://www.facebook.com/berlengapenicheportugal/" target="_blank" rel="noopener" aria-label="Facebook">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+          </a>
+          <a href="https://wa.me/351911001099" target="_blank" rel="noopener" aria-label="WhatsApp">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="ft-col">
+        <span class="ft-col-label">Navegação</span>
+        <a href="/pacotes.html">Pacotes</a>
+        <a href="/historia.html">História</a>
+        <a href="/#horarios">Horários</a>
+        <a href="https://berlengaspass.icnf.pt" target="_blank" rel="noopener">BerlengasPass</a>
+      </div>
+      <div class="ft-col">
+        <span class="ft-col-label">Contacto</span>
+        <a href="tel:+351911001099">+351 911 001 099</a>
+        <a href="mailto:info@viamar.pt">info@viamar.pt</a>
+        <address>Porto de Pesca de Peniche<br>2520 Peniche, Portugal</address>
+      </div>
+      <div class="ft-col">
+        <span class="ft-col-label">Legal</span>
+        <a href="/termos.html">Termos e Condições</a>
+        <a href="/termos.html">Política de Privacidade</a>
+      </div>
+    </div>
+    <div class="ft-bottom-wrap">
+      <div class="ft-bottom">
+        <p>© 2026 Viamar. Todos os direitos reservados.</p>
+        <p>Powered by <a href="https://atlas-web.pt" target="_blank" rel="noopener" class="ft-atlas">ATLAS</a></p>
+      </div>
+    </div>
   </footer>
 
   <script>
