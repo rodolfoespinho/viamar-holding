@@ -1,0 +1,755 @@
+<!DOCTYPE html>
+<html lang="pt-PT" data-lang="pt">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>A Ilha da Berlenga | Viamar Ferry Berlenga</title>
+  <meta name="description" content="Tudo sobre a Ilha da Berlenga: como chegar a Peniche, alojamento na ilha, restaurante e snack bar, código de conduta da Reserva Natural." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://viamar-berlenga.com/ilha.html" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Viamar Ferry Berlenga" />
+  <meta property="og:title" content="A Ilha da Berlenga | Viamar Ferry Berlenga" />
+  <meta property="og:description" content="Tudo sobre a Ilha da Berlenga: como chegar, alojamento, restauração e código de conduta da Reserva Natural." />
+  <meta property="og:url" content="https://viamar-berlenga.com/ilha.html" />
+  <meta property="og:image" content="https://viamar-berlenga.com/img/photo3.webp" />
+  <meta property="og:locale" content="pt_PT" />
+
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="apple-touch-icon" href="/logo-viamar.png" />
+  <link rel="manifest" href="/manifest.json" />
+  <meta name="theme-color" content="#07111f" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,700;0,900;1,700;1,900&display=swap" rel="stylesheet" />
+
+  <style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root { --navy: #07111f; --aqua: #06b6d4; --gold: #f59e0b; --r: 14px; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Inter', sans-serif; background: var(--navy); color: rgba(255,255,255,0.6); overflow-x: hidden; }
+
+  .grain {
+    position: fixed; inset: 0; z-index: 999; pointer-events: none;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+    opacity: 0.35;
+  }
+
+  /* ── nav ── */
+  #nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 40px; height: 64px;
+    transition: background .3s, backdrop-filter .3s;
+  }
+  #nav.solid { background: rgba(7,17,31,0.92); backdrop-filter: blur(12px); }
+  .nav-back-btn {
+    font-size: 13px; font-weight: 600; color: rgba(255,255,255,0.7);
+    text-decoration: none; letter-spacing: 0.02em;
+    display: flex; align-items: center; gap: 6px; transition: color .2s;
+  }
+  .nav-back-btn:hover { color: #fff; }
+  .nav-lang { display: flex; align-items: center; gap: 4px; }
+  .lang-btn {
+    background: none; border: none; cursor: pointer;
+    font-size: 11px; font-weight: 700; letter-spacing: 0.08em;
+    color: rgba(255,255,255,0.45); padding: 4px 6px; border-radius: 4px;
+    transition: color .15s, background .15s; font-family: 'Inter', sans-serif;
+  }
+  .lang-btn:hover { color: rgba(255,255,255,0.8); }
+  .lang-btn.active { color: #fff; background: rgba(255,255,255,0.12); }
+  .lang-sep { color: rgba(255,255,255,0.15); font-size: 11px; }
+
+  /* ── hero ── */
+  .pg-header {
+    position: relative; padding: 160px 40px 88px; text-align: center;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+    background: url('img/photo3.webp') center/cover no-repeat;
+    overflow: hidden;
+  }
+  .pg-header::before {
+    content: ''; position: absolute; inset: 0;
+    background: linear-gradient(to bottom, rgba(7,17,31,0.45) 0%, rgba(7,17,31,0.82) 100%);
+  }
+  .pg-header > * { position: relative; z-index: 1; }
+  .pg-tag {
+    display: block; font-size: 11px; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 2px; color: var(--aqua); margin-bottom: 14px;
+  }
+  .pg-h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(32px, 5.5vw, 60px);
+    font-weight: 900; color: #fff; line-height: 1.08; letter-spacing: -0.02em;
+  }
+  .pg-sub {
+    margin-top: 18px; font-size: 16px; color: rgba(255,255,255,0.6);
+    max-width: 520px; margin-left: auto; margin-right: auto; line-height: 1.7;
+  }
+
+  /* ── quick facts strip ── */
+  .facts-strip {
+    background: rgba(255,255,255,0.03);
+    border-bottom: 1px solid rgba(255,255,255,0.07);
+  }
+  .facts-inner {
+    max-width: 960px; margin: 0 auto; padding: 0 40px;
+    display: grid; grid-template-columns: repeat(4, 1fr);
+  }
+  .fact-item {
+    padding: 28px 20px; text-align: center;
+    border-right: 1px solid rgba(255,255,255,0.06);
+  }
+  .fact-item:last-child { border-right: none; }
+  .fact-val { font-size: 28px; font-weight: 900; color: #fff; line-height: 1; }
+  .fact-val span { font-size: 15px; color: var(--aqua); font-weight: 700; }
+  .fact-lbl { font-size: 12px; color: rgba(255,255,255,0.35); margin-top: 6px; letter-spacing: 0.03em; }
+
+  /* ── sections ── */
+  .sec { padding: 80px 40px; }
+  .sec.alt { background: rgba(255,255,255,0.02); }
+  .sec-inner { max-width: 960px; margin: 0 auto; }
+  .sec-tag {
+    font-size: 11px; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 2px; color: var(--aqua); margin-bottom: 12px; display: block;
+  }
+  .sec-h {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(24px, 3.5vw, 38px);
+    font-weight: 900; color: #fff; line-height: 1.1; letter-spacing: -0.02em;
+    margin-bottom: 12px;
+  }
+  .sec-sub { font-size: 15px; color: rgba(255,255,255,0.45); line-height: 1.7; max-width: 560px; margin-bottom: 48px; }
+
+  /* ── transport cards ── */
+  .transport-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+  .transport-card {
+    background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.09);
+    border-radius: var(--r); padding: 32px 28px;
+    transition: border-color .25s, transform .25s;
+  }
+  .transport-card:hover { border-color: rgba(255,255,255,0.18); transform: translateY(-3px); }
+  .tc-icon {
+    width: 48px; height: 48px; border-radius: 12px;
+    background: rgba(6,182,212,0.12); border: 1px solid rgba(6,182,212,0.25);
+    display: flex; align-items: center; justify-content: center;
+    margin-bottom: 20px;
+  }
+  .tc-icon svg { width: 22px; height: 22px; stroke: var(--aqua); }
+  .tc-title { font-size: 17px; font-weight: 800; color: #fff; margin-bottom: 10px; }
+  .tc-body { font-size: 14px; color: rgba(255,255,255,0.5); line-height: 1.75; }
+  .tc-body strong { color: rgba(255,255,255,0.8); font-weight: 700; }
+  .tc-body a { color: var(--aqua); text-decoration: none; }
+  .tc-body a:hover { text-decoration: underline; }
+  .tc-detail {
+    margin-top: 18px; padding-top: 18px; border-top: 1px solid rgba(255,255,255,0.07);
+    display: flex; gap: 10px; align-items: flex-start;
+  }
+  .tc-detail-icon { flex-shrink: 0; margin-top: 1px; color: var(--aqua); }
+  .tc-detail-icon svg { width: 14px; height: 14px; stroke: var(--aqua); }
+  .tc-detail-text { font-size: 12.5px; color: rgba(255,255,255,0.35); line-height: 1.6; }
+
+  /* ── island facilities ── */
+  .island-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+  .island-card {
+    background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.09);
+    border-radius: var(--r); overflow: hidden;
+    transition: border-color .25s, transform .25s;
+  }
+  .island-card:hover { border-color: rgba(255,255,255,0.18); transform: translateY(-3px); }
+  .island-card-photo { aspect-ratio: 16/9; overflow: hidden; }
+  .island-card-photo img { width: 100%; height: 100%; object-fit: cover; transition: transform .4s ease; display: block; }
+  .island-card:hover .island-card-photo img { transform: scale(1.04); }
+  .island-card-body { padding: 22px 24px 26px; }
+  .ic-label {
+    display: inline-block; font-size: 10px; font-weight: 700; text-transform: uppercase;
+    letter-spacing: .8px; padding: 3px 9px; border-radius: 100px;
+    background: rgba(6,182,212,0.15); color: var(--aqua); border: 1px solid rgba(6,182,212,0.3);
+    margin-bottom: 12px;
+  }
+  .ic-name { font-size: 17px; font-weight: 800; color: #fff; margin-bottom: 8px; }
+  .ic-desc { font-size: 14px; color: rgba(255,255,255,0.5); line-height: 1.75; }
+  .ic-desc a { color: var(--aqua); text-decoration: none; }
+  .ic-desc a:hover { text-decoration: underline; }
+  .ic-note {
+    margin-top: 14px; font-size: 12px; color: rgba(255,255,255,0.3);
+    display: flex; gap: 6px; align-items: flex-start;
+  }
+  .ic-note svg { flex-shrink: 0; margin-top: 1px; }
+
+  /* ── conduct ── */
+  .conduct-wrap {
+    background: rgba(6,182,212,0.04); border: 1px solid rgba(6,182,212,0.15);
+    border-radius: var(--r); padding: 40px 44px;
+  }
+  .conduct-intro { font-size: 15px; color: rgba(255,255,255,0.5); line-height: 1.75; margin-bottom: 32px; max-width: 620px; }
+  .conduct-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  .conduct-rule {
+    display: flex; gap: 12px; align-items: flex-start;
+    padding: 14px 16px; border-radius: 10px;
+    background: rgba(255,255,255,0.03);
+  }
+  .conduct-rule.no { background: rgba(255,80,80,0.05); }
+  .conduct-icon {
+    flex-shrink: 0; width: 22px; height: 22px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 11px; font-weight: 800; margin-top: 1px;
+  }
+  .conduct-icon.ok { background: rgba(6,182,212,0.2); color: var(--aqua); }
+  .conduct-icon.no { background: rgba(255,80,80,0.2); color: #ff6b6b; }
+  .conduct-text { font-size: 13.5px; color: rgba(255,255,255,0.6); line-height: 1.55; }
+  .conduct-text strong { color: rgba(255,255,255,0.85); }
+
+  /* ── CTA ── */
+  .cta-sec {
+    position: relative; overflow: hidden; min-height: 320px;
+    display: flex; align-items: center;
+    background: url('img/IMG_1019.jpg') center/cover no-repeat;
+  }
+  .cta-sec::before {
+    content: ''; position: absolute; inset: 0;
+    background: linear-gradient(90deg, rgba(7,17,31,0.92) 40%, rgba(7,17,31,0.3) 100%);
+  }
+  .cta-inner { position: relative; z-index: 1; padding: 0 40px; max-width: 960px; margin: 0 auto; }
+  .cta-tag { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; color: var(--aqua); margin-bottom: 14px; display: block; }
+  .cta-h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(26px, 3.5vw, 42px);
+    font-weight: 900; color: #fff; line-height: 1.1; margin-bottom: 10px;
+  }
+  .cta-sub { font-size: 15px; color: rgba(255,255,255,0.5); line-height: 1.65; margin-bottom: 32px; max-width: 440px; }
+  .cta-btn {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: var(--gold); color: var(--navy);
+    font-weight: 800; font-size: 15px; letter-spacing: 0.02em;
+    padding: 15px 32px; border-radius: 100px;
+    text-decoration: none; transition: background .2s, transform .2s;
+  }
+  .cta-btn:hover { background: #e08e00; transform: translateY(-2px); }
+
+  /* ── footer ── */
+  footer {
+    display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap;
+    gap: 16px; padding: 28px 40px;
+    border-top: 1px solid rgba(255,255,255,0.07);
+    background: #030a14;
+  }
+  .f-logo img { height: 28px; opacity: 0.7; display: block; }
+  .f-copy { font-size: 12px; color: rgba(255,255,255,0.3); }
+  .f-legal { display: flex; align-items: center; gap: 16px; }
+  .f-legal a { font-size: 12px; color: rgba(255,255,255,0.4); text-decoration: none; transition: color .2s; }
+  .f-legal a:hover { color: rgba(255,255,255,0.8); }
+
+  /* ── responsive ── */
+  @media (max-width: 768px) {
+    #nav { padding: 0 20px; }
+    .pg-header { padding: 120px 24px 56px; }
+    .facts-inner { grid-template-columns: repeat(2, 1fr); }
+    .fact-item:nth-child(2) { border-right: none; }
+    .fact-item:nth-child(3), .fact-item:nth-child(4) { border-top: 1px solid rgba(255,255,255,0.06); }
+    .sec { padding: 56px 20px; }
+    .transport-grid { grid-template-columns: 1fr; }
+    .island-grid { grid-template-columns: 1fr; }
+    .conduct-wrap { padding: 28px 20px; }
+    .conduct-grid { grid-template-columns: 1fr; }
+    .cta-sec { min-height: 260px; }
+    .cta-inner { padding: 56px 24px; }
+    footer { padding: 24px 20px; flex-direction: column; align-items: flex-start; }
+  }
+  </style>
+</head>
+<body>
+
+<div class="grain" aria-hidden="true"></div>
+
+<!-- NAV -->
+<nav id="nav">
+  <a href="/" class="nav-back-btn">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="15 18 9 12 15 6"/></svg>
+    <span data-i18n="nav_back">Início</span>
+  </a>
+  <div class="nav-lang">
+    <button class="lang-btn active" data-lang-switch="pt">PT</button>
+    <span class="lang-sep">·</span>
+    <button class="lang-btn" data-lang-switch="en">EN</button>
+    <span class="lang-sep">·</span>
+    <button class="lang-btn" data-lang-switch="es">ES</button>
+    <span class="lang-sep">·</span>
+    <button class="lang-btn" data-lang-switch="fr">FR</button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header class="pg-header">
+  <span class="pg-tag" data-i18n="ilha.tag">A Ilha da Berlenga</span>
+  <h1 class="pg-h1" data-i18n="ilha.h1">Um mundo à parte,<br>a 45 minutos de Peniche</h1>
+  <p class="pg-sub" data-i18n="ilha.sub">Reserva da Biosfera da UNESCO. Águas turquesa, falésias dramáticas, grutas marinhas e uma biodiversidade única em Portugal.</p>
+</header>
+
+<!-- QUICK FACTS -->
+<div class="facts-strip">
+  <div class="facts-inner">
+    <div class="fact-item">
+      <div class="fact-val">45 <span>min</span></div>
+      <div class="fact-lbl" data-i18n="ilha.f1">travessia desde Peniche</div>
+    </div>
+    <div class="fact-item">
+      <div class="fact-val">550</div>
+      <div class="fact-lbl" data-i18n="ilha.f2">visitantes máx. por dia</div>
+    </div>
+    <div class="fact-item">
+      <div class="fact-val">1984</div>
+      <div class="fact-lbl" data-i18n="ilha.f3">Reserva da Biosfera UNESCO</div>
+    </div>
+    <div class="fact-item">
+      <div class="fact-val">788k <span>m²</span></div>
+      <div class="fact-lbl" data-i18n="ilha.f4">de ilha para explorar</div>
+    </div>
+  </div>
+</div>
+
+<!-- COMO CHEGAR A PENICHE -->
+<section class="sec">
+  <div class="sec-inner">
+    <span class="sec-tag" data-i18n="ilha.s1.tag">Acesso</span>
+    <h2 class="sec-h" data-i18n="ilha.s1.title">Como chegar a Peniche</h2>
+    <p class="sec-sub" data-i18n="ilha.s1.sub">O ponto de partida para a Berlenga é a Marina de Peniche. Confira as opções de transporte abaixo — após chegada a Peniche, a travessia com a Viamar leva-o à ilha em 45 minutos.</p>
+
+    <div class="transport-grid">
+
+      <!-- De carro -->
+      <div class="transport-card">
+        <div class="tc-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 17H3a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v5"/><circle cx="18" cy="17" r="2"/><circle cx="8" cy="17" r="2"/><path d="M15 17H10M9 3v5h6"/></svg>
+        </div>
+        <div class="tc-title" data-i18n="ilha.car.title">De carro</div>
+        <div class="tc-body" data-i18n="ilha.car.body">
+          <strong>De Lisboa:</strong> ~1h30 via A8 → IC1 (saída Peniche).<br>
+          <strong>Do Porto:</strong> ~3h via A1 → A8 → IC1.<br>
+          <strong>De Espanha:</strong> ~2h30 de Badajoz via A6 → A8.
+        </div>
+        <div class="tc-detail">
+          <div class="tc-detail-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+          <div class="tc-detail-text" data-i18n="ilha.car.gps">GPS: Marina de Peniche, Porto de Pesca de Peniche, 2520 Peniche. Parque de estacionamento disponível junto à marina.</div>
+        </div>
+      </div>
+
+      <!-- De autocarro -->
+      <div class="transport-card">
+        <div class="tc-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21l4-4 4 4M2 10h20"/></svg>
+        </div>
+        <div class="tc-title" data-i18n="ilha.bus.title">De autocarro</div>
+        <div class="tc-body" data-i18n="ilha.bus.body">
+          <strong>Rede Expressos</strong> opera ligações diárias entre Lisboa (Campo Grande) e Peniche com várias partidas ao longo do dia. Duração aproximada: 2 horas.
+        </div>
+        <div class="tc-detail">
+          <div class="tc-detail-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+          <div class="tc-detail-text" data-i18n="ilha.bus.note">Horários e bilhetes em <a href="https://www.rede-expressos.pt" target="_blank" rel="noopener">rede-expressos.pt</a>. A paragem de Peniche fica a ~15 min a pé da marina de embarque.</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- NA ILHA -->
+<section class="sec alt">
+  <div class="sec-inner">
+    <span class="sec-tag" data-i18n="ilha.s2.tag">Na ilha</span>
+    <h2 class="sec-h" data-i18n="ilha.s2.title">Alojamento e restauração</h2>
+    <p class="sec-sub" data-i18n="ilha.s2.sub">A Berlenga tem o essencial para tornar a visita inesquecível — sem o supérfluo. Os serviços disponíveis são deliberadamente limitados para proteger a reserva natural.</p>
+
+    <div class="island-grid">
+
+      <!-- Pensão -->
+      <div class="island-card">
+        <div class="island-card-photo">
+          <img src="img/freepik__enhance-the-cinematic-feel-on-this-photo__34301.webp" alt="Pensão Berlenga" loading="lazy" />
+        </div>
+        <div class="island-card-body">
+          <span class="ic-label" data-i18n="ilha.penso.label">Alojamento</span>
+          <div class="ic-name" data-i18n="ilha.penso.name">Pensão da Berlenga</div>
+          <div class="ic-desc" data-i18n="ilha.penso.desc">O único alojamento da ilha. Quartos simples e experiência única — adormecer com o som do mar e acordar com a ilha para si só. Reservas obrigatórias, abertura sazonal (Junho a Setembro).</div>
+          <div class="ic-note">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+            <span data-i18n="ilha.penso.note">Reservas via Câmara Municipal de Peniche: <a href="https://www.cm-peniche.pt" target="_blank" rel="noopener">cm-peniche.pt</a></span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Restaurante -->
+      <div class="island-card">
+        <div class="island-card-photo">
+          <img src="img/freepik__enhance-the-cinematic-feel-on-this-photo__59586.webp" alt="Restaurante na Berlenga" loading="lazy" />
+        </div>
+        <div class="island-card-body">
+          <span class="ic-label" data-i18n="ilha.rest.label">Restaurante</span>
+          <div class="ic-name" data-i18n="ilha.rest.name">Restaurante da Ilha</div>
+          <div class="ic-desc" data-i18n="ilha.rest.desc">Peixe e marisco frescos, apanhados nas águas da reserva. Vista sobre o mar. O restaurante da ilha funciona durante a época alta — recomendamos reserva antecipada para grupos.</div>
+          <div class="ic-note">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+            <span data-i18n="ilha.rest.note">Aberto de Junho a Setembro. Recomenda-se reserva para grupos com antecedência.</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Snack bar -->
+      <div class="island-card">
+        <div class="island-card-photo">
+          <img src="img/freepik__enhance-the-cinematic-feeling-on-this-shot__37651.webp" alt="Castelinho Berlenga" loading="lazy" />
+        </div>
+        <div class="island-card-body">
+          <span class="ic-label" data-i18n="ilha.snack.label">Snack Bar</span>
+          <div class="ic-name" data-i18n="ilha.snack.name">Castelinho</div>
+          <div class="ic-desc" data-i18n="ilha.snack.desc">Snacks, sandes, bebidas e sumos frescos numa das localizações mais fotogénicas da ilha — com vista directa para a Fortaleza de São João Baptista. O sítio perfeito para uma pausa a meio da exploração.</div>
+          <div class="ic-note">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+            <span data-i18n="ilha.snack.note">Esplanada exterior com vistas panorâmicas. Abertura sazonal.</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Campismo -->
+      <div class="island-card">
+        <div class="island-card-photo">
+          <img src="img/freepik__upgrade-this-cinematic-shot__91289.webp" alt="Campismo Berlenga" loading="lazy" />
+        </div>
+        <div class="island-card-body">
+          <span class="ic-label" data-i18n="ilha.camp.label">Campismo</span>
+          <div class="ic-name" data-i18n="ilha.camp.name">Parque de Campismo</div>
+          <div class="ic-desc" data-i18n="ilha.camp.desc">A única área de campismo autorizada da ilha. Experiência minimalista sob o céu estrelado da reserva natural — uma das mais escuras do litoral português. Instalações básicas.</div>
+          <div class="ic-note">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+            <span data-i18n="ilha.camp.note">Reserva prévia obrigatória via Câmara Municipal de Peniche: <a href="https://www.cm-peniche.pt" target="_blank" rel="noopener">cm-peniche.pt</a></span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CÓDIGO DE CONDUTA -->
+<section class="sec">
+  <div class="sec-inner">
+    <span class="sec-tag" data-i18n="ilha.s3.tag">Reserva Natural</span>
+    <h2 class="sec-h" data-i18n="ilha.s3.title">Código de conduta da ilha</h2>
+    <p class="sec-sub" data-i18n="ilha.s3.sub">A Berlenga é um ecossistema frágil. O seu cuidado é responsabilidade de todos os que a visitam — incluindo-o a si.</p>
+
+    <div class="conduct-wrap">
+      <p class="conduct-intro" data-i18n="ilha.s3.intro">A Ilha da Berlenga é uma Reserva Natural com regras de acesso e comportamento estritamente definidas. O seu respeito é condição para a preservação deste ecossistema único e para a continuidade das visitas. O incumprimento pode resultar na exclusão de futuras viagens com a Viamar.</p>
+
+      <div class="conduct-grid">
+        <div class="conduct-rule">
+          <div class="conduct-icon ok">✓</div>
+          <div class="conduct-text" data-i18n="ilha.rule1"><strong>BerlengasPass obrigatório</strong> — adquirido separadamente em berlengaspass.icnf.pt (até 3 € por pessoa).</div>
+        </div>
+        <div class="conduct-rule no">
+          <div class="conduct-icon no">✕</div>
+          <div class="conduct-text" data-i18n="ilha.rule2"><strong>Proibido deixar lixo</strong> — deposite nos locais próprios ou leve-o consigo.</div>
+        </div>
+        <div class="conduct-rule">
+          <div class="conduct-icon ok">✓</div>
+          <div class="conduct-text" data-i18n="ilha.rule3"><strong>Circular apenas nos trilhos marcados</strong> — respeite a sinalização de protecção da flora.</div>
+        </div>
+        <div class="conduct-rule no">
+          <div class="conduct-icon no">✕</div>
+          <div class="conduct-text" data-i18n="ilha.rule4"><strong>Proibido acampar fora da área designada</strong> — campismo selvagem é ilegal na reserva.</div>
+        </div>
+        <div class="conduct-rule">
+          <div class="conduct-icon ok">✓</div>
+          <div class="conduct-text" data-i18n="ilha.rule5"><strong>Máx. 550 visitantes simultâneos</strong> — limite imposto pela autoridade competente para proteger o ecossistema.</div>
+        </div>
+        <div class="conduct-rule no">
+          <div class="conduct-icon no">✕</div>
+          <div class="conduct-text" data-i18n="ilha.rule6"><strong>Proibido alimentar os animais</strong> — inclui gaivotas e outras aves nidificantes.</div>
+        </div>
+        <div class="conduct-rule">
+          <div class="conduct-icon ok">✓</div>
+          <div class="conduct-text" data-i18n="ilha.rule7"><strong>Respeite a fauna e flora</strong> — não apanhe plantas nem recolha amostras geológicas ou minerais.</div>
+        </div>
+        <div class="conduct-rule no">
+          <div class="conduct-icon no">✕</div>
+          <div class="conduct-text" data-i18n="ilha.rule8"><strong>Música alta proibida</strong> — preserve o ambiente natural e o bem-estar de todos os visitantes.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-sec">
+  <div class="cta-inner">
+    <span class="cta-tag" data-i18n="ilha.cta.tag">Pronto para embarcar?</span>
+    <h2 class="cta-h2" data-i18n="ilha.cta.h2">Reserve a sua travessia<br>para a Berlenga</h2>
+    <p class="cta-sub" data-i18n="ilha.cta.sub">Vagas limitadas. Época de Maio a Setembro. Reserve com antecedência para garantir o seu lugar.</p>
+    <a href="https://fareharbor.com/embeds/book/viamar-berlenga/items/?full-items=yes&flow=738388" class="cta-btn" data-i18n="ilha.cta.btn">
+      Reservar agora →
+    </a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <a href="/" class="f-logo"><img src="/logo-viamar.png" alt="Viamar Ferry Berlenga" /></a>
+  <span class="f-copy">© 2026 Viamar — Travessias à Ilha da Berlenga · Peniche</span>
+  <div class="f-legal">
+    <a href="/faqs.html" data-i18n="ft.faqs">FAQ's</a>
+    <a href="/termos.html" data-i18n="ft.terms">Termos e Condições</a>
+  </div>
+</footer>
+
+<script>
+  const translations = {
+    pt: {
+      nav_back: 'Início',
+      'ft.faqs': "FAQ's", 'ft.terms': 'Termos e Condições',
+      'ilha.tag': 'A Ilha da Berlenga',
+      'ilha.h1': 'Um mundo à parte,<br>a 45 minutos de Peniche',
+      'ilha.sub': 'Reserva da Biosfera da UNESCO. Águas turquesa, falésias dramáticas, grutas marinhas e uma biodiversidade única em Portugal.',
+      'ilha.f1': 'travessia desde Peniche',
+      'ilha.f2': 'visitantes máx. por dia',
+      'ilha.f3': 'Reserva da Biosfera UNESCO',
+      'ilha.f4': 'de ilha para explorar',
+      'ilha.s1.tag': 'Acesso',
+      'ilha.s1.title': 'Como chegar a Peniche',
+      'ilha.s1.sub': 'O ponto de partida para a Berlenga é a Marina de Peniche. Confira as opções de transporte — após chegada a Peniche, a travessia com a Viamar leva-o à ilha em 45 minutos.',
+      'ilha.car.title': 'De carro',
+      'ilha.car.body': '<strong>De Lisboa:</strong> ~1h30 via A8 → IC1 (saída Peniche).<br><strong>Do Porto:</strong> ~3h via A1 → A8 → IC1.<br><strong>De Espanha:</strong> ~2h30 de Badajoz via A6 → A8.',
+      'ilha.car.gps': 'GPS: Marina de Peniche, Porto de Pesca de Peniche, 2520 Peniche. Parque de estacionamento disponível junto à marina.',
+      'ilha.bus.title': 'De autocarro',
+      'ilha.bus.body': '<strong>Rede Expressos</strong> opera ligações diárias entre Lisboa (Campo Grande) e Peniche com várias partidas ao longo do dia. Duração aproximada: 2 horas.',
+      'ilha.bus.note': 'Horários e bilhetes em <a href="https://www.rede-expressos.pt" target="_blank" rel="noopener">rede-expressos.pt</a>. A paragem de Peniche fica a ~15 min a pé da marina de embarque.',
+      'ilha.s2.tag': 'Na ilha',
+      'ilha.s2.title': 'Alojamento e restauração',
+      'ilha.s2.sub': 'A Berlenga tem o essencial para tornar a visita inesquecível — sem o supérfluo. Os serviços disponíveis são deliberadamente limitados para proteger a reserva natural.',
+      'ilha.penso.label': 'Alojamento',
+      'ilha.penso.name': 'Pensão da Berlenga',
+      'ilha.penso.desc': 'O único alojamento da ilha. Quartos simples e experiência única — adormecer com o som do mar e acordar com a ilha para si só. Abertura sazonal (Junho a Setembro).',
+      'ilha.penso.note': 'Reservas via Câmara Municipal de Peniche: <a href="https://www.cm-peniche.pt" target="_blank" rel="noopener">cm-peniche.pt</a>',
+      'ilha.rest.label': 'Restaurante',
+      'ilha.rest.name': 'Restaurante da Ilha',
+      'ilha.rest.desc': 'Peixe e marisco frescos, apanhados nas águas da reserva. Vista sobre o mar. Funciona durante a época alta — recomendamos reserva antecipada para grupos.',
+      'ilha.rest.note': 'Aberto de Junho a Setembro. Recomenda-se reserva para grupos com antecedência.',
+      'ilha.snack.label': 'Snack Bar',
+      'ilha.snack.name': 'Castelinho',
+      'ilha.snack.desc': 'Snacks, sandes, bebidas e sumos frescos numa das localizações mais fotogénicas da ilha — com vista directa para a Fortaleza de São João Baptista. O sítio perfeito para uma pausa a meio da exploração.',
+      'ilha.snack.note': 'Esplanada exterior com vistas panorâmicas. Abertura sazonal.',
+      'ilha.camp.label': 'Campismo',
+      'ilha.camp.name': 'Parque de Campismo',
+      'ilha.camp.desc': 'A única área de campismo autorizada da ilha. Experiência minimalista sob o céu estrelado da reserva natural — uma das mais escuras do litoral português. Instalações básicas.',
+      'ilha.camp.note': 'Reserva prévia obrigatória via Câmara Municipal de Peniche: <a href="https://www.cm-peniche.pt" target="_blank" rel="noopener">cm-peniche.pt</a>',
+      'ilha.s3.tag': 'Reserva Natural',
+      'ilha.s3.title': 'Código de conduta da ilha',
+      'ilha.s3.sub': 'A Berlenga é um ecossistema frágil. O seu cuidado é responsabilidade de todos os que a visitam — incluindo-o a si.',
+      'ilha.s3.intro': 'A Ilha da Berlenga é uma Reserva Natural com regras de acesso e comportamento estritamente definidas. O seu respeito é condição para a preservação deste ecossistema único e para a continuidade das visitas. O incumprimento pode resultar na exclusão de futuras viagens com a Viamar.',
+      'ilha.rule1': '<strong>BerlengasPass obrigatório</strong> — adquirido separadamente em berlengaspass.icnf.pt (até 3 € por pessoa).',
+      'ilha.rule2': '<strong>Proibido deixar lixo</strong> — deposite nos locais próprios ou leve-o consigo.',
+      'ilha.rule3': '<strong>Circular apenas nos trilhos marcados</strong> — respeite a sinalização de protecção da flora.',
+      'ilha.rule4': '<strong>Proibido acampar fora da área designada</strong> — campismo selvagem é ilegal na reserva.',
+      'ilha.rule5': '<strong>Máx. 550 visitantes simultâneos</strong> — limite imposto pela autoridade competente para proteger o ecossistema.',
+      'ilha.rule6': '<strong>Proibido alimentar os animais</strong> — inclui gaivotas e outras aves nidificantes.',
+      'ilha.rule7': '<strong>Respeite a fauna e flora</strong> — não apanhe plantas nem recolha amostras geológicas ou minerais.',
+      'ilha.rule8': '<strong>Música alta proibida</strong> — preserve o ambiente natural e o bem-estar de todos os visitantes.',
+      'ilha.cta.tag': 'Pronto para embarcar?',
+      'ilha.cta.h2': 'Reserve a sua travessia<br>para a Berlenga',
+      'ilha.cta.sub': 'Vagas limitadas. Época de Maio a Setembro. Reserve com antecedência para garantir o seu lugar.',
+      'ilha.cta.btn': 'Reservar agora →'
+    },
+    en: {
+      nav_back: 'Home',
+      'ft.faqs': "FAQ's", 'ft.terms': 'Terms & Conditions',
+      'ilha.tag': 'Berlenga Island',
+      'ilha.h1': 'A world apart,<br>45 minutes from Peniche',
+      'ilha.sub': 'UNESCO Biosphere Reserve. Turquoise waters, dramatic cliffs, sea caves and unique biodiversity found nowhere else in Portugal.',
+      'ilha.f1': 'boat ride from Peniche',
+      'ilha.f2': 'max. visitors per day',
+      'ilha.f3': 'UNESCO Biosphere Reserve since',
+      'ilha.f4': 'of island to explore',
+      'ilha.s1.tag': 'Getting here',
+      'ilha.s1.title': 'How to reach Peniche',
+      'ilha.s1.sub': 'The gateway to Berlenga is the Marina de Peniche. Once you arrive in Peniche, the Viamar crossing takes you to the island in 45 minutes.',
+      'ilha.car.title': 'By car',
+      'ilha.car.body': '<strong>From Lisbon:</strong> ~1h30 via A8 → IC1 (Peniche exit).<br><strong>From Porto:</strong> ~3h via A1 → A8 → IC1.<br><strong>From Spain:</strong> ~2h30 from Badajoz via A6 → A8.',
+      'ilha.car.gps': 'GPS: Marina de Peniche, Porto de Pesca de Peniche, 2520 Peniche. Parking available near the marina.',
+      'ilha.bus.title': 'By bus',
+      'ilha.bus.body': '<strong>Rede Expressos</strong> runs daily coach services from Lisbon (Campo Grande station) to Peniche, with several departures throughout the day. Journey time: approx. 2 hours.',
+      'ilha.bus.note': 'Timetables and tickets at <a href="https://www.rede-expressos.pt" target="_blank" rel="noopener">rede-expressos.pt</a>. The Peniche bus stop is ~15 min walk from the boarding marina.',
+      'ilha.s2.tag': 'On the island',
+      'ilha.s2.title': 'Accommodation & dining',
+      'ilha.s2.sub': 'Berlenga has everything you need for an unforgettable visit — and nothing more. Services are deliberately limited to protect the nature reserve.',
+      'ilha.penso.label': 'Accommodation',
+      'ilha.penso.name': 'Berlenga Inn',
+      'ilha.penso.desc': 'The only accommodation on the island. Simple rooms, extraordinary experience — fall asleep to the sound of the sea and wake up with the island all to yourself. Seasonal opening (June to September).',
+      'ilha.penso.note': 'Bookings via Câmara Municipal de Peniche: <a href="https://www.cm-peniche.pt" target="_blank" rel="noopener">cm-peniche.pt</a>',
+      'ilha.rest.label': 'Restaurant',
+      'ilha.rest.name': 'Island Restaurant',
+      'ilha.rest.desc': 'Fresh fish and seafood caught in the reserve waters. Sea views. Open during peak season — advance booking recommended for groups.',
+      'ilha.rest.note': 'Open June to September. Groups should book in advance.',
+      'ilha.snack.label': 'Snack Bar',
+      'ilha.snack.name': 'Castelinho',
+      'ilha.snack.desc': 'Snacks, sandwiches, drinks and fresh juices at one of the most photogenic spots on the island — with a direct view of the historic São João Baptista Fortress. The perfect stop mid-exploration.',
+      'ilha.snack.note': 'Outdoor terrace with panoramic views. Seasonal opening.',
+      'ilha.camp.label': 'Camping',
+      'ilha.camp.name': 'Campsite',
+      'ilha.camp.desc': "The island's only authorised camping area. A minimalist experience under the stars of the nature reserve — one of the darkest night skies on the Portuguese coast. Basic facilities.",
+      'ilha.camp.note': 'Advance booking mandatory via Câmara Municipal de Peniche: <a href="https://www.cm-peniche.pt" target="_blank" rel="noopener">cm-peniche.pt</a>',
+      'ilha.s3.tag': 'Nature Reserve',
+      'ilha.s3.title': 'Island code of conduct',
+      'ilha.s3.sub': 'Berlenga is a fragile ecosystem. Protecting it is the responsibility of every visitor — including you.',
+      'ilha.s3.intro': "Berlenga Island is a Nature Reserve with strictly defined access and behaviour rules. Respecting them is a condition for preserving this unique ecosystem and ensuring visits can continue. Non-compliance may result in exclusion from future trips with Viamar.",
+      'ilha.rule1': '<strong>BerlengasPass required</strong> — purchased separately at berlengaspass.icnf.pt (up to €3 per person).',
+      'ilha.rule2': '<strong>No littering</strong> — use the designated bins or take your waste with you.',
+      'ilha.rule3': '<strong>Stay on marked trails only</strong> — respect all flora protection signage.',
+      'ilha.rule4': "<strong>No wild camping</strong> — camping outside the designated area is illegal in the reserve.",
+      'ilha.rule5': '<strong>Max. 550 simultaneous visitors</strong> — a limit set by the competent authority to protect the ecosystem.',
+      'ilha.rule6': '<strong>Do not feed the animals</strong> — including seagulls and other nesting birds.',
+      'ilha.rule7': '<strong>Respect fauna and flora</strong> — do not pick plants or collect geological or mineral samples.',
+      'ilha.rule8': '<strong>No loud music</strong> — preserve the natural environment and the well-being of all visitors.',
+      'ilha.cta.tag': 'Ready to set sail?',
+      'ilha.cta.h2': 'Book your crossing<br>to Berlenga',
+      'ilha.cta.sub': 'Limited capacity. Season runs May to September. Book in advance to secure your spot.',
+      'ilha.cta.btn': 'Book now →'
+    },
+    es: {
+      nav_back: 'Inicio',
+      'ft.faqs': "FAQ's", 'ft.terms': 'Términos y Condiciones',
+      'ilha.tag': 'La Isla Berlenga',
+      'ilha.h1': 'Un mundo aparte,<br>a 45 minutos de Peniche',
+      'ilha.sub': 'Reserva de la Biosfera UNESCO. Aguas turquesas, acantilados dramáticos, grutas marinas y una biodiversidad única en Portugal.',
+      'ilha.f1': 'travesía desde Peniche',
+      'ilha.f2': 'visitantes máx. por día',
+      'ilha.f3': 'Reserva de la Biosfera UNESCO',
+      'ilha.f4': 'de isla para explorar',
+      'ilha.s1.tag': 'Cómo llegar',
+      'ilha.s1.title': 'Cómo llegar a Peniche',
+      'ilha.s1.sub': 'El punto de partida hacia Berlenga es la Marina de Peniche. Una vez en Peniche, la travesía con Viamar le lleva a la isla en 45 minutos.',
+      'ilha.car.title': 'En coche',
+      'ilha.car.body': '<strong>Desde Lisboa:</strong> ~1h30 por A8 → IC1 (salida Peniche).<br><strong>Desde Oporto:</strong> ~3h por A1 → A8 → IC1.<br><strong>Desde España:</strong> ~2h30 desde Badajoz por A6 → A8.',
+      'ilha.car.gps': 'GPS: Marina de Peniche, Porto de Pesca de Peniche, 2520 Peniche. Aparcamiento disponible junto a la marina.',
+      'ilha.bus.title': 'En autobús',
+      'ilha.bus.body': '<strong>Rede Expressos</strong> opera servicios de autocar diarios desde Lisboa (estación de Campo Grande) a Peniche, con varias salidas a lo largo del día. Duración aproximada: 2 horas.',
+      'ilha.bus.note': 'Horarios y billetes en <a href="https://www.rede-expressos.pt" target="_blank" rel="noopener">rede-expressos.pt</a>. La parada de Peniche está a ~15 min a pie de la marina de embarque.',
+      'ilha.s2.tag': 'En la isla',
+      'ilha.s2.title': 'Alojamiento y restauración',
+      'ilha.s2.sub': 'Berlenga tiene lo esencial para hacer la visita inolvidable — sin superfluidades. Los servicios son deliberadamente limitados para proteger la reserva natural.',
+      'ilha.penso.label': 'Alojamiento',
+      'ilha.penso.name': 'Pensión de Berlenga',
+      'ilha.penso.desc': 'El único alojamiento de la isla. Habitaciones sencillas y experiencia única — dormirse con el sonido del mar y despertar con la isla para uno solo. Apertura estacional (junio a septiembre).',
+      'ilha.penso.note': 'Reservas a través del Ayuntamiento de Peniche: <a href="https://www.cm-peniche.pt" target="_blank" rel="noopener">cm-peniche.pt</a>',
+      'ilha.rest.label': 'Restaurante',
+      'ilha.rest.name': 'Restaurante de la Isla',
+      'ilha.rest.desc': 'Pescado y marisco frescos capturados en las aguas de la reserva. Vistas al mar. Abierto en temporada alta — se recomienda reserva anticipada para grupos.',
+      'ilha.rest.note': 'Abierto de junio a septiembre. Se recomienda reservar para grupos con antelación.',
+      'ilha.snack.label': 'Snack Bar',
+      'ilha.snack.name': 'Castelinho',
+      'ilha.snack.desc': 'Snacks, bocadillos, bebidas y zumos frescos en uno de los lugares más fotogénicos de la isla — con vista directa a la Fortaleza de São João Baptista. El sitio perfecto para una pausa a mitad de la exploración.',
+      'ilha.snack.note': 'Terraza exterior con vistas panorámicas. Apertura estacional.',
+      'ilha.camp.label': 'Camping',
+      'ilha.camp.name': 'Parque de Camping',
+      'ilha.camp.desc': 'La única zona de camping autorizada de la isla. Experiencia minimalista bajo el cielo estrellado de la reserva natural — uno de los cielos nocturnos más oscuros del litoral portugués. Instalaciones básicas.',
+      'ilha.camp.note': 'Reserva previa obligatoria en el Ayuntamiento de Peniche: <a href="https://www.cm-peniche.pt" target="_blank" rel="noopener">cm-peniche.pt</a>',
+      'ilha.s3.tag': 'Reserva Natural',
+      'ilha.s3.title': 'Código de conducta de la isla',
+      'ilha.s3.sub': 'Berlenga es un ecosistema frágil. Su cuidado es responsabilidad de todos los que la visitan — también de usted.',
+      'ilha.s3.intro': 'La Isla Berlenga es una Reserva Natural con normas de acceso y comportamiento estrictamente definidas. Su respeto es condición para la preservación de este ecosistema único y para la continuidad de las visitas. El incumplimiento puede resultar en la exclusión de futuros viajes con Viamar.',
+      'ilha.rule1': '<strong>BerlengasPass obligatorio</strong> — adquirido por separado en berlengaspass.icnf.pt (hasta 3 € por persona).',
+      'ilha.rule2': '<strong>Prohibido dejar basura</strong> — deposítela en los lugares habilitados o llévesela consigo.',
+      'ilha.rule3': '<strong>Circular solo por senderos señalizados</strong> — respete la señalización de protección de la flora.',
+      'ilha.rule4': '<strong>Prohibido acampar fuera de la zona designada</strong> — el camping salvaje es ilegal en la reserva.',
+      'ilha.rule5': '<strong>Máx. 550 visitantes simultáneos</strong> — límite impuesto por la autoridad competente para proteger el ecosistema.',
+      'ilha.rule6': '<strong>Prohibido alimentar a los animales</strong> — incluidas gaviotas y otras aves nidificantes.',
+      'ilha.rule7': '<strong>Respete la fauna y flora</strong> — no recoja plantas ni muestras geológicas o minerales.',
+      'ilha.rule8': '<strong>Música alta prohibida</strong> — preserve el entorno natural y el bienestar de todos los visitantes.',
+      'ilha.cta.tag': '¿Listo para embarcar?',
+      'ilha.cta.h2': 'Reserve su travesía<br>a Berlenga',
+      'ilha.cta.sub': 'Aforo limitado. Temporada de mayo a septiembre. Reserve con antelación para asegurar su plaza.',
+      'ilha.cta.btn': 'Reservar ahora →'
+    },
+    fr: {
+      nav_back: 'Accueil',
+      'ft.faqs': "FAQ's", 'ft.terms': 'Conditions Générales',
+      'ilha.tag': "L'Île Berlenga",
+      'ilha.h1': 'Un monde à part,<br>à 45 minutes de Peniche',
+      'ilha.sub': "Réserve de biosphère UNESCO. Eaux turquoises, falaises dramatiques, grottes marines et une biodiversité unique au Portugal.",
+      'ilha.f1': 'traversée depuis Peniche',
+      'ilha.f2': 'visiteurs max. par jour',
+      'ilha.f3': 'Réserve de biosphère UNESCO',
+      'ilha.f4': "d'île à explorer",
+      'ilha.s1.tag': 'Accès',
+      'ilha.s1.title': 'Comment rejoindre Peniche',
+      'ilha.s1.sub': "Le point de départ vers Berlenga est la Marina de Peniche. Une fois à Peniche, la traversée avec Viamar vous amène à l'île en 45 minutes.",
+      'ilha.car.title': 'En voiture',
+      'ilha.car.body': "<strong>Depuis Lisbonne :</strong> ~1h30 via A8 → IC1 (sortie Peniche).<br><strong>Depuis Porto :</strong> ~3h via A1 → A8 → IC1.<br><strong>Depuis l'Espagne :</strong> ~2h30 depuis Badajoz via A6 → A8.",
+      'ilha.car.gps': "GPS : Marina de Peniche, Porto de Pesca de Peniche, 2520 Peniche. Parking disponible à proximité de la marina.",
+      'ilha.bus.title': 'En bus',
+      'ilha.bus.body': "<strong>Rede Expressos</strong> assure des liaisons quotidiennes en autocar depuis Lisbonne (gare de Campo Grande) jusqu'à Peniche, avec plusieurs départs dans la journée. Durée approximative : 2 heures.",
+      'ilha.bus.note': 'Horaires et billets sur <a href="https://www.rede-expressos.pt" target="_blank" rel="noopener">rede-expressos.pt</a>. L\'arrêt de Peniche est à ~15 min à pied de la marina d\'embarquement.',
+      'ilha.s2.tag': "Sur l'île",
+      'ilha.s2.title': 'Hébergement et restauration',
+      'ilha.s2.sub': "Berlenga a tout le nécessaire pour une visite inoubliable — sans le superflu. Les services sont délibérément limités pour protéger la réserve naturelle.",
+      'ilha.penso.label': 'Hébergement',
+      'ilha.penso.name': "Auberge de Berlenga",
+      'ilha.penso.desc': "Le seul hébergement de l'île. Chambres simples, expérience unique — s'endormir au son de la mer et se réveiller avec l'île pour soi. Ouverture saisonnière (juin à septembre).",
+      'ilha.penso.note': 'Réservations via la Mairie de Peniche : <a href="https://www.cm-peniche.pt" target="_blank" rel="noopener">cm-peniche.pt</a>',
+      'ilha.rest.label': 'Restaurant',
+      'ilha.rest.name': "Restaurant de l'Île",
+      'ilha.rest.desc': "Poissons et fruits de mer frais pêchés dans les eaux de la réserve. Vue sur la mer. Ouvert en haute saison — réservation recommandée pour les groupes.",
+      'ilha.rest.note': 'Ouvert de juin à septembre. Réservation conseillée pour les groupes.',
+      'ilha.snack.label': 'Snack Bar',
+      'ilha.snack.name': 'Castelinho',
+      'ilha.snack.desc': "Snacks, sandwichs, boissons et jus frais dans l'un des endroits les plus photogéniques de l'île — avec vue directe sur la Forteresse São João Baptista. L'arrêt idéal à mi-exploration.",
+      'ilha.snack.note': 'Terrasse extérieure avec vue panoramique. Ouverture saisonnière.',
+      'ilha.camp.label': 'Camping',
+      'ilha.camp.name': 'Camping',
+      'ilha.camp.desc': "La seule zone de camping autorisée de l'île. Expérience minimaliste sous le ciel étoilé de la réserve naturelle — l'un des cieux nocturnes les plus sombres du littoral portugais. Installations de base.",
+      'ilha.camp.note': 'Réservation préalable obligatoire via la Mairie de Peniche : <a href="https://www.cm-peniche.pt" target="_blank" rel="noopener">cm-peniche.pt</a>',
+      'ilha.s3.tag': 'Réserve Naturelle',
+      'ilha.s3.title': "Code de conduite de l'île",
+      'ilha.s3.sub': "Berlenga est un écosystème fragile. Sa préservation est la responsabilité de chaque visiteur — y compris vous.",
+      'ilha.s3.intro': "L'île Berlenga est une Réserve Naturelle avec des règles d'accès et de comportement strictement définies. Leur respect est une condition pour préserver cet écosystème unique et assurer la continuité des visites. Le non-respect peut entraîner l'exclusion des futurs voyages avec Viamar.",
+      'ilha.rule1': '<strong>BerlengasPass obligatoire</strong> — à acquérir séparément sur berlengaspass.icnf.pt (jusqu\'à 3 € par personne).',
+      'ilha.rule2': "<strong>Interdiction de jeter des déchets</strong> — utilisez les poubelles désignées ou remportez vos déchets.",
+      'ilha.rule3': "<strong>Circuler uniquement sur les sentiers balisés</strong> — respectez la signalisation de protection de la flore.",
+      'ilha.rule4': "<strong>Camping sauvage interdit</strong> — le camping en dehors de la zone désignée est illégal dans la réserve.",
+      'ilha.rule5': "<strong>Max. 550 visiteurs simultanés</strong> — limite imposée par l'autorité compétente pour protéger l'écosystème.",
+      'ilha.rule6': "<strong>Ne pas nourrir les animaux</strong> — y compris les mouettes et autres oiseaux nicheurs.",
+      'ilha.rule7': "<strong>Respecter la faune et la flore</strong> — ne pas cueillir de plantes ni collecter d'échantillons géologiques ou minéraux.",
+      'ilha.rule8': "<strong>Musique forte interdite</strong> — préservez l'environnement naturel et le bien-être de tous les visiteurs.",
+      'ilha.cta.tag': 'Prêt à embarquer ?',
+      'ilha.cta.h2': 'Réservez votre traversée<br>vers Berlenga',
+      'ilha.cta.sub': 'Capacité limitée. Saison de mai à septembre. Réservez à l\'avance pour garantir votre place.',
+      'ilha.cta.btn': 'Réserver maintenant →'
+    }
+  };
+
+  function setLang(lang) {
+    document.documentElement.setAttribute('data-lang', lang);
+    document.documentElement.lang = lang === 'pt' ? 'pt-PT' : lang;
+    document.querySelectorAll('[data-lang-switch]').forEach(btn => {
+      btn.classList.toggle('active', btn.dataset.langSwitch === lang);
+    });
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+      const key = el.dataset.i18n;
+      if (translations[lang] && translations[lang][key] !== undefined) {
+        el.innerHTML = translations[lang][key];
+      }
+    });
+  }
+
+  document.querySelectorAll('[data-lang-switch]').forEach(btn => {
+    btn.addEventListener('click', () => setLang(btn.dataset.langSwitch));
+  });
+
+  const _nav = navigator.language?.slice(0,2);
+  setLang(['pt','en','es','fr'].includes(_nav) ? _nav : 'pt');
+
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('solid', window.scrollY > 40);
+  }, { passive: true });
+</script>
+
+<script defer src="/_vercel/insights/script.js"></script>
+</body>
+</html>
