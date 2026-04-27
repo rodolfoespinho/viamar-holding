@@ -857,8 +857,8 @@
     .pkg-card.coming-soon:hover { transform: none; }
 
     /* Photo */
-    .pkg-photo-wrap { position: relative; aspect-ratio: 3/2; overflow: hidden; flex-shrink: 0; }
-    .pkg-photo { width: 100%; height: 100%; object-fit: cover; transition: transform .45s ease; display: block; }
+    .pkg-photo-wrap { position: relative; aspect-ratio: 4/3; overflow: hidden; flex-shrink: 0; }
+    .pkg-photo { width: 100%; height: 100%; object-fit: cover; object-position: center 70%; transition: transform .45s ease; display: block; }
     .pkg-card:hover .pkg-photo { transform: scale(1.05); }
     .pkg-card.coming-soon:hover .pkg-photo { transform: none; }
     .pkg-photo-overlay {
@@ -1964,7 +1964,7 @@
             : `<a href="${esc(data.booking_url)}" class="btn-pkg${item.featured ? ' solid' : ''}">${isEN ? 'Book now' : 'Reservar'}</a>`;
           return `<div class="${cardClass}">
   <div class="pkg-photo-wrap">
-    <img class="pkg-photo" src="${esc(item.image)}" alt="${esc(name)}" loading="lazy" />
+    <img class="pkg-photo" src="${esc(item.image)}" alt="${esc(name)}" loading="lazy" style="object-position:${esc(item.img_position||'center 70%')}" />
     <div class="pkg-photo-overlay">
       <span class="pkg-badge" style="${badgeStyle}">${esc(badge)}</span>
       <div class="pkg-name">${esc(name)}</div>
