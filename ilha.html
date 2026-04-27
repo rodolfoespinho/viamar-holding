@@ -63,13 +63,12 @@
   /* ── hero ── */
   .pg-header {
     position: relative; padding: 160px 40px 88px; text-align: center;
-    border-bottom: 1px solid rgba(255,255,255,0.06);
     background: url('img/photo3.webp') center/cover no-repeat;
     overflow: hidden;
   }
   .pg-header::before {
     content: ''; position: absolute; inset: 0;
-    background: linear-gradient(to bottom, rgba(7,17,31,0.45) 0%, rgba(7,17,31,0.82) 100%);
+    background: linear-gradient(to bottom, rgba(7,17,31,0.45) 0%, rgba(7,17,31,1) 100%);
   }
   .pg-header > * { position: relative; z-index: 1; }
   .pg-tag {
@@ -294,7 +293,7 @@
     </div>
     <div class="fact-item">
       <div class="fact-val">550</div>
-      <div class="fact-lbl" data-i18n="ilha.f2">visitantes máx. por dia</div>
+      <div class="fact-lbl" data-i18n="ilha.f2">visitantes em simultâneo</div>
     </div>
     <div class="fact-item">
       <div class="fact-val">1984</div>
@@ -331,6 +330,12 @@
           <div class="tc-detail-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
           <div class="tc-detail-text" data-i18n="ilha.car.gps">GPS: Marina de Peniche, Porto de Pesca de Peniche, 2520 Peniche. Parque de estacionamento disponível junto à marina.</div>
         </div>
+        <div class="tc-detail" style="border-top:none; padding-top:10px;">
+          <a href="https://www.google.com/maps/dir/?api=1&destination=Marina+de+Peniche%2C+Porto+de+Pesca%2C+2520+Peniche+Portugal" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:6px;font-size:13px;font-weight:700;color:var(--aqua);text-decoration:none;padding:8px 14px;border:1px solid rgba(6,182,212,0.3);border-radius:8px;transition:background .2s;" onmouseover="this.style.background='rgba(6,182,212,0.08)'" onmouseout="this.style.background=''" data-i18n="ilha.car.mapsbtn">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            Calcular rota →
+          </a>
+        </div>
       </div>
 
       <!-- De autocarro -->
@@ -344,7 +349,7 @@
         </div>
         <div class="tc-detail">
           <div class="tc-detail-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
-          <div class="tc-detail-text" data-i18n="ilha.bus.note">Horários e bilhetes em <a href="https://www.rede-expressos.pt" target="_blank" rel="noopener">rede-expressos.pt</a>. A paragem de Peniche fica a ~15 min a pé da marina de embarque.</div>
+          <div class="tc-detail-text" data-i18n="ilha.bus.note">Bilhetes em <a href="https://www.rede-expressos.pt" target="_blank" rel="noopener">rede-expressos.pt</a> ou <a href="https://www.flixbus.pt" target="_blank" rel="noopener">flixbus.pt</a>. A paragem de Peniche fica a ~15 min a pé da marina de embarque.</div>
         </div>
       </div>
 
@@ -367,9 +372,9 @@
           <img src="img/freepik__enhance-the-cinematic-feel-on-this-photo__34301.webp" alt="Pensão Berlenga" loading="lazy" />
         </div>
         <div class="island-card-body">
-          <span class="ic-label" data-i18n="ilha.penso.label">Alojamento</span>
-          <div class="ic-name" data-i18n="ilha.penso.name">Pensão da Berlenga</div>
-          <div class="ic-desc" data-i18n="ilha.penso.desc">O único alojamento da ilha. Quartos simples e experiência única — adormecer com o som do mar e acordar com a ilha para si só. Reservas obrigatórias, abertura sazonal (Junho a Setembro).</div>
+          <span class="ic-label" data-i18n="ilha.penso.label">Alojamento &amp; Restaurante</span>
+          <div class="ic-name" data-i18n="ilha.penso.name">Berlenga Bed &amp; Breakfast</div>
+          <div class="ic-desc" data-i18n="ilha.penso.desc">O principal espaço de alojamento e restauração da ilha. Quartos simples com vista para o mar e um restaurante com peixe e marisco frescos — adormecer ao som das ondas e acordar com a ilha para si só. Abertura sazonal (Junho a Setembro).</div>
           <div class="ic-note">
             <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
             <span data-i18n="ilha.penso.note">Reservas via Câmara Municipal de Peniche: <a href="https://www.cm-peniche.pt" target="_blank" rel="noopener">cm-peniche.pt</a></span>
@@ -383,12 +388,12 @@
           <img src="img/freepik__enhance-the-cinematic-feel-on-this-photo__59586.webp" alt="Restaurante na Berlenga" loading="lazy" />
         </div>
         <div class="island-card-body">
-          <span class="ic-label" data-i18n="ilha.rest.label">Restaurante</span>
-          <div class="ic-name" data-i18n="ilha.rest.name">Restaurante da Ilha</div>
-          <div class="ic-desc" data-i18n="ilha.rest.desc">Peixe e marisco frescos, apanhados nas águas da reserva. Vista sobre o mar. O restaurante da ilha funciona durante a época alta — recomendamos reserva antecipada para grupos.</div>
+          <span class="ic-label" data-i18n="ilha.rest.label">Alojamento Histórico</span>
+          <div class="ic-name" data-i18n="ilha.rest.name">Forte de São João Baptista</div>
+          <div class="ic-desc" data-i18n="ilha.rest.desc">A Pensão da AABerlenga funciona dentro do histórico Forte de São João Baptista, construído no século XVII. Uma experiência única — dormir entre muralhas seculares com o oceano Atlântico a toda a volta. Abertura sazonal.</div>
           <div class="ic-note">
             <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
-            <span data-i18n="ilha.rest.note">Aberto de Junho a Setembro. Recomenda-se reserva para grupos com antecedência.</span>
+            <span data-i18n="ilha.rest.note">Reservas e informações via Câmara Municipal de Peniche: <a href="https://www.cm-peniche.pt" target="_blank" rel="noopener">cm-peniche.pt</a></span>
           </div>
         </div>
       </div>
@@ -400,8 +405,8 @@
         </div>
         <div class="island-card-body">
           <span class="ic-label" data-i18n="ilha.snack.label">Snack Bar</span>
-          <div class="ic-name" data-i18n="ilha.snack.name">Castelinho</div>
-          <div class="ic-desc" data-i18n="ilha.snack.desc">Snacks, sandes, bebidas e sumos frescos numa das localizações mais fotogénicas da ilha — com vista directa para a Fortaleza de São João Baptista. O sítio perfeito para uma pausa a meio da exploração.</div>
+          <div class="ic-name" data-i18n="ilha.snack.name">Castelinho Snack Bar</div>
+          <div class="ic-desc" data-i18n="ilha.snack.desc">Refeições leves, sandes, gelados, bebidas e sumos frescos numa das localizações mais fotogénicas da ilha — com vista directa para a Fortaleza de São João Baptista. O sítio perfeito para uma pausa a meio da exploração.</div>
           <div class="ic-note">
             <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
             <span data-i18n="ilha.snack.note">Esplanada exterior com vistas panorâmicas. Abertura sazonal.</span>
@@ -417,10 +422,10 @@
         <div class="island-card-body">
           <span class="ic-label" data-i18n="ilha.camp.label">Campismo</span>
           <div class="ic-name" data-i18n="ilha.camp.name">Parque de Campismo</div>
-          <div class="ic-desc" data-i18n="ilha.camp.desc">A única área de campismo autorizada da ilha. Experiência minimalista sob o céu estrelado da reserva natural — uma das mais escuras do litoral português. Instalações básicas.</div>
+          <div class="ic-desc" data-i18n="ilha.camp.desc">A única área de campismo autorizada da ilha. Experiência minimalista sob o céu estrelado da reserva natural. É também possível alugar socalcos — terraços rochosos sobranceiros ao mar — para uma vivência ainda mais próxima da ilha.</div>
           <div class="ic-note">
             <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
-            <span data-i18n="ilha.camp.note">Reserva prévia obrigatória via Câmara Municipal de Peniche: <a href="https://www.cm-peniche.pt" target="_blank" rel="noopener">cm-peniche.pt</a></span>
+            <span data-i18n="ilha.camp.note">Reservas de socalcos e campismo via Posto de Turismo de Peniche: <a href="https://www.cm-peniche.pt" target="_blank" rel="noopener">cm-peniche.pt</a></span>
           </div>
         </div>
       </div>
@@ -508,7 +513,7 @@
       'ilha.h1': 'Um mundo à parte,<br>a 45 minutos de Peniche',
       'ilha.sub': 'Reserva da Biosfera da UNESCO. Águas turquesa, falésias dramáticas, grutas marinhas e uma biodiversidade única em Portugal.',
       'ilha.f1': 'travessia desde Peniche',
-      'ilha.f2': 'visitantes máx. por dia',
+      'ilha.f2': 'visitantes em simultâneo',
       'ilha.f3': 'Reserva da Biosfera UNESCO',
       'ilha.f4': 'de ilha para explorar',
       'ilha.s1.tag': 'Acesso',
@@ -517,28 +522,29 @@
       'ilha.car.title': 'De carro',
       'ilha.car.body': '<strong>De Lisboa:</strong> ~1h30 via A8 → IC1 (saída Peniche).<br><strong>Do Porto:</strong> ~3h via A1 → A8 → IC1.<br><strong>De Espanha:</strong> ~2h30 de Badajoz via A6 → A8.',
       'ilha.car.gps': 'GPS: Marina de Peniche, Porto de Pesca de Peniche, 2520 Peniche. Parque de estacionamento disponível junto à marina.',
+      'ilha.car.mapsbtn': '<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg> Calcular rota →',
       'ilha.bus.title': 'De autocarro',
-      'ilha.bus.body': '<strong>Rede Expressos</strong> opera ligações diárias entre Lisboa (Campo Grande) e Peniche com várias partidas ao longo do dia. Duração aproximada: 2 horas.',
-      'ilha.bus.note': 'Horários e bilhetes em <a href="https://www.rede-expressos.pt" target="_blank" rel="noopener">rede-expressos.pt</a>. A paragem de Peniche fica a ~15 min a pé da marina de embarque.',
+      'ilha.bus.body': '<strong>Rede Expressos</strong> e <strong>FlixBus</strong> operam ligações diárias entre Lisboa e Peniche com várias partidas ao longo do dia. Duração aproximada: 2 horas.',
+      'ilha.bus.note': 'Bilhetes em <a href="https://www.rede-expressos.pt" target="_blank" rel="noopener">rede-expressos.pt</a> ou <a href="https://www.flixbus.pt" target="_blank" rel="noopener">flixbus.pt</a>. A paragem de Peniche fica a ~15 min a pé da marina de embarque.',
       'ilha.s2.tag': 'Na ilha',
       'ilha.s2.title': 'Alojamento e restauração',
       'ilha.s2.sub': 'A Berlenga tem o essencial para tornar a visita inesquecível — sem o supérfluo. Os serviços disponíveis são deliberadamente limitados para proteger a reserva natural.',
-      'ilha.penso.label': 'Alojamento',
-      'ilha.penso.name': 'Pensão da Berlenga',
-      'ilha.penso.desc': 'O único alojamento da ilha. Quartos simples e experiência única — adormecer com o som do mar e acordar com a ilha para si só. Abertura sazonal (Junho a Setembro).',
+      'ilha.penso.label': 'Alojamento &amp; Restaurante',
+      'ilha.penso.name': 'Berlenga Bed &amp; Breakfast',
+      'ilha.penso.desc': 'O principal espaço de alojamento e restauração da ilha. Quartos simples com vista para o mar e um restaurante com peixe e marisco frescos — adormecer ao som das ondas e acordar com a ilha para si só. Abertura sazonal (Junho a Setembro).',
       'ilha.penso.note': 'Reservas via Câmara Municipal de Peniche: <a href="https://www.cm-peniche.pt" target="_blank" rel="noopener">cm-peniche.pt</a>',
-      'ilha.rest.label': 'Restaurante',
-      'ilha.rest.name': 'Restaurante da Ilha',
-      'ilha.rest.desc': 'Peixe e marisco frescos, apanhados nas águas da reserva. Vista sobre o mar. Funciona durante a época alta — recomendamos reserva antecipada para grupos.',
-      'ilha.rest.note': 'Aberto de Junho a Setembro. Recomenda-se reserva para grupos com antecedência.',
+      'ilha.rest.label': 'Alojamento Histórico',
+      'ilha.rest.name': 'Forte de São João Baptista',
+      'ilha.rest.desc': 'A Pensão da AABerlenga funciona dentro do histórico Forte de São João Baptista, construído no século XVII. Uma experiência única — dormir entre muralhas seculares com o oceano Atlântico a toda a volta. Abertura sazonal.',
+      'ilha.rest.note': 'Reservas e informações via Câmara Municipal de Peniche: <a href="https://www.cm-peniche.pt" target="_blank" rel="noopener">cm-peniche.pt</a>',
       'ilha.snack.label': 'Snack Bar',
-      'ilha.snack.name': 'Castelinho',
-      'ilha.snack.desc': 'Snacks, sandes, bebidas e sumos frescos numa das localizações mais fotogénicas da ilha — com vista directa para a Fortaleza de São João Baptista. O sítio perfeito para uma pausa a meio da exploração.',
+      'ilha.snack.name': 'Castelinho Snack Bar',
+      'ilha.snack.desc': 'Refeições leves, sandes, gelados, bebidas e sumos frescos numa das localizações mais fotogénicas da ilha — com vista directa para a Fortaleza de São João Baptista. O sítio perfeito para uma pausa a meio da exploração.',
       'ilha.snack.note': 'Esplanada exterior com vistas panorâmicas. Abertura sazonal.',
       'ilha.camp.label': 'Campismo',
       'ilha.camp.name': 'Parque de Campismo',
-      'ilha.camp.desc': 'A única área de campismo autorizada da ilha. Experiência minimalista sob o céu estrelado da reserva natural — uma das mais escuras do litoral português. Instalações básicas.',
-      'ilha.camp.note': 'Reserva prévia obrigatória via Câmara Municipal de Peniche: <a href="https://www.cm-peniche.pt" target="_blank" rel="noopener">cm-peniche.pt</a>',
+      'ilha.camp.desc': 'A única área de campismo autorizada da ilha. Experiência minimalista sob o céu estrelado da reserva natural. É também possível alugar socalcos — terraços rochosos sobranceiros ao mar — para uma vivência ainda mais próxima da ilha.',
+      'ilha.camp.note': 'Reservas de socalcos e campismo via Posto de Turismo de Peniche: <a href="https://www.cm-peniche.pt" target="_blank" rel="noopener">cm-peniche.pt</a>',
       'ilha.s3.tag': 'Reserva Natural',
       'ilha.s3.title': 'Código de conduta da ilha',
       'ilha.s3.sub': 'A Berlenga é um ecossistema frágil. O seu cuidado é responsabilidade de todos os que a visitam — incluindo-o a si.',
@@ -563,7 +569,7 @@
       'ilha.h1': 'A world apart,<br>45 minutes from Peniche',
       'ilha.sub': 'UNESCO Biosphere Reserve. Turquoise waters, dramatic cliffs, sea caves and unique biodiversity found nowhere else in Portugal.',
       'ilha.f1': 'boat ride from Peniche',
-      'ilha.f2': 'max. visitors per day',
+      'ilha.f2': 'max. simultaneous visitors',
       'ilha.f3': 'UNESCO Biosphere Reserve since',
       'ilha.f4': 'of island to explore',
       'ilha.s1.tag': 'Getting here',
@@ -572,28 +578,29 @@
       'ilha.car.title': 'By car',
       'ilha.car.body': '<strong>From Lisbon:</strong> ~1h30 via A8 → IC1 (Peniche exit).<br><strong>From Porto:</strong> ~3h via A1 → A8 → IC1.<br><strong>From Spain:</strong> ~2h30 from Badajoz via A6 → A8.',
       'ilha.car.gps': 'GPS: Marina de Peniche, Porto de Pesca de Peniche, 2520 Peniche. Parking available near the marina.',
+      'ilha.car.mapsbtn': '<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg> Get directions →',
       'ilha.bus.title': 'By bus',
-      'ilha.bus.body': '<strong>Rede Expressos</strong> runs daily coach services from Lisbon (Campo Grande station) to Peniche, with several departures throughout the day. Journey time: approx. 2 hours.',
-      'ilha.bus.note': 'Timetables and tickets at <a href="https://www.rede-expressos.pt" target="_blank" rel="noopener">rede-expressos.pt</a>. The Peniche bus stop is ~15 min walk from the boarding marina.',
+      'ilha.bus.body': '<strong>Rede Expressos</strong> and <strong>FlixBus</strong> run daily coach services from Lisbon to Peniche, with several departures throughout the day. Journey time: approx. 2 hours.',
+      'ilha.bus.note': 'Tickets at <a href="https://www.rede-expressos.pt" target="_blank" rel="noopener">rede-expressos.pt</a> or <a href="https://www.flixbus.pt" target="_blank" rel="noopener">flixbus.pt</a>. The Peniche bus stop is ~15 min walk from the boarding marina.',
       'ilha.s2.tag': 'On the island',
       'ilha.s2.title': 'Accommodation & dining',
       'ilha.s2.sub': 'Berlenga has everything you need for an unforgettable visit — and nothing more. Services are deliberately limited to protect the nature reserve.',
-      'ilha.penso.label': 'Accommodation',
-      'ilha.penso.name': 'Berlenga Inn',
-      'ilha.penso.desc': 'The only accommodation on the island. Simple rooms, extraordinary experience — fall asleep to the sound of the sea and wake up with the island all to yourself. Seasonal opening (June to September).',
+      'ilha.penso.label': 'Accommodation &amp; Restaurant',
+      'ilha.penso.name': 'Berlenga Bed &amp; Breakfast',
+      'ilha.penso.desc': "The island's main accommodation and dining venue. Simple sea-view rooms and a restaurant serving fresh fish and seafood — fall asleep to the sound of the waves and wake up with the island all to yourself. Seasonal opening (June to September).",
       'ilha.penso.note': 'Bookings via Câmara Municipal de Peniche: <a href="https://www.cm-peniche.pt" target="_blank" rel="noopener">cm-peniche.pt</a>',
-      'ilha.rest.label': 'Restaurant',
-      'ilha.rest.name': 'Island Restaurant',
-      'ilha.rest.desc': 'Fresh fish and seafood caught in the reserve waters. Sea views. Open during peak season — advance booking recommended for groups.',
-      'ilha.rest.note': 'Open June to September. Groups should book in advance.',
+      'ilha.rest.label': 'Historic Accommodation',
+      'ilha.rest.name': 'Forte de São João Baptista',
+      'ilha.rest.desc': 'The AABerlenga Guesthouse operates inside the historic Forte de São João Baptista, built in the 17th century. A unique experience — sleeping within centuries-old walls surrounded by the Atlantic Ocean. Seasonal opening.',
+      'ilha.rest.note': 'Bookings and info via Câmara Municipal de Peniche: <a href="https://www.cm-peniche.pt" target="_blank" rel="noopener">cm-peniche.pt</a>',
       'ilha.snack.label': 'Snack Bar',
-      'ilha.snack.name': 'Castelinho',
-      'ilha.snack.desc': 'Snacks, sandwiches, drinks and fresh juices at one of the most photogenic spots on the island — with a direct view of the historic São João Baptista Fortress. The perfect stop mid-exploration.',
+      'ilha.snack.name': 'Castelinho Snack Bar',
+      'ilha.snack.desc': 'Light meals, sandwiches, ice cream, drinks and fresh juices at one of the most photogenic spots on the island — with a direct view of the historic São João Baptista Fortress. The perfect stop mid-exploration.',
       'ilha.snack.note': 'Outdoor terrace with panoramic views. Seasonal opening.',
       'ilha.camp.label': 'Camping',
       'ilha.camp.name': 'Campsite',
-      'ilha.camp.desc': "The island's only authorised camping area. A minimalist experience under the stars of the nature reserve — one of the darkest night skies on the Portuguese coast. Basic facilities.",
-      'ilha.camp.note': 'Advance booking mandatory via Câmara Municipal de Peniche: <a href="https://www.cm-peniche.pt" target="_blank" rel="noopener">cm-peniche.pt</a>',
+      'ilha.camp.desc': "The island's only authorised camping area. A minimalist experience under the stars of the nature reserve. It is also possible to rent socalcos — rocky terraces overlooking the sea — for an even more immersive island experience.",
+      'ilha.camp.note': 'Socalco and campsite bookings via the Peniche Tourist Office: <a href="https://www.cm-peniche.pt" target="_blank" rel="noopener">cm-peniche.pt</a>',
       'ilha.s3.tag': 'Nature Reserve',
       'ilha.s3.title': 'Island code of conduct',
       'ilha.s3.sub': 'Berlenga is a fragile ecosystem. Protecting it is the responsibility of every visitor — including you.',
@@ -618,7 +625,7 @@
       'ilha.h1': 'Un mundo aparte,<br>a 45 minutos de Peniche',
       'ilha.sub': 'Reserva de la Biosfera UNESCO. Aguas turquesas, acantilados dramáticos, grutas marinas y una biodiversidad única en Portugal.',
       'ilha.f1': 'travesía desde Peniche',
-      'ilha.f2': 'visitantes máx. por día',
+      'ilha.f2': 'visitantes simultáneos máx.',
       'ilha.f3': 'Reserva de la Biosfera UNESCO',
       'ilha.f4': 'de isla para explorar',
       'ilha.s1.tag': 'Cómo llegar',
@@ -627,28 +634,29 @@
       'ilha.car.title': 'En coche',
       'ilha.car.body': '<strong>Desde Lisboa:</strong> ~1h30 por A8 → IC1 (salida Peniche).<br><strong>Desde Oporto:</strong> ~3h por A1 → A8 → IC1.<br><strong>Desde España:</strong> ~2h30 desde Badajoz por A6 → A8.',
       'ilha.car.gps': 'GPS: Marina de Peniche, Porto de Pesca de Peniche, 2520 Peniche. Aparcamiento disponible junto a la marina.',
+      'ilha.car.mapsbtn': '<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg> Cómo llegar →',
       'ilha.bus.title': 'En autobús',
-      'ilha.bus.body': '<strong>Rede Expressos</strong> opera servicios de autocar diarios desde Lisboa (estación de Campo Grande) a Peniche, con varias salidas a lo largo del día. Duración aproximada: 2 horas.',
-      'ilha.bus.note': 'Horarios y billetes en <a href="https://www.rede-expressos.pt" target="_blank" rel="noopener">rede-expressos.pt</a>. La parada de Peniche está a ~15 min a pie de la marina de embarque.',
+      'ilha.bus.body': '<strong>Rede Expressos</strong> y <strong>FlixBus</strong> operan servicios de autocar diarios desde Lisboa a Peniche, con varias salidas a lo largo del día. Duración aproximada: 2 horas.',
+      'ilha.bus.note': 'Billetes en <a href="https://www.rede-expressos.pt" target="_blank" rel="noopener">rede-expressos.pt</a> o <a href="https://www.flixbus.pt" target="_blank" rel="noopener">flixbus.pt</a>. La parada de Peniche está a ~15 min a pie de la marina de embarque.',
       'ilha.s2.tag': 'En la isla',
       'ilha.s2.title': 'Alojamiento y restauración',
       'ilha.s2.sub': 'Berlenga tiene lo esencial para hacer la visita inolvidable — sin superfluidades. Los servicios son deliberadamente limitados para proteger la reserva natural.',
-      'ilha.penso.label': 'Alojamiento',
-      'ilha.penso.name': 'Pensión de Berlenga',
-      'ilha.penso.desc': 'El único alojamiento de la isla. Habitaciones sencillas y experiencia única — dormirse con el sonido del mar y despertar con la isla para uno solo. Apertura estacional (junio a septiembre).',
+      'ilha.penso.label': 'Alojamiento &amp; Restaurante',
+      'ilha.penso.name': 'Berlenga Bed &amp; Breakfast',
+      'ilha.penso.desc': 'El principal espacio de alojamiento y restauración de la isla. Habitaciones sencillas con vistas al mar y un restaurante con pescado y marisco frescos — dormirse al son de las olas y despertar con la isla para uno solo. Apertura estacional (junio a septiembre).',
       'ilha.penso.note': 'Reservas a través del Ayuntamiento de Peniche: <a href="https://www.cm-peniche.pt" target="_blank" rel="noopener">cm-peniche.pt</a>',
-      'ilha.rest.label': 'Restaurante',
-      'ilha.rest.name': 'Restaurante de la Isla',
-      'ilha.rest.desc': 'Pescado y marisco frescos capturados en las aguas de la reserva. Vistas al mar. Abierto en temporada alta — se recomienda reserva anticipada para grupos.',
-      'ilha.rest.note': 'Abierto de junio a septiembre. Se recomienda reservar para grupos con antelación.',
+      'ilha.rest.label': 'Alojamiento Histórico',
+      'ilha.rest.name': 'Forte de São João Baptista',
+      'ilha.rest.desc': 'La Pensão da AABerlenga funciona dentro del histórico Forte de São João Baptista, construido en el siglo XVII. Una experiencia única — dormir entre murallas seculares rodeado por el océano Atlántico. Apertura estacional.',
+      'ilha.rest.note': 'Reservas e información a través del Ayuntamiento de Peniche: <a href="https://www.cm-peniche.pt" target="_blank" rel="noopener">cm-peniche.pt</a>',
       'ilha.snack.label': 'Snack Bar',
-      'ilha.snack.name': 'Castelinho',
-      'ilha.snack.desc': 'Snacks, bocadillos, bebidas y zumos frescos en uno de los lugares más fotogénicos de la isla — con vista directa a la Fortaleza de São João Baptista. El sitio perfecto para una pausa a mitad de la exploración.',
+      'ilha.snack.name': 'Castelinho Snack Bar',
+      'ilha.snack.desc': 'Comidas ligeras, bocadillos, helados, bebidas y zumos frescos en uno de los lugares más fotogénicos de la isla — con vista directa a la Fortaleza de São João Baptista. El sitio perfecto para una pausa a mitad de la exploración.',
       'ilha.snack.note': 'Terraza exterior con vistas panorámicas. Apertura estacional.',
       'ilha.camp.label': 'Camping',
       'ilha.camp.name': 'Parque de Camping',
-      'ilha.camp.desc': 'La única zona de camping autorizada de la isla. Experiencia minimalista bajo el cielo estrellado de la reserva natural — uno de los cielos nocturnos más oscuros del litoral portugués. Instalaciones básicas.',
-      'ilha.camp.note': 'Reserva previa obligatoria en el Ayuntamiento de Peniche: <a href="https://www.cm-peniche.pt" target="_blank" rel="noopener">cm-peniche.pt</a>',
+      'ilha.camp.desc': 'La única zona de camping autorizada de la isla. Experiencia minimalista bajo el cielo estrellado de la reserva natural. También es posible alquilar socalcos — terrazas rocosas frente al mar — para una vivencia aún más cercana a la isla.',
+      'ilha.camp.note': 'Reservas de socalcos y camping en la Oficina de Turismo de Peniche: <a href="https://www.cm-peniche.pt" target="_blank" rel="noopener">cm-peniche.pt</a>',
       'ilha.s3.tag': 'Reserva Natural',
       'ilha.s3.title': 'Código de conducta de la isla',
       'ilha.s3.sub': 'Berlenga es un ecosistema frágil. Su cuidado es responsabilidad de todos los que la visitan — también de usted.',
@@ -673,7 +681,7 @@
       'ilha.h1': 'Un monde à part,<br>à 45 minutes de Peniche',
       'ilha.sub': "Réserve de biosphère UNESCO. Eaux turquoises, falaises dramatiques, grottes marines et une biodiversité unique au Portugal.",
       'ilha.f1': 'traversée depuis Peniche',
-      'ilha.f2': 'visiteurs max. par jour',
+      'ilha.f2': 'visiteurs simultanés max.',
       'ilha.f3': 'Réserve de biosphère UNESCO',
       'ilha.f4': "d'île à explorer",
       'ilha.s1.tag': 'Accès',
@@ -682,28 +690,29 @@
       'ilha.car.title': 'En voiture',
       'ilha.car.body': "<strong>Depuis Lisbonne :</strong> ~1h30 via A8 → IC1 (sortie Peniche).<br><strong>Depuis Porto :</strong> ~3h via A1 → A8 → IC1.<br><strong>Depuis l'Espagne :</strong> ~2h30 depuis Badajoz via A6 → A8.",
       'ilha.car.gps': "GPS : Marina de Peniche, Porto de Pesca de Peniche, 2520 Peniche. Parking disponible à proximité de la marina.",
+      'ilha.car.mapsbtn': '<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg> Calculer l\'itinéraire →',
       'ilha.bus.title': 'En bus',
-      'ilha.bus.body': "<strong>Rede Expressos</strong> assure des liaisons quotidiennes en autocar depuis Lisbonne (gare de Campo Grande) jusqu'à Peniche, avec plusieurs départs dans la journée. Durée approximative : 2 heures.",
-      'ilha.bus.note': 'Horaires et billets sur <a href="https://www.rede-expressos.pt" target="_blank" rel="noopener">rede-expressos.pt</a>. L\'arrêt de Peniche est à ~15 min à pied de la marina d\'embarquement.',
+      'ilha.bus.body': "<strong>Rede Expressos</strong> et <strong>FlixBus</strong> assurent des liaisons quotidiennes en autocar depuis Lisbonne jusqu'à Peniche, avec plusieurs départs dans la journée. Durée approximative : 2 heures.",
+      'ilha.bus.note': 'Billets sur <a href="https://www.rede-expressos.pt" target="_blank" rel="noopener">rede-expressos.pt</a> ou <a href="https://www.flixbus.pt" target="_blank" rel="noopener">flixbus.pt</a>. L\'arrêt de Peniche est à ~15 min à pied de la marina d\'embarquement.',
       'ilha.s2.tag': "Sur l'île",
       'ilha.s2.title': 'Hébergement et restauration',
       'ilha.s2.sub': "Berlenga a tout le nécessaire pour une visite inoubliable — sans le superflu. Les services sont délibérément limités pour protéger la réserve naturelle.",
-      'ilha.penso.label': 'Hébergement',
-      'ilha.penso.name': "Auberge de Berlenga",
-      'ilha.penso.desc': "Le seul hébergement de l'île. Chambres simples, expérience unique — s'endormir au son de la mer et se réveiller avec l'île pour soi. Ouverture saisonnière (juin à septembre).",
+      'ilha.penso.label': 'Hébergement &amp; Restaurant',
+      'ilha.penso.name': 'Berlenga Bed &amp; Breakfast',
+      'ilha.penso.desc': "Le principal espace d'hébergement et de restauration de l'île. Chambres simples avec vue sur la mer et un restaurant proposant poissons et fruits de mer frais — s'endormir au son des vagues et se réveiller avec l'île pour soi. Ouverture saisonnière (juin à septembre).",
       'ilha.penso.note': 'Réservations via la Mairie de Peniche : <a href="https://www.cm-peniche.pt" target="_blank" rel="noopener">cm-peniche.pt</a>',
-      'ilha.rest.label': 'Restaurant',
-      'ilha.rest.name': "Restaurant de l'Île",
-      'ilha.rest.desc': "Poissons et fruits de mer frais pêchés dans les eaux de la réserve. Vue sur la mer. Ouvert en haute saison — réservation recommandée pour les groupes.",
-      'ilha.rest.note': 'Ouvert de juin à septembre. Réservation conseillée pour les groupes.',
+      'ilha.rest.label': 'Hébergement Historique',
+      'ilha.rest.name': 'Forte de São João Baptista',
+      'ilha.rest.desc': "La Pensão da AABerlenga fonctionne à l'intérieur de l'historique Forte de São João Baptista, construit au XVIIe siècle. Une expérience unique — dormir entre des murailles séculaires entourées par l'océan Atlantique. Ouverture saisonnière.",
+      'ilha.rest.note': 'Réservations et informations via la Mairie de Peniche : <a href="https://www.cm-peniche.pt" target="_blank" rel="noopener">cm-peniche.pt</a>',
       'ilha.snack.label': 'Snack Bar',
-      'ilha.snack.name': 'Castelinho',
-      'ilha.snack.desc': "Snacks, sandwichs, boissons et jus frais dans l'un des endroits les plus photogéniques de l'île — avec vue directe sur la Forteresse São João Baptista. L'arrêt idéal à mi-exploration.",
+      'ilha.snack.name': 'Castelinho Snack Bar',
+      'ilha.snack.desc': "Repas légers, sandwichs, glaces, boissons et jus frais dans l'un des endroits les plus photogéniques de l'île — avec vue directe sur la Forteresse São João Baptista. L'arrêt idéal à mi-exploration.",
       'ilha.snack.note': 'Terrasse extérieure avec vue panoramique. Ouverture saisonnière.',
       'ilha.camp.label': 'Camping',
       'ilha.camp.name': 'Camping',
-      'ilha.camp.desc': "La seule zone de camping autorisée de l'île. Expérience minimaliste sous le ciel étoilé de la réserve naturelle — l'un des cieux nocturnes les plus sombres du littoral portugais. Installations de base.",
-      'ilha.camp.note': 'Réservation préalable obligatoire via la Mairie de Peniche : <a href="https://www.cm-peniche.pt" target="_blank" rel="noopener">cm-peniche.pt</a>',
+      'ilha.camp.desc': "La seule zone de camping autorisée de l'île. Expérience minimaliste sous le ciel étoilé de la réserve naturelle. Il est également possible de louer des socalcos — terrasses rocheuses surplombant la mer — pour une immersion encore plus profonde dans l'île.",
+      'ilha.camp.note': 'Réservations de socalcos et camping via l\'Office de Tourisme de Peniche : <a href="https://www.cm-peniche.pt" target="_blank" rel="noopener">cm-peniche.pt</a>',
       'ilha.s3.tag': 'Réserve Naturelle',
       'ilha.s3.title': "Code de conduite de l'île",
       'ilha.s3.sub': "Berlenga est un écosystème fragile. Sa préservation est la responsabilité de chaque visiteur — y compris vous.",
