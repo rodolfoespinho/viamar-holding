@@ -506,12 +506,37 @@
       .seo-grid { grid-template-columns: 1fr; }
       .seo-card ul { grid-template-columns: 1fr; }
     }
-    .seo-faq { margin-top: 52px; }
-    .seo-faq h2 { font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); margin-bottom: 24px; }
-    .faq-list { border-top: 1px solid rgba(255,255,255,0.06); }
-    .faq-item { border-bottom: 1px solid rgba(255,255,255,0.06); padding: 18px 0; }
-    .faq-item dt { font-size: 14px; font-weight: 600; color: rgba(255,255,255,0.85); margin-bottom: 6px; }
-    .faq-item dd { font-size: 14px; line-height: 1.65; color: rgba(255,255,255,0.45); margin: 0; }
+    /* ── FAQ accordion ── */
+    .faq-sec { background: var(--navy); border-top: 1px solid rgba(255,255,255,0.06); }
+    .faq-sec .sec-inner { max-width: 800px; }
+    .faq-accordion { margin-top: 40px; }
+    .faq-item { border-bottom: 1px solid rgba(255,255,255,0.07); }
+    .faq-item:first-child { border-top: 1px solid rgba(255,255,255,0.07); }
+    .faq-q {
+      width: 100%; background: none; border: none; text-align: left;
+      display: flex; align-items: center; justify-content: space-between; gap: 16px;
+      padding: 20px 0; cursor: pointer; color: rgba(255,255,255,0.8);
+      font-size: 15px; font-weight: 600; line-height: 1.4; font-family: 'Inter', sans-serif;
+      transition: color .2s;
+    }
+    .faq-q:hover, .faq-q[aria-expanded="true"] { color: #fff; }
+    .faq-icon {
+      flex-shrink: 0; width: 20px; height: 20px; color: var(--aqua);
+      transition: transform 0.32s cubic-bezier(0.4,0,0.2,1);
+    }
+    .faq-q[aria-expanded="true"] .faq-icon { transform: rotate(180deg); }
+    .faq-a { overflow: hidden; max-height: 0; transition: max-height 0.38s cubic-bezier(0.4,0,0.2,1); }
+    .faq-a.open { max-height: 1400px; }
+    .faq-a-inner { padding-bottom: 20px; font-size: 14px; line-height: 1.8; color: rgba(255,255,255,0.5); }
+    .faq-a-inner p { margin: 0 0 10px; }
+    .faq-a-inner p:last-child { margin-bottom: 0; }
+    .faq-a-inner ul { margin: 4px 0 0; padding-left: 18px; }
+    .faq-a-inner li { margin-bottom: 5px; }
+    .faq-a-inner a { color: var(--aqua); text-decoration: none; }
+    .faq-a-inner a:hover { text-decoration: underline; }
+    @media (max-width: 600px) {
+      .faq-q { font-size: 14px; padding: 18px 0; }
+    }
 
     /* ── Footer ── */
     .site-footer { background: #030a14; border-top: 1px solid rgba(255,255,255,0.07); }
@@ -822,27 +847,37 @@
     }
     .pkg-card {
       background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.09);
-      border-radius: var(--r); padding: 28px;
-      transition: all .25s; cursor: pointer; position: relative; overflow: hidden;
+      border-radius: var(--r); overflow: hidden;
+      transition: border-color .25s, transform .25s; cursor: pointer;
+      display: flex; flex-direction: column;
     }
-    .pkg-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: transparent; transition: background .25s; }
-    .pkg-card:hover { background: rgba(255,255,255,0.07); transform: translateY(-4px); border-color: rgba(255,255,255,0.18); }
-    .pkg-card:hover::before { background: var(--aqua); }
-    .pkg-card.featured { background: rgba(6,182,212,0.08); border-color: rgba(6,182,212,0.3); }
-    .pkg-card.featured::before { background: var(--aqua); }
+    .pkg-card:hover { transform: translateY(-4px); border-color: rgba(255,255,255,0.22); }
+    .pkg-card.featured { border-color: rgba(6,182,212,0.35); }
     .pkg-card.coming-soon { opacity: 0.6; }
     .pkg-card.coming-soon:hover { transform: none; }
-    .pkg-badge { display: inline-block; font-size: 10px; font-weight: 700; padding: 3px 9px; border-radius: 100px; margin-bottom: 16px; text-transform: uppercase; letter-spacing: .8px; }
-    .pkg-icon { width: 48px; height: 48px; margin-bottom: 16px; display: flex; align-items: center; justify-content: center; background: rgba(255,255,255,0.07); border-radius: 12px; }
-    .pkg-icon svg { width: 24px; height: 24px; stroke: rgba(255,255,255,0.8); }
-    .pkg-name { font-size: 18px; font-weight: 800; color: #fff; margin-bottom: 8px; }
-    .pkg-desc { font-size: 13.5px; color: rgba(255,255,255,0.55); line-height: 1.65; margin-bottom: 20px; }
-    .pkg-list { list-style: none; margin-bottom: 24px; }
-    .pkg-list li { font-size: 13px; color: rgba(255,255,255,0.65); padding: 5px 0; display: flex; gap: 8px; align-items: flex-start; }
+
+    /* Photo */
+    .pkg-photo-wrap { position: relative; aspect-ratio: 3/2; overflow: hidden; flex-shrink: 0; }
+    .pkg-photo { width: 100%; height: 100%; object-fit: cover; transition: transform .45s ease; display: block; }
+    .pkg-card:hover .pkg-photo { transform: scale(1.05); }
+    .pkg-card.coming-soon:hover .pkg-photo { transform: none; }
+    .pkg-photo-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to top, rgba(7,17,31,0.92) 0%, rgba(7,17,31,0.18) 55%, transparent 100%);
+      display: flex; flex-direction: column; justify-content: flex-end;
+      padding: 16px 18px;
+    }
+    .pkg-badge { position: absolute; top: 13px; left: 13px; font-size: 10px; font-weight: 700; padding: 3px 9px; border-radius: 100px; text-transform: uppercase; letter-spacing: .8px; }
+    .pkg-name { font-size: 17px; font-weight: 800; color: #fff; line-height: 1.2; }
+
+    /* Body */
+    .pkg-body { padding: 16px 18px 20px; flex: 1; display: flex; flex-direction: column; }
+    .pkg-list { list-style: none; margin-bottom: 18px; flex: 1; }
+    .pkg-list li { font-size: 13px; color: rgba(255,255,255,0.65); padding: 4px 0; display: flex; gap: 8px; align-items: flex-start; }
     .pkg-list li::before { content: '✓'; color: var(--aqua); font-weight: 700; flex-shrink: 0; margin-top: 1px; }
-    .pkg-price { margin-bottom: 20px; }
+    .pkg-price { margin-bottom: 16px; }
     .pkg-from { font-size: 11px; color: rgba(255,255,255,0.35); }
-    .pkg-amount { font-size: 36px; font-weight: 900; color: #fff; line-height: 1; }
+    .pkg-amount { font-size: 32px; font-weight: 900; color: #fff; line-height: 1; }
     .pkg-unit { font-size: 12px; color: rgba(255,255,255,0.35); }
     .btn-pkg { width: 100%; padding: 13px; border: 1.5px solid rgba(255,255,255,0.2); background: transparent; color: #fff; border-radius: 8px; font-weight: 700; font-size: 14px; cursor: pointer; transition: all .2s; font-family: 'Inter', sans-serif; text-decoration: none; display: block; text-align: center; }
     .btn-pkg:hover { background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.4); }
@@ -1057,7 +1092,7 @@
     <ul class="mobile-menu-links">
       <li><a href="/pacotes.html" data-i18n="nav_pack">Pacotes</a></li>
       <li><a href="/historia.html" data-i18n="nav_hist">História</a></li>
-      <li><a href="#faq">FAQ's</a></li>
+      <li><a href="/faqs.html">FAQ's</a></li>
       <li><a href="https://berlengaspass.icnf.pt" target="_blank" rel="noopener">Berlengas Pass</a></li>
       <li class="mm-small"><a href="/termos.html" data-i18n="menu_terms">Termos e Condições</a></li>
     </ul>
@@ -1614,7 +1649,33 @@
         "dep.tag": "Ponto de partida", "dep.h2": "Partimos de Peniche, cidade à beira-mar",
         "dep.desc": "O Cais da Ribeira de Peniche é o ponto de embarque para todas as travessias. Chega 20 minutos antes da partida. Existe parque de estacionamento nas imediações.",
         "dep.addr": "Cais da Ribeira, Peniche — 39°35′N 9°22′W",
-        "dep.book": "Reservar travessia →"
+        "dep.book": "Reservar travessia →",
+        "faq.tag": "Perguntas Frequentes",
+        "faq.h2": "Tudo o que precisa de saber",
+        "faq.q1": "O que devo levar para uma viagem à Ilha da Berlenga?",
+        "faq.a1": "O essencial: protector solar, chapéu, óculos de sol e uma garrafa de água para se manter hidratado. Roupa confortável, um casaco leve (de preferência impermeável), calçado adequado e uma toalha. Uma powerbank para o telemóvel também é aconselhável caso seja grande utilizador (a rede na ilha é bastante fraca ou inexistente).",
+        "faq.q2": "Posso cancelar ou alterar a minha reserva?",
+        "faq.a2": 'Sim! Pedimos que nos informe com pelo menos 72 horas de antecedência. Contacte-nos por telefone ou email: 911 001 099 | <a href="mailto:info@viamar.pt">info@viamar.pt</a>.',
+        "faq.q3": "O que posso fazer na Ilha da Berlenga ao adquirir a passagem?",
+        "faq.a3": '<ul><li>Trilhos pedestres e vistas deslumbrantes;</li><li>Visitar o Forte de São João Baptista;</li><li>Praia de águas cristalinas ou almoço no restaurante da ilha; snack e bebida no Castelinho com vista fantástica;</li><li>Observação de aves e flora;</li><li>Opcionalmente: mergulho com garrafa, grutas em barco de fundo de vidro ou snorkeling (ver página "pacotes").</li></ul>',
+        "faq.q4": "Onde fica o local de embarque da VIAMAR para a Ilha da Berlenga?",
+        "faq.a4": '<p>Marina de Peniche, junto à Fortaleza de Peniche.</p><ul><li>Chegue à Zona de embarque de Passageiros e Bagagens (conforme indicado no mapa);</li><li>Identifique o local pela bandeira de CHECK-IN ou por um membro da equipa VIAMAR devidamente uniformizado.</li></ul><p>Aconselha-se a chegada 30 minutos antes da partida (grupos: 1 hora de antecedência).</p>',
+        "faq.q5": "Posso comprar bilhete no dia da viagem?",
+        "faq.a5": "Sim, sujeito a disponibilidade. Em julho e agosto (época alta) a procura é muito elevada — recomendamos a reserva antecipada para garantir o seu lugar.",
+        "faq.q6": "Que meios de pagamento são aceites?",
+        "faq.a6": '<p><strong>Online:</strong> Visa, Mastercard, Apple Pay, MB Way, PayPal, Google Pay, Linkpay ou transferência bancária (só grupos).</p><p><strong>Ao balcão:</strong> Visa, Mastercard, Apple Pay, MB Way ou numerário.</p><p>Grupos: enviar comprovativo para <a href="mailto:info@viamar.pt">info@viamar.pt</a> até 48h antes do embarque.</p>',
+        "faq.q7": "Posso levar bagagem a bordo?",
+        "faq.a7": '<p>Sim — mochilas e malas pequenas são bem-vindas. Para volumes de grandes dimensões, contacte previamente: 911 001 099.</p><p>Limite: 2 volumes por pessoa + 1 bagagem de mão.</p>',
+        "faq.q8": "Quanto tempo posso permanecer na Ilha da Berlenga?",
+        "faq.a8": "Somos a empresa que possibilita a permanência mais longa na ilha — até 5 horas.",
+        "faq.q9": "É permitido acampar na Ilha da Berlenga?",
+        "faq.a9": 'O campismo selvagem não é permitido. Existe uma área autorizada no Parque de Campismo da Berlenga, com reserva prévia obrigatória. Para mais informações: <a href="https://www.cm-peniche.pt/visitar/turismo" target="_blank" rel="noopener">Posto de Turismo de Peniche</a>.',
+        "faq.q10": "Quais são as restrições da Reserva Natural da Ilha da Berlenga?",
+        "faq.a10": '<ul><li>Campismo só na área designada com reserva prévia;</li><li>Máximo de 550 visitantes simultâneos;</li><li>Registo obrigatório no BerlengasPass e taxa de acesso (adultos 3€; descontos 6–18 anos e maiores de 65);</li><li>Circular sempre nos trilhos e respeitar a sinalética;</li><li>Depositar o lixo nos locais próprios ou levá-lo consigo;</li><li>Não apanhar plantas nem recolher amostras geológicas;</li><li>Não alimentar os animais;</li><li>Música alta é proibida.</li></ul>',
+        "faq.q11": "Existem casas de banho a bordo?",
+        "faq.a11": "Sim, a embarcação dispõe de 2 casas de banho — simples e práticas. A tripulação assegura que se mantêm limpas e em condições de uso.",
+        "faq.q12": "É seguro viajar com crianças pequenas ou passageiros idosos?",
+        "faq.a12": "Sim, e a nossa embarcação é uma das preferidas por famílias com crianças pequenas e passageiros idosos. O barco foi projectado especificamente para o conforto e a segurança, com lugares próprios para passageiros com dificuldades motoras e bebés de colo. Crianças devem estar sempre acompanhadas pelos responsáveis."
       },
       es: {
         ann_main: "¡Fines de semana de <strong>julio</strong> y <strong>agosto</strong> casi agotados!", ann_season: "Temporada abre el 9 de mayo —", ann_cta: "¡Reserva tu plaza!",
@@ -1658,7 +1719,33 @@
         "dep.tag": "Punto de salida", "dep.h2": "Salimos desde Peniche, ciudad frente al mar",
         "dep.desc": "El Cais da Ribeira de Peniche es el punto de embarque para todas las travesías. Llega 20 minutos antes de la salida. Hay aparcamiento disponible en las inmediaciones.",
         "dep.addr": "Cais da Ribeira, Peniche — 39°35′N 9°22′O",
-        "dep.book": "Reservar travesía →"
+        "dep.book": "Reservar travesía →",
+        "faq.tag": "Preguntas Frecuentes",
+        "faq.h2": "Todo lo que necesita saber",
+        "faq.q1": "¿Qué debo llevar para un viaje a la Isla Berlenga?",
+        "faq.a1": "Lo esencial: protector solar, sombrero, gafas de sol y una botella de agua. Ropa cómoda, una chaqueta ligera (preferiblemente impermeable), calzado adecuado y una toalla. Un cargador portátil también es recomendable, ya que la cobertura en la isla es muy débil o inexistente.",
+        "faq.q2": "¿Puedo cancelar o cambiar mi reserva?",
+        "faq.a2": '¡Sí! Por favor, infórmenos con al menos 72 horas de antelación. Contacte con nosotros: 911 001 099 | <a href="mailto:info@viamar.pt">info@viamar.pt</a>.',
+        "faq.q3": "¿Qué puedo hacer en la Isla Berlenga con mi billete de ferry?",
+        "faq.a3": '<ul><li>Rutas de senderismo con vistas impresionantes;</li><li>Visitar el Forte de São João Baptista;</li><li>Playa de aguas cristalinas o almuerzo en el restaurante de la isla; snack en el Castelinho con vistas panorámicas;</li><li>Avistamiento de aves y flora;</li><li>Opciones adicionales: buceo, grutas en barco de fondo de cristal o snorkel (ver página "paquetes").</li></ul>',
+        "faq.q4": "¿Dónde está el punto de embarque de VIAMAR para la Isla Berlenga?",
+        "faq.a4": '<p>Marina de Peniche, junto a la Fortaleza de Peniche.</p><ul><li>Diríjase a la Zona de embarque de Pasajeros y Equipaje (según el mapa);</li><li>Localice el lugar por la bandera de CHECK-IN o por un miembro del equipo VIAMAR uniformado.</li></ul><p>Recomendamos llegar al menos 30 minutos antes de la salida (grupos: 1 hora).</p>',
+        "faq.q5": "¿Puedo comprar el billete el día del viaje?",
+        "faq.a5": "Sí, sujeto a disponibilidad. En julio y agosto la demanda es muy alta — recomendamos reservar con antelación para asegurar su plaza.",
+        "faq.q6": "¿Qué métodos de pago se aceptan?",
+        "faq.a6": '<p><strong>Online:</strong> Visa, Mastercard, Apple Pay, MB Way, PayPal, Google Pay, Linkpay o transferencia bancaria (solo grupos).</p><p><strong>En mostrador:</strong> Visa, Mastercard, Apple Pay, MB Way o efectivo.</p><p>Grupos: justificante a <a href="mailto:info@viamar.pt">info@viamar.pt</a> hasta 48h antes del embarque.</p>',
+        "faq.q7": "¿Puedo llevar equipaje a bordo?",
+        "faq.a7": '<p>Sí — mochilas y bolsas pequeñas son bienvenidas. Para volúmenes grandes, contáctenos previamente: 911 001 099.</p><p>Límite: 2 bultos por persona + 1 bolso de mano.</p>',
+        "faq.q8": "¿Cuánto tiempo puedo permanecer en la Isla Berlenga?",
+        "faq.a8": "Somos la empresa que ofrece la permanencia más larga en la isla — hasta 5 horas.",
+        "faq.q9": "¿Está permitido acampar en la Isla Berlenga?",
+        "faq.a9": 'El camping salvaje no está permitido. Existe un área autorizada en el Parque de Camping de Berlenga, con reserva previa obligatoria. Más información: <a href="https://www.cm-peniche.pt/visitar/turismo" target="_blank" rel="noopener">Oficina de Turismo de Peniche</a>.',
+        "faq.q10": "¿Cuáles son las restricciones de la Reserva Natural de la Isla Berlenga?",
+        "faq.a10": '<ul><li>Camping solo en el área designada con reserva previa;</li><li>Máximo de 550 visitantes simultáneos;</li><li>Registro obligatorio en BerlengasPass y tasa de acceso (adultos 3€; descuentos 6–18 años y mayores de 65);</li><li>Circular siempre por los senderos y respetar la señalización;</li><li>Depositar residuos en los lugares apropiados o llevárselos;</li><li>No recoger plantas ni muestras geológicas;</li><li>No alimentar a los animales;</li><li>La música alta está prohibida.</li></ul>',
+        "faq.q11": "¿Hay aseos a bordo?",
+        "faq.a11": "Sí, la embarcación dispone de 2 aseos a bordo — sencillos y funcionales. La tripulación se asegura de mantenerlos limpios.",
+        "faq.q12": "¿Es seguro viajar con niños pequeños o pasajeros mayores?",
+        "faq.a12": "Sí, y nuestra embarcación es una de las preferidas por familias y personas mayores. El barco fue diseñado específicamente para este trayecto con la seguridad y el confort como prioridades. Los niños deben ir siempre acompañados de un adulto responsable. Los pasajeros que necesiten asistencia especial pueden informarnos con antelación."
       },
       fr: {
         ann_main: "Les week-ends de <strong>juillet</strong> et <strong>août</strong> sont presque complets !", ann_season: "Saison du 9 mai —", ann_cta: "Réservez votre place !",
@@ -1702,7 +1789,33 @@
         "dep.tag": "Point de départ", "dep.h2": "Nous partons de Peniche, ville en bord de mer",
         "dep.desc": "Le Cais da Ribeira de Peniche est le point d'embarquement pour toutes les traversées. Arrivez 20 minutes avant le départ. Un parking est disponible à proximité.",
         "dep.addr": "Cais da Ribeira, Peniche — 39°35′N 9°22′O",
-        "dep.book": "Réserver la traversée →"
+        "dep.book": "Réserver la traversée →",
+        "faq.tag": "Questions Fréquentes",
+        "faq.h2": "Tout ce que vous devez savoir",
+        "faq.q1": "Que dois-je apporter pour un voyage à l'Île Berlenga ?",
+        "faq.a1": "L\'essentiel : crème solaire, chapeau, lunettes de soleil et une bouteille d\'eau. Des vêtements confortables, une veste légère (de préférence imperméable), des chaussures adaptées et une serviette. Une batterie externe est conseillée car le réseau mobile sur l\'île est très faible ou inexistant.",
+        "faq.q2": "Puis-je annuler ou modifier ma réservation ?",
+        "faq.a2": 'Oui ! Merci de nous informer au moins 72 heures avant l\'embarquement. Contactez-nous par téléphone ou email : 911 001 099 | <a href="mailto:info@viamar.pt">info@viamar.pt</a>.',
+        "faq.q3": "Que puis-je faire sur l'Île Berlenga avec mon billet de ferry ?",
+        "faq.a3": '<ul><li>Randonnées pédestres avec des vues à couper le souffle ;</li><li>Visiter le Fort São João Baptista ;</li><li>Plages aux eaux cristallines ou déjeuner au restaurant de l\'île ; snack au Castelinho avec vue panoramique ;</li><li>Observation des oiseaux et de la flore ;</li><li>Options supplémentaires : plongée, grottes en bateau à fond de verre ou snorkeling (voir page "forfaits").</li></ul>',
+        "faq.q4": "Où se trouve le point d'embarquement VIAMAR pour l'Île Berlenga ?",
+        "faq.a4": '<p>Marina de Peniche, à côté de la Forteresse de Peniche.</p><ul><li>Rejoignez la Zone d\'embarquement Passagers et Bagages (voir la carte) ;</li><li>Repérez le drapeau CHECK-IN ou un membre de l\'équipe VIAMAR en uniforme.</li></ul><p>Nous recommandons d\'arriver au moins 30 minutes avant le départ (groupes : 1 heure).</p>',
+        "faq.q5": "Puis-je acheter un billet le jour du voyage ?",
+        "faq.a5": "Oui, sous réserve de disponibilité. En juillet et août, la demande est très élevée — nous vous recommandons de réserver à l\'avance pour garantir votre place.",
+        "faq.q6": "Quels modes de paiement sont acceptés ?",
+        "faq.a6": '<p><strong>En ligne :</strong> Visa, Mastercard, Apple Pay, MB Way, PayPal, Google Pay, Linkpay ou virement bancaire (groupes uniquement).</p><p><strong>Au guichet :</strong> Visa, Mastercard, Apple Pay, MB Way ou espèces.</p><p>Groupes : justificatif à <a href="mailto:info@viamar.pt">info@viamar.pt</a> au moins 48h avant l\'embarquement.</p>',
+        "faq.q7": "Puis-je apporter des bagages à bord ?",
+        "faq.a7": '<p>Oui — sacs à dos et petits bagages sont les bienvenus. Pour les volumes importants, contactez-nous à l\'avance : 911 001 099.</p><p>Limite : 2 bagages par personne + 1 petit bagage à main.</p>',
+        "faq.q8": "Combien de temps puis-je rester sur l'Île Berlenga ?",
+        "faq.a8": "Nous sommes la compagnie offrant le séjour le plus long sur l\'île — jusqu\'à 5 heures.",
+        "faq.q9": "Le camping est-il autorisé sur l'Île Berlenga ?",
+        "faq.a9": 'Le camping sauvage n\'est pas autorisé. Il existe une zone autorisée au Camping de Berlenga, avec réservation préalable obligatoire. Plus d\'informations : <a href="https://www.cm-peniche.pt/visitar/turismo" target="_blank" rel="noopener">Office du Tourisme de Peniche</a>.',
+        "faq.q10": "Quelles sont les restrictions de la Réserve Naturelle de l'Île Berlenga ?",
+        "faq.a10": '<ul><li>Camping uniquement dans la zone désignée avec réservation préalable ;</li><li>Maximum de 550 visiteurs simultanés ;</li><li>Inscription obligatoire sur BerlengasPass et taxe d\'accès (adultes 3€ ; réductions 6–18 ans et plus de 65 ans) ;</li><li>Circuler uniquement sur les sentiers balisés ;</li><li>Déposer ses déchets aux endroits prévus ou les remporter ;</li><li>Ne pas cueillir de plantes ni collecter d\'échantillons géologiques ;</li><li>Ne pas nourrir les animaux ;</li><li>La musique forte est interdite.</li></ul>',
+        "faq.q11": "Y a-t-il des toilettes à bord ?",
+        "faq.a11": "Oui, l\'embarcation dispose de 2 toilettes à bord — simples et pratiques. L\'équipage s\'assure qu\'elles restent propres et en bon état.",
+        "faq.q12": "Est-il sûr de voyager avec de jeunes enfants ou des passagers âgés ?",
+        "faq.a12": "Oui, notre embarcation est l\'une des préférées des familles et des personnes âgées. Le bateau a été conçu spécifiquement pour cette traversée avec la sécurité et le confort comme priorités. Les enfants doivent toujours être accompagnés d\'un adulte. Les passagers nécessitant une assistance particulière peuvent nous en informer à l\'avance."
       },
       en: {
         ann_main: "<strong>July</strong> and <strong>August</strong> weekends almost sold out!",
@@ -1757,7 +1870,33 @@
         "dep.tag": "Departure point", "dep.h2": "We depart from Peniche, a seaside city",
         "dep.desc": "Cais da Ribeira in Peniche is the boarding point for all island crossings. Arrive 20 minutes before departure. Parking is available nearby.",
         "dep.addr": "Cais da Ribeira, Peniche — 39°35′N 9°22′W",
-        "dep.book": "Book your crossing →"
+        "dep.book": "Book your crossing →",
+        "faq.tag": "FAQ",
+        "faq.h2": "Everything you need to know",
+        "faq.q1": "What should I bring for a trip to Berlenga Island?",
+        "faq.a1": "The essentials: sunscreen, a hat, sunglasses and a water bottle to stay hydrated. Comfortable clothing, a light jacket (preferably waterproof), appropriate footwear and a towel. A power bank is also handy since mobile network coverage on the island is very weak or non-existent.",
+        "faq.q2": "Can I cancel or change my booking?",
+        "faq.a2": 'Yes! Please let us know at least 72 hours before boarding. Contact us by phone or email: 911 001 099 | <a href="mailto:info@viamar.pt">info@viamar.pt</a>.',
+        "faq.q3": "What can I do on Berlenga Island with my ferry ticket?",
+        "faq.a3": '<ul><li>Hiking trails with stunning views;</li><li>Visit the historic Fort of São João Baptista;</li><li>Crystal-clear beach swimming or lunch at the island restaurant; snacks at Castelinho with panoramic views;</li><li>Birdwatching and flora exploration;</li><li>Optional add-ons: scuba diving, glass-bottom boat cave tour or snorkelling (see "packages" page).</li></ul>',
+        "faq.q4": "Where is the VIAMAR boarding point for Berlenga Island?",
+        "faq.a4": '<p>Peniche Marina, next to the Peniche Fortress.</p><ul><li>Drive to the Passenger & Luggage Boarding Zone (as shown on the map);</li><li>Look for the CHECK-IN flag or a VIAMAR crew member in uniform.</li></ul><p>We recommend arriving at least 30 minutes before departure (groups: 1 hour).</p>',
+        "faq.q5": "Can I buy a ticket on the day of travel?",
+        "faq.a5": "Yes, subject to availability. In July and August demand is very high — we strongly recommend booking in advance to secure your spot.",
+        "faq.q6": "What payment methods are accepted?",
+        "faq.a6": '<p><strong>Online:</strong> Visa, Mastercard, Apple Pay, MB Way, PayPal, Google Pay, Linkpay or bank transfer (groups only).</p><p><strong>At the counter:</strong> Visa, Mastercard, Apple Pay, MB Way or cash.</p><p>Groups: send proof of payment to <a href="mailto:info@viamar.pt">info@viamar.pt</a> at least 48h before boarding.</p>',
+        "faq.q7": "Can I bring luggage on board?",
+        "faq.a7": '<p>Yes — backpacks and small bags are welcome. For larger items please contact us in advance: 911 001 099.</p><p>Limit: 2 pieces of luggage per person + 1 small carry-on.</p>',
+        "faq.q8": "How long can I stay on Berlenga Island?",
+        "faq.a8": "We offer the longest island stay of any ferry operator — up to 5 hours.",
+        "faq.q9": "Is camping allowed on Berlenga Island?",
+        "faq.a9": 'Wild camping is not permitted. There is an authorised campsite (Parque de Campismo da Berlenga) which requires advance booking. For more information: <a href="https://www.cm-peniche.pt/visitar/turismo" target="_blank" rel="noopener">Peniche Tourism Office</a>.',
+        "faq.q10": "What are the restrictions in the Berlenga Nature Reserve?",
+        "faq.a10": '<ul><li>Camping only in the designated area with prior reservation;</li><li>Maximum of 550 simultaneous visitors;</li><li>Mandatory registration on BerlengasPass and access fee (adults €3; discounts for ages 6–18 and over 65);</li><li>Stay on marked trails and respect signage;</li><li>Dispose of waste in designated areas or take it with you;</li><li>Do not pick plants or collect geological samples;</li><li>Do not feed the animals;</li><li>Loud music is prohibited.</li></ul>',
+        "faq.q11": "Are there toilets on board?",
+        "faq.a11": "Yes, the vessel has 2 on-board toilets — simple but practical. Our crew ensures they are kept clean and in good condition.",
+        "faq.q12": "Is it safe to travel with young children or elderly passengers?",
+        "faq.a12": "Absolutely — our vessel is one of the most popular choices for families with young children and elderly passengers. The boat was designed specifically for the Berlenga crossing with safety and comfort as priorities. Children must always be accompanied by a responsible adult. Passengers requiring special assistance are welcome to let us know in advance."
       }
     };
 
@@ -1820,13 +1959,18 @@
             ? `<span class="btn-soon">${isEN ? 'Coming Soon' : 'Em Breve'}</span>`
             : `<a href="${esc(data.booking_url)}" class="btn-pkg${item.featured ? ' solid' : ''}">${isEN ? 'Book now' : 'Reservar'}</a>`;
           return `<div class="${cardClass}">
-  <span class="pkg-badge" style="${badgeStyle}">${esc(badge)}</span>
-  <span class="pkg-icon"><i data-lucide="${esc(item.icon)}"></i></span>
-  <div class="pkg-name">${esc(name)}</div>
-  <div class="pkg-desc">${esc(desc)}</div>
-  <ul class="pkg-list">${features.map(f => `<li>${esc(f)}</li>`).join('')}</ul>
-  ${priceBlock}
-  ${ctaBlock}
+  <div class="pkg-photo-wrap">
+    <img class="pkg-photo" src="${esc(item.image)}" alt="${esc(name)}" loading="lazy" />
+    <div class="pkg-photo-overlay">
+      <span class="pkg-badge" style="${badgeStyle}">${esc(badge)}</span>
+      <div class="pkg-name">${esc(name)}</div>
+    </div>
+  </div>
+  <div class="pkg-body">
+    <ul class="pkg-list">${features.map(f => `<li>${esc(f)}</li>`).join('')}</ul>
+    ${priceBlock}
+    ${ctaBlock}
+  </div>
 </div>`;
         }).join('');
         lucide.createIcons();
@@ -2001,6 +2145,23 @@
       renderCalendar();
       updateBookBtn();
     })();
+    // ────────────────────────────────────────────────────────────────────────
+
+    // ─── FAQ ACCORDION ────────────────────────────────────────────────────────
+    document.querySelectorAll('.faq-q').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const answer = btn.nextElementSibling;
+        const isOpen = btn.getAttribute('aria-expanded') === 'true';
+        document.querySelectorAll('.faq-q').forEach(b => {
+          b.setAttribute('aria-expanded', 'false');
+          b.nextElementSibling.classList.remove('open');
+        });
+        if (!isOpen) {
+          btn.setAttribute('aria-expanded', 'true');
+          answer.classList.add('open');
+        }
+      });
+    });
     // ────────────────────────────────────────────────────────────────────────
 
     // Cookie banner
