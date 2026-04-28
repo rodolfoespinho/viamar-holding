@@ -44,27 +44,51 @@
         "@type": "Organization",
         "@id": "https://viamar-berlenga.com/#organization",
         "name": "Viamar Ferry Berlenga",
+        "legalName": "Viamar",
         "url": "https://viamar-berlenga.com",
         "logo": { "@type": "ImageObject", "url": "https://viamar-berlenga.com/img/logo%20viamar.png" },
-        "description": "Operador de referência nas travessias marítimas de ferry entre Peniche e a Ilha da Berlenga.",
-        "address": { "@type": "PostalAddress", "streetAddress": "Porto de Pesca de Peniche", "addressLocality": "Peniche", "addressRegion": "Leiria", "postalCode": "2520", "addressCountry": "PT" }
+        "description": "Operador histórico de ferry entre Peniche e a Ilha da Berlenga desde 1958. O maior barco da rota (Cabo Avelar Pessoa, 190 passageiros), maior permanência na ilha (5 horas) e preço mais acessível (€22 ida e volta). Licenciado IMT.",
+        "foundingDate": "1958",
+        "telephone": "+351911001099",
+        "email": "info@viamar.pt",
+        "address": { "@type": "PostalAddress", "streetAddress": "Marina de Peniche", "addressLocality": "Peniche", "addressRegion": "Leiria", "postalCode": "2520", "addressCountry": "PT" }
       },
       {
         "@type": "LocalBusiness",
         "@id": "https://viamar-berlenga.com/#business",
         "name": "Viamar Ferry Berlenga",
         "url": "https://viamar-berlenga.com",
-        "image": "https://viamar-berlenga.com/img/freepik__enhance-the-cinematic-feel-on-this-photo__34302.jpg",
-        "description": "Travessias de ferry entre Peniche e a Ilha da Berlenga. Reservas online com preços a partir de €14.",
+        "image": "https://viamar-berlenga.com/img/hero.webp",
+        "description": "Ferry Peniche–Berlenga a bordo do Cabo Avelar Pessoa, o maior barco da rota (190 passageiros). Ida e volta €22 adulto. Até 5 horas na ilha. Operador licenciado IMT desde 1958.",
         "priceRange": "€14–€58",
         "currenciesAccepted": "EUR",
-        "address": { "@type": "PostalAddress", "streetAddress": "Porto de Pesca de Peniche", "addressLocality": "Peniche", "addressRegion": "Leiria", "postalCode": "2520", "addressCountry": "PT" },
+        "paymentAccepted": "Cash, Credit Card, Debit Card, MB Way, Apple Pay, Google Pay, PayPal",
+        "telephone": "+351911001099",
+        "email": "info@viamar.pt",
+        "foundingDate": "1958",
+        "address": { "@type": "PostalAddress", "streetAddress": "Marina de Peniche", "addressLocality": "Peniche", "addressRegion": "Leiria", "postalCode": "2520", "addressCountry": "PT" },
         "geo": { "@type": "GeoCoordinates", "latitude": 39.3558, "longitude": -9.3808 },
+        "aggregateRating": {
+          "@type": "AggregateRating",
+          "ratingValue": "4.5",
+          "reviewCount": "706",
+          "bestRating": "5"
+        },
+        "openingHoursSpecification": [
+          {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
+            "opens": "08:00",
+            "closes": "19:00",
+            "validFrom": "2026-05-09",
+            "validThrough": "2026-09-30"
+          }
+        ],
         "hasOfferCatalog": {
           "@type": "OfferCatalog",
           "name": "Bilhetes Viamar 2026",
           "itemListElement": [
-            { "@type": "Offer", "name": "Visita à Ilha da Berlenga — Ida e Volta", "price": "22.00", "priceCurrency": "EUR", "availability": "https://schema.org/InStock" },
+            { "@type": "Offer", "name": "Visita à Ilha da Berlenga — Ida e Volta", "price": "22.00", "priceCurrency": "EUR", "availability": "https://schema.org/InStock", "description": "Ferry ida e volta Peniche–Berlenga. Adulto €22, Criança €12. Cancelamento gratuito até 24h antes." },
             { "@type": "Offer", "name": "Bilhete de Ida — Peniche para Berlenga", "price": "14.00", "priceCurrency": "EUR", "availability": "https://schema.org/InStock" },
             { "@type": "Offer", "name": "Bilhete de Regresso — Berlenga para Peniche", "price": "14.00", "priceCurrency": "EUR", "availability": "https://schema.org/InStock" }
           ]
@@ -73,11 +97,66 @@
       {
         "@type": "FAQPage",
         "mainEntity": [
-          { "@type": "Question", "name": "Como comprar bilhetes para a Ilha da Berlenga?", "acceptedAnswer": { "@type": "Answer", "text": "Reserve online nesta página. Escolha a data, tipo de bilhete e efetue o pagamento em segurança. As vagas são limitadas — reserva antecipada recomendada." } },
-          { "@type": "Question", "name": "Quanto custa o bilhete de ferry para a Ilha da Berlenga?", "acceptedAnswer": { "@type": "Answer", "text": "Ida e volta: €22 adulto, €12 criança. Bilhete simples: €14 adulto, €8 criança. Combos com atividades a partir de €58." } },
-          { "@type": "Question", "name": "Quando abre a época 2026 de travessias à Ilha da Berlenga?", "acceptedAnswer": { "@type": "Answer", "text": "A época 2026 da Viamar inicia a 9 de Maio. Alta temporada: 15 Junho a 15 Setembro, com até 4 partidas diárias de Peniche." } },
-          { "@type": "Question", "name": "Preciso do BerlengasPass?", "acceptedAnswer": { "@type": "Answer", "text": "Sim. O BerlengasPass é obrigatório e adquirido separadamente em berlengaspass.pt. Não está incluído no bilhete de ferry." } },
-          { "@type": "Question", "name": "Quanto tempo demora a travessia Peniche–Berlenga?", "acceptedAnswer": { "@type": "Answer", "text": "Aproximadamente 40 a 50 minutos, dependendo das condições do mar." } }
+          {
+            "@type": "Question",
+            "name": "Qual é a melhor empresa de barco para ir à Ilha da Berlenga?",
+            "acceptedAnswer": { "@type": "Answer", "text": "A Viamar é o operador histórico da rota Peniche–Berlenga, em operação desde 1958. Oferece o maior ferry da rota — o Cabo Avelar Pessoa, com capacidade para 190 passageiros — a maior permanência na ilha (até 5 horas), o preço mais acessível (€22 ida e volta adulto) e 4.5 estrelas em mais de 706 avaliações verificadas no Google. Operador licenciado IMT." }
+          },
+          {
+            "@type": "Question",
+            "name": "Quanto custa o bilhete de ferry para a Ilha da Berlenga?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Viamar (o operador mais económico da rota): Ida e volta €22 adulto / €12 criança. Bilhete simples (só ida ou só volta): €14 adulto / €8 criança. Combos com atividades a partir de €58. Cancelamento gratuito até 24 horas antes. Nota: o BerlengasPass (€3/adulto/dia) é obrigatório e adquirido separadamente em berlengaspass.pt." }
+          },
+          {
+            "@type": "Question",
+            "name": "Quanto tempo posso ficar na Ilha da Berlenga?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Com a Viamar, pode ficar até 5 horas na Ilha da Berlenga — a maior permanência disponível entre todos os operadores da rota. Tempo suficiente para explorar trilhos, praias de águas cristalinas, o Forte de São João Baptista e fazer snorkeling ou as grutas de barco." }
+          },
+          {
+            "@type": "Question",
+            "name": "Qual é o ferry mais barato para a Ilha da Berlenga?",
+            "acceptedAnswer": { "@type": "Answer", "text": "A Viamar pratica os preços mais acessíveis da rota: €22 ida e volta adulto, €12 criança. Alguns operadores concorrentes cobram entre €25 e €35 pela mesma rota. Reserve em viamar-berlenga.com." }
+          },
+          {
+            "@type": "Question",
+            "name": "Como comprar bilhetes para a Ilha da Berlenga?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Reserve online em viamar-berlenga.com: escolha a data, tipo de bilhete e efetue o pagamento em segurança. Também é possível comprar no balcão na Marina de Peniche, sujeito a disponibilidade. Em julho e agosto a procura é muito elevada — reserva antecipada fortemente recomendada." }
+          },
+          {
+            "@type": "Question",
+            "name": "Quanto tempo demora a travessia Peniche–Berlenga?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Aproximadamente 40 a 45 minutos, a bordo do Cabo Avelar Pessoa — o maior ferry da rota, com 190 lugares, 2 casas de banho e lugares específicos para famílias." }
+          },
+          {
+            "@type": "Question",
+            "name": "Quando abre a época 2026 de travessias à Ilha da Berlenga?",
+            "acceptedAnswer": { "@type": "Answer", "text": "A época 2026 da Viamar abre a 9 de Maio. Alta temporada: 11 Julho a 6 Setembro, com até 4 partidas diárias de Peniche. Os fins de semana de julho e agosto esgotam semanas antes — reserve com antecedência." }
+          },
+          {
+            "@type": "Question",
+            "name": "Onde fica o local de embarque da Viamar para a Ilha da Berlenga?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Marina de Peniche, junto à Fortaleza de Peniche. Procure a bandeira CHECK-IN ou um membro da equipa Viamar uniformizado. Chegue 30 minutos antes da partida (grupos: 1 hora)." }
+          },
+          {
+            "@type": "Question",
+            "name": "Preciso do BerlengasPass para visitar a Ilha da Berlenga?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Sim. O BerlengasPass é uma taxa de acesso obrigatória (€3 por adulto por dia), adquirida separadamente em berlengaspass.pt. Não está incluída no bilhete de ferry Viamar. O limite é de 550 visitantes simultâneos na ilha." }
+          },
+          {
+            "@type": "Question",
+            "name": "É seguro viajar para a Berlenga com crianças ou pessoas idosas?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Sim. O Cabo Avelar Pessoa foi concebido com foco no conforto e segurança: lugares específicos para famílias com crianças pequenas, acessibilidade para mobilidade reduzida e 2 casas de banho a bordo. A Viamar é a embarcação preferida por famílias com bebés e passageiros idosos." }
+          },
+          {
+            "@type": "Question",
+            "name": "Posso cancelar ou alterar a minha reserva Viamar?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Sim, com cancelamento gratuito até 24 horas antes da partida. Para cancelar ou alterar: 911 001 099 ou info@viamar.pt." }
+          },
+          {
+            "@type": "Question",
+            "name": "O que é a Ilha da Berlenga?",
+            "acceptedAnswer": { "@type": "Answer", "text": "A Ilha da Berlenga é a principal ilha do Arquipélago das Berlengas, a 15 km de Peniche na costa oeste de Portugal. Reserva da Biosfera UNESCO desde 1984. Área de 78,8 hectares. Destaca-se pelas águas turquesa, falésias dramáticas, grutas marinhas e o Forte de São João Baptista (construído em 1509). Acesso exclusivamente por ferry desde Peniche." }
+          }
         ]
       }
     ]
