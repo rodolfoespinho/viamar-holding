@@ -84,8 +84,6 @@
       "price_child": null,
       "coming_soon": true,
       "featured": false,
-      "partner": "BERLENGATOURS",
-      "partner_style": "partner_yellow",
       "fh_flow": "738388"
     },
     {
@@ -102,10 +100,10 @@
       "desc_en": "Dive into Berlenga's crystal-clear waters with PADI certified instructors. One of the best diving experiences on the Portuguese coast.",
       "features": ["Equipamento completo incluído", "Instrutor certificado PADI", "Máx. 6 pessoas/sessão", "Partida da ilha", "Todos os níveis"],
       "features_en": ["Full equipment included", "PADI certified instructor", "Max. 6 people/session", "Departing from the island", "All levels welcome"],
-      "price_adult": 0,
+      "price_adult": 129.90,
       "coming_soon": true,
       "featured": false,
-      "partner": "empresa parceira HALIOTIS",
+      "partner": "HALIOTIS",
       "partner_style": "partner_orange"
     },
     {

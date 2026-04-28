@@ -112,7 +112,7 @@
 
     /* ── Packages ── */
     .packages-wrap { max-width: 1280px; margin: 0 auto; padding: 72px 40px; }
-    .pkg-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+    .pkg-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
 
     /* Card base */
     .pkg-card {
@@ -193,9 +193,9 @@
     .btn-reserve:hover { background: var(--gold-h); transform: scale(1.03); }
     .btn-soon {
       flex-shrink: 0; padding: 12px 22px;
-      border: 1.5px dashed rgba(255,255,255,0.22); border-radius: 10px;
+      border: 1.5px dashed rgba(255,255,255,0.32); border-radius: 10px;
       font-size: 12px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase;
-      color: rgba(255,255,255,0.35); cursor: default; white-space: nowrap;
+      color: rgba(255,255,255,0.5); cursor: default; white-space: nowrap;
     }
 
     /* ── Footer ── */
@@ -232,10 +232,12 @@
       .nav-hamburger { display: flex; }
       .page-hero { padding: 48px 20px 40px; }
       .packages-wrap { padding: 48px 20px; }
-      .pkg-grid { grid-template-columns: 1fr; }
+      .pkg-grid { grid-template-columns: 1fr; gap: 14px; }
       .pkg-card { height: 360px; }
+      .pkg-card-content { padding: 16px; }
+      .pkg-feats { gap: 8px; }
       .pkg-card.featured { grid-column: auto; height: 420px; }
-      .pkg-grid .pkg-card.coming-soon:last-child { grid-column: auto; height: 300px; }
+      .pkg-grid .pkg-card.coming-soon:last-child { grid-column: auto; height: 360px; }
       .site-footer { padding: 24px 20px; }
     }
   </style>
