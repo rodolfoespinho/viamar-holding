@@ -84,7 +84,7 @@
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   <link rel="apple-touch-icon" href="/logo-viamar.png" />
   <link rel="manifest" href="/manifest.json" />
-  <meta name="theme-color" content="#07111f" />
+  <meta name="theme-color" content="#ffffff" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,700;0,900;1,700;1,900&display=swap" rel="stylesheet" />
 
@@ -92,48 +92,81 @@
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
   :root { --navy: #07111f; --aqua: #06b6d4; --gold: #f59e0b; --r: 14px; }
   html { scroll-behavior: smooth; }
-  body { font-family: 'Inter', sans-serif; background: var(--navy); color: rgba(255,255,255,0.6); overflow-x: hidden; }
-
-  .grain {
-    position: fixed; inset: 0; z-index: 999; pointer-events: none;
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
-    opacity: 0.35;
-  }
+  body { font-family: 'Inter', sans-serif; background: #ffffff; color: rgba(26,35,50,0.6); overflow-x: hidden; }
 
   /* ── nav ── */
   #nav {
     position: fixed; top: 0; left: 0; right: 0; z-index: 100;
     display: flex; align-items: center; justify-content: space-between;
     padding: 0 40px; height: 64px;
-    transition: background .3s, backdrop-filter .3s;
+    transition: background .3s, backdrop-filter .3s, box-shadow .3s;
   }
-  #nav.solid { background: rgba(7,17,31,0.92); backdrop-filter: blur(12px); }
+  /* Over dark hero: white text */
   .nav-back-btn {
-    font-size: 13px; font-weight: 600; color: rgba(255,255,255,0.7);
+    font-size: 13px; font-weight: 600; color: rgba(255,255,255,0.8);
     text-decoration: none; letter-spacing: 0.02em;
     display: flex; align-items: center; gap: 6px; transition: color .2s;
   }
   .nav-back-btn:hover { color: #fff; }
   .nav-lang-drop { position: relative; display: flex; align-items: center; }
-  .lang-drop-btn { display: flex; align-items: center; gap: 5px; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.1); cursor: pointer; color: #fff; font-size: 12px; font-weight: 700; letter-spacing: 1px; padding: 7px 11px; border-radius: 7px; font-family: inherit; transition: background .15s; line-height: 1; }
-  .lang-drop-btn:hover { background: rgba(255,255,255,0.14); }
-  .lang-drop-btn svg { transition: transform .2s; opacity: 0.55; }
+  .lang-drop-btn {
+    display: flex; align-items: center; gap: 5px;
+    background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.22);
+    cursor: pointer; color: #fff; font-size: 12px; font-weight: 700;
+    letter-spacing: 1px; padding: 7px 11px; border-radius: 7px;
+    font-family: inherit; transition: background .15s; line-height: 1;
+  }
+  .lang-drop-btn:hover { background: rgba(255,255,255,0.2); }
+  .lang-drop-btn svg { transition: transform .2s; opacity: 0.7; }
   .lang-drop-btn.open svg { transform: rotate(180deg); }
-  .lang-drop-panel { position: absolute; top: calc(100% + 8px); right: 0; background: rgba(7,17,31,0.98); border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; padding: 4px; min-width: 68px; display: none; flex-direction: column; z-index: 400; backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); box-shadow: 0 8px 32px rgba(0,0,0,0.5); }
+  .lang-drop-panel {
+    position: absolute; top: calc(100% + 8px); right: 0;
+    background: rgba(7,17,31,0.98); border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 8px; padding: 4px; min-width: 68px;
+    display: none; flex-direction: column; z-index: 400;
+    backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+    box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+  }
   .lang-drop-panel.open { display: flex; }
-  .lang-drop-item { background: none; border: none; cursor: pointer; color: rgba(255,255,255,0.55); font-size: 12px; font-weight: 700; letter-spacing: 1px; padding: 9px 14px; border-radius: 5px; text-align: left; font-family: inherit; transition: background .15s, color .15s; }
+  .lang-drop-item {
+    background: none; border: none; cursor: pointer;
+    color: rgba(255,255,255,0.55); font-size: 12px; font-weight: 700;
+    letter-spacing: 1px; padding: 9px 14px; border-radius: 5px;
+    text-align: left; font-family: inherit; transition: background .15s, color .15s;
+  }
   .lang-drop-item:hover { background: rgba(255,255,255,0.08); color: #fff; }
   .lang-drop-item.active { color: #fff; background: rgba(255,255,255,0.1); }
 
+  /* Solid state — white nav over light page */
+  #nav.solid {
+    background: rgba(255,255,255,0.97);
+    backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+    box-shadow: 0 1px 0 rgba(26,35,50,0.08);
+  }
+  #nav.solid .nav-back-btn { color: rgba(26,35,50,0.65); }
+  #nav.solid .nav-back-btn:hover { color: var(--navy); }
+  #nav.solid .lang-drop-btn {
+    color: var(--navy); background: rgba(26,35,50,0.05);
+    border-color: rgba(26,35,50,0.13);
+  }
+  #nav.solid .lang-drop-btn:hover { background: rgba(26,35,50,0.09); }
+  #nav.solid .lang-drop-panel {
+    background: rgba(255,255,255,0.99); border-color: rgba(26,35,50,0.1);
+    box-shadow: 0 8px 32px rgba(0,0,0,0.12);
+  }
+  #nav.solid .lang-drop-item { color: rgba(26,35,50,0.5); }
+  #nav.solid .lang-drop-item:hover { background: rgba(26,35,50,0.05); color: var(--navy); }
+  #nav.solid .lang-drop-item.active { color: var(--navy); background: rgba(26,35,50,0.07); }
+
   /* ── hero ── */
   .pg-header {
-    position: relative; padding: 160px 40px 88px; text-align: center;
+    position: relative; padding: 160px 40px 120px; text-align: center;
     background: url('img/photo3.webp') center/cover no-repeat;
     overflow: hidden;
   }
   .pg-header::before {
     content: ''; position: absolute; inset: 0;
-    background: linear-gradient(to bottom, rgba(7,17,31,0.45) 0%, rgba(7,17,31,1) 100%);
+    background: linear-gradient(to bottom, rgba(7,17,31,0.4) 0%, rgba(7,17,31,0.65) 50%, rgba(255,255,255,1) 100%);
   }
   .pg-header > * { position: relative; z-index: 1; }
   .pg-tag {
@@ -146,14 +179,14 @@
     font-weight: 900; color: #fff; line-height: 1.08; letter-spacing: -0.02em;
   }
   .pg-sub {
-    margin-top: 18px; font-size: 16px; color: rgba(255,255,255,0.6);
+    margin-top: 18px; font-size: 16px; color: rgba(255,255,255,0.7);
     max-width: 520px; margin-left: auto; margin-right: auto; line-height: 1.7;
   }
 
   /* ── quick facts strip ── */
   .facts-strip {
-    background: rgba(255,255,255,0.03);
-    border-bottom: 1px solid rgba(255,255,255,0.07);
+    background: #f4f7fb;
+    border-bottom: 1px solid rgba(26,35,50,0.07);
   }
   .facts-inner {
     max-width: 960px; margin: 0 auto; padding: 0 40px;
@@ -161,16 +194,114 @@
   }
   .fact-item {
     padding: 28px 20px; text-align: center;
-    border-right: 1px solid rgba(255,255,255,0.06);
+    border-right: 1px solid rgba(26,35,50,0.06);
   }
   .fact-item:last-child { border-right: none; }
-  .fact-val { font-size: 28px; font-weight: 900; color: #fff; line-height: 1; }
+  .fact-val { font-size: 28px; font-weight: 900; color: var(--navy); line-height: 1; }
   .fact-val span { font-size: 15px; color: var(--aqua); font-weight: 700; }
-  .fact-lbl { font-size: 12px; color: rgba(255,255,255,0.35); margin-top: 6px; letter-spacing: 0.03em; }
+  .fact-lbl { font-size: 12px; color: rgba(26,35,50,0.4); margin-top: 6px; letter-spacing: 0.03em; }
+
+  /* ── artwork full-bleed moments (estilo história) ── */
+  .rv {
+    opacity: 0; transform: translateY(26px);
+    transition: opacity .85s ease, transform .85s ease;
+  }
+  .rv.d1 { transition-delay: .14s; }
+  .rv.d2 { transition-delay: .28s; }
+  .rv.on { opacity: 1; transform: none; }
+  /* rv-art: só opacidade — o parallax JS gere o transform separadamente */
+  .rv-art { opacity: 0; transition: opacity 1.5s ease; }
+  .rv-art.on { opacity: 1; }
+
+  /* Art section: funde com #f4f7fb (código conduta) no topo */
+  .art-sec {
+    padding: 0 0 80px;
+    background: linear-gradient(to bottom,
+      #f4f7fb 0%, #ffffff 110px, #ffffff 100%
+    );
+  }
+  .art-intro {
+    max-width: 560px; margin: 0 auto;
+    padding: 88px 40px 72px; text-align: center;
+  }
+
+  /* Padrão plx-wrap / plx-inner (idêntico a historia.html):
+     .art-moment clippa; .art-moment-frame transborda e é translado pelo JS */
+  .art-moment {
+    position: relative;
+    overflow: hidden;
+    height: 95vw;        /* mobile: quase quadrado — grande e imersivo */
+    min-height: 320px;
+  }
+  .art-moment-frame {
+    position: absolute;
+    top: -15%; left: 0; right: 0;
+    height: 130%;        /* 100% + 2×15% — margem para parallax */
+    will-change: transform;
+  }
+  .art-moment-img {
+    position: absolute; inset: 0;
+    width: 100%; height: 100%;
+    object-fit: cover; object-position: center;
+  }
+  /* Gradientes dentro do container clipped: fundem a ilustração com o fundo branco */
+  .art-moment::before,
+  .art-moment::after {
+    content: ''; position: absolute;
+    left: 0; right: 0; pointer-events: none; z-index: 2;
+  }
+  .art-moment::before {
+    top: 0; height: 20%;
+    background: linear-gradient(to bottom, #ffffff 0%, transparent 100%);
+  }
+  .art-moment::after {
+    bottom: 0; height: 32%;
+    background: linear-gradient(to top, #ffffff 0%, transparent 100%);
+  }
+
+  /* Caption: sibling do art-moment, normal flow — nunca atrás de nenhuma imagem */
+  .art-moment-cap {
+    padding: 28px 40px 0;
+    text-align: center; position: relative; z-index: 1;
+  }
+  .art-cap-label {
+    display: inline-flex; align-items: center; gap: 14px;
+    font-size: 9.5px; font-weight: 700;
+    letter-spacing: 5px; text-transform: uppercase;
+    color: var(--gold); margin-bottom: 10px;
+  }
+  .art-cap-label::before,
+  .art-cap-label::after { content: ''; width: 28px; height: 1px; background: currentColor; opacity: 0.4; flex-shrink: 0; }
+  .art-cap-h {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(22px, 3.2vw, 36px);
+    font-weight: 900; color: var(--navy); line-height: 1.1;
+  }
+  .art-cap-h em { font-style: italic; color: rgba(26,35,50,0.38); }
+  /* Separador vertical dourado */
+  .art-sep-v {
+    width: 1px; height: 80px;
+    background: linear-gradient(to bottom, transparent, rgba(245,158,11,0.28), transparent);
+    margin: 72px auto;
+  }
+  @media (min-width: 768px) {
+    .art-moment { height: 82vh; min-height: 520px; max-height: 920px; }
+    .art-moment::before { height: 16%; }
+    .art-moment::after  { height: 28%; }
+    .art-intro { padding: 100px 40px 88px; }
+    .art-cap-h { font-size: clamp(28px, 3.2vw, 40px); }
+    .art-sep-v { height: 96px; margin: 80px auto; }
+  }
+  @media (max-width: 767px) {
+    .art-intro { padding: 64px 24px 52px; }
+    .art-moment-cap { padding: 22px 24px 0; }
+    .art-cap-h { font-size: clamp(22px, 7vw, 30px); }
+    .art-sep-v { height: 60px; margin: 56px auto; }
+  }
 
   /* ── sections ── */
-  .sec { padding: 80px 40px; }
-  .sec.alt { background: rgba(255,255,255,0.02); }
+  .sec { padding: 80px 40px; background: #fff; }
+  .sec.alt { background: #f4f7fb; }
   .sec-inner { max-width: 960px; margin: 0 auto; }
   .sec-tag {
     font-size: 11px; font-weight: 700; text-transform: uppercase;
@@ -179,40 +310,44 @@
   .sec-h {
     font-family: 'Playfair Display', serif;
     font-size: clamp(24px, 3.5vw, 38px);
-    font-weight: 900; color: #fff; line-height: 1.1; letter-spacing: -0.02em;
+    font-weight: 900; color: var(--navy); line-height: 1.1; letter-spacing: -0.02em;
     margin-bottom: 12px;
   }
-  .sec-sub { font-size: 15px; color: rgba(255,255,255,0.45); line-height: 1.7; max-width: 560px; margin-bottom: 48px; }
+  .sec-sub { font-size: 15px; color: rgba(26,35,50,0.5); line-height: 1.7; max-width: 560px; margin-bottom: 48px; }
 
   /* ── transport cards ── */
   .transport-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
   .transport-card {
-    background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.09);
+    background: #fff; border: 1px solid rgba(26,35,50,0.09);
     border-radius: var(--r); padding: 32px 28px;
-    transition: border-color .25s, transform .25s;
+    box-shadow: 0 2px 16px rgba(26,35,50,0.06);
+    transition: border-color .25s, transform .25s, box-shadow .25s;
   }
-  .transport-card:hover { border-color: rgba(255,255,255,0.18); transform: translateY(-3px); }
+  .transport-card:hover {
+    border-color: rgba(26,35,50,0.16); transform: translateY(-3px);
+    box-shadow: 0 8px 32px rgba(26,35,50,0.1);
+  }
   .tc-icon {
     width: 48px; height: 48px; border-radius: 12px;
-    background: rgba(6,182,212,0.12); border: 1px solid rgba(6,182,212,0.25);
+    background: rgba(6,182,212,0.08); border: 1px solid rgba(6,182,212,0.2);
     display: flex; align-items: center; justify-content: center;
     margin-bottom: 20px;
   }
   .tc-icon svg { width: 22px; height: 22px; stroke: var(--aqua); }
-  .tc-title { font-size: 17px; font-weight: 800; color: #fff; margin-bottom: 10px; }
-  .tc-body { font-size: 14px; color: rgba(255,255,255,0.5); line-height: 1.75; }
-  .tc-body strong { color: rgba(255,255,255,0.8); font-weight: 700; }
+  .tc-title { font-size: 17px; font-weight: 800; color: var(--navy); margin-bottom: 10px; }
+  .tc-body { font-size: 14px; color: rgba(26,35,50,0.55); line-height: 1.75; }
+  .tc-body strong { color: var(--navy); font-weight: 700; }
   .tc-body a { color: var(--aqua); text-decoration: none; }
   .tc-body a:hover { text-decoration: underline; }
   .tc-detail {
-    margin-top: 18px; padding-top: 18px; border-top: 1px solid rgba(255,255,255,0.07);
+    margin-top: 18px; padding-top: 18px; border-top: 1px solid rgba(26,35,50,0.07);
     display: flex; gap: 10px; align-items: flex-start;
   }
-  .tc-detail-icon { flex-shrink: 0; margin-top: 1px; color: var(--aqua); }
+  .tc-detail-icon { flex-shrink: 0; margin-top: 1px; }
   .tc-detail-icon svg { width: 14px; height: 14px; stroke: var(--aqua); }
-  .tc-detail-text { font-size: 12.5px; color: rgba(255,255,255,0.35); line-height: 1.6; }
+  .tc-detail-text { font-size: 12.5px; color: rgba(26,35,50,0.45); line-height: 1.6; }
   .tc-links {
-    margin-top: 18px; padding-top: 18px; border-top: 1px solid rgba(255,255,255,0.07);
+    margin-top: 18px; padding-top: 18px; border-top: 1px solid rgba(26,35,50,0.07);
     display: flex; gap: 10px; flex-wrap: wrap;
   }
   .tc-link-btn {
@@ -220,35 +355,39 @@
     font-size: 12.5px; font-weight: 700; letter-spacing: 0.02em;
     padding: 9px 16px; border-radius: 8px; text-decoration: none;
     transition: background .2s, border-color .2s, color .2s;
-    color: rgba(255,255,255,0.65); background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1);
+    color: rgba(26,35,50,0.6); background: rgba(26,35,50,0.04); border: 1px solid rgba(26,35,50,0.1);
   }
-  .tc-link-btn:hover { background: rgba(255,255,255,0.09); border-color: rgba(255,255,255,0.22); color: #fff; }
+  .tc-link-btn:hover { background: rgba(26,35,50,0.08); border-color: rgba(26,35,50,0.18); color: var(--navy); }
   .tc-link-btn svg { flex-shrink: 0; }
-  .tc-link-btn.aqua { background: rgba(6,182,212,0.1); border-color: rgba(6,182,212,0.3); color: var(--aqua); }
-  .tc-link-btn.aqua:hover { background: rgba(6,182,212,0.2); border-color: rgba(6,182,212,0.5); }
-  .tc-link-btn.flix { background: rgba(115,215,0,0.07); border-color: rgba(115,215,0,0.28); color: #73d700; }
-  .tc-link-btn.flix:hover { background: rgba(115,215,0,0.14); border-color: rgba(115,215,0,0.45); }
+  .tc-link-btn.aqua { background: rgba(6,182,212,0.08); border-color: rgba(6,182,212,0.25); color: var(--aqua); }
+  .tc-link-btn.aqua:hover { background: rgba(6,182,212,0.16); border-color: rgba(6,182,212,0.4); }
+  .tc-link-btn.flix { background: rgba(115,215,0,0.06); border-color: rgba(115,215,0,0.24); color: #4a9900; }
+  .tc-link-btn.flix:hover { background: rgba(115,215,0,0.12); border-color: rgba(115,215,0,0.4); }
 
   /* ── island facilities ── */
   .island-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
   .island-card {
-    background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.09);
+    background: #fff; border: 1px solid rgba(26,35,50,0.09);
     border-radius: var(--r); overflow: hidden;
-    transition: border-color .25s, transform .25s;
+    box-shadow: 0 2px 16px rgba(26,35,50,0.06);
+    transition: border-color .25s, transform .25s, box-shadow .25s;
   }
-  .island-card:hover { border-color: rgba(255,255,255,0.18); transform: translateY(-3px); }
+  .island-card:hover {
+    border-color: rgba(26,35,50,0.16); transform: translateY(-3px);
+    box-shadow: 0 8px 32px rgba(26,35,50,0.1);
+  }
   .island-card-photo { aspect-ratio: 4/3; overflow: hidden; }
   .island-card-photo img { width: 100%; height: 100%; object-fit: cover; object-position: center 60%; transition: transform .4s ease; display: block; }
   .island-card:hover .island-card-photo img { transform: scale(1.04); }
-  .island-card-body { padding: 22px 24px 26px; }
+  .island-card-body { padding: 22px 24px 26px; background: #fff; }
   .ic-label {
     display: inline-block; font-size: 10px; font-weight: 700; text-transform: uppercase;
     letter-spacing: .8px; padding: 3px 9px; border-radius: 100px;
-    background: rgba(6,182,212,0.15); color: var(--aqua); border: 1px solid rgba(6,182,212,0.3);
+    background: rgba(6,182,212,0.1); color: var(--aqua); border: 1px solid rgba(6,182,212,0.25);
     margin-bottom: 12px;
   }
-  .ic-name { font-size: 17px; font-weight: 800; color: #fff; margin-bottom: 8px; }
-  .ic-desc { font-size: 14px; color: rgba(255,255,255,0.5); line-height: 1.75; }
+  .ic-name { font-size: 17px; font-weight: 800; color: var(--navy); margin-bottom: 8px; }
+  .ic-desc { font-size: 14px; color: rgba(26,35,50,0.55); line-height: 1.75; }
   .ic-desc a { color: var(--aqua); text-decoration: none; }
   .ic-desc a:hover { text-decoration: underline; }
   .ic-actions { margin-top: 18px; display: flex; gap: 8px; flex-wrap: wrap; }
@@ -257,37 +396,37 @@
     font-size: 12px; font-weight: 700; letter-spacing: 0.03em;
     padding: 8px 14px; border-radius: 8px; text-decoration: none;
     transition: background .2s, border-color .2s, color .2s;
-    color: rgba(255,255,255,0.6); background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1);
+    color: rgba(26,35,50,0.6); background: rgba(26,35,50,0.04); border: 1px solid rgba(26,35,50,0.1);
   }
-  .ic-btn:hover { background: rgba(255,255,255,0.09); border-color: rgba(255,255,255,0.22); color: #fff; }
+  .ic-btn:hover { background: rgba(26,35,50,0.08); border-color: rgba(26,35,50,0.18); color: var(--navy); }
   .ic-btn svg { flex-shrink: 0; }
-  .ic-btn.fb { background: rgba(24,119,242,0.1); border-color: rgba(24,119,242,0.3); color: #4e9af1; }
-  .ic-btn.fb:hover { background: rgba(24,119,242,0.2); border-color: rgba(24,119,242,0.5); }
-  .ic-btn.mail { background: rgba(6,182,212,0.1); border-color: rgba(6,182,212,0.3); color: var(--aqua); }
-  .ic-btn.mail:hover { background: rgba(6,182,212,0.2); border-color: rgba(6,182,212,0.5); }
+  .ic-btn.fb { background: rgba(24,119,242,0.07); border-color: rgba(24,119,242,0.2); color: #1877f2; }
+  .ic-btn.fb:hover { background: rgba(24,119,242,0.14); border-color: rgba(24,119,242,0.35); }
+  .ic-btn.mail { background: rgba(6,182,212,0.08); border-color: rgba(6,182,212,0.22); color: var(--aqua); }
+  .ic-btn.mail:hover { background: rgba(6,182,212,0.16); border-color: rgba(6,182,212,0.38); }
 
   /* ── conduct ── */
   .conduct-wrap {
     background: rgba(6,182,212,0.04); border: 1px solid rgba(6,182,212,0.15);
     border-radius: var(--r); padding: 40px 44px;
   }
-  .conduct-intro { font-size: 15px; color: rgba(255,255,255,0.5); line-height: 1.75; margin-bottom: 32px; max-width: 620px; }
+  .conduct-intro { font-size: 15px; color: rgba(26,35,50,0.6); line-height: 1.75; margin-bottom: 32px; max-width: 620px; }
   .conduct-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
   .conduct-rule {
     display: flex; gap: 12px; align-items: flex-start;
     padding: 14px 16px; border-radius: 10px;
-    background: rgba(255,255,255,0.03);
+    background: rgba(26,35,50,0.025);
   }
-  .conduct-rule.no { background: rgba(255,80,80,0.05); }
+  .conduct-rule.no { background: rgba(220,50,50,0.04); }
   .conduct-icon {
     flex-shrink: 0; width: 22px; height: 22px; border-radius: 50%;
     display: flex; align-items: center; justify-content: center;
     font-size: 11px; font-weight: 800; margin-top: 1px;
   }
-  .conduct-icon.ok { background: rgba(6,182,212,0.2); color: var(--aqua); }
-  .conduct-icon.no { background: rgba(255,80,80,0.2); color: #ff6b6b; }
-  .conduct-text { font-size: 13.5px; color: rgba(255,255,255,0.6); line-height: 1.55; }
-  .conduct-text strong { color: rgba(255,255,255,0.85); }
+  .conduct-icon.ok { background: rgba(6,182,212,0.15); color: var(--aqua); }
+  .conduct-icon.no { background: rgba(220,50,50,0.15); color: #d63232; }
+  .conduct-text { font-size: 13.5px; color: rgba(26,35,50,0.65); line-height: 1.55; }
+  .conduct-text strong { color: var(--navy); }
 
   /* ── CTA ── */
   .cta-sec {
@@ -306,7 +445,7 @@
     font-size: clamp(26px, 3.5vw, 42px);
     font-weight: 900; color: #fff; line-height: 1.1; margin-bottom: 10px;
   }
-  .cta-sub { font-size: 15px; color: rgba(255,255,255,0.5); line-height: 1.65; margin-bottom: 32px; max-width: 440px; }
+  .cta-sub { font-size: 15px; color: rgba(255,255,255,0.55); line-height: 1.65; margin-bottom: 32px; max-width: 440px; }
   .cta-btn {
     display: inline-flex; align-items: center; gap: 8px;
     background: var(--gold); color: var(--navy);
@@ -332,11 +471,15 @@
   /* ── responsive ── */
   @media (max-width: 768px) {
     #nav { padding: 0 20px; }
-    .pg-header { padding: 120px 24px 56px; }
+    .pg-header { padding: 120px 24px 80px; }
     .facts-inner { grid-template-columns: repeat(2, 1fr); }
     .fact-item:nth-child(2) { border-right: none; }
-    .fact-item:nth-child(3), .fact-item:nth-child(4) { border-top: 1px solid rgba(255,255,255,0.06); }
+    .fact-item:nth-child(3), .fact-item:nth-child(4) { border-top: 1px solid rgba(26,35,50,0.06); }
     .sec { padding: 56px 20px; }
+    .ilustr-sec { padding: 56px 20px; }
+    .ilustr-grid { grid-template-columns: 1fr; gap: 16px; }
+    .ilustr-item.wide { grid-column: 1; padding: 20px; }
+    .ilustr-item.wide img { max-height: none; }
     .transport-grid { grid-template-columns: 1fr; }
     .island-grid { grid-template-columns: 1fr; }
     .conduct-wrap { padding: 28px 20px; }
@@ -348,8 +491,6 @@
   </style>
 </head>
 <body>
-
-<div class="grain" aria-hidden="true"></div>
 
 <!-- NAV -->
 <nav id="nav">
@@ -401,7 +542,7 @@
 </div>
 
 <!-- COMO CHEGAR A PENICHE -->
-<section class="sec">
+<section class="sec alt">
   <div class="sec-inner">
     <span class="sec-tag" data-i18n="ilha.s1.tag">Acesso</span>
     <h2 class="sec-h" data-i18n="ilha.s1.title">Como chegar a Peniche</h2>
@@ -462,7 +603,7 @@
 </section>
 
 <!-- NA ILHA -->
-<section class="sec alt">
+<section class="sec">
   <div class="sec-inner">
     <span class="sec-tag" data-i18n="ilha.s2.tag">Na ilha</span>
     <h2 class="sec-h" data-i18n="ilha.s2.title">Alojamento e restauração</h2>
@@ -547,7 +688,7 @@
 </section>
 
 <!-- CÓDIGO DE CONDUTA -->
-<section class="sec">
+<section class="sec alt">
   <div class="sec-inner">
     <span class="sec-tag" data-i18n="ilha.s3.tag">Reserva Natural</span>
     <h2 class="sec-h" data-i18n="ilha.s3.title">Código de conduta da ilha</h2>
@@ -594,6 +735,93 @@
   </div>
 </section>
 
+<!-- AGUARELAS — momentos full-bleed com parallax, posição final antes do CTA -->
+<section class="art-sec">
+
+  <div class="art-intro">
+    <span class="sec-tag rv" data-i18n="ilha.art.tag">Berlenga em Aguarela</span>
+    <h2 class="sec-h rv d1" data-i18n="ilha.art.h2">A ilha que inspira</h2>
+    <p class="sec-sub rv d2" data-i18n="ilha.art.sub">Seis momentos eternizados em aguarela — a praia, a chegada, o cais, a enseada, a gruta e o Forte ao entardecer.</p>
+  </div>
+
+  <!-- 01 — A Praia -->
+  <div class="art-moment">
+    <div class="art-moment-frame" data-art-plx="-0.07">
+      <img class="art-moment-img rv-art" src="img/ani1.png" alt="Praia do Carreiro do Mosteiro em aguarela" loading="lazy" />
+    </div>
+  </div>
+  <div class="art-moment-cap">
+    <span class="art-cap-label rv" data-i18n="ilha.art.p1.label">01 · A Praia</span>
+    <h3 class="art-cap-h rv d1" data-i18n="ilha.art.p1.title">Carreiro do <em>Mosteiro</em></h3>
+  </div>
+
+  <div class="art-sep-v rv"></div>
+
+  <!-- 02 — A Chegada -->
+  <div class="art-moment">
+    <div class="art-moment-frame" data-art-plx="-0.08">
+      <img class="art-moment-img rv-art" src="img/ani2.png" alt="Ferry Viamar a chegar à Ilha da Berlenga em aguarela" loading="lazy" />
+    </div>
+  </div>
+  <div class="art-moment-cap">
+    <span class="art-cap-label rv" data-i18n="ilha.art.p2.label">02 · A Chegada</span>
+    <h3 class="art-cap-h rv d1" data-i18n="ilha.art.p2.title">O ferry <em>aproxima-se</em></h3>
+  </div>
+
+  <div class="art-sep-v rv"></div>
+
+  <!-- 03 — O Cais -->
+  <div class="art-moment">
+    <div class="art-moment-frame" data-art-plx="-0.06">
+      <img class="art-moment-img rv-art" src="img/ani5.png" alt="Cais da Ilha da Berlenga com barcos em aguarela" loading="lazy" />
+    </div>
+  </div>
+  <div class="art-moment-cap">
+    <span class="art-cap-label rv" data-i18n="ilha.art.p5.label">03 · O Cais</span>
+    <h3 class="art-cap-h rv d1" data-i18n="ilha.art.p5.title">Barcos à <em>ancoragem</em></h3>
+  </div>
+
+  <div class="art-sep-v rv"></div>
+
+  <!-- 04 — A Enseada -->
+  <div class="art-moment">
+    <div class="art-moment-frame" data-art-plx="-0.09">
+      <img class="art-moment-img rv-art" src="img/ani4.png" alt="Enseada da Ilha da Berlenga em aguarela" loading="lazy" />
+    </div>
+  </div>
+  <div class="art-moment-cap">
+    <span class="art-cap-label rv" data-i18n="ilha.art.p3.label">04 · A Enseada</span>
+    <h3 class="art-cap-h rv d1" data-i18n="ilha.art.p3.title">Águas <em>turquesa</em></h3>
+  </div>
+
+  <div class="art-sep-v rv"></div>
+
+  <!-- 05 — A Gruta -->
+  <div class="art-moment">
+    <div class="art-moment-frame" data-art-plx="-0.07">
+      <img class="art-moment-img rv-art" src="img/ani6.png" alt="Gruta da Ilha da Berlenga em aguarela" loading="lazy" />
+    </div>
+  </div>
+  <div class="art-moment-cap">
+    <span class="art-cap-label rv" data-i18n="ilha.art.p6.label">05 · A Gruta</span>
+    <h3 class="art-cap-h rv d1" data-i18n="ilha.art.p6.title">A gruta <em>azul</em></h3>
+  </div>
+
+  <div class="art-sep-v rv"></div>
+
+  <!-- 06 — O Forte (finale) -->
+  <div class="art-moment">
+    <div class="art-moment-frame" data-art-plx="-0.08">
+      <img class="art-moment-img rv-art" src="img/ani3.png" alt="Forte de São João Baptista ao entardecer em aguarela" loading="lazy" />
+    </div>
+  </div>
+  <div class="art-moment-cap">
+    <span class="art-cap-label rv" data-i18n="ilha.art.p4.label">06 · O Forte</span>
+    <h3 class="art-cap-h rv d1" data-i18n="ilha.art.p4.title">São João Baptista <em>ao entardecer</em></h3>
+  </div>
+
+</section>
+
 <!-- CTA -->
 <section class="cta-sec">
   <div class="cta-inner">
@@ -628,6 +856,15 @@
       'ilha.f2': 'visitantes em simultâneo',
       'ilha.f3': 'Reserva da Biosfera UNESCO',
       'ilha.f4': 'de ilha para explorar',
+      'ilha.art.tag': 'Berlenga em Aguarela',
+      'ilha.art.h2': 'A ilha que inspira',
+      'ilha.art.sub': 'Seis momentos eternizados em aguarela — a praia, a chegada, o cais, a enseada, a gruta e o Forte ao entardecer.',
+      'ilha.art.p1.label': '01 · A Praia', 'ilha.art.p1.title': 'Carreiro do <em>Mosteiro</em>',
+      'ilha.art.p2.label': '02 · A Chegada', 'ilha.art.p2.title': 'O ferry <em>aproxima-se</em>',
+      'ilha.art.p5.label': '03 · O Cais', 'ilha.art.p5.title': 'Barcos à <em>ancoragem</em>',
+      'ilha.art.p3.label': '04 · A Enseada', 'ilha.art.p3.title': 'Águas <em>turquesa</em>',
+      'ilha.art.p6.label': '05 · A Gruta', 'ilha.art.p6.title': 'A gruta <em>azul</em>',
+      'ilha.art.p4.label': '06 · O Forte', 'ilha.art.p4.title': 'São João Baptista <em>ao entardecer</em>',
       'ilha.s1.tag': 'Acesso',
       'ilha.s1.title': 'Como chegar a Peniche',
       'ilha.s1.sub': 'O ponto de partida para a Berlenga é a Marina de Peniche. Confira as opções de transporte — após chegada a Peniche, a travessia com a Viamar leva-o à ilha em 45 minutos.',
@@ -684,6 +921,15 @@
       'ilha.f2': 'max. simultaneous visitors',
       'ilha.f3': 'UNESCO Biosphere Reserve since',
       'ilha.f4': 'of island to explore',
+      'ilha.art.tag': 'Berlenga in Watercolour',
+      'ilha.art.h2': 'The island that inspires',
+      'ilha.art.sub': 'Six moments captured in watercolour — the beach, the arrival, the harbour, the cove, the cave, and the Fort at dusk.',
+      'ilha.art.p1.label': '01 · The Beach', 'ilha.art.p1.title': 'Carreiro do <em>Mosteiro</em>',
+      'ilha.art.p2.label': '02 · The Arrival', 'ilha.art.p2.title': 'The ferry <em>draws near</em>',
+      'ilha.art.p5.label': '03 · The Harbour', 'ilha.art.p5.title': 'Boats at <em>anchor</em>',
+      'ilha.art.p3.label': '04 · The Cove', 'ilha.art.p3.title': 'Turquoise <em>waters</em>',
+      'ilha.art.p6.label': '05 · The Cave', 'ilha.art.p6.title': 'The blue <em>grotto</em>',
+      'ilha.art.p4.label': '06 · The Fort', 'ilha.art.p4.title': 'São João Baptista <em>at dusk</em>',
       'ilha.s1.tag': 'Getting here',
       'ilha.s1.title': 'How to reach Peniche',
       'ilha.s1.sub': 'The gateway to Berlenga is the Marina de Peniche. Once you arrive in Peniche, the Viamar crossing takes you to the island in 45 minutes.',
@@ -740,6 +986,15 @@
       'ilha.f2': 'visitantes simultáneos máx.',
       'ilha.f3': 'Reserva de la Biosfera UNESCO',
       'ilha.f4': 'de isla para explorar',
+      'ilha.art.tag': 'Berlenga en Acuarela',
+      'ilha.art.h2': 'La isla que inspira',
+      'ilha.art.sub': 'Seis momentos eternizados en acuarela — la playa, la llegada, el muelle, la ensenada, la gruta y el Fuerte al atardecer.',
+      'ilha.art.p1.label': '01 · La Playa', 'ilha.art.p1.title': 'Carreiro do <em>Mosteiro</em>',
+      'ilha.art.p2.label': '02 · La Llegada', 'ilha.art.p2.title': 'El ferry <em>se acerca</em>',
+      'ilha.art.p5.label': '03 · El Muelle', 'ilha.art.p5.title': 'Barcos en <em>ancla</em>',
+      'ilha.art.p3.label': '04 · La Ensenada', 'ilha.art.p3.title': 'Aguas <em>turquesas</em>',
+      'ilha.art.p6.label': '05 · La Gruta', 'ilha.art.p6.title': 'La gruta <em>azul</em>',
+      'ilha.art.p4.label': '06 · El Fuerte', 'ilha.art.p4.title': 'São João Baptista <em>al atardecer</em>',
       'ilha.s1.tag': 'Cómo llegar',
       'ilha.s1.title': 'Cómo llegar a Peniche',
       'ilha.s1.sub': 'El punto de partida hacia Berlenga es la Marina de Peniche. Una vez en Peniche, la travesía con Viamar le lleva a la isla en 45 minutos.',
@@ -796,6 +1051,15 @@
       'ilha.f2': 'visiteurs simultanés max.',
       'ilha.f3': 'Réserve de biosphère UNESCO',
       'ilha.f4': "d'île à explorer",
+      'ilha.art.tag': 'Berlenga en Aquarelle',
+      'ilha.art.h2': "L'île qui inspire",
+      'ilha.art.sub': "Six moments immortalisés en aquarelle — la plage, l'arrivée, le port, la crique, la grotte et le Fort au crépuscule.",
+      'ilha.art.p1.label': '01 · La Plage', 'ilha.art.p1.title': 'Carreiro do <em>Mosteiro</em>',
+      'ilha.art.p2.label': "02 · L'Arrivée", 'ilha.art.p2.title': 'Le ferry <em>s\'approche</em>',
+      'ilha.art.p5.label': '03 · Le Port', 'ilha.art.p5.title': 'Bateaux à <em>l\'ancre</em>',
+      'ilha.art.p3.label': '04 · La Crique', 'ilha.art.p3.title': 'Eaux <em>turquoise</em>',
+      'ilha.art.p6.label': '05 · La Grotte', 'ilha.art.p6.title': 'La grotte <em>bleue</em>',
+      'ilha.art.p4.label': '06 · Le Fort', 'ilha.art.p4.title': 'São João Baptista <em>au crépuscule</em>',
       'ilha.s1.tag': 'Accès',
       'ilha.s1.title': 'Comment rejoindre Peniche',
       'ilha.s1.sub': "Le point de départ vers Berlenga est la Marina de Peniche. Une fois à Peniche, la traversée avec Viamar vous amène à l'île en 45 minutes.",
@@ -880,9 +1144,49 @@
   });
 
   const nav = document.getElementById('nav');
+
+  // ── Artwork parallax ──────────────────────────────
+  const artFrames = document.querySelectorAll('[data-art-plx]');
+  let artTick = false;
+  function updateArtPlx() {
+    const mobile = window.innerWidth < 768;
+    artFrames.forEach(function(frame) {
+      const rect = frame.getBoundingClientRect();
+      if (rect.bottom < -120 || rect.top > window.innerHeight + 120) return;
+      const center = (rect.top + rect.height / 2) - window.innerHeight / 2;
+      const depth  = parseFloat(frame.dataset.artPlx) * (mobile ? 0.4 : 1);
+      frame.style.transform = 'translate3d(0,' + (center * depth) + 'px,0)';
+    });
+    artTick = false;
+  }
+
+  // ── Reveal on scroll ──────────────────────────────
+  const rvEls = document.querySelectorAll('.rv, .rv-art');
+  const revealObs = new IntersectionObserver(function(entries) {
+    entries.forEach(function(e) {
+      if (e.isIntersecting) {
+        e.target.classList.add('on');
+        revealObs.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.10, rootMargin: '0px 0px -40px 0px' });
+  rvEls.forEach(function(el) { revealObs.observe(el); });
+
+  // Trigger elements already in view on load
+  rvEls.forEach(function(el) {
+    const r = el.getBoundingClientRect();
+    if (r.top < window.innerHeight * 0.92) el.classList.add('on');
+  });
+
   window.addEventListener('scroll', () => {
     nav.classList.toggle('solid', window.scrollY > 40);
+    if (!artTick) {
+      requestAnimationFrame(updateArtPlx);
+      artTick = true;
+    }
   }, { passive: true });
+
+  updateArtPlx();
 </script>
 
 <script defer src="/_vercel/insights/script.js"></script>
