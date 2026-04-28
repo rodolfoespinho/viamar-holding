@@ -462,7 +462,8 @@
           const ctaBlock = item.coming_soon
             ? `<span class="btn-soon">${soonText}</span>`
             : `<a href="${esc(itemUrl)}" class="btn-reserve">${btnText} →</a>`;
-          const bgDiv = `<div class="pkg-card-img"${item.image ? ` style="background-image:url('${esc(item.image)}')"` : ''}></div>`;
+          const bgPos = item.img_position || 'center 25%';
+          const bgDiv = `<div class="pkg-card-img"${item.image ? ` style="background-image:url('${esc(item.image)}');background-position:${esc(bgPos)}"` : ''}></div>`;
           const feat1 = features[0] || '';
           const feat2 = features[1] || '';
           const feat3 = features[2] || '';
