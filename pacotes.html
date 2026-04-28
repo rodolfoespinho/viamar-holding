@@ -126,6 +126,7 @@
     .pkg-card.coming-soon { cursor: default; }
     .pkg-card.coming-soon:hover { transform: none; box-shadow: none; }
     .pkg-card.coming-soon .pkg-footer { justify-content: flex-end; }
+    .pkg-card.coming-soon.has-price .pkg-footer { justify-content: space-between; }
     .pkg-grid .pkg-card.coming-soon:last-child { grid-column: 1 / -1; height: 300px; }
 
     /* Photo layer */
@@ -148,7 +149,7 @@
         rgba(7,17,31,0.12) 62%,
         transparent 100%);
     }
-    .pkg-card-top { display: flex; justify-content: flex-start; }
+    .pkg-card-top { display: flex; justify-content: flex-start; align-items: center; gap: 8px; flex-wrap: wrap; }
     .pkg-card-bottom { display: flex; flex-direction: column; gap: 8px; }
 
     /* Badge */
@@ -448,10 +449,12 @@
     const FH_BASE_URL = 'https://fareharbor.com/embeds/book/viamar-berlenga/';
     const FH_COMMON   = 'flow=738388&u=0add1569-0a96-4a96-bd93-bfeafd85b4a5&from-ssl=yes&language=pt-pt&back=https%3A%2F%2Fviamar-berlenga.com%2F';
     const BADGE_STYLES = {
-      gold:  'background:#f59e0b;color:#07111f',
-      pop:   'background:#06b6d4;color:#07111f;font-weight:800;padding:7px 18px;font-size:11px;box-shadow:0 0 16px rgba(6,182,212,0.55),0 2px 10px rgba(6,182,212,0.35)',
-      aqua:  'background:rgba(6,182,212,0.15);color:#06b6d4;border:1px solid #06b6d4',
-      amber: 'background:rgba(245,158,11,0.15);color:#f59e0b;border:1px solid rgba(245,158,11,0.4)',
+      gold:           'background:#f59e0b;color:#07111f',
+      pop:            'background:#06b6d4;color:#07111f;font-weight:800;padding:7px 18px;font-size:11px;box-shadow:0 0 16px rgba(6,182,212,0.55),0 2px 10px rgba(6,182,212,0.35)',
+      aqua:           'background:rgba(6,182,212,0.15);color:#06b6d4;border:1px solid #06b6d4',
+      amber:          'background:rgba(245,158,11,0.15);color:#f59e0b;border:1px solid rgba(245,158,11,0.4)',
+      partner_orange: 'background:#f97316;color:#fff;font-size:9.5px;letter-spacing:.8px;padding:5px 11px',
+      partner_yellow: 'background:#fbbf24;color:#1a2332;font-size:9.5px;letter-spacing:.8px;padding:5px 11px',
     };
     function esc(s) { return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
     function fmtPrice(n) { return Number(n).toLocaleString('pt-PT', { minimumFractionDigits: 2, maximumFractionDigits: 2 }); }
@@ -471,7 +474,10 @@
           const name     = isEN ? (item.name_en  || item.name)  : item.name;
           const desc     = isEN ? (item.desc_en  || item.desc)  : item.desc;
           const features = isEN ? (item.features_en || item.features) : item.features;
-          const cardClass = item.featured ? 'pkg-card featured' : item.coming_soon ? 'pkg-card coming-soon' : 'pkg-card';
+          const hasPrice = item.price_adult > 0;
+          const cardClass = item.featured ? 'pkg-card featured'
+            : item.coming_soon ? (hasPrice ? 'pkg-card coming-soon has-price' : 'pkg-card coming-soon')
+            : 'pkg-card';
           const btnText  = {pt:'Reservar', en:'Book now', es:'Reservar', fr:'Réserver'}[currentLang] || 'Book now';
           const soonText = {pt:'Em Breve', en:'Coming Soon', es:'Próximamente', fr:'Bientôt'}[currentLang] || 'Coming Soon';
           const itemUrl  = item.fh_pk
@@ -499,6 +505,7 @@
   <div class="pkg-card-content">
     <div class="pkg-card-top">
       <span class="pkg-badge" style="${BADGE_STYLES[item.badge_type] || BADGE_STYLES.gold}">${esc(badge)}</span>
+      ${item.partner ? `<span class="pkg-badge" style="${BADGE_STYLES[item.partner_style] || ''}">${esc(item.partner)}</span>` : ''}
     </div>
     <div class="pkg-card-bottom">
       <div class="pkg-name">${esc(name)}</div>
