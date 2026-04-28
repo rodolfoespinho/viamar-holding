@@ -645,6 +645,18 @@
     .mobile-menu-social a:hover { color: #fff; }
     .mobile-menu-lang { display: flex; align-items: center; gap: 4px; }
 
+    /* ── Lang dropdown ── */
+    .nav-lang-drop { position: relative; display: none; align-items: center; }
+    .lang-drop-btn { display: flex; align-items: center; gap: 5px; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.1); cursor: pointer; color: #fff; font-size: 12px; font-weight: 700; letter-spacing: 1px; padding: 7px 11px; border-radius: 7px; font-family: inherit; transition: background .15s; line-height: 1; }
+    .lang-drop-btn:hover { background: rgba(255,255,255,0.14); }
+    .lang-drop-btn svg { transition: transform .2s; opacity: 0.55; }
+    .lang-drop-btn.open svg { transform: rotate(180deg); }
+    .lang-drop-panel { position: absolute; top: calc(100% + 8px); right: 0; background: rgba(7,17,31,0.98); border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; padding: 4px; min-width: 68px; display: none; flex-direction: column; z-index: 400; backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); box-shadow: 0 8px 32px rgba(0,0,0,0.5); }
+    .lang-drop-panel.open { display: flex; }
+    .lang-drop-item { background: none; border: none; cursor: pointer; color: rgba(255,255,255,0.55); font-size: 12px; font-weight: 700; letter-spacing: 1px; padding: 9px 14px; border-radius: 5px; text-align: left; font-family: inherit; transition: background .15s, color .15s; }
+    .lang-drop-item:hover { background: rgba(255,255,255,0.08); color: #fff; }
+    .lang-drop-item.active { color: #fff; background: rgba(255,255,255,0.1); }
+
     /* ── Responsive ── */
     @media (max-width: 900px) {
       .hero { align-items: center; }
@@ -656,6 +668,7 @@
       .nav-cta { display: none; }
       .nav-social { display: none; }
       .nav-lang { display: none; }
+      .nav-lang-drop { display: flex; }
       .nav-hamburger { display: flex; }
     }
     @media (max-width: 600px) {
@@ -1079,6 +1092,18 @@
           <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
         </a>
       </div>
+      <div class="nav-lang-drop" id="langDrop">
+        <button class="lang-drop-btn" id="langDropBtn" aria-label="Idioma">
+          <span id="langDropLabel">PT</span>
+          <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="lang-drop-panel" id="langDropPanel">
+          <button class="lang-drop-item active" data-lang-switch="pt">PT</button>
+          <button class="lang-drop-item" data-lang-switch="en">EN</button>
+          <button class="lang-drop-item" data-lang-switch="es">ES</button>
+          <button class="lang-drop-item" data-lang-switch="fr">FR</button>
+        </div>
+      </div>
       <button class="nav-hamburger" id="hamburger" aria-label="Menu">
         <span></span><span></span><span></span>
       </button>
@@ -1112,15 +1137,6 @@
         <a href="https://www.facebook.com/berlengapenicheportugal/" target="_blank" rel="noopener" aria-label="Facebook">
           <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
         </a>
-      </div>
-      <div class="mobile-menu-lang">
-        <button class="lang-btn" data-lang-switch="pt">PT</button>
-        <span class="lang-sep">·</span>
-        <button class="lang-btn" data-lang-switch="en">EN</button>
-        <span class="lang-sep">·</span>
-        <button class="lang-btn" data-lang-switch="es">ES</button>
-        <span class="lang-sep">·</span>
-        <button class="lang-btn" data-lang-switch="fr">FR</button>
       </div>
     </div>
   </div>
@@ -1909,6 +1925,8 @@
       document.querySelectorAll('[data-lang-switch]').forEach(btn => {
         btn.classList.toggle('active', btn.dataset.langSwitch === lang);
       });
+      const lbl = document.getElementById('langDropLabel');
+      if (lbl) lbl.textContent = lang.toUpperCase();
       document.querySelectorAll('[data-i18n]').forEach(el => {
         const key = el.dataset.i18n;
         if (translations[lang][key] !== undefined) {
@@ -2025,6 +2043,19 @@
 
     // Close on any link click inside the drawer
     mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMenu));
+
+    // Lang dropdown
+    const langDropBtn  = document.getElementById('langDropBtn');
+    const langDropPanel = document.getElementById('langDropPanel');
+    langDropBtn.addEventListener('click', e => {
+      e.stopPropagation();
+      const open = langDropPanel.classList.toggle('open');
+      langDropBtn.classList.toggle('open', open);
+    });
+    document.addEventListener('click', () => {
+      langDropPanel.classList.remove('open');
+      langDropBtn.classList.remove('open');
+    });
 
     // ── BOOKING WIDGET — airline style ──────────────────────────────────────
     const BW_PRODUCTS = [
