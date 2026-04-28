@@ -116,6 +116,16 @@
     transition: color .2s;
   }
   .nav-back-btn:hover { color: #fff; }
+  .nav-lang-drop { position: relative; display: flex; align-items: center; }
+  .lang-drop-btn { display: flex; align-items: center; gap: 5px; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.1); cursor: pointer; color: #fff; font-size: 12px; font-weight: 700; letter-spacing: 1px; padding: 7px 11px; border-radius: 7px; font-family: inherit; transition: background .15s; line-height: 1; }
+  .lang-drop-btn:hover { background: rgba(255,255,255,0.14); }
+  .lang-drop-btn svg { transition: transform .2s; opacity: 0.55; }
+  .lang-drop-btn.open svg { transform: rotate(180deg); }
+  .lang-drop-panel { position: absolute; top: calc(100% + 8px); right: 0; background: rgba(7,17,31,0.98); border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; padding: 4px; min-width: 68px; display: none; flex-direction: column; z-index: 400; backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); box-shadow: 0 8px 32px rgba(0,0,0,0.5); }
+  .lang-drop-panel.open { display: flex; }
+  .lang-drop-item { background: none; border: none; cursor: pointer; color: rgba(255,255,255,0.55); font-size: 12px; font-weight: 700; letter-spacing: 1px; padding: 9px 14px; border-radius: 5px; text-align: left; font-family: inherit; transition: background .15s, color .15s; }
+  .lang-drop-item:hover { background: rgba(255,255,255,0.08); color: #fff; }
+  .lang-drop-item.active { color: #fff; background: rgba(255,255,255,0.1); }
 
   /* ── PARALLAX ENGINE ─────────────────────────────────── */
   /* Wrapper clips, inner overflows and is translated by JS */
@@ -667,6 +677,18 @@
 <!-- ── NAV ──────────────────────────────────────────── -->
 <nav id="nav">
   <a href="/" class="nav-back-btn">← Voltar</a>
+  <div class="nav-lang-drop" id="langDrop">
+    <button class="lang-drop-btn" id="langDropBtn" aria-label="Idioma">
+      <span id="langDropLabel">PT</span>
+      <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+    </button>
+    <div class="lang-drop-panel" id="langDropPanel">
+      <button class="lang-drop-item active" data-lang-switch="pt">PT</button>
+      <button class="lang-drop-item" data-lang-switch="en">EN</button>
+      <button class="lang-drop-item" data-lang-switch="es">ES</button>
+      <button class="lang-drop-item" data-lang-switch="fr">FR</button>
+    </div>
+  </div>
 </nav>
 
 <!-- ══════════════════════════════════════════════════
@@ -1011,6 +1033,40 @@
     const r = el.getBoundingClientRect();
     if (r.top < window.innerHeight * 0.9) el.classList.add('on');
   });
+})();
+
+// Lang dropdown
+(function() {
+  const langDropBtn  = document.getElementById('langDropBtn');
+  const langDropPanel = document.getElementById('langDropPanel');
+  const langDropLabel = document.getElementById('langDropLabel');
+  const langs = ['pt','en','es','fr'];
+  const _nav = navigator.language?.slice(0,2);
+  let current = langs.includes(_nav) ? _nav : 'pt';
+
+  function setActive(lang) {
+    current = lang;
+    langDropLabel.textContent = lang.toUpperCase();
+    langDropPanel.querySelectorAll('[data-lang-switch]').forEach(b =>
+      b.classList.toggle('active', b.dataset.langSwitch === lang));
+    document.documentElement.setAttribute('data-lang', lang);
+    document.documentElement.lang = lang === 'pt' ? 'pt-PT' : lang;
+  }
+
+  langDropPanel.querySelectorAll('[data-lang-switch]').forEach(b =>
+    b.addEventListener('click', () => { setActive(b.dataset.langSwitch); langDropPanel.classList.remove('open'); langDropBtn.classList.remove('open'); }));
+
+  langDropBtn.addEventListener('click', e => {
+    e.stopPropagation();
+    const open = langDropPanel.classList.toggle('open');
+    langDropBtn.classList.toggle('open', open);
+  });
+  document.addEventListener('click', () => {
+    langDropPanel.classList.remove('open');
+    langDropBtn.classList.remove('open');
+  });
+
+  setActive(current);
 })();
 </script>
 
