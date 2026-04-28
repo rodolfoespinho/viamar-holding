@@ -67,26 +67,6 @@
       "fh_flow": "738388"
     },
     {
-      "id": "kayak",
-      "badge": "Em Breve",
-      "badge_en": "Coming Soon",
-      "badge_type": "aqua",
-      "icon": "waves",
-      "image": "img/IMG_1122.jpg",
-      "img_position": "center bottom",
-      "name": "Kayak Tour",
-      "name_en": "Kayak Tour",
-      "desc": "Explora a costa da Berlenga em kayak. Single ou duplo — perfeito para descobrir as grutas e reentrâncias da ilha.",
-      "desc_en": "Explore the Berlenga coastline by kayak. Single or double — perfect for discovering the island's caves and coves.",
-      "features": ["Kayak single ou duplo", "60 min de passeio", "Guia certificado", "Equipamento incluído", "Partida da ilha"],
-      "features_en": ["Single or double kayak", "60-min tour", "Certified guide", "Equipment included", "Departing from the island"],
-      "price_adult": 15.00,
-      "price_child": null,
-      "coming_soon": true,
-      "featured": false,
-      "fh_flow": "738388"
-    },
-    {
       "id": "grutas",
       "badge": "Em Breve",
       "badge_en": "Coming Soon",
