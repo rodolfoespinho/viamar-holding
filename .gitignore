@@ -27,3 +27,7 @@ img/wmremove-transformed.jpeg
 
 # Vercel
 .vercel
+
+# Large video originals (source files, not web-ready)
+AdobeStock_*.mov
+reel\ viamar.mp4

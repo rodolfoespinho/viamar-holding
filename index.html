@@ -923,6 +923,142 @@
       .gb-item:nth-child(1) { grid-column: 1 / 3; grid-row: auto; }
     }
 
+    /* ── Fullscreen video section ── */
+    .video-section {
+      position: relative;
+      width: 100%;
+      height: 100dvh;
+      overflow: hidden;
+      background: #040d18;
+    }
+    .video-section video {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center center;
+      filter: contrast(1.35) saturate(1.6) brightness(0.85) hue-rotate(-12deg) sepia(0.18);
+    }
+    .video-section::before,
+    .video-section::after {
+      content: '';
+      position: absolute;
+      left: 0; right: 0;
+      height: 120px;
+      z-index: 10;
+      pointer-events: none;
+    }
+    .video-section::before {
+      top: 0;
+      background: linear-gradient(to bottom, #040d18 0%, transparent 100%);
+    }
+    .video-section::after {
+      bottom: 0;
+      background: linear-gradient(to top, var(--navy) 0%, transparent 100%);
+    }
+    /* ── VHS grain ── */
+    .video-grain {
+      position: absolute;
+      inset: -50%;
+      width: 200%; height: 200%;
+      z-index: 2;
+      pointer-events: none;
+      opacity: 0.22;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23g)'/%3E%3C/svg%3E");
+      background-size: 140px 140px;
+      animation: grain-shift 0.3s steps(1) infinite;
+    }
+    @keyframes grain-shift {
+      0%   { transform: translate(0,   0);    }
+      10%  { transform: translate(-4%, -8%);  }
+      20%  { transform: translate(-12%, 4%);  }
+      30%  { transform: translate(6%, -18%);  }
+      40%  { transform: translate(-4%, 20%);  }
+      50%  { transform: translate(-14%, 8%);  }
+      60%  { transform: translate(12%, -2%);  }
+      70%  { transform: translate(0%,  12%);  }
+      80%  { transform: translate(4%,  28%);  }
+      90%  { transform: translate(-8%, 8%);   }
+    }
+    /* ── VHS scan lines ── */
+    .video-scanlines {
+      position: absolute;
+      inset: 0;
+      z-index: 3;
+      pointer-events: none;
+      background: repeating-linear-gradient(
+        0deg,
+        transparent,
+        transparent 2px,
+        rgba(0,0,0,0.03) 2px,
+        rgba(0,0,0,0.03) 4px
+      );
+    }
+    /* ── VHS chromatic aberration (color bleed) ── */
+    .video-chroma {
+      position: absolute;
+      inset: 0;
+      z-index: 2;
+      pointer-events: none;
+      mix-blend-mode: screen;
+      opacity: 0.07;
+      background: linear-gradient(
+        105deg,
+        rgba(255,0,60,0.5) 0%,
+        transparent 40%,
+        transparent 60%,
+        rgba(0,60,255,0.5) 100%
+      );
+      animation: chroma-shift 0.2s steps(1) infinite;
+    }
+    @keyframes chroma-shift {
+      0%, 100% { transform: translateX(0);    opacity: 0.07; }
+      33%       { transform: translateX(2px);  opacity: 0.09; }
+      66%       { transform: translateX(-1px); opacity: 0.05; }
+    }
+    /* ── REC indicator ── */
+    .video-rec {
+      position: absolute;
+      top: 48px; right: 32px;
+      z-index: 11;
+      display: flex; align-items: center; gap: 7px;
+      pointer-events: none;
+      background: rgba(0,0,0,0.28);
+      backdrop-filter: blur(4px);
+      -webkit-backdrop-filter: blur(4px);
+      padding: 5px 10px 5px 8px;
+      border-radius: 4px;
+    }
+    .rec-dot {
+      width: 10px; height: 10px; border-radius: 50%;
+      background: #ff2020;
+      box-shadow: 0 0 6px rgba(255,32,32,0.8);
+      animation: rec-blink 1.4s ease-in-out infinite;
+      flex-shrink: 0;
+    }
+    @keyframes rec-blink {
+      0%, 45%  { opacity: 1; }
+      55%, 95% { opacity: 0; }
+      100%     { opacity: 1; }
+    }
+    .rec-label {
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 13px; font-weight: 700;
+      letter-spacing: 2px;
+      color: #fff;
+      text-shadow: 0 0 8px rgba(255,255,255,0.5);
+    }
+
+    /* desktop — vídeo vertical não faz sentido em ecrã largo */
+    @media (min-width: 961px) {
+      .video-section { display: none; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .video-section video { display: none; }
+      .video-grain, .video-scanlines, .video-chroma { display: none; }
+    }
+
     /* ─── SECTIONS (shared) ─── */
     .sec { padding: 88px 40px; }
     .sec-inner { max-width: 1280px; margin: 0 auto; }
@@ -1404,6 +1540,26 @@
     <div class="gb-item"><div class="gb-label" data-i18n="gal3">A bordo</div></div>
     <div class="gb-item"><div class="gb-label" data-i18n="gal4">Partida de Peniche</div></div>
     <div class="gb-item"><div class="gb-label" data-i18n="gal5">Praia da Berlenga</div></div>
+  </div>
+
+  <!-- VIDEO SECTION -->
+  <div class="video-section">
+    <video
+      id="sectionVideo"
+      autoplay muted loop playsinline webkit-playsinline
+      poster="video-poster.jpg"
+      preload="none"
+      aria-hidden="true"
+    >
+      <source src="video-section.mp4" type="video/mp4">
+    </video>
+    <div class="video-grain" aria-hidden="true"></div>
+    <div class="video-scanlines" aria-hidden="true"></div>
+    <div class="video-chroma" aria-hidden="true"></div>
+    <div class="video-rec" aria-hidden="true">
+      <span class="rec-dot"></span>
+      <span class="rec-label">REC</span>
+    </div>
   </div>
 
   <!-- REVIEWS -->
@@ -2277,6 +2433,57 @@
       });
     });
     // ────────────────────────────────────────────────────────────────────────
+
+    // ── Mid-page video: lazy load + autoplay + iOS fix ──
+    const sectionVideo = document.getElementById('sectionVideo');
+    if (sectionVideo) {
+      sectionVideo.muted = true;
+      sectionVideo.defaultMuted = true;
+      sectionVideo.setAttribute('muted', '');
+
+      // Start fetching when user is ~1 viewport away
+      const preloader = new IntersectionObserver((entries) => {
+        if (entries[0].isIntersecting) {
+          sectionVideo.preload = 'auto';
+          sectionVideo.load();
+          preloader.disconnect();
+        }
+      }, { rootMargin: '100% 0px' });
+      preloader.observe(sectionVideo);
+
+      // Play/pause with visibility
+      const player = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            sectionVideo.muted = true;
+            sectionVideo.play().catch(function() {});
+          } else {
+            sectionVideo.pause();
+          }
+        });
+      }, { threshold: 0.1 });
+      player.observe(sectionVideo);
+
+      // iOS touch fallback
+      ['touchstart', 'click'].forEach(function(e) {
+        document.addEventListener(e, function() {
+          if (sectionVideo.paused) {
+            sectionVideo.muted = true;
+            sectionVideo.play().catch(function() {});
+          }
+        }, { once: true, passive: true });
+      });
+
+      // Tab visibility fallback
+      document.addEventListener('visibilitychange', function() {
+        if (document.hidden) return;
+        var rect = sectionVideo.getBoundingClientRect();
+        if (rect.top < window.innerHeight && rect.bottom > 0) {
+          sectionVideo.muted = true;
+          sectionVideo.play().catch(function() {});
+        }
+      });
+    }
 
     // Cookie banner
     function setCookieChoice(choice) {
