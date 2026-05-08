@@ -171,6 +171,8 @@
   <script src="https://fareharbor.com/embeds/script/calendar/viamar-berlenga/?full-items=yes&flow=738388&u=0add1569-0a96-4a96-bd93-bfeafd85b4a5&from-ssl=yes&language=pt-pt" async></script>
 
   <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+  <!-- preload popup rain video — highest priority so autoplay fires immediately -->
+  <link rel="preload" as="video" href="/rain-web.mp4" type="video/mp4">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   <link rel="apple-touch-icon" href="/logo-viamar.png" />
   <link rel="manifest" href="/manifest.json" />
@@ -2000,7 +2002,9 @@
 
       <!-- Header com vídeo de chuva -->
       <div class="p-header">
-        <video class="p-rain-video" autoplay muted loop playsinline aria-hidden="true">
+        <video class="p-rain-video" id="rainVideo"
+          autoplay muted loop playsinline webkit-playsinline
+          preload="auto" aria-hidden="true">
           <source src="/rain-web.mp4" type="video/mp4">
         </video>
         <div class="p-header-overlay" aria-hidden="true"></div>
@@ -2755,6 +2759,33 @@
       const closeBtn = document.getElementById('postponeClose');
       const lightning = document.getElementById('postponeLightning');
       if (!overlay) return;
+
+      // ── Rain video autoplay — covers Safari iOS, Chrome iOS, Android Chrome, WebView ──
+      const rainVideo = document.getElementById('rainVideo');
+      if (rainVideo) {
+        rainVideo.muted = true;
+        rainVideo.defaultMuted = true;
+        rainVideo.setAttribute('muted', '');
+        rainVideo.setAttribute('playsinline', '');
+        rainVideo.setAttribute('webkit-playsinline', '');
+
+        function tryPlayRain() {
+          if (rainVideo.paused) rainVideo.play().catch(function() {});
+        }
+
+        tryPlayRain();
+        rainVideo.addEventListener('canplay', tryPlayRain, { once: true });
+
+        // fallback on first touch/click (Chrome iOS + some Android WebViews)
+        ['touchstart', 'click'].forEach(function(evt) {
+          document.addEventListener(evt, tryPlayRain, { once: true, passive: true });
+        });
+
+        // retry when user returns to tab
+        document.addEventListener('visibilitychange', function() {
+          if (!document.hidden) tryPlayRain();
+        });
+      }
 
       // Relâmpago — flash primário + eco + afterglow ocasional
       let _ltimer;
