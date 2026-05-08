@@ -2760,31 +2760,36 @@
       const lightning = document.getElementById('postponeLightning');
       if (!overlay) return;
 
-      // ── Rain video autoplay — covers Safari iOS, Chrome iOS, Android Chrome, WebView ──
+      // ── Rain video autoplay — covers Safari iOS, Chrome iOS, Android WebView, Instagram ──
       const rainVideo = document.getElementById('rainVideo');
-      if (rainVideo) {
+
+      function tryPlayRain() {
+        if (!rainVideo) return;
         rainVideo.muted = true;
         rainVideo.defaultMuted = true;
         rainVideo.setAttribute('muted', '');
         rainVideo.setAttribute('playsinline', '');
         rainVideo.setAttribute('webkit-playsinline', '');
+        var p = rainVideo.play();
+        if (p && p.catch) p.catch(function() {});
+      }
 
-        function tryPlayRain() {
-          if (rainVideo.paused) rainVideo.play().catch(function() {});
-        }
-
+      if (rainVideo) {
+        // fire immediately + on canplay
         tryPlayRain();
-        rainVideo.addEventListener('canplay', tryPlayRain, { once: true });
+        rainVideo.addEventListener('canplay', tryPlayRain);
 
-        // fallback on first touch/click (Chrome iOS + some Android WebViews)
-        ['touchstart', 'click'].forEach(function(evt) {
-          document.addEventListener(evt, tryPlayRain, { once: true, passive: true });
-        });
+        // keep retrying on any touch anywhere — Instagram WebView needs a gesture
+        document.addEventListener('touchstart', tryPlayRain, { passive: true });
+        document.addEventListener('click', tryPlayRain);
 
         // retry when user returns to tab
         document.addEventListener('visibilitychange', function() {
           if (!document.hidden) tryPlayRain();
         });
+
+        // also retry on scroll (some Android browsers release autoplay on scroll)
+        document.addEventListener('scroll', tryPlayRain, { passive: true });
       }
 
       // Relâmpago — flash primário + eco + afterglow ocasional
@@ -2810,6 +2815,10 @@
         overlay.classList.add('active');
         document.body.style.overflow = 'hidden';
         _ltimer = setTimeout(flash, 1800);
+        // try play now that the popup is visible (critical for WKWebView/Instagram)
+        tryPlayRain();
+        setTimeout(tryPlayRain, 300);
+        setTimeout(tryPlayRain, 800);
       }
       function closePopup() {
         overlay.classList.remove('active');
