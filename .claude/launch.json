@@ -5,7 +5,8 @@
       "name": "viamar-holding",
       "runtimeExecutable": "node",
       "runtimeArgs": ["/tmp/viamar-holding-serve.js"],
-      "port": 3007
+      "port": 3007,
+      "autoPort": false
     }
   ]
 }

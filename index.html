@@ -1158,6 +1158,203 @@
       .pkg-grid .pkg-card:nth-child(5) { grid-column: auto; }
     }
 
+    /* ── Postponement Popup ── */
+    .postpone-overlay {
+      position: fixed; inset: 0; z-index: 9000;
+      background: rgba(4,10,20,0.85);
+      backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+      display: flex; align-items: center; justify-content: center;
+      padding: 16px;
+      opacity: 0; visibility: hidden;
+      transition: opacity 0.4s ease, visibility 0.4s ease;
+    }
+    .postpone-overlay.active { opacity: 1; visibility: visible; }
+    .postpone-modal {
+      position: relative; max-width: 460px; width: 100%;
+      border-radius: 16px; overflow: hidden;
+      transform: translateY(-20px) scale(0.97);
+      transition: transform 0.5s cubic-bezier(0.22,1.5,0.36,1);
+      box-shadow:
+        0 0 0 1px rgba(245,158,11,0.14),
+        0 40px 80px rgba(0,0,0,0.85);
+      /* Nunca exceder a viewport; body faz scroll suave */
+      max-height: calc(100svh - 36px);
+      display: flex; flex-direction: column;
+    }
+    .postpone-overlay.active .postpone-modal { transform: translateY(0) scale(1); }
+
+    /* ─ Lang strip ─ */
+    .p-lang-strip {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 14px; height: 34px; flex-shrink: 0;
+      background: rgba(3,8,18,0.98);
+      border-bottom: 1px solid rgba(245,158,11,0.1);
+      position: relative; z-index: 200;
+    }
+    /* popup lang dropdown — mirrors nav-lang-drop */
+    .p-lang-drop { position: relative; display: flex; align-items: center; }
+    .p-lang-drop-btn {
+      display: flex; align-items: center; gap: 5px;
+      background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.1);
+      cursor: pointer; color: #fff; font-size: 12px; font-weight: 700;
+      letter-spacing: 1px; padding: 5px 10px; border-radius: 7px;
+      font-family: inherit; transition: background .15s; line-height: 1;
+    }
+    .p-lang-drop-btn:hover { background: rgba(255,255,255,0.14); }
+    .p-lang-drop-btn svg { transition: transform .2s; opacity: 0.55; }
+    .p-lang-drop-btn.open svg { transform: rotate(180deg); }
+    .p-lang-drop-panel {
+      position: absolute; top: calc(100% + 6px); left: 0;
+      background: rgba(7,17,31,0.98); border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 8px; padding: 4px; min-width: 68px;
+      display: none; flex-direction: column; z-index: 300;
+      backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+      box-shadow: 0 8px 32px rgba(0,0,0,0.5);
+    }
+    .p-lang-drop-panel.open { display: flex; }
+    .p-lang-drop-item {
+      background: none; border: none; cursor: pointer;
+      color: rgba(255,255,255,0.55); font-size: 12px; font-weight: 700;
+      letter-spacing: 1px; padding: 9px 14px; border-radius: 5px;
+      text-align: left; font-family: inherit; transition: background .15s, color .15s;
+    }
+    .p-lang-drop-item:hover { background: rgba(255,255,255,0.08); color: #fff; }
+    .p-lang-drop-item.active { color: #fff; background: rgba(255,255,255,0.1); }
+    .postpone-close {
+      background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 50%; width: 24px; height: 24px;
+      display: flex; align-items: center; justify-content: center;
+      cursor: pointer; color: rgba(255,255,255,0.35);
+      transition: all 0.2s; flex-shrink: 0;
+    }
+    .postpone-close:hover { background: rgba(255,255,255,0.1); color: #fff; }
+
+    /* ─ Storm Header — vídeo de chuva prolongado ─ */
+    .p-header {
+      position: relative; height: 268px; overflow: hidden; flex-shrink: 0;
+      background: #050a14;
+    }
+    .p-rain-video {
+      position: absolute; inset: 0; width: 100%; height: 100%;
+      object-fit: cover; z-index: 0;
+    }
+    /* Overlay: transparente no topo, funde com a cor exacta do body no fundo */
+    .p-header-overlay {
+      position: absolute; inset: 0; z-index: 1; pointer-events: none;
+      background: linear-gradient(
+        180deg,
+        rgba(4,8,18,0.28) 0%,
+        rgba(4,8,18,0.14) 14%,
+        rgba(6,12,24,0.36) 38%,
+        rgba(9,16,34,0.68) 58%,
+        rgba(11,20,42,0.90) 76%,
+        rgba(13,32,64,1.00) 100%
+      );
+    }
+    /* Relâmpago */
+    .p-lightning {
+      position: absolute; inset: 0; pointer-events: none; z-index: 2; opacity: 0;
+      background: rgba(215,235,255,0.38);
+      transition: opacity 0.022s;
+    }
+    /* Logo no topo do header */
+    .p-logo {
+      position: absolute; top: 42px; left: 50%;
+      transform: translateX(-50%);
+      z-index: 3; text-align: center;
+    }
+    .p-logo img {
+      height: 46px; width: auto; display: block; margin: 0 auto;
+      filter: drop-shadow(0 2px 14px rgba(0,0,0,0.75));
+    }
+    /* Bloco de títulos sobre o vídeo — parte inferior do header */
+    .p-header-titles {
+      position: absolute; bottom: 20px; left: 0; right: 0;
+      z-index: 5; text-align: center; padding: 0 24px;
+    }
+    .p-header-titles .postpone-badge { margin-bottom: 10px; }
+    .p-header-titles .p-eyebrow     { margin-bottom: 4px;  color: rgba(6,182,212,0.80); }
+    .p-header-titles .p-mtitle      { margin-bottom: 5px;  color: rgba(255,255,255,0.70); }
+    .p-header-titles .p-sub         { margin-bottom: 0;    text-shadow: 0 2px 24px rgba(0,0,0,0.5); }
+
+    /* ─ Conteúdo — centrado, sem scroll ─ */
+    .p-body {
+      background: linear-gradient(160deg, #0d2040 0%, #071322 100%);
+      padding: 18px 22px 14px;
+      overflow-y: auto; flex: 1;
+      -webkit-overflow-scrolling: touch;
+      text-align: center;
+    }
+    /* Badge */
+    .postpone-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(239,68,68,0.08); border: 1px solid rgba(239,68,68,0.22);
+      color: #f87171; font-size: 8px; font-weight: 800; letter-spacing: 2.2px;
+      text-transform: uppercase; padding: 5px 12px; border-radius: 100px;
+      margin-bottom: 12px; font-family: 'Inter', sans-serif;
+    }
+    .postpone-badge-dot {
+      width: 5px; height: 5px; border-radius: 50%; background: #ef4444; flex-shrink: 0;
+      animation: bdot 1.4s ease-in-out infinite;
+    }
+    @keyframes bdot { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.3;transform:scale(.5)} }
+    /* Eyebrow */
+    .p-eyebrow {
+      font-size: 8.5px; font-weight: 700; letter-spacing: 3.5px; text-transform: uppercase;
+      color: rgba(6,182,212,0.55); margin-bottom: 5px; font-family: 'Inter', sans-serif;
+    }
+    /* Data — "9 de Maio" */
+    .p-mtitle {
+      font-size: clamp(16px,4.6vw,20px); font-weight: 600; color: rgba(255,255,255,0.55);
+      letter-spacing: 0.3px; margin-bottom: 6px; line-height: 1.3;
+    }
+    /* Título principal — "Viagem Cancelada" */
+    .p-sub {
+      font-size: clamp(26px,7.2vw,32px); font-weight: 800; font-style: normal;
+      color: #fff; letter-spacing: -0.8px; line-height: 1.05;
+      margin-bottom: 14px; display: block;
+    }
+    /* Divisor (linha simples, sem globe) */
+    .p-div { display:flex; align-items:center; gap:10px; margin:0 0 13px; }
+    .p-div-line { flex:1; height:1px; background:rgba(255,255,255,0.07); }
+    /* Texto principal */
+    .p-text {
+      font-size: 12.5px; line-height: 1.62; color: rgba(255,255,255,0.52);
+      margin-bottom: 11px;
+    }
+    /* Citação de retoma */
+    .p-resume {
+      font-size: 12.5px; line-height: 1.62; color: var(--aqua); font-style: italic;
+      border-top: 1px solid rgba(6,182,212,0.18);
+      border-bottom: 1px solid rgba(6,182,212,0.18);
+      padding: 9px 6px; margin-bottom: 13px; opacity: 0.88;
+    }
+    /* Caixa de boa notícia */
+    .postpone-info {
+      background: rgba(6,182,212,0.04); border: 1px solid rgba(6,182,212,0.12);
+      border-radius: 8px; padding: 10px 14px; margin-bottom: 13px;
+      font-size: 12px; line-height: 1.58; color: rgba(255,255,255,0.55);
+    }
+    .postpone-info strong {
+      display: block; margin-bottom: 4px;
+      color: rgba(6,182,212,0.75); font-size: 7.5px; letter-spacing: 1.8px; text-transform: uppercase;
+    }
+    /* CTA */
+    .postpone-cta {
+      display: flex; align-items: center; justify-content: center; gap: 8px;
+      background: var(--gold); color: var(--navy);
+      font-size: 14.5px; font-weight: 900; letter-spacing: 0.4px;
+      padding: 13px 24px; border-radius: 10px;
+      text-decoration: none; width: 100%;
+      transition: all 0.2s; margin-bottom: 11px;
+      box-shadow: 0 4px 22px rgba(245,158,11,0.28);
+    }
+    .postpone-cta:hover { background:var(--gold-h); transform:translateY(-2px); box-shadow:0 10px 32px rgba(245,158,11,0.42); }
+    /* Contacto */
+    .postpone-contact { font-size:11px; color:rgba(255,255,255,0.28); line-height:1.85; }
+    .postpone-contact a { color:rgba(255,255,255,0.42); text-decoration:underline; text-underline-offset:3px; }
+    .postpone-contact a:hover { color:rgba(255,255,255,0.72); }
+
     /* ── Cookie banner ── */
     .cookie-banner {
       position: fixed; bottom: 0; left: 0; right: 0; z-index: 500;
@@ -1316,7 +1513,7 @@
         <div class="hero-construction">
           <h2 class="hero-h1">
             <span data-i18n="h1_line1">A Berlenga espera por si.</span>
-            <span class="accent" data-i18n="h1_line2">Época inicia a <span class="date-highlight">9 de Maio</span></span>
+            <span class="accent" data-i18n="h1_line2">Compre já o seu bilhete!</span>
           </h2>
           <p class="hero-sub" data-i18n="hero_sub">As vagas são limitadas. Reserve já a sua travessia e garanta o seu lugar na reserva natural mais bonita de Portugal.</p>
         </div>
@@ -1778,6 +1975,79 @@
     <span class="wa-text" data-i18n="wa_text">Fale connosco</span>
   </a>
 
+  <!-- Postponement Popup -->
+  <div class="postpone-overlay" id="postponeOverlay" role="dialog" aria-modal="true" aria-labelledby="postponeHeading">
+    <div class="postpone-modal">
+
+      <!-- Lang strip + close -->
+      <div class="p-lang-strip">
+        <div class="p-lang-drop" id="popupLangDrop">
+          <button class="p-lang-drop-btn" id="popupLangDropBtn" aria-label="Idioma">
+            <span id="popupLangLabel">PT</span>
+            <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="p-lang-drop-panel" id="popupLangPanel">
+            <button class="p-lang-drop-item active" data-lang-switch="pt">PT</button>
+            <button class="p-lang-drop-item" data-lang-switch="en">EN</button>
+            <button class="p-lang-drop-item" data-lang-switch="es">ES</button>
+            <button class="p-lang-drop-item" data-lang-switch="fr">FR</button>
+          </div>
+        </div>
+        <button class="postpone-close" id="postponeClose" aria-label="Fechar">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </button>
+      </div>
+
+      <!-- Header com vídeo de chuva -->
+      <div class="p-header">
+        <video class="p-rain-video" autoplay muted loop playsinline aria-hidden="true">
+          <source src="/rain-web.mp4" type="video/mp4">
+        </video>
+        <div class="p-header-overlay" aria-hidden="true"></div>
+        <div class="p-lightning" id="postponeLightning" aria-hidden="true"></div>
+        <!-- Logo Viamar Ferry Berlenga -->
+        <div class="p-logo">
+          <img src="/logo-viamar.png" alt="Viamar Ferry Berlenga" />
+        </div>
+        <!-- Titles overlaid on video gradient -->
+        <div class="p-header-titles">
+          <div class="postpone-badge">
+            <span class="postpone-badge-dot"></span>
+            <span data-i18n="postpone_badge">AVISO URGENTE</span>
+          </div>
+          <p class="p-eyebrow" data-i18n="postpone_eyebrow">TRAVESSIA</p>
+          <p class="p-mtitle" data-i18n="postpone_date_line">9 de Maio</p>
+          <h2 class="p-sub" id="postponeHeading" data-i18n="postpone_subtitle">Viagem Cancelada</h2>
+        </div>
+      </div>
+
+      <!-- Content -->
+      <div class="p-body">
+        <div class="p-div">
+          <div class="p-div-line"></div>
+        </div>
+
+        <p class="p-text" data-i18n="postpone_body">Condições marítimas e meteorológicas adversas impedem a travessia de <strong style="color:rgba(255,255,255,0.85)">9 de Maio</strong>. A segurança dos nossos passageiros é sempre a nossa prioridade máxima.</p>
+
+        <p class="p-resume" data-i18n="postpone_resume">Assim que as condições melhorarem, voltamos ao mar — e será a viagem que merecem.</p>
+
+        <div class="postpone-info">
+          <strong data-i18n="postpone_info_title">✦ Boa Notícia</strong>
+          <span data-i18n="postpone_info">Bilhetes reembolsados ou transferidos para a data que preferir. Travessias disponíveis para reserva.</span>
+        </div>
+
+        <a href="https://fareharbor.com/embeds/book/viamar-berlenga/items/?full-items=yes&flow=738388" class="postpone-cta" target="_blank" rel="noopener" data-i18n="postpone_cta">Comprar Agora!</a>
+
+        <p class="postpone-contact">
+          <span data-i18n="postpone_contact">Dúvidas?</span>
+          <a href="tel:+351911001099">+351 911 001 099</a> &nbsp;·&nbsp;
+          <a href="mailto:info@viamar.pt">info@viamar.pt</a>
+        </p>
+      </div>
+
+    </div>
+  </div>
+
   <!-- i18n -->
   <script>
     const translations = {
@@ -1790,7 +2060,7 @@
         badge: "Património Mundial UNESCO",
         construction_label: "Website em construção",
         h1_line1: "A Berlenga espera por si.",
-        h1_line2: 'Época inicia a <span class="date-highlight">9 de Maio</span>',
+        h1_line2: 'Compre já o seu bilhete!',
         hero_sub: "As vagas são limitadas. Reserve já a sua travessia e garanta o seu lugar na reserva natural mais bonita de Portugal.",
         stat1: "passageiros/ano", stat2: "Google Reviews", stat3: "anos de travessias", stat4: "desde",
         cta_book: "Reservar travessia", cta_island: "Obter BerlengasPass",
@@ -1860,12 +2130,22 @@
         "faq.q11": "Existem casas de banho a bordo?",
         "faq.a11": "Sim, a embarcação dispõe de 2 casas de banho — simples e práticas. A tripulação assegura que se mantêm limpas e em condições de uso.",
         "faq.q12": "É seguro viajar com crianças pequenas ou passageiros idosos?",
-        "faq.a12": "Sim, e a nossa embarcação é uma das preferidas por famílias com crianças pequenas e passageiros idosos. O barco foi projectado especificamente para o conforto e a segurança, com lugares próprios para passageiros com dificuldades motoras e bebés de colo. Crianças devem estar sempre acompanhadas pelos responsáveis."
+        "faq.a12": "Sim, e a nossa embarcação é uma das preferidas por famílias com crianças pequenas e passageiros idosos. O barco foi projectado especificamente para o conforto e a segurança, com lugares próprios para passageiros com dificuldades motoras e bebés de colo. Crianças devem estar sempre acompanhadas pelos responsáveis.",
+        postpone_badge: "AVISO URGENTE",
+        postpone_eyebrow: "TRAVESSIA",
+        postpone_date_line: "9 de Maio",
+        postpone_subtitle: "Viagem Cancelada",
+        postpone_body: "Condições marítimas e meteorológicas adversas impedem a travessia de <strong style='color:rgba(255,255,255,0.85)'>9 de Maio</strong>. A segurança dos nossos passageiros é sempre a nossa prioridade máxima.",
+        postpone_resume: "Assim que as condições melhorarem, voltamos ao mar — e será a viagem que merecem.",
+        postpone_info_title: "✦ Boa Notícia",
+        postpone_info: "Bilhetes reembolsados ou transferidos para a data que preferir. Travessias disponíveis para reserva.",
+        postpone_cta: "Comprar Agora!",
+        postpone_contact: "Dúvidas?"
       },
       es: {
         ann_main: "¡Fines de semana de <strong>julio</strong> y <strong>agosto</strong> casi agotados!", ann_season: "Temporada abre el 9 de mayo —", ann_cta: "¡Reserva tu plaza!",
         nav_book: "Reservar →", badge: "Patrimonio Mundial UNESCO",
-        h1_line1: "Berlenga te espera.", h1_line2: 'Temporada abre el <span class="date-highlight">9 de mayo</span>',
+        h1_line1: "Berlenga te espera.", h1_line2: '¡Compra ya tu billete!',
         hero_sub: "Las plazas son limitadas. Reserva tu travesía y asegura tu lugar en la reserva natural más bonita de Portugal.",
         stat1: "pasajeros/año", stat2: "Google Reviews", stat3: "años de travesías", stat4: "desde",
         cta_book: "Reservar travesía", cta_island: "Obtener BerlengasPass", overlay_soon: "Próximamente",
@@ -1930,12 +2210,22 @@
         "faq.q11": "¿Hay aseos a bordo?",
         "faq.a11": "Sí, la embarcación dispone de 2 aseos a bordo — sencillos y funcionales. La tripulación se asegura de mantenerlos limpios.",
         "faq.q12": "¿Es seguro viajar con niños pequeños o pasajeros mayores?",
-        "faq.a12": "Sí, y nuestra embarcación es una de las preferidas por familias y personas mayores. El barco fue diseñado específicamente para este trayecto con la seguridad y el confort como prioridades. Los niños deben ir siempre acompañados de un adulto responsable. Los pasajeros que necesiten asistencia especial pueden informarnos con antelación."
+        "faq.a12": "Sí, y nuestra embarcación es una de las preferidas por familias y personas mayores. El barco fue diseñado específicamente para este trayecto con la seguridad y el confort como prioridades. Los niños deben ir siempre acompañados de un adulto responsable. Los pasajeros que necesiten asistencia especial pueden informarnos con antelación.",
+        postpone_badge: "AVISO URGENTE",
+        postpone_eyebrow: "TRAVESÍA",
+        postpone_date_line: "9 de Mayo",
+        postpone_subtitle: "Viaje Cancelado",
+        postpone_body: "Condiciones marítimas adversas impiden la travesía del <strong style='color:rgba(255,255,255,0.85)'>9 de mayo</strong>. La seguridad de nuestros pasajeros es siempre nuestra máxima prioridad.",
+        postpone_resume: "En cuanto las condiciones mejoren, volveremos al mar — y será el viaje que merecéis.",
+        postpone_info_title: "✦ Buena Noticia",
+        postpone_info: "Billetes reembolsados o transferidos a la fecha que prefiera. Travesías disponibles para reservar.",
+        postpone_cta: "¡Comprar Ahora!",
+        postpone_contact: "¿Preguntas?"
       },
       fr: {
         ann_main: "Les week-ends de <strong>juillet</strong> et <strong>août</strong> sont presque complets !", ann_season: "Saison du 9 mai —", ann_cta: "Réservez votre place !",
         nav_book: "Réserver →", badge: "Patrimoine Mondial UNESCO",
-        h1_line1: "Berlenga vous attend.", h1_line2: 'Saison du <span class="date-highlight">9 mai</span>',
+        h1_line1: "Berlenga vous attend.", h1_line2: 'Achetez votre billet !',
         hero_sub: "Les places sont limitées. Réservez votre traversée et assurez votre place dans la plus belle réserve naturelle du Portugal.",
         stat1: "passagers/an", stat2: "Google Reviews", stat3: "ans de traversées", stat4: "à partir de",
         cta_book: "Réserver la traversée", cta_island: "Obtenir BerlengasPass", overlay_soon: "Bientôt",
@@ -2000,7 +2290,17 @@
         "faq.q11": "Y a-t-il des toilettes à bord ?",
         "faq.a11": "Oui, l\'embarcation dispose de 2 toilettes à bord — simples et pratiques. L\'équipage s\'assure qu\'elles restent propres et en bon état.",
         "faq.q12": "Est-il sûr de voyager avec de jeunes enfants ou des passagers âgés ?",
-        "faq.a12": "Oui, notre embarcation est l\'une des préférées des familles et des personnes âgées. Le bateau a été conçu spécifiquement pour cette traversée avec la sécurité et le confort comme priorités. Les enfants doivent toujours être accompagnés d\'un adulte. Les passagers nécessitant une assistance particulière peuvent nous en informer à l\'avance."
+        "faq.a12": "Oui, notre embarcation est l\'une des préférées des familles et des personnes âgées. Le bateau a été conçu spécifiquement pour cette traversée avec la sécurité et le confort comme priorités. Les enfants doivent toujours être accompagnés d\'un adulte. Les passagers nécessitant une assistance particulière peuvent nous en informer à l\'avance.",
+        postpone_badge: "AVIS URGENT",
+        postpone_eyebrow: "TRAVERSÉE",
+        postpone_date_line: "9 Mai",
+        postpone_subtitle: "Voyage Annulé",
+        postpone_body: "Les conditions maritimes défavorables empêchent la traversée du <strong style='color:rgba(255,255,255,0.85)'>9 mai</strong>. La sécurité de nos passagers est toujours notre priorité absolue.",
+        postpone_resume: "Dès que les conditions s'amélioreront, nous reprendrons la mer — et ce sera le voyage que vous méritez.",
+        postpone_info_title: "✦ Bonne Nouvelle",
+        postpone_info: "Billets remboursés ou transférés à la date de votre choix. Traversées disponibles à la réservation.",
+        postpone_cta: "Acheter Maintenant !",
+        postpone_contact: "Questions ?"
       },
       en: {
         ann_main: "<strong>July</strong> and <strong>August</strong> weekends almost sold out!",
@@ -2011,7 +2311,7 @@
         badge: "UNESCO World Heritage",
         construction_label: "Website under construction",
         h1_line1: "Berlenga Island awaits you.",
-        h1_line2: 'Season opens <span class="date-highlight">9th May</span>',
+        h1_line2: 'Buy your ticket now!',
         hero_sub: "Spots are limited. Book your crossing now and secure your place at Portugal's most beautiful nature reserve.",
         stat1: "passengers/year", stat2: "Google Reviews", stat3: "years of crossings", stat4: "from",
         cta_book: "Book crossing", cta_island: "Get BerlengasPass",
@@ -2081,7 +2381,17 @@
         "faq.q11": "Are there toilets on board?",
         "faq.a11": "Yes, the vessel has 2 on-board toilets — simple but practical. Our crew ensures they are kept clean and in good condition.",
         "faq.q12": "Is it safe to travel with young children or elderly passengers?",
-        "faq.a12": "Absolutely — our vessel is one of the most popular choices for families with young children and elderly passengers. The boat was designed specifically for the Berlenga crossing with safety and comfort as priorities. Children must always be accompanied by a responsible adult. Passengers requiring special assistance are welcome to let us know in advance."
+        "faq.a12": "Absolutely — our vessel is one of the most popular choices for families with young children and elderly passengers. The boat was designed specifically for the Berlenga crossing with safety and comfort as priorities. Children must always be accompanied by a responsible adult. Passengers requiring special assistance are welcome to let us know in advance.",
+        postpone_badge: "URGENT NOTICE",
+        postpone_eyebrow: "CROSSING",
+        postpone_date_line: "9th May",
+        postpone_subtitle: "Trip Cancelled",
+        postpone_body: "Adverse maritime conditions prevent the crossing of <strong style='color:rgba(255,255,255,0.85)'>May 9th</strong>. Passenger safety is always our highest priority.",
+        postpone_resume: "When conditions improve, we will be back on the water — and it will be the journey you deserve.",
+        postpone_info_title: "✦ Good News",
+        postpone_info: "Tickets refunded or transferred to a date of your choice. Crossings remain open for booking.",
+        postpone_cta: "Buy Now!",
+        postpone_contact: "Questions?"
       }
     };
 
@@ -2092,6 +2402,13 @@
       });
       const lbl = document.getElementById('langDropLabel');
       if (lbl) lbl.textContent = lang.toUpperCase();
+      const plbl = document.getElementById('popupLangLabel');
+      if (plbl) plbl.textContent = lang.toUpperCase();
+      // close popup dropdown if open
+      const ppanel = document.getElementById('popupLangPanel');
+      const pbtn   = document.getElementById('popupLangDropBtn');
+      if (ppanel) ppanel.classList.remove('open');
+      if (pbtn)   pbtn.classList.remove('open');
       document.querySelectorAll('[data-i18n]').forEach(el => {
         const key = el.dataset.i18n;
         if (translations[lang][key] !== undefined) {
@@ -2105,6 +2422,22 @@
     document.querySelectorAll('[data-lang-switch]').forEach(btn => {
       btn.addEventListener('click', () => setLang(btn.dataset.langSwitch));
     });
+
+    // Popup lang dropdown toggle
+    (function() {
+      const btn   = document.getElementById('popupLangDropBtn');
+      const panel = document.getElementById('popupLangPanel');
+      if (!btn || !panel) return;
+      btn.addEventListener('click', e => {
+        e.stopPropagation();
+        const open = panel.classList.toggle('open');
+        btn.classList.toggle('open', open);
+      });
+      document.addEventListener('click', () => {
+        panel.classList.remove('open');
+        btn.classList.remove('open');
+      });
+    })();
 
     // Auto-detect browser language
     const _nav = navigator.language?.slice(0,2);
@@ -2414,6 +2747,54 @@
         }
       });
     }
+
+    // Postponement popup
+    (function() {
+      const DISMISS_KEY = 'viamar_postpone_09maio';
+      const overlay  = document.getElementById('postponeOverlay');
+      const closeBtn = document.getElementById('postponeClose');
+      const lightning = document.getElementById('postponeLightning');
+      if (!overlay) return;
+
+      // Relâmpago — flash primário + eco + afterglow ocasional
+      let _ltimer;
+      function flash() {
+        if (!overlay.classList.contains('active') || !lightning) return;
+        lightning.style.opacity = '1';
+        setTimeout(() => { lightning.style.opacity = '0'; }, 72);
+        setTimeout(() => {
+          lightning.style.opacity = '0.60';
+          setTimeout(() => { lightning.style.opacity = '0'; }, 55);
+        }, 175);
+        if (Math.random() > 0.52) {
+          setTimeout(() => {
+            lightning.style.opacity = '0.20';
+            setTimeout(() => { lightning.style.opacity = '0'; }, 42);
+          }, 345);
+        }
+        _ltimer = setTimeout(flash, 3400 + Math.random() * 5600);
+      }
+
+      function openPopup() {
+        overlay.classList.add('active');
+        document.body.style.overflow = 'hidden';
+        _ltimer = setTimeout(flash, 1800);
+      }
+      function closePopup() {
+        overlay.classList.remove('active');
+        document.body.style.overflow = '';
+        clearTimeout(_ltimer);
+        sessionStorage.setItem(DISMISS_KEY, '1');
+      }
+
+      closeBtn.addEventListener('click', closePopup);
+      overlay.addEventListener('click', function(e) { if (e.target === overlay) closePopup(); });
+      document.addEventListener('keydown', function(e) { if (e.key === 'Escape') closePopup(); });
+
+      if (!sessionStorage.getItem(DISMISS_KEY)) {
+        setTimeout(openPopup, 800);
+      }
+    })();
 
     // Cookie banner
     function setCookieChoice(choice) {
