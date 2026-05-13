@@ -175,8 +175,10 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,700;0,900;1,700;1,900&display=swap" rel="stylesheet" />
 
-  <!-- FareHarbor embed script — abre lightbox nativo ao clicar em links de reserva -->
+  <!-- FareHarbor: calendar widget -->
   <script src="https://fareharbor.com/embeds/script/calendar/viamar-berlenga/?full-items=yes&flow=738388&u=0add1569-0a96-4a96-bd93-bfeafd85b4a5&from-ssl=yes&language=pt-pt" async></script>
+  <!-- FareHarbor: Lightframe API — abre reservas como modal em vez de nova janela -->
+  <script src="https://fareharbor.com/embeds/api/v1/?autolightframes=1" async></script>
 
   <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
 <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
@@ -1632,7 +1634,7 @@
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
           <span data-i18n="dep.addr">Cais da Ribeira, Peniche — 39°35′N 9°22′W</span>
         </a>
-        <a href="https://fareharbor.com/embeds/book/viamar-berlenga/items/?full-items=yes&flow=738388" target="_blank" rel="noopener" class="island-cta" data-i18n="dep.book">Reservar travessia →</a>
+        <a href="https://fareharbor.com/embeds/book/viamar-berlenga/items/?full-items=yes&flow=738388" class="island-cta" data-i18n="dep.book">Reservar travessia →</a>
       </div>
     </div>
   </section>
@@ -2364,6 +2366,18 @@
         if (e.key === 'Escape') closeLightbox();
       });
     })();
+
+    // Google Ads conversion — dispara quando FareHarbor confirma reserva
+    window.addEventListener('message', function(e) {
+      if (e.origin !== 'https://fareharbor.com') return;
+      var d = e.data;
+      if (d && (d.type === 'booking' || d.type === 'booking_complete' || d.action === 'booking_complete')) {
+        gtag('event', 'conversion', {
+          send_to: 'AW-10891382542/sIVNCPq6ifIaEI6etcko',
+          transaction_id: (d.booking && d.booking.pk) ? String(d.booking.pk) : ''
+        });
+      }
+    });
 
   </script>
 
