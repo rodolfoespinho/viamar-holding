@@ -501,8 +501,6 @@
     footer { padding: 24px 20px; flex-direction: column; align-items: flex-start; }
   }
   </style>
-  <!-- FareHarbor: Lightframe API — carrega sync para interceptar cliques antes do DOM estar pronto -->
-  <script src="https://fareharbor.com/embeds/api/v1/?autolightframes=1"></script>
 </head>
 <body>
 
@@ -1213,5 +1211,7 @@
 </script>
 
 <script defer src="/_vercel/insights/script.js"></script>
+<!-- FareHarbor Lightframe API – do not remove – see: https://fareharbor.com/help/website/resources/lightframe-api/ -->
+<script src="https://fareharbor.com/embeds/api/v1/?autolightframe=yes"></script>
 </body>
 </html>

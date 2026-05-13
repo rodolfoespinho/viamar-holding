@@ -22,8 +22,6 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,700;0,900;1,700;1,900&display=swap" rel="stylesheet" />
   <!-- FareHarbor: calendar widget -->
   <script src="https://fareharbor.com/embeds/script/calendar/viamar-berlenga/?full-items=yes&flow=738388&u=0add1569-0a96-4a96-bd93-bfeafd85b4a5&from-ssl=yes&language=pt-pt" async></script>
-  <!-- FareHarbor: Lightframe API — carrega sync para interceptar cliques antes do DOM estar pronto -->
-  <script src="https://fareharbor.com/embeds/api/v1/?autolightframes=1"></script>
   <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   <link rel="apple-touch-icon" href="/logo-viamar.png" />
@@ -550,5 +548,7 @@
   </script>
 
   <script defer src="/_vercel/insights/script.js"></script>
+  <!-- FareHarbor Lightframe API – do not remove – see: https://fareharbor.com/help/website/resources/lightframe-api/ -->
+  <script src="https://fareharbor.com/embeds/api/v1/?autolightframe=yes"></script>
 </body>
 </html>
