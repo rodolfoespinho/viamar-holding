@@ -306,6 +306,24 @@
     .hero-slide:nth-child(8) { background-color:#0b1e2d; background-image:url('img/IMG_0984.webp'); }
     .hero-slide:nth-child(9) { background-color:#102010; background-image:url('img/IMG_1027.webp'); }
     @media (max-width: 600px) { .hero-slide { background-position: center 30%; } }
+    /* ── Mobile hero video ── */
+    .hero-video-mobile {
+      display: none;
+      position: absolute; inset: 0; z-index: 0;
+      width: 100%; height: 100%;
+      object-fit: cover; object-position: center top;
+      filter: contrast(1.1) saturate(1.2) brightness(0.78);
+    }
+    .hero-overlay-mobile {
+      display: none;
+      position: absolute; inset: 0; z-index: 1; pointer-events: none;
+      background: linear-gradient(to top, rgba(7,17,31,0.97) 0%, rgba(7,17,31,0.55) 40%, rgba(7,17,31,0.15) 100%);
+    }
+    @media (max-width: 960px) {
+      .hero-slides { display: none; }
+      .hero-video-mobile { display: block; }
+      .hero-overlay-mobile { display: block; }
+    }
     .hero-content {
       position: relative; z-index: 10;
       width: 100%; max-width: 1400px; margin: 0 auto;
@@ -876,6 +894,22 @@
       background-image: url('img/IMG_1027.webp');
       background-color: #0a2440;
     }
+    .gb-item:nth-child(6) {
+      background-image: url('img/hero.webp');
+      background-color: #0a2440;
+    }
+    .gb-item:nth-child(7) {
+      background-image: url('img/freepik__enhance-the-cinematic-feel-on-this-photo__34301.webp');
+      background-color: #0d3b2e;
+    }
+    .gb-item:nth-child(8) {
+      background-image: url('img/freepik__upgrade-this-cinematic-shot__91289.webp');
+      background-color: #12263a;
+    }
+    .gb-item:nth-child(9) {
+      background-image: url('img/freepik__recreate-this-as-a-cinematic-shot__59589.webp');
+      background-color: #1c1008;
+    }
     .gb-item::after {
       content: ''; position: absolute; inset: 0;
       background: rgba(7,17,31,0); transition: background .3s;
@@ -889,6 +923,27 @@
       opacity: 0; transform: translateY(6px); transition: all .3s;
     }
     .gb-item:hover .gb-label { opacity: 1; transform: translateY(0); }
+    .gb-item { cursor: pointer; }
+
+    /* ── Gallery lightbox ── */
+    .gl-overlay {
+      display: none; position: fixed; inset: 0; z-index: 9900;
+      background: rgba(0,0,0,0.96);
+      align-items: center; justify-content: center;
+    }
+    .gl-overlay.active { display: flex; }
+    .gl-img {
+      max-width: 100%; max-height: 100dvh;
+      object-fit: contain; display: block;
+    }
+    .gl-close {
+      position: fixed; top: 16px; right: 16px; z-index: 10;
+      background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.18);
+      border-radius: 50%; width: 48px; height: 48px;
+      display: flex; align-items: center; justify-content: center;
+      cursor: pointer; color: #fff; transition: background .2s;
+    }
+    .gl-close:hover { background: rgba(255,255,255,0.28); }
 
     @media (max-width: 768px) {
       /* trust badges → 2×2 grid */
@@ -913,83 +968,19 @@
       .island-facts { grid-template-columns: 1fr 1fr; gap: 10px; }
       .island-fact .fact-num { font-size: 19px; }
 
-      /* gallery → 2 cols, primeira foto full width */
+      /* gallery → 2 cols, primeira foto full width, 9 items em 5 rows */
       .gallery-bento {
         grid-template-columns: 1fr 1fr;
-        grid-template-rows: 200px 160px 160px;
+        grid-template-rows: 200px repeat(4, 160px);
       }
       .gb-item:nth-child(1) { grid-column: 1 / 3; grid-row: auto; }
     }
 
-    /* ── Fullscreen video section ── */
-    .video-section {
-      position: relative;
-      width: 100%;
-      height: 100dvh;
-      overflow: hidden;
-      background: #040d18;
-    }
-    .video-section video {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: center center;
-      filter: contrast(1.2) saturate(1.25) brightness(0.88);
-    }
-    .video-section::before,
-    .video-section::after {
-      content: '';
-      position: absolute;
-      left: 0; right: 0;
-      height: 120px;
-      z-index: 10;
-      pointer-events: none;
-    }
-    .video-section::before {
-      top: 0;
-      background: linear-gradient(to bottom, #040d18 0%, transparent 100%);
-    }
-    .video-section::after {
-      bottom: 0;
-      background: linear-gradient(to top, var(--navy) 0%, transparent 100%);
-    }
-    /* ── Cinematic color grade overlay (split-tone: teal shadows / warm highlights) ── */
-    .video-chroma {
-      position: absolute;
-      inset: 0;
-      z-index: 2;
-      pointer-events: none;
-      mix-blend-mode: color;
-      opacity: 0.18;
-      background: radial-gradient(
-        ellipse 120% 80% at 50% 70%,
-        rgba(0,90,140,0.55) 0%,
-        rgba(0,60,100,0.35) 40%,
-        rgba(20,50,80,0.15) 100%
-      );
-    }
-    /* ── Warm vignette corners ── */
-    .video-vignette {
-      position: absolute;
-      inset: 0;
-      z-index: 3;
-      pointer-events: none;
-      background: radial-gradient(
-        ellipse 90% 90% at 50% 50%,
-        transparent 50%,
-        rgba(4,13,24,0.55) 100%
-      );
-    }
-
-    /* desktop — vídeo vertical não faz sentido em ecrã largo */
+    /* desktop — gallery extra items e hero video são só mobile */
     @media (min-width: 961px) {
-      .video-section { display: none; }
-    }
-    @media (prefers-reduced-motion: reduce) {
-      .video-section video { display: none; }
-      .video-chroma, .video-vignette { display: none; }
+      .gb-item:nth-child(n+6) { display: none; }
+      .hero-video-mobile { display: none; }
+      .hero-overlay-mobile { display: none; }
     }
 
     /* ─── SECTIONS (shared) ─── */
@@ -1291,6 +1282,12 @@
 
   <!-- Hero -->
   <section class="hero">
+    <!-- Video background — mobile only (≤960px, portrait) -->
+    <video class="hero-video-mobile" autoplay muted loop playsinline webkit-playsinline preload="auto" aria-hidden="true">
+      <source src="video-section.mp4" type="video/mp4">
+    </video>
+    <div class="hero-overlay-mobile" aria-hidden="true"></div>
+
     <div class="hero-slides">
       <div class="hero-slide active"></div>
       <div class="hero-slide"></div>
@@ -1412,26 +1409,23 @@
 
   <!-- Photo gallery bento -->
   <div class="gallery-bento">
-    <div class="gb-item"><div class="gb-label" data-i18n="gal1">Farol de Peniche</div></div>
-    <div class="gb-item"><div class="gb-label" data-i18n="gal2">Vista panorâmica</div></div>
-    <div class="gb-item"><div class="gb-label" data-i18n="gal3">A bordo</div></div>
-    <div class="gb-item"><div class="gb-label" data-i18n="gal4">Partida de Peniche</div></div>
-    <div class="gb-item"><div class="gb-label" data-i18n="gal5">Praia da Berlenga</div></div>
+    <div class="gb-item" data-img="img/farol-peniche.png"><div class="gb-label">Cabo Carvoeiro, Peniche</div></div>
+    <div class="gb-item" data-img="img/freepik__enhance-the-cinematic-feel-of-this-shot__34300.webp"><div class="gb-label">Vista aérea da Ilha</div></div>
+    <div class="gb-item" data-img="img/IMG_0984.webp"><div class="gb-label">Ferry Viamar</div></div>
+    <div class="gb-item" data-img="img/freepik__enhance-the-cinematic-feel-on-this-photo__59586.webp"><div class="gb-label">Porto Natural da Berlenga</div></div>
+    <div class="gb-item" data-img="img/IMG_1027.webp"><div class="gb-label">Desembarque na Ilha</div></div>
+    <div class="gb-item" data-img="img/hero.webp"><div class="gb-label">Forte da Berlenga</div></div>
+    <div class="gb-item" data-img="img/freepik__enhance-the-cinematic-feel-on-this-photo__34301.webp"><div class="gb-label">Praia da Berlenga</div></div>
+    <div class="gb-item" data-img="img/freepik__upgrade-this-cinematic-shot__91289.webp"><div class="gb-label">Forte de São João Baptista</div></div>
+    <div class="gb-item" data-img="img/freepik__recreate-this-as-a-cinematic-shot__59589.webp"><div class="gb-label">SUP nas Furnas</div></div>
   </div>
 
-  <!-- VIDEO SECTION -->
-  <div class="video-section">
-    <video
-      id="sectionVideo"
-      autoplay muted loop playsinline webkit-playsinline
-      poster="video-poster.jpg"
-      preload="none"
-      aria-hidden="true"
-    >
-      <source src="video-section.mp4" type="video/mp4">
-    </video>
-    <div class="video-chroma" aria-hidden="true"></div>
-    <div class="video-vignette" aria-hidden="true"></div>
+  <!-- Gallery lightbox -->
+  <div class="gl-overlay" id="galleryLightbox" role="dialog" aria-modal="true" aria-label="Foto em ecrã completo">
+    <button class="gl-close" id="glClose" aria-label="Fechar">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+    <img class="gl-img" id="glImg" src="" alt="">
   </div>
 
   <!-- REVIEWS -->
@@ -2306,54 +2300,17 @@
     });
     // ────────────────────────────────────────────────────────────────────────
 
-    // ── Mid-page video: lazy load + autoplay + iOS fix ──
-    const sectionVideo = document.getElementById('sectionVideo');
-    if (sectionVideo) {
-      sectionVideo.muted = true;
-      sectionVideo.defaultMuted = true;
-      sectionVideo.setAttribute('muted', '');
-
-      // Start fetching when user is ~1 viewport away
-      const preloader = new IntersectionObserver((entries) => {
-        if (entries[0].isIntersecting) {
-          sectionVideo.preload = 'auto';
-          sectionVideo.load();
-          preloader.disconnect();
-        }
-      }, { rootMargin: '100% 0px' });
-      preloader.observe(sectionVideo);
-
-      // Play/pause with visibility
-      const player = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            sectionVideo.muted = true;
-            sectionVideo.play().catch(function() {});
-          } else {
-            sectionVideo.pause();
-          }
-        });
-      }, { threshold: 0.1 });
-      player.observe(sectionVideo);
-
-      // iOS touch fallback
+    // ── Hero video mobile: autoplay + iOS fallback ──
+    const heroVidMobile = document.querySelector('.hero-video-mobile');
+    if (heroVidMobile) {
+      heroVidMobile.muted = true;
+      heroVidMobile.defaultMuted = true;
+      heroVidMobile.setAttribute('muted', '');
+      heroVidMobile.play().catch(function() {});
       ['touchstart', 'click'].forEach(function(e) {
         document.addEventListener(e, function() {
-          if (sectionVideo.paused) {
-            sectionVideo.muted = true;
-            sectionVideo.play().catch(function() {});
-          }
+          if (heroVidMobile.paused) heroVidMobile.play().catch(function() {});
         }, { once: true, passive: true });
-      });
-
-      // Tab visibility fallback
-      document.addEventListener('visibilitychange', function() {
-        if (document.hidden) return;
-        var rect = sectionVideo.getBoundingClientRect();
-        if (rect.top < window.innerHeight && rect.bottom > 0) {
-          sectionVideo.muted = true;
-          sectionVideo.play().catch(function() {});
-        }
       });
     }
 
@@ -2367,6 +2324,38 @@
     } else {
       document.getElementById('cookieBanner').classList.add('hidden');
     }
+
+    // Gallery lightbox
+    (function() {
+      const overlay = document.getElementById('galleryLightbox');
+      const glImg   = document.getElementById('glImg');
+      const glClose = document.getElementById('glClose');
+      if (!overlay) return;
+
+      document.querySelectorAll('.gb-item[data-img]').forEach(function(item) {
+        item.addEventListener('click', function() {
+          const label = item.querySelector('.gb-label');
+          glImg.src = item.dataset.img;
+          glImg.alt = label ? label.textContent : '';
+          overlay.classList.add('active');
+          document.body.style.overflow = 'hidden';
+        });
+      });
+
+      function closeLightbox() {
+        overlay.classList.remove('active');
+        document.body.style.overflow = '';
+        glImg.src = '';
+      }
+
+      glClose.addEventListener('click', closeLightbox);
+      overlay.addEventListener('click', function(e) {
+        if (e.target === overlay) closeLightbox();
+      });
+      document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') closeLightbox();
+      });
+    })();
 
   </script>
 
