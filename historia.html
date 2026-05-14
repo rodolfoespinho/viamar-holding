@@ -1222,14 +1222,12 @@
 
   setActive(current);
 
-  // Google Ads — dispara conversão quando utilizador clica em qualquer link de reserva FareHarbor
-  document.addEventListener('DOMContentLoaded', function() {
-    document.querySelectorAll('a[href*="fareharbor.com/embeds/book"]').forEach(function(link) {
-      link.addEventListener('click', function() {
-        gtag('event', 'conversion', { send_to: 'AW-10891382542/sIVNCPq6ifIaEI6etcko' });
-      });
-    });
-  });
+  // Google Ads — mousedown+capture garante disparo antes do FareHarbor autolightframe interceptar o clique
+  document.addEventListener('mousedown', function(e) {
+    if (e.target.closest('a[href*="fareharbor.com/embeds/book"]')) {
+      gtag('event', 'conversion', { send_to: 'AW-10891382542/sIVNCPq6ifIaEI6etcko' });
+    }
+  }, true);
 })();
 </script>
 
