@@ -1,8 +1,8 @@
 {
   "_meta": {
-    "updated": "2026-04-17",
+    "updated": "2026-05-14",
     "source": "FareHarbor — viamar-berlenga (sync manual via dashboard)",
-    "note": "Preços base sem taxa FareHarbor. Adulto €19,90 + 6% IVA incluído. Embed FH mostra €21,03 (inclui taxa de reserva FH ~5,7%)."
+    "note": "Preços base sem taxa FareHarbor. Época baixa até 19 de Junho 2026: Adulto idavolta €19,90 + criança €11,90 (IVA 6% incluído). Embed FH mostra €21,03 adulto (inclui taxa de reserva FH ~5,7%)."
   },
   "booking_url": "https://fareharbor.com/embeds/book/viamar-berlenga/?full-items=yes&flow=738388&u=0add1569-0a96-4a96-bd93-bfeafd85b4a5&from-ssl=yes&language=pt-pt&back=https%3A%2F%2Fviamar-berlenga.com%2F",
   "items": [
@@ -61,7 +61,7 @@
       "features": ["Peniche → Berlenga → Peniche", "45 min de travessia cada sentido", "Dia livre na ilha (5 horas)", "Bilhete digital QR"],
       "features_en": ["Peniche → Berlenga → Peniche", "45-min boat ride each way", "Free day on the island (5 hours)", "Digital QR ticket"],
       "price_adult": 19.90,
-      "price_child": 13.90,
+      "price_child": 11.90,
       "featured": true,
       "fh_pk": 377881,
       "fh_flow": "738388"
