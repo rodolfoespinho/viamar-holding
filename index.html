@@ -2401,6 +2401,28 @@
       }
     }, true);
 
+    // FareHarbor booking confirmation → Meta Pixel Purchase
+    window.addEventListener('message', function(e) {
+      if (!e.origin || e.origin.indexOf('fareharbor.com') === -1) return;
+      var d = e.data;
+      if (!d) return;
+      var isBooking = (
+        d.type === 'fh:book' ||
+        d.type === 'booking' ||
+        d.type === 'lightframe:book' ||
+        d.action === 'booking_created' ||
+        d.event === 'booking_created'
+      );
+      if (isBooking && typeof fbq === 'function') {
+        fbq('track', 'Purchase', {
+          currency: 'EUR',
+          value: d.total_amount || d.amount || d.value || 0,
+          content_type: 'product',
+          content_name: 'Ferry Berlenga'
+        });
+      }
+    }, false);
+
   </script>
 
   <script defer src="/_vercel/insights/script.js"></script>
