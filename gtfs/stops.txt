@@ -1,0 +1,3 @@
+stop_id,stop_name,stop_lat,stop_lon,stop_url,stop_desc
+PENICHE,Marina de Peniche,39.3558,-9.3808,https://viamar-berlenga.com/,Embarque Viamar — Largo Ribeira Quiosque 2 Peniche
+BERLENGA,Ilha da Berlenga,39.4103,-9.5099,https://viamar-berlenga.com/ilha.html,Cais da Ilha da Berlenga — Reserva da Biosfera UNESCO

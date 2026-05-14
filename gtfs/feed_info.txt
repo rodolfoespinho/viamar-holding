@@ -1,0 +1,2 @@
+feed_publisher_name,feed_publisher_url,feed_lang,feed_start_date,feed_end_date,feed_version
+Viamar Ferry Berlenga,https://viamar-berlenga.com,pt,20260509,20260930,2026.1
