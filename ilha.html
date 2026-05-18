@@ -913,8 +913,11 @@
   </div>
 </footer>
 
+<!-- i18n: shared loader -->
+<script src="/i18n/loader.js"></script>
 <script>
-  const translations = {
+  // === legacy dict — replaced by /i18n/*.json — kept only inside this dead block ===
+  const _legacyDict = {
     pt: {
       nav_back: 'Início',
       'ft.faqs': "FAQ's", 'ft.terms': 'Termos e Condições',
@@ -1177,28 +1180,17 @@
     }
   };
 
-  function setLang(lang) {
-    document.documentElement.setAttribute('data-lang', lang);
-    document.documentElement.lang = lang === 'pt' ? 'pt-PT' : lang;
-    document.querySelectorAll('[data-lang-switch]').forEach(btn => {
-      btn.classList.toggle('active', btn.dataset.langSwitch === lang);
-    });
-    const lbl = document.getElementById('langDropLabel');
-    if (lbl) lbl.textContent = lang.toUpperCase();
-    document.querySelectorAll('[data-i18n]').forEach(el => {
-      const key = el.dataset.i18n;
-      if (translations[lang] && translations[lang][key] !== undefined) {
-        el.innerHTML = translations[lang][key];
-      }
+  // setLang + lang detection + switcher wiring handled by /i18n/loader.js
+  // FareHarbor link language sync
+  const FH_LANG = { pt: 'pt-pt', en: 'en-us', es: 'es-es', fr: 'fr-fr' };
+  function updateFareHarborLinks(lang) {
+    const fhLang = FH_LANG[lang] || 'en-us';
+    document.querySelectorAll('a[href*="fareharbor.com/embeds/book"]').forEach(a => {
+      try { const u = new URL(a.href); u.searchParams.set('language', fhLang); a.href = u.toString(); } catch(e) {}
     });
   }
-
-  document.querySelectorAll('[data-lang-switch]').forEach(btn => {
-    btn.addEventListener('click', () => setLang(btn.dataset.langSwitch));
-  });
-
-  const _nav = navigator.language?.slice(0,2);
-  setLang(['pt','en','es','fr'].includes(_nav) ? _nav : 'pt');
+  document.addEventListener('viamar:lang-applied', (e) => updateFareHarborLinks(e.detail.lang));
+  if (window.viamarLang) updateFareHarborLinks(window.viamarLang);
 
   const langDropBtn  = document.getElementById('langDropBtn');
   const langDropPanel = document.getElementById('langDropPanel');

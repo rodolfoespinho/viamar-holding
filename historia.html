@@ -736,13 +736,13 @@
   <div class="hero-vignette"></div>
   <div class="hero-overlay"></div>
   <div class="hero-content">
-    <div class="hero-eyebrow rv" data-i18n="hero_eyebrow">Peniche · Berlenga · Desde 1958</div>
-    <h1 class="hero-h1 rv d1" data-i18n="hero_h1">Uma história<span class="em">de mar.</span></h1>
-    <p class="hero-sub rv d2" data-i18n="hero_sub">Mais de seis décadas a ligar o porto ao horizonte.<br>Uma herança que se conta em travessias, não em anos.</p>
+    <div class="hero-eyebrow rv" data-i18n="historia.hero_eyebrow">Peniche · Berlenga · Desde 1958</div>
+    <h1 class="hero-h1 rv d1" data-i18n="historia.hero_h1">Uma história<span class="em">de mar.</span></h1>
+    <p class="hero-sub rv d2" data-i18n="historia.hero_sub">Mais de seis décadas a ligar o porto ao horizonte.<br>Uma herança que se conta em travessias, não em anos.</p>
   </div>
   <div class="hero-scroll" aria-hidden="true">
     <div class="scroll-line"></div>
-    <span data-i18n="hero_scroll">Explorar</span>
+    <span data-i18n="historia.hero_scroll">Explorar</span>
   </div>
 </section>
 
@@ -921,7 +921,7 @@
   <a
     href="https://fareharbor.com/embeds/book/viamar-berlenga/?full-items=yes&flow=738388&u=0add1569-0a96-4a96-bd93-bfeafd85b4a5&from-ssl=yes&language=pt-pt"
     class="cta rv d1"
-    data-i18n="cta"
+    data-i18n="historia.cta"
   >Fazer parte desta história →</a>
 </div>
 
@@ -937,6 +937,8 @@
 <!-- ══════════════════════════════════════════════════
      JAVASCRIPT — progress + nav + reveal + parallax
 ══════════════════════════════════════════════════ -->
+<!-- i18n loader: handles lang detection, persistence, ?lang=, applyDict -->
+<script src="/i18n/loader.js"></script>
 <script>
 (function () {
   'use strict';
@@ -1029,16 +1031,26 @@
   });
 })();
 
-// Lang dropdown + translations
+// Lang dropdown UI behaviour (i18n is handled by /i18n/loader.js loaded at end of body)
 (function() {
   const langDropBtn   = document.getElementById('langDropBtn');
   const langDropPanel = document.getElementById('langDropPanel');
-  const langDropLabel = document.getElementById('langDropLabel');
-  const langs = ['pt','en','es','fr'];
-  const _nav = navigator.language?.slice(0,2);
-  let current = langs.includes(_nav) ? _nav : 'pt';
+  if (!langDropBtn || !langDropPanel) return;
 
-  const t = {
+  langDropBtn.addEventListener('click', function(e) {
+    e.stopPropagation();
+    const open = langDropPanel.classList.toggle('open');
+    langDropBtn.classList.toggle('open', open);
+  });
+  document.addEventListener('click', function() {
+    langDropPanel.classList.remove('open');
+    langDropBtn.classList.remove('open');
+  });
+})();
+
+// === Legacy inline dict block — replaced by /i18n/*.json. Block kept inert for safety. ===
+(function _legacyInline() { if (window.viamarLang) return;
+  const _legacyDict = {
     pt: {
       nav_back: '← Voltar',
       hero_eyebrow: 'Peniche · Berlenga · Desde 1958',
@@ -1212,40 +1224,32 @@
       f_back: "← Retour à l'accueil",
     },
   };
-
-  function setActive(lang) {
-    current = lang;
-    langDropLabel.textContent = lang.toUpperCase();
-    langDropPanel.querySelectorAll('[data-lang-switch]').forEach(b =>
-      b.classList.toggle('active', b.dataset.langSwitch === lang));
+  // Last-resort apply only if loader.js failed: rendered only after 800ms grace.
+  setTimeout(function() {
+    if (window.viamarLang) return;
+    const nav = (navigator.language || '').slice(0,2);
+    const lang = ['pt','en','es','fr'].includes(nav) ? nav : 'en';
+    const dict = _legacyDict[lang] || _legacyDict.pt;
     document.documentElement.setAttribute('data-lang', lang);
     document.documentElement.lang = lang === 'pt' ? 'pt-PT' : lang;
-    if (t[lang]) {
-      document.querySelectorAll('[data-i18n]').forEach(function(el) {
-        const key = el.dataset.i18n;
-        if (t[lang][key] !== undefined) el.innerHTML = t[lang][key];
-      });
-    }
+    document.querySelectorAll('[data-i18n]').forEach(function(el) {
+      const key = el.dataset.i18n;
+      if (dict[key] !== undefined) el.innerHTML = dict[key];
+    });
+  }, 800);
+})();
+
+(function _historiaFareHarborSync() {
+  const FH_LANG = { pt: 'pt-pt', en: 'en-us', es: 'es-es', fr: 'fr-fr' };
+  function updateFareHarborLinks(lang) {
+    const fhLang = FH_LANG[lang] || 'en-us';
+    document.querySelectorAll('a[href*="fareharbor.com/embeds/book"]').forEach(a => {
+      try { const u = new URL(a.href); u.searchParams.set('language', fhLang); a.href = u.toString(); } catch(e) {}
+    });
   }
-
-  langDropPanel.querySelectorAll('[data-lang-switch]').forEach(b =>
-    b.addEventListener('click', function() {
-      setActive(b.dataset.langSwitch);
-      langDropPanel.classList.remove('open');
-      langDropBtn.classList.remove('open');
-    }));
-
-  langDropBtn.addEventListener('click', function(e) {
-    e.stopPropagation();
-    const open = langDropPanel.classList.toggle('open');
-    langDropBtn.classList.toggle('open', open);
-  });
-  document.addEventListener('click', function() {
-    langDropPanel.classList.remove('open');
-    langDropBtn.classList.remove('open');
-  });
-
-  setActive(current);
+  document.addEventListener('viamar:lang-applied', (e) => updateFareHarborLinks(e.detail.lang));
+  if (window.viamarLang) updateFareHarborLinks(window.viamarLang);
+})();
 
   // Google Ads + Meta Pixel — mousedown+capture garante disparo antes do FareHarbor autolightframe interceptar o clique
   document.addEventListener('mousedown', function(e) {
@@ -1279,7 +1283,6 @@
       });
     }
   }, false);
-})();
 </script>
 
   <script defer src="/_vercel/insights/script.js"></script>
