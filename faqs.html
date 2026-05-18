@@ -401,8 +401,10 @@
   </div>
 </footer>
 
+<!-- i18n: shared loader -->
+<script src="/i18n/loader.js"></script>
 <script>
-  const translations = {
+  const _legacyDict = {
     pt: {
       nav_back: "Início", nav_back_full: "← Voltar ao início", "ft.terms": "Termos e Condições",
       "faq.tag": "Perguntas Frequentes",
@@ -521,27 +523,7 @@
     }
   };
 
-  function setLang(lang) {
-    document.documentElement.setAttribute('data-lang', lang);
-    document.documentElement.lang = lang === 'pt' ? 'pt-PT' : lang;
-    document.querySelectorAll('[data-lang-switch]').forEach(btn => {
-      btn.classList.toggle('active', btn.dataset.langSwitch === lang);
-    });
-    document.querySelectorAll('[data-i18n]').forEach(el => {
-      const key = el.dataset.i18n;
-      if (translations[lang] && translations[lang][key] !== undefined) {
-        el.innerHTML = translations[lang][key];
-      }
-    });
-  }
-
-  document.querySelectorAll('[data-lang-switch]').forEach(btn => {
-    btn.addEventListener('click', () => setLang(btn.dataset.langSwitch));
-  });
-
-  const _nav = navigator.language?.slice(0,2);
-  setLang(['pt','en','es','fr'].includes(_nav) ? _nav : 'pt');
-
+  // setLang + lang detection + switcher wiring handled by /i18n/loader.js
   // accordion
   document.querySelectorAll('.faq-q').forEach(btn => {
     btn.addEventListener('click', () => {
