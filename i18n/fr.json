@@ -152,7 +152,7 @@
   "faq.q1": "Que dois-je apporter pour un voyage à l'Île Berlenga ?",
   "faq.a1": "L'essentiel : crème solaire, chapeau, lunettes de soleil et une bouteille d'eau. Des vêtements confortables, une veste légère (de préférence imperméable), des chaussures adaptées et une serviette. Une batterie externe est conseillée car le réseau mobile sur l'île est très faible ou inexistant.",
   "faq.q2": "Puis-je annuler ou modifier ma réservation ?",
-  "faq.a2": "Oui ! Merci de nous informer au moins 72 heures avant l'embarquement. Contactez-nous : 911 001 099 | <a href=\"mailto:info@viamar.pt\">info@viamar.pt</a>.",
+  "faq.a2": "Oui ! Merci de nous informer au moins 24 heures avant l'embarquement (groupes : 48h). Contactez-nous : 911 001 099 | <a href=\"mailto:info@viamar.pt\">info@viamar.pt</a>.",
   "faq.q3": "Que puis-je faire sur l'Île Berlenga avec mon billet de ferry ?",
   "faq.a3": "<ul><li>Randonnées pédestres avec des vues à couper le souffle ;</li><li>Visiter le Fort São João Baptista ;</li><li>Plages aux eaux cristallines ou déjeuner au restaurant de l'île ; snack au Castelinho avec vue panoramique ;</li><li>Observation des oiseaux et de la flore ;</li><li>Options supplémentaires : plongée, grottes en bateau à fond de verre ou snorkeling (voir page \"billets\").</li></ul>",
   "faq.q4": "Où se trouve le point d'embarquement VIAMAR pour l'Île Berlenga ?",
@@ -341,5 +341,12 @@
   "t.s8.p1": "Il est strictement interdit de jeter des déchets, de camper en dehors des zones désignées ou de perturber la faune et la flore de l'île. Le non-respect de ces règles peut entraîner l'exclusion des futurs voyages avec la compagnie.",
   "t.s9.title": "Politique de Confidentialité et Cookies",
   "t.s9.p1": "Les données personnelles fournies lors de la réservation (nom, coordonnées) seront utilisées uniquement à des fins opérationnelles et pourront être partagées avec les autorités si la loi l'exige.",
-  "t.s9.p2": "Le site web de la compagnie utilise des cookies pour optimiser votre expérience en ligne. Les clients peuvent ajuster les paramètres de cookies dans les préférences de leur navigateur."
+  "t.s9.p2": "Le site web de la compagnie utilise des cookies pour optimiser votre expérience en ligne. Les clients peuvent ajuster les paramètres de cookies dans les préférences de leur navigateur.",
+
+  "faq.q13": "Qu'est-ce que la Taxe de Protection Voyage (Flex Ticket) ?",
+  "faq.a13": "<p>La <strong>Taxe de Protection Voyage</strong> est un supplément optionnel disponible lors de la réservation en ligne. Avec cette option active, vous pouvez <strong>reprogrammer ou annuler</strong> votre voyage jusqu'à <strong>30 minutes avant le départ</strong>, sans pénalité sur la valeur du billet.</p><p><strong>Important :</strong> le montant de cette taxe est <strong>non remboursable en toutes circonstances</strong> — il protège la valeur restante de votre réservation mais ne vous est pas restitué. Les réservations sans cette option sont soumises à la politique d'annulation standard (24h à l'avance ; groupes : 48h).</p><p>Exception : si le voyage est annulé par Viamar (pour des raisons opérationnelles ou des conditions météorologiques), <strong>le montant total payé, y compris la taxe, est intégralement remboursé</strong>.</p><p>Des questions ? <a href=\"tel:+351911001099\">911 001 099</a> | <a href=\"mailto:info@viamar.pt\">info@viamar.pt</a>.</p>",
+
+  "trip_protection.label": "Taxe de Protection Voyage",
+  "trip_protection.note": "Si vous avez ajouté la <strong>Taxe de Protection Voyage</strong> à votre réservation, vous pouvez reprogrammer ou annuler votre voyage jusqu'à <strong>30 minutes avant le départ</strong>. <strong>Note : le montant de cette taxe n'est pas remboursable.</strong>",
+  "trip_protection.faq_link": "En savoir plus dans la FAQ →"
 }

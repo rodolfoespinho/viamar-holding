@@ -152,7 +152,7 @@
   "faq.q1": "O que devo levar para uma viagem à Ilha da Berlenga?",
   "faq.a1": "O essencial: protector solar, chapéu, óculos de sol e uma garrafa de água para se manter hidratado. Roupa confortável, um casaco leve (de preferência impermeável), calçado adequado e uma toalha. Uma powerbank para o telemóvel também é aconselhável caso seja grande utilizador (a rede na ilha é bastante fraca ou inexistente).",
   "faq.q2": "Posso cancelar ou alterar a minha reserva?",
-  "faq.a2": "Sim! Pedimos que nos informe com pelo menos 72 horas de antecedência. Contacte-nos por telefone ou email: 911 001 099 | <a href=\"mailto:info@viamar.pt\">info@viamar.pt</a>.",
+  "faq.a2": "Sim! Pedimos que nos informe com pelo menos 24 horas de antecedência (grupos: 48h). Contacte-nos por telefone ou email: 911 001 099 | <a href=\"mailto:info@viamar.pt\">info@viamar.pt</a>.",
   "faq.q3": "O que posso fazer na Ilha da Berlenga ao adquirir a passagem?",
   "faq.a3": "<ul><li>Trilhos pedestres e vistas deslumbrantes;</li><li>Visitar o Forte de São João Baptista;</li><li>Praia de águas cristalinas ou almoço no restaurante da ilha; snack e bebida no Castelinho com vista fantástica;</li><li>Observação de aves e flora;</li><li>Opcionalmente: mergulho com garrafa, grutas em barco de fundo de vidro ou snorkeling (ver página \"bilhetes\").</li></ul>",
   "faq.q4": "Onde fica o local de embarque da VIAMAR para a Ilha da Berlenga?",
@@ -341,5 +341,12 @@
   "t.s8.p1": "É estritamente proibido deixar lixo, acampar fora das áreas designadas ou perturbar a fauna e a flora da ilha. O incumprimento destas normas pode resultar na exclusão de futuras viagens com a empresa.",
   "t.s9.title": "Política de Privacidade e Cookies",
   "t.s9.p1": "Os dados pessoais fornecidos no acto da reserva (nome, dados de contacto) serão utilizados apenas para fins operacionais e poderão ser partilhados com as autoridades caso tal seja legalmente exigido.",
-  "t.s9.p2": "O website da empresa utiliza cookies para optimizar a sua experiência online. Os clientes podem ajustar as definições de cookies nas preferências do seu navegador."
+  "t.s9.p2": "O website da empresa utiliza cookies para optimizar a sua experiência online. Os clientes podem ajustar as definições de cookies nas preferências do seu navegador.",
+
+  "faq.q13": "O que é a Taxa de Proteção de Viagem (Flex Ticket)?",
+  "faq.a13": "<p>A <strong>Taxa de Proteção de Viagem</strong> é um add-on opcional disponível no momento da reserva online. Com esta opção ativa, pode <strong>remarcar ou cancelar</strong> a sua viagem até <strong>30 minutos antes da hora de partida</strong>, sem penalização no valor do bilhete.</p><p><strong>Importante:</strong> o valor desta taxa <strong>não é reembolsável em qualquer circunstância</strong> — a taxa protege o restante valor da sua reserva, mas não lhe é devolvida. Reservas sem esta opção estão sujeitas à política de cancelamento padrão (24h de antecedência; grupos: 48h).</p><p>Excepção: em caso de cancelamento por iniciativa da Viamar (por razões operacionais ou condições do mar), <strong>o valor total pago, incluindo a taxa, é integralmente reembolsado</strong>.</p><p>Dúvidas? <a href=\"tel:+351911001099\">911 001 099</a> | <a href=\"mailto:info@viamar.pt\">info@viamar.pt</a>.</p>",
+
+  "trip_protection.label": "Taxa de Proteção de Viagem",
+  "trip_protection.note": "Se adicionou a <strong>Taxa de Proteção de Viagem</strong> na reserva, pode remarcar ou cancelar a sua viagem até <strong>30 minutos antes da partida</strong>. <strong>Atenção: o valor desta taxa não é reembolsável.</strong>",
+  "trip_protection.faq_link": "Saber mais nas FAQ →"
 }

@@ -260,6 +260,44 @@
     }
     @media (max-width: 480px) { .ft-inner { grid-template-columns: 1fr; gap: 24px; } }
 
+    /* ── Trip Protection notice ── */
+    .trip-protect-note {
+      background: rgba(245,158,11,0.05);
+      border-top: 1px solid rgba(245,158,11,0.14);
+      border-bottom: 1px solid rgba(245,158,11,0.14);
+    }
+    .trip-protect-inner {
+      max-width: 1280px; margin: 0 auto; padding: 22px 40px;
+      display: flex; align-items: center; gap: 18px; flex-wrap: wrap;
+    }
+    .trip-protect-icon {
+      flex-shrink: 0; width: 38px; height: 38px;
+      background: rgba(245,158,11,0.12); border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      color: var(--gold);
+    }
+    .trip-protect-body { flex: 1; min-width: 200px; }
+    .trip-protect-label {
+      display: block; font-size: 11px; font-weight: 800;
+      text-transform: uppercase; letter-spacing: 0.1em;
+      color: var(--gold); margin-bottom: 4px;
+    }
+    .trip-protect-body p {
+      font-size: 13px; color: rgba(255,255,255,0.5); line-height: 1.65; margin: 0;
+    }
+    .trip-protect-body p strong { color: rgba(255,255,255,0.78); }
+    .trip-protect-link {
+      flex-shrink: 0; font-size: 12px; font-weight: 700;
+      color: var(--gold); text-decoration: none;
+      border: 1px solid rgba(245,158,11,0.35); padding: 8px 16px;
+      border-radius: 6px; white-space: nowrap; transition: background .2s;
+    }
+    .trip-protect-link:hover { background: rgba(245,158,11,0.1); }
+    @media (max-width: 600px) {
+      .trip-protect-inner { padding: 18px 20px; gap: 12px; }
+      .trip-protect-link { width: 100%; text-align: center; }
+    }
+
     /* ── Responsive ── */
     @media (max-width: 900px) {
       nav { padding: 0 16px; }
@@ -366,6 +404,20 @@
   <div class="packages-wrap">
     <div class="pkg-grid" id="pkgGrid">
       <!-- Rendered from data/products.json -->
+    </div>
+  </div>
+
+  <!-- Trip Protection notice -->
+  <div class="trip-protect-note">
+    <div class="trip-protect-inner">
+      <div class="trip-protect-icon" aria-hidden="true">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>
+      </div>
+      <div class="trip-protect-body">
+        <strong class="trip-protect-label" data-i18n="trip_protection.label">Taxa de Proteção de Viagem</strong>
+        <p data-i18n="trip_protection.note">Se adicionou a <strong>Taxa de Proteção de Viagem</strong> na reserva, pode remarcar ou cancelar a sua viagem até <strong>30 minutos antes da partida</strong>. <strong>Atenção: o valor desta taxa não é reembolsável.</strong></p>
+      </div>
+      <a href="/faqs.html#trip-protection" class="trip-protect-link" data-i18n="trip_protection.faq_link">Saber mais nas FAQ →</a>
     </div>
   </div>
 

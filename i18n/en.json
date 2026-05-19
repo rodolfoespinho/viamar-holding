@@ -152,7 +152,7 @@
   "faq.q1": "What should I bring for a trip to Berlenga Island?",
   "faq.a1": "The essentials: sunscreen, a hat, sunglasses and a water bottle to stay hydrated. Comfortable clothing, a light jacket (preferably waterproof), suitable footwear and a towel. A power bank is also handy since mobile coverage on the island is very weak or non-existent.",
   "faq.q2": "Can I cancel or change my booking?",
-  "faq.a2": "Yes! Please let us know at least 72 hours before boarding. Contact us by phone or email: 911 001 099 | <a href=\"mailto:info@viamar.pt\">info@viamar.pt</a>.",
+  "faq.a2": "Yes! Please let us know at least 24 hours before boarding (groups: 48h). Contact us by phone or email: 911 001 099 | <a href=\"mailto:info@viamar.pt\">info@viamar.pt</a>.",
   "faq.q3": "What can I do on Berlenga Island with my ferry ticket?",
   "faq.a3": "<ul><li>Hiking trails with stunning views;</li><li>Visit the historic Fort of São João Baptista;</li><li>Swim at the crystal-clear beach or have lunch at the island restaurant; snacks at Castelinho with panoramic views;</li><li>Birdwatching and flora exploration;</li><li>Optional add-ons: scuba diving, glass-bottom boat cave tour or snorkelling (see the \"tickets\" page).</li></ul>",
   "faq.q4": "Where is the VIAMAR boarding point for Berlenga Island?",
@@ -341,5 +341,12 @@
   "t.s8.p1": "It is strictly prohibited to litter, camp outside designated areas or disturb the island's fauna and flora. Non-compliance with these rules may result in exclusion from future trips with the company.",
   "t.s9.title": "Privacy & Cookies Policy",
   "t.s9.p1": "Personal data provided at the time of booking (name, contact details) will be used for operational purposes only and may be shared with authorities if legally required.",
-  "t.s9.p2": "The company's website uses cookies to optimise your online experience. Clients may adjust cookie settings in their browser preferences."
+  "t.s9.p2": "The company's website uses cookies to optimise your online experience. Clients may adjust cookie settings in their browser preferences.",
+
+  "faq.q13": "What is the Trip Protection Fee (Flex Ticket)?",
+  "faq.a13": "<p>The <strong>Trip Protection Fee</strong> is an optional add-on available at the time of online booking. With this option active, you can <strong>reschedule or cancel</strong> your trip up to <strong>30 minutes before departure</strong> without penalty on the ticket value.</p><p><strong>Important:</strong> this fee is <strong>non-refundable under any circumstances</strong> — it protects the remaining value of your booking but is not returned to you. Bookings without this option are subject to the standard cancellation policy (24h in advance; groups: 48h).</p><p>Exception: if the trip is cancelled by Viamar (due to operational issues or sea conditions), <strong>the full amount paid, including this fee, is fully refunded</strong>.</p><p>Questions? <a href=\"tel:+351911001099\">911 001 099</a> | <a href=\"mailto:info@viamar.pt\">info@viamar.pt</a>.</p>",
+
+  "trip_protection.label": "Trip Protection Fee",
+  "trip_protection.note": "If you added the <strong>Trip Protection Fee</strong> to your booking, you can reschedule or cancel your trip up to <strong>30 minutes before departure</strong>. <strong>Note: this fee is non-refundable.</strong>",
+  "trip_protection.faq_link": "Learn more in the FAQ →"
 }
