@@ -1,0 +1,13 @@
+{
+  "name": "viamar-holding",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Viamar Ferry Berlenga — static site with build-time i18n pre-rendering",
+  "scripts": {
+    "build": "node scripts/build-i18n.mjs",
+    "dev": "python3 -m http.server 8765"
+  },
+  "dependencies": {
+    "node-html-parser": "^6.1.13"
+  }
+}

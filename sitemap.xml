@@ -1,39 +1,267 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://viamar-berlenga.com/</loc>
-    <lastmod>2026-05-14</lastmod>
+    <lastmod>2026-05-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="pt-PT" href="https://viamar-berlenga.com/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://viamar-berlenga.com/en/" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://viamar-berlenga.com/es/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://viamar-berlenga.com/fr/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://viamar-berlenga.com/" />
   </url>
   <url>
-    <loc>https://viamar-berlenga.com/historia.html</loc>
-    <lastmod>2026-05-14</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://viamar-berlenga.com/en/</loc>
+    <lastmod>2026-05-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="pt-PT" href="https://viamar-berlenga.com/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://viamar-berlenga.com/en/" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://viamar-berlenga.com/es/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://viamar-berlenga.com/fr/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://viamar-berlenga.com/" />
   </url>
   <url>
-    <loc>https://viamar-berlenga.com/ilha.html</loc>
-    <lastmod>2026-05-14</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://viamar-berlenga.com/es/</loc>
+    <lastmod>2026-05-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="pt-PT" href="https://viamar-berlenga.com/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://viamar-berlenga.com/en/" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://viamar-berlenga.com/es/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://viamar-berlenga.com/fr/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://viamar-berlenga.com/" />
   </url>
   <url>
-    <loc>https://viamar-berlenga.com/faqs.html</loc>
-    <lastmod>2026-05-14</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <loc>https://viamar-berlenga.com/fr/</loc>
+    <lastmod>2026-05-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="pt-PT" href="https://viamar-berlenga.com/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://viamar-berlenga.com/en/" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://viamar-berlenga.com/es/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://viamar-berlenga.com/fr/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://viamar-berlenga.com/" />
   </url>
   <url>
     <loc>https://viamar-berlenga.com/pacotes.html</loc>
-    <lastmod>2026-04-17</lastmod>
+    <lastmod>2026-05-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="pt-PT" href="https://viamar-berlenga.com/pacotes.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://viamar-berlenga.com/en/pacotes.html" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://viamar-berlenga.com/es/pacotes.html" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://viamar-berlenga.com/fr/pacotes.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://viamar-berlenga.com/pacotes.html" />
+  </url>
+  <url>
+    <loc>https://viamar-berlenga.com/en/pacotes.html</loc>
+    <lastmod>2026-05-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="pt-PT" href="https://viamar-berlenga.com/pacotes.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://viamar-berlenga.com/en/pacotes.html" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://viamar-berlenga.com/es/pacotes.html" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://viamar-berlenga.com/fr/pacotes.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://viamar-berlenga.com/pacotes.html" />
+  </url>
+  <url>
+    <loc>https://viamar-berlenga.com/es/pacotes.html</loc>
+    <lastmod>2026-05-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="pt-PT" href="https://viamar-berlenga.com/pacotes.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://viamar-berlenga.com/en/pacotes.html" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://viamar-berlenga.com/es/pacotes.html" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://viamar-berlenga.com/fr/pacotes.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://viamar-berlenga.com/pacotes.html" />
+  </url>
+  <url>
+    <loc>https://viamar-berlenga.com/fr/pacotes.html</loc>
+    <lastmod>2026-05-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="pt-PT" href="https://viamar-berlenga.com/pacotes.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://viamar-berlenga.com/en/pacotes.html" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://viamar-berlenga.com/es/pacotes.html" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://viamar-berlenga.com/fr/pacotes.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://viamar-berlenga.com/pacotes.html" />
+  </url>
+  <url>
+    <loc>https://viamar-berlenga.com/historia.html</loc>
+    <lastmod>2026-05-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="pt-PT" href="https://viamar-berlenga.com/historia.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://viamar-berlenga.com/en/historia.html" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://viamar-berlenga.com/es/historia.html" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://viamar-berlenga.com/fr/historia.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://viamar-berlenga.com/historia.html" />
+  </url>
+  <url>
+    <loc>https://viamar-berlenga.com/en/historia.html</loc>
+    <lastmod>2026-05-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="pt-PT" href="https://viamar-berlenga.com/historia.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://viamar-berlenga.com/en/historia.html" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://viamar-berlenga.com/es/historia.html" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://viamar-berlenga.com/fr/historia.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://viamar-berlenga.com/historia.html" />
+  </url>
+  <url>
+    <loc>https://viamar-berlenga.com/es/historia.html</loc>
+    <lastmod>2026-05-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="pt-PT" href="https://viamar-berlenga.com/historia.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://viamar-berlenga.com/en/historia.html" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://viamar-berlenga.com/es/historia.html" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://viamar-berlenga.com/fr/historia.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://viamar-berlenga.com/historia.html" />
+  </url>
+  <url>
+    <loc>https://viamar-berlenga.com/fr/historia.html</loc>
+    <lastmod>2026-05-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="pt-PT" href="https://viamar-berlenga.com/historia.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://viamar-berlenga.com/en/historia.html" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://viamar-berlenga.com/es/historia.html" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://viamar-berlenga.com/fr/historia.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://viamar-berlenga.com/historia.html" />
+  </url>
+  <url>
+    <loc>https://viamar-berlenga.com/ilha.html</loc>
+    <lastmod>2026-05-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="pt-PT" href="https://viamar-berlenga.com/ilha.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://viamar-berlenga.com/en/ilha.html" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://viamar-berlenga.com/es/ilha.html" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://viamar-berlenga.com/fr/ilha.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://viamar-berlenga.com/ilha.html" />
+  </url>
+  <url>
+    <loc>https://viamar-berlenga.com/en/ilha.html</loc>
+    <lastmod>2026-05-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="pt-PT" href="https://viamar-berlenga.com/ilha.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://viamar-berlenga.com/en/ilha.html" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://viamar-berlenga.com/es/ilha.html" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://viamar-berlenga.com/fr/ilha.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://viamar-berlenga.com/ilha.html" />
+  </url>
+  <url>
+    <loc>https://viamar-berlenga.com/es/ilha.html</loc>
+    <lastmod>2026-05-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="pt-PT" href="https://viamar-berlenga.com/ilha.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://viamar-berlenga.com/en/ilha.html" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://viamar-berlenga.com/es/ilha.html" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://viamar-berlenga.com/fr/ilha.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://viamar-berlenga.com/ilha.html" />
+  </url>
+  <url>
+    <loc>https://viamar-berlenga.com/fr/ilha.html</loc>
+    <lastmod>2026-05-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="pt-PT" href="https://viamar-berlenga.com/ilha.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://viamar-berlenga.com/en/ilha.html" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://viamar-berlenga.com/es/ilha.html" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://viamar-berlenga.com/fr/ilha.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://viamar-berlenga.com/ilha.html" />
+  </url>
+  <url>
+    <loc>https://viamar-berlenga.com/faqs.html</loc>
+    <lastmod>2026-05-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="pt-PT" href="https://viamar-berlenga.com/faqs.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://viamar-berlenga.com/en/faqs.html" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://viamar-berlenga.com/es/faqs.html" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://viamar-berlenga.com/fr/faqs.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://viamar-berlenga.com/faqs.html" />
+  </url>
+  <url>
+    <loc>https://viamar-berlenga.com/en/faqs.html</loc>
+    <lastmod>2026-05-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="pt-PT" href="https://viamar-berlenga.com/faqs.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://viamar-berlenga.com/en/faqs.html" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://viamar-berlenga.com/es/faqs.html" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://viamar-berlenga.com/fr/faqs.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://viamar-berlenga.com/faqs.html" />
+  </url>
+  <url>
+    <loc>https://viamar-berlenga.com/es/faqs.html</loc>
+    <lastmod>2026-05-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="pt-PT" href="https://viamar-berlenga.com/faqs.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://viamar-berlenga.com/en/faqs.html" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://viamar-berlenga.com/es/faqs.html" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://viamar-berlenga.com/fr/faqs.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://viamar-berlenga.com/faqs.html" />
+  </url>
+  <url>
+    <loc>https://viamar-berlenga.com/fr/faqs.html</loc>
+    <lastmod>2026-05-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="pt-PT" href="https://viamar-berlenga.com/faqs.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://viamar-berlenga.com/en/faqs.html" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://viamar-berlenga.com/es/faqs.html" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://viamar-berlenga.com/fr/faqs.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://viamar-berlenga.com/faqs.html" />
   </url>
   <url>
     <loc>https://viamar-berlenga.com/termos.html</loc>
-    <lastmod>2026-04-17</lastmod>
+    <lastmod>2026-05-19</lastmod>
     <changefreq>yearly</changefreq>
-    <priority>0.3</priority>
+    <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="pt-PT" href="https://viamar-berlenga.com/termos.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://viamar-berlenga.com/en/termos.html" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://viamar-berlenga.com/es/termos.html" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://viamar-berlenga.com/fr/termos.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://viamar-berlenga.com/termos.html" />
+  </url>
+  <url>
+    <loc>https://viamar-berlenga.com/en/termos.html</loc>
+    <lastmod>2026-05-19</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="pt-PT" href="https://viamar-berlenga.com/termos.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://viamar-berlenga.com/en/termos.html" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://viamar-berlenga.com/es/termos.html" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://viamar-berlenga.com/fr/termos.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://viamar-berlenga.com/termos.html" />
+  </url>
+  <url>
+    <loc>https://viamar-berlenga.com/es/termos.html</loc>
+    <lastmod>2026-05-19</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="pt-PT" href="https://viamar-berlenga.com/termos.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://viamar-berlenga.com/en/termos.html" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://viamar-berlenga.com/es/termos.html" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://viamar-berlenga.com/fr/termos.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://viamar-berlenga.com/termos.html" />
+  </url>
+  <url>
+    <loc>https://viamar-berlenga.com/fr/termos.html</loc>
+    <lastmod>2026-05-19</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="pt-PT" href="https://viamar-berlenga.com/termos.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://viamar-berlenga.com/en/termos.html" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://viamar-berlenga.com/es/termos.html" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://viamar-berlenga.com/fr/termos.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://viamar-berlenga.com/termos.html" />
   </url>
 </urlset>

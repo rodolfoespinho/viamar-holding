@@ -1,6 +1,8 @@
 {
-  "_meta": { "lang": "es", "version": "2026-05-15" },
-
+  "_meta": {
+    "lang": "es",
+    "version": "2026-05-15"
+  },
   "nav_pack": "Billetes",
   "nav_hist": "Historia",
   "nav_island": "La Isla",
@@ -14,11 +16,9 @@
   "menu_terms": "Términos y Condiciones",
   "mm.book": "Reservar travesía",
   "cta_mm": "Reservar travesía",
-
   "ann_main": "¡Fines de semana de <strong>julio</strong> y <strong>agosto</strong> casi agotados!",
   "ann_season": "Temporada abre el 9 de mayo —",
   "ann_cta": "¡Reserva tu plaza!",
-
   "badge": "Patrimonio Mundial UNESCO",
   "construction_label": "Sitio web en construcción",
   "h1_line1": "Berlenga te espera.",
@@ -31,7 +31,6 @@
   "cta_book": "Reservar travesía",
   "cta_island": "Obtener BerlengasPass",
   "overlay_soon": "Próximamente",
-
   "card_title": "Reservar travesía",
   "card_sub": "Elige fecha · Confirma · Embarca",
   "avail_txt": "Disponible para reserva",
@@ -45,7 +44,6 @@
   "btn_confirm": "Confirmar reserva",
   "bc_footer": "Pago seguro · Cancelación gratuita 24h antes",
   "wa_text": "Habla con nosotros",
-
   "tb1t": "Operador Autorizado IMT",
   "tb1s": "Autoridad Marítima Nacional",
   "tb2t": "45 min de travesía",
@@ -54,11 +52,9 @@
   "tb3s": "Trip Protection",
   "tb4t": "Cancelación Gratuita",
   "tb4s": "Hasta 24h antes de la salida",
-
   "about.tag": "Sobre nosotros",
   "about.h2": "La travesía más antigua a Berlenga",
   "about.p1": "Viamar es el operador histórico de las travesías marítimas entre el Puerto de Peniche y la Isla Berlenga, con más de 60 años de experiencia transportando familias y aventureros a la reserva natural más protegida del litoral portugués. A bordo del <em>Cabo Avelar Pessoa</em> — el mayor barco de la ruta, con capacidad para 180 pasajeros — la travesía dura entre 40 y 45 minutos y ofrece vistas únicas sobre la Costa Oeste de Portugal.",
-
   "isl_pill": "Reserva Natural",
   "isl_h2": "Una isla que <em>no se olvida</em>",
   "isl_desc": "Berlenga es la única isla habitada del archipiélago — Reserva de la Biosfera UNESCO desde 1984. Aguas turquesas, acantilados dramáticos, cuevas marinas y una biodiversidad única en Portugal.",
@@ -67,13 +63,11 @@
   "isl_f3": "Reserva de la Biosfera",
   "isl_f4": "Fortaleza histórica",
   "isl_cta": "Reservar →",
-
   "gal1": "Faro de Peniche",
   "gal2": "Vista panorámica",
   "gal3": "A bordo",
   "gal4": "Salida de Peniche",
   "gal5": "Playa de Berlenga",
-
   "gb1": "Cabo Carvoeiro, Peniche",
   "gb2": "Vista aérea de la isla",
   "gb3": "Ferry Viamar",
@@ -83,16 +77,13 @@
   "gb7": "Playa de Berlenga",
   "gb8": "Fortaleza de São João Baptista",
   "gb9": "SUP en las Furnas",
-
   "seo.h1": "Ferry Peniche — <span>Isla Berlenga</span>",
   "seo.p1": "Viamar es el operador histórico de las travesías marítimas entre el Puerto de Peniche y la Isla Berlenga, con más de 60 años de experiencia transportando familias y aventureros a la reserva natural más protegida del litoral portugués. A bordo del <em>Cabo Avelar Pessoa</em> — el mayor barco de la ruta, con capacidad para 180 pasajeros — la travesía dura entre 40 y 45 minutos y ofrece vistas únicas sobre la Costa Oeste de Portugal.",
   "seo.p2": "La Isla Berlenga es Reserva de la Biosfera UNESCO desde 1984, reconocida por su biodiversidad marina excepcional, acantilados dramáticos y aguas atlánticas de una transparencia poco común. Con apenas 1 km² de superficie terrestre, la isla alberga playas aisladas, grutas marinas, la histórica Fortaleza de São João Baptista (construida en 1509) y una vida salvaje única en Europa. La visita típica dura entre 4 y 6 horas — tiempo suficiente para bañarse, explorar las cuevas y sentir el aislamiento atlántico que hace de Berlenga un destino verdaderamente singular.",
   "seo.p3": "Con una valoración de 4.5 estrellas en más de 706 reseñas verificadas en Google, licencia IMT (Instituto de la Movilidad y los Transportes de Portugal) y más de 25 000 pasajeros transportados al año, Viamar es la elección de confianza para visitar la Isla Berlenga. Todos los billetes incluyen cancelación gratuita hasta 24 horas antes de la salida. La temporada 2026 abre el <strong>9 de mayo</strong> — los fines de semana de julio y agosto se agotan rápidamente. Reserva con antelación para asegurar tu plaza.",
-
   "pkg.tag": "¿Qué quieres hacer?",
   "pkg.h2": "Elige tu experiencia",
   "pkg.sub": "Desde una travesía simple hasta actividades en la isla — tenemos algo para cada aventurero.",
-
   "pkg_tag": "Travesías & Experiencias",
   "pkg_h1": "Elige tu experiencia",
   "pkg_sub": "Desde una travesía simple hasta actividades en la isla — tenemos algo para cada aventurero.",
@@ -103,13 +94,11 @@
   "pkg.book_arrow": "Reservar ahora →",
   "pkg.soon": "Próximamente",
   "pkg.load_error": "No se pudieron cargar los paquetes. Vuelve a cargar la página.",
-
   "rev.tag": "Opiniones reales",
   "rev.h2": "Lo que dicen nuestros pasajeros",
   "rev.sub": "Más de 700 opiniones verificadas en Google. Escritas por familias, parejas y grupos que cruzaron con nosotros.",
   "r_label": "706 opiniones verificadas",
   "r_google": "Google Reviews · Verificado",
-
   "rev1.text": "\"Una experiencia para toda la vida. El equipo es súper profesional, y la travesía en sí ya es una aventura. Llegamos a la isla completamente enamorados — las grutas son impresionantes.\"",
   "rev1.org": "Lisboa",
   "rev1.date": "Agosto 2024",
@@ -120,13 +109,11 @@
   "rev3.text": "\"Vinimos desde Alemania específicamente para visitar la Isla Berlenga. Viamar hizo toda la experiencia impecable — reserva fácil, puntualidad, tripulación atenta. ¡La mejor excursión de Portugal!\"",
   "rev3.org": "Alemania",
   "rev3.date": "Junio 2024",
-
   "bw.island": "Visita a la Isla",
   "bw.oneway": "Solo Ida",
   "bw.return_trip": "Regreso",
   "bw.date": "Fecha del viaje",
   "bw.departure_time": "Horario de salida",
-
   "sched.tag": "Horarios 2026",
   "sched.h2": "Salidas regulares desde Peniche",
   "sched.sub": "Los fines de semana de verano se agotan semanas antes. Reserva con antelación.",
@@ -140,13 +127,11 @@
   "sched.daily": "Todos los días",
   "sched.weekday_row": "Días de semana<span>Lun — Vie</span>",
   "sched.weekend_row": "Fin de semana<span>Sáb + Dom</span>",
-
   "dep.tag": "Punto de salida",
   "dep.h2": "Salimos desde Peniche, ciudad frente al mar",
   "dep.desc": "El Cais da Ribeira de Peniche es el punto de embarque para todas las travesías. Llega 20 minutos antes de la salida. Hay aparcamiento disponible en las inmediaciones.",
   "dep.addr": "Cais da Ribeira, Peniche — 39°35′N 9°22′O",
   "dep.book": "Reservar travesía →",
-
   "faq.tag": "Preguntas Frecuentes",
   "faq.h2": "Todo lo que necesitas saber",
   "faq.q1": "¿Qué debo llevar para un viaje a la Isla Berlenga?",
@@ -173,12 +158,10 @@
   "faq.a11": "Sí, la embarcación dispone de 2 aseos a bordo — sencillos y funcionales. La tripulación se asegura de mantenerlos limpios.",
   "faq.q12": "¿Es seguro viajar con niños pequeños o pasajeros mayores?",
   "faq.a12": "Sí, y nuestra embarcación es una de las preferidas por familias y personas mayores. El barco fue diseñado específicamente para este trayecto con la seguridad y el confort como prioridades. Los niños deben ir siempre acompañados de un adulto responsable. Los pasajeros que necesiten asistencia especial pueden informarnos con antelación.",
-
   "ck_title": "Privacidad y Cookies",
   "ck_txt": "Utilizamos cookies esenciales para el funcionamiento del sitio y cookies analíticas para mejorar la experiencia. Consulta nuestra <a href=\"/termos.html\">política de privacidad</a>.",
   "ck_accept": "Aceptar todo",
   "ck_reject": "Solo esenciales",
-
   "ft.tagline": "Travesías marítimas entre Peniche y la Isla Berlenga desde 1958. Operador autorizado IMT.",
   "ft.nav_label": "Navegación",
   "ft.contact_label": "Contacto",
@@ -193,7 +176,6 @@
   "ft_copy": "© 2026 Viamar. Todos los derechos reservados. · Powered by <a href=\"https://atlas-web.pt\" target=\"_blank\" rel=\"noopener\" class=\"ft-atlas\">ATLAS</a>",
   "f_copy": "© 2026 Viamar — Travesías a la Isla Berlenga · Peniche",
   "f_back": "← Volver al inicio",
-
   "historia.hero_eyebrow": "Peniche · Berlenga · Desde 1958",
   "historia.hero_h1": "Una historia<span class=\"em\">del mar.</span>",
   "historia.hero_sub": "Más de seis décadas uniendo el puerto con el horizonte.<br>Una herencia que se cuenta en travesías, no en años.",
@@ -233,7 +215,6 @@
   "cap8": "La ruta — ángulos de la travesía",
   "cap9": "Memoria de la travesía",
   "closing_q": "\"El mar no tiene memoria.<br>Nosotros guardamos la nuestra.\"",
-
   "ilha.tag": "La Isla Berlenga",
   "ilha.h1": "Un mundo aparte,<br>a 45 minutos de Peniche",
   "ilha.sub": "Reserva de la Biosfera UNESCO. Aguas turquesas, acantilados dramáticos, grutas marinas y una biodiversidad única en Portugal.",
@@ -301,7 +282,6 @@
   "ilha.cta.h2": "Reserva tu travesía<br>a Berlenga",
   "ilha.cta.sub": "Aforo limitado. Temporada de mayo a septiembre. Reserva con antelación para asegurar tu plaza.",
   "ilha.cta.btn": "Reservar ahora →",
-
   "t.tag": "Términos y Condiciones",
   "t.h1": "Lo que necesitas saber antes de viajar",
   "t.legal_notice": "Versión oficial en portugués. Las traducciones son únicamente informativas — en caso de divergencia, prevalece la versión portuguesa.",
@@ -342,11 +322,33 @@
   "t.s9.title": "Política de Privacidad y Cookies",
   "t.s9.p1": "Los datos personales proporcionados en el momento de la reserva (nombre, datos de contacto) se utilizarán únicamente con fines operativos y podrán ser compartidos con las autoridades si es legalmente requerido.",
   "t.s9.p2": "El sitio web de la empresa utiliza cookies para optimizar tu experiencia online. Los clientes pueden ajustar la configuración de cookies en las preferencias de su navegador.",
-
   "faq.q13": "¿Qué es la Tasa de Protección de Viaje (Flex Ticket)?",
   "faq.a13": "<p>La <strong>Tasa de Protección de Viaje</strong> es un complemento opcional disponible en el momento de la reserva online. Con esta opción activa, puedes <strong>reprogramar o cancelar</strong> tu viaje hasta <strong>30 minutos antes de la salida</strong>, sin penalización sobre el valor del billete.</p><p><strong>Importante:</strong> el importe de esta tasa <strong>no es reembolsable bajo ninguna circunstancia</strong> — protege el valor restante de tu reserva, pero no te es devuelta. Las reservas sin esta opción están sujetas a la política de cancelación estándar (24h de antelación; grupos: 48h).</p><p>Excepción: si el viaje es cancelado por Viamar (por razones operativas o condiciones del mar), <strong>el importe total pagado, incluida la tasa, es íntegramente reembolsado</strong>.</p><p>¿Dudas? <a href=\"tel:+351911001099\">911 001 099</a> | <a href=\"mailto:info@viamar.pt\">info@viamar.pt</a>.</p>",
-
   "trip_protection.label": "Tasa de Protección de Viaje",
   "trip_protection.note": "Si añadiste la <strong>Tasa de Protección de Viaje</strong> en tu reserva, puedes reprogramar o cancelar tu viaje hasta <strong>30 minutos antes de la salida</strong>. <strong>Nota: el importe de esta tasa no es reembolsable.</strong>",
-  "trip_protection.faq_link": "Más información en las FAQ →"
+  "trip_protection.faq_link": "Más información en las FAQ →",
+  "meta.index.title": "Viamar | Ferry a la Isla Berlenga — Reservas Online 2026",
+  "meta.index.description": "Viamar es el operador histórico de las travesías marítimas entre Peniche y la Isla Berlenga, con más de 60 años en el mar. Reserva online — ida y vuelta desde €17,90. La temporada 2026 abre el 9 de mayo.",
+  "meta.index.og_title": "Viamar — Ferry a la Isla Berlenga | Reservas Online",
+  "meta.index.og_description": "Reserva tu travesía a la Isla Berlenga. Salidas diarias desde Peniche. Ida y vuelta desde €17,90. La temporada 2026 abre el 9 de mayo — plazas limitadas.",
+  "meta.pacotes.title": "Billetes | Viamar Ferry Berlenga — Travesías y Experiencias",
+  "meta.pacotes.description": "Billetes de ferry y experiencias en la Isla Berlenga — ida y vuelta desde €17,90. Elige tu experiencia con Viamar.",
+  "meta.pacotes.og_title": "Billetes Viamar — Travesías y Experiencias en Berlenga",
+  "meta.pacotes.og_description": "Billetes de ferry y experiencias en la Isla Berlenga desde €17,90.",
+  "meta.historia.title": "Nuestra Historia — Viamar Ferry Berlenga | Más de 60 Años en el Mar",
+  "meta.historia.description": "Desde 1958, Viamar conecta Peniche con la Isla Berlenga. Más de 60 años de travesías, embarcaciones históricas y amor por el mar. Descubre nuestra historia.",
+  "meta.historia.og_title": "Nuestra Historia — Viamar | Más de 60 Años Conectando Peniche y Berlenga",
+  "meta.historia.og_description": "Desde 1958, Viamar realiza la travesía entre Peniche y la Isla Berlenga. Conoce las embarcaciones, las familias y las historias de más de seis décadas en el mar.",
+  "meta.ilha.title": "La Isla Berlenga | Viamar Ferry Berlenga",
+  "meta.ilha.description": "Todo sobre la Isla Berlenga: cómo llegar a Peniche, alojamiento en la isla, restaurante y snack bar, código de conducta de la Reserva Natural.",
+  "meta.ilha.og_title": "La Isla Berlenga | Viamar Ferry Berlenga",
+  "meta.ilha.og_description": "Todo sobre la Isla Berlenga: cómo llegar, alojamiento, restauración y código de conducta de la Reserva Natural.",
+  "meta.faqs.title": "FAQ — Preguntas Frecuentes | Viamar Ferry Berlenga",
+  "meta.faqs.description": "Respuestas a las preguntas más frecuentes sobre las travesías de Viamar a la Isla Berlenga: billetes, equipaje, pagos, embarque y normas de la Reserva Natural.",
+  "meta.faqs.og_title": "FAQ — Preguntas Frecuentes | Viamar Ferry Berlenga",
+  "meta.faqs.og_description": "Respuestas a las preguntas más frecuentes sobre las travesías de Viamar a la Isla Berlenga.",
+  "meta.termos.title": "Términos y Condiciones | Viamar Ferry Berlenga",
+  "meta.termos.description": "Términos y Condiciones de las travesías Viamar a la Isla Berlenga: cancelaciones, reembolsos, embarque, seguridad, pago y política de privacidad.",
+  "meta.termos.og_title": "Términos y Condiciones | Viamar Ferry Berlenga",
+  "meta.termos.og_description": "Términos y Condiciones de las travesías Viamar a la Isla Berlenga."
 }
