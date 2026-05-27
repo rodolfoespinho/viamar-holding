@@ -1133,8 +1133,22 @@
     .r-stars { color: var(--gold); font-size: 18px; letter-spacing: 2px; }
     .r-label { font-size: 12px; color: rgba(255,255,255,0.4); margin-top: 4px; }
     .r-google { display: flex; align-items: center; gap: 5px; font-size: 11.5px; color: rgba(255,255,255,0.35); margin-top: 8px; }
-    .reviews-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 18px; }
-    .rev-card { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 22px; transition: background .2s, border-color .2s; }
+    .reviews-carousel { position: relative; }
+    .reviews-grid {
+      display: grid; grid-auto-flow: column;
+      grid-auto-columns: calc((100% - 36px) / 3);
+      gap: 18px;
+      overflow-x: auto; overflow-y: hidden;
+      scroll-snap-type: x mandatory; scroll-behavior: smooth;
+      scrollbar-width: none; -ms-overflow-style: none;
+      padding-bottom: 4px;
+    }
+    .reviews-grid::-webkit-scrollbar { display: none; }
+    .rev-card {
+      background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 12px; padding: 22px; transition: background .2s, border-color .2s;
+      scroll-snap-align: start; min-width: 0;
+    }
     .rev-card:hover { background: rgba(255,255,255,0.07); border-color: rgba(255,255,255,0.15); }
     .rev-stars { color: var(--gold); font-size: 14px; margin-bottom: 12px; }
     .rev-text { font-size: 14px; color: rgba(255,255,255,0.7); line-height: 1.7; margin-bottom: 16px; font-style: italic; }
@@ -1143,6 +1157,44 @@
     .rev-name { font-size: 13.5px; font-weight: 700; color: #fff; }
     .rev-org { font-size: 11.5px; color: rgba(255,255,255,0.35); }
     .rev-date { font-size: 11px; color: rgba(255,255,255,0.25); margin-top: 2px; }
+
+    /* Carousel arrows */
+    .rev-nav {
+      position: absolute; top: 50%; transform: translateY(-50%);
+      width: 44px; height: 44px; border-radius: 50%;
+      background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.18);
+      color: #fff; cursor: pointer; z-index: 5;
+      display: flex; align-items: center; justify-content: center;
+      transition: background .15s, border-color .15s, opacity .15s, transform .15s;
+      backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px);
+    }
+    .rev-nav:hover { background: rgba(255,255,255,0.16); border-color: rgba(255,255,255,0.32); }
+    .rev-nav:focus-visible { outline: 2px solid var(--aqua); outline-offset: 2px; }
+    .rev-nav--prev { left: -22px; }
+    .rev-nav--next { right: -22px; }
+    .rev-nav[disabled] { opacity: 0; pointer-events: none; }
+    .reviews-dots {
+      display: flex; justify-content: center; gap: 8px;
+      margin-top: 20px;
+    }
+    .reviews-dots .dot {
+      width: 8px; height: 8px; border-radius: 50%;
+      background: rgba(255,255,255,0.18);
+      transition: background .15s, width .2s;
+    }
+    .reviews-dots .dot.active { background: var(--aqua); width: 22px; border-radius: 4px; }
+
+    @media (max-width: 960px) {
+      .reviews-grid { grid-auto-columns: calc((100% - 18px) / 2); }
+      .rev-nav--prev { left: -8px; }
+      .rev-nav--next { right: -8px; }
+    }
+    @media (max-width: 640px) {
+      .reviews-grid { grid-auto-columns: 100%; gap: 14px; }
+      .rev-nav { width: 38px; height: 38px; }
+      .rev-nav--prev { left: 0; }
+      .rev-nav--next { right: 0; }
+    }
 
     /* ─── SCHEDULES ─── */
     .sched-sec { background: var(--off); }
@@ -1227,7 +1279,6 @@
     @media (max-width: 960px) {
       .sec { padding: 56px 20px; }
       .pkg-grid { grid-template-columns: 1fr; }
-      .reviews-grid { grid-template-columns: 1fr; }
       .reviews-top { flex-direction: column; }
       .sched-grid { grid-template-columns: 1fr; }
       .pkg-grid .pkg-card:nth-child(4),
@@ -1276,6 +1327,20 @@
       .cookie-accept, .cookie-reject { flex: 1; }
     }
   </style>
+
+  
+  
+  
+  
+  
+  
+
+  
+  
+  
+  
+  
+  
 
   
   
@@ -1602,43 +1667,88 @@
           </div>
         </div>
       </div>
-      <div class="reviews-grid">
-        <div class="rev-card">
-          <div class="rev-stars">★★★★★</div>
-          <div class="rev-text" data-i18n="rev1.text">"Experiência que fica para a vida. A equipa é super profissional, a travessia em si já é uma aventura. Chegámos à ilha completamente apaixonados — as grutas são de tirar o fôlego."</div>
-          <div class="rev-author">
-            <div class="rev-av" style="background:#3b82f6">M</div>
-            <div>
-              <div class="rev-name">Mariana Ferreira</div>
-              <div class="rev-org" data-i18n="rev1.org">Lisboa</div>
-              <div class="rev-date" data-i18n="rev1.date">Agosto 2024</div>
+      <div class="reviews-carousel">
+        <button type="button" class="rev-nav rev-nav--prev" id="rev-prev" aria-label="Avaliação anterior" data-i18n-attr="rev.prev:aria-label">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+        </button>
+        <button type="button" class="rev-nav rev-nav--next" id="rev-next" aria-label="Próxima avaliação" data-i18n-attr="rev.next:aria-label">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+        </button>
+        <div class="reviews-grid" id="reviews-track">
+          <div class="rev-card">
+            <div class="rev-stars">★★★★★</div>
+            <div class="rev-text" data-i18n="rev1.text">"Experiência que fica para a vida. A equipa é super profissional, a travessia em si já é uma aventura. Chegámos à ilha completamente apaixonados — as grutas são de tirar o fôlego."</div>
+            <div class="rev-author">
+              <div class="rev-av" style="background:#3b82f6">M</div>
+              <div>
+                <div class="rev-name">Mariana Ferreira</div>
+                <div class="rev-org" data-i18n="rev1.org">Lisboa</div>
+                <div class="rev-date" data-i18n="rev1.date">Agosto 2024</div>
+              </div>
+            </div>
+          </div>
+          <div class="rev-card">
+            <div class="rev-stars">★★★★★</div>
+            <div class="rev-text" data-i18n="rev2.text">"Fomos com 3 crianças pequenas e foi perfeito. Organização impecável, o barco é seguro e confortável. As crianças adoraram. Já estamos a planear voltar no próximo verão!"</div>
+            <div class="rev-author">
+              <div class="rev-av" style="background:#8b5cf6">R</div>
+              <div>
+                <div class="rev-name" data-i18n="rev2.name">Ricardo & Família</div>
+                <div class="rev-org" data-i18n="rev2.org">Porto</div>
+                <div class="rev-date" data-i18n="rev2.date">Julho 2024</div>
+              </div>
+            </div>
+          </div>
+          <div class="rev-card">
+            <div class="rev-stars">★★★★★</div>
+            <div class="rev-text" data-i18n="rev3.text">"Viemos da Alemanha especificamente para visitar a Ilha da Berlenga. A Viamar tornou toda a experiência impecável — reserva fácil, pontualidade, tripulação atenciosa. Melhor dia de Portugal!"</div>
+            <div class="rev-author">
+              <div class="rev-av" style="background:#10b981">K</div>
+              <div>
+                <div class="rev-name">Klaus Wagner</div>
+                <div class="rev-org" data-i18n="rev3.org">Alemanha</div>
+                <div class="rev-date" data-i18n="rev3.date">Junho 2024</div>
+              </div>
+            </div>
+          </div>
+          <div class="rev-card">
+            <div class="rev-stars">★★★★★</div>
+            <div class="rev-text" data-i18n="rev4.text">"Levámos os avós e foi a melhor decisão. O barco é estável, o capitão muito atento e a ilha é um sonho. A organização da Viamar marca a diferença — vê-se a experiência de quem opera há décadas."</div>
+            <div class="rev-author">
+              <div class="rev-av" style="background:#ec4899">C</div>
+              <div>
+                <div class="rev-name">Carla &amp; Diego</div>
+                <div class="rev-org" data-i18n="rev4.org">Madrid</div>
+                <div class="rev-date" data-i18n="rev4.date">Setembro 2024</div>
+              </div>
+            </div>
+          </div>
+          <div class="rev-card">
+            <div class="rev-stars">★★★★★</div>
+            <div class="rev-text" data-i18n="rev5.text">"Reservei pelo site, sem complicações. Barco à hora, tripulação simpática, travessia tranquila apesar do vento. A Berlenga é irreal — como um canto escondido do Mediterrâneo de que ninguém fala. Vale bem a viagem desde Lisboa."</div>
+            <div class="rev-author">
+              <div class="rev-av" style="background:#f59e0b">J</div>
+              <div>
+                <div class="rev-name">James &amp; Olivia</div>
+                <div class="rev-org" data-i18n="rev5.org">Reino Unido</div>
+                <div class="rev-date" data-i18n="rev5.date">Julho 2024</div>
+              </div>
+            </div>
+          </div>
+          <div class="rev-card">
+            <div class="rev-stars">★★★★★</div>
+            <div class="rev-text" data-i18n="rev6.text">"Fui com amigos no fim-de-semana e foi top. Reservámos online dois dias antes (no verão pode ser preciso antecedência). Travessia tranquila, e na ilha mergulhámos com peixe à volta — incrível. Vou repetir!"</div>
+            <div class="rev-author">
+              <div class="rev-av" style="background:#06b6d4">S</div>
+              <div>
+                <div class="rev-name">Sofia</div>
+                <div class="rev-org" data-i18n="rev6.org">Coimbra</div>
+                <div class="rev-date" data-i18n="rev6.date">Junho 2024</div>
+              </div>
             </div>
           </div>
         </div>
-        <div class="rev-card">
-          <div class="rev-stars">★★★★★</div>
-          <div class="rev-text" data-i18n="rev2.text">"Fomos com 3 crianças pequenas e foi perfeito. Organização impecável, o barco é seguro e confortável. As crianças adoraram. Já estamos a planear voltar no próximo verão!"</div>
-          <div class="rev-author">
-            <div class="rev-av" style="background:#8b5cf6">R</div>
-            <div>
-              <div class="rev-name" data-i18n="rev2.name">Ricardo & Família</div>
-              <div class="rev-org" data-i18n="rev2.org">Porto</div>
-              <div class="rev-date" data-i18n="rev2.date">Julho 2024</div>
-            </div>
-          </div>
-        </div>
-        <div class="rev-card">
-          <div class="rev-stars">★★★★★</div>
-          <div class="rev-text" data-i18n="rev3.text">"We came from Germany specifically to visit Berlenga Island. Viamar made the whole experience seamless — easy booking, punctual, knowledgeable crew. Best day trip in Portugal!"</div>
-          <div class="rev-author">
-            <div class="rev-av" style="background:#10b981">K</div>
-            <div>
-              <div class="rev-name">Klaus Wagner</div>
-              <div class="rev-org" data-i18n="rev3.org">Alemanha</div>
-              <div class="rev-date" data-i18n="rev3.date">Junho 2024</div>
-            </div>
-          </div>
-        </div>
+        <div class="reviews-dots" id="reviews-dots" aria-hidden="true"></div>
       </div>
     </div>
   </section>
@@ -2578,6 +2688,75 @@
   </script>
 
   
+  
+  <script>
+    (function () {
+      var track = document.getElementById('reviews-track');
+      var prev = document.getElementById('rev-prev');
+      var next = document.getElementById('rev-next');
+      var dotsWrap = document.getElementById('reviews-dots');
+      if (!track || !prev || !next) return;
+      var cards = track.querySelectorAll('.rev-card');
+      var total = cards.length;
+
+      function visibleCount() {
+        var w = window.innerWidth;
+        if (w <= 640) return 1;
+        if (w <= 960) return 2;
+        return 3;
+      }
+      function pageCount() { return Math.max(1, total - visibleCount() + 1); }
+      function stepPx() {
+        if (cards.length < 2) return track.clientWidth;
+        return cards[1].getBoundingClientRect().left - cards[0].getBoundingClientRect().left;
+      }
+      function currentIndex() {
+        var s = stepPx();
+        if (!s) return 0;
+        return Math.round(track.scrollLeft / s);
+      }
+      function renderDots() {
+        if (!dotsWrap) return;
+        var pages = pageCount();
+        dotsWrap.innerHTML = '';
+        for (var i = 0; i < pages; i++) {
+          var d = document.createElement('span');
+          d.className = 'dot';
+          dotsWrap.appendChild(d);
+        }
+        updateDots();
+      }
+      function updateDots() {
+        if (!dotsWrap) return;
+        var idx = currentIndex();
+        dotsWrap.querySelectorAll('.dot').forEach(function (d, i) {
+          d.classList.toggle('active', i === idx);
+        });
+      }
+      function updateArrows() {
+        var idx = currentIndex();
+        var max = pageCount() - 1;
+        prev.disabled = idx <= 0;
+        next.disabled = idx >= max;
+      }
+      prev.addEventListener('click', function () { track.scrollBy({ left: -stepPx(), behavior: 'smooth' }); });
+      next.addEventListener('click', function () { track.scrollBy({ left:  stepPx(), behavior: 'smooth' }); });
+
+      var raf;
+      track.addEventListener('scroll', function () {
+        cancelAnimationFrame(raf);
+        raf = requestAnimationFrame(function () { updateDots(); updateArrows(); });
+      });
+      var resizeT;
+      window.addEventListener('resize', function () {
+        clearTimeout(resizeT);
+        resizeT = setTimeout(function () { renderDots(); updateArrows(); }, 120);
+      });
+      renderDots();
+      updateArrows();
+    })();
+  </script>
+
   <dialog id="flex-modal" class="flex-modal" aria-labelledby="flex-modal-title">
     <div class="flex-modal-head">
       <span class="flex-modal-icon" aria-hidden="true">

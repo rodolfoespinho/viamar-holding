@@ -352,6 +352,41 @@
   
 
   
+  
+  
+  
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
   <link rel="alternate" hreflang="pt-PT" href="https://viamar-berlenga.com/pacotes.html" >
   <link rel="alternate" hreflang="en" href="https://viamar-berlenga.com/en/pacotes.html" >
   <link rel="alternate" hreflang="es" href="https://viamar-berlenga.com/es/pacotes.html" >
@@ -607,7 +642,9 @@
           const cardClass = item.featured ? 'pkg-card featured'
             : item.coming_soon ? (hasPrice ? 'pkg-card coming-soon has-price' : 'pkg-card coming-soon')
             : 'pkg-card';
-          const btnText  = tx('pkg.book', 'Book now');
+          const btnText  = item.cta_key
+            ? tx(item.cta_key, tx('pkg.book', 'Book now'))
+            : tx('pkg.book', 'Book now');
           const soonText = tx('pkg.soon', 'Coming Soon');
           const itemUrl  = bookingFor(item);
           const priceUnit = item.price_child
@@ -646,7 +683,7 @@
   </div>
 </div>`;
         }).join('');
-        lucide.createIcons();
+        if (window.lucide && typeof window.lucide.createIcons === 'function') window.lucide.createIcons();
       } catch(e) {
         grid.innerHTML = '<p style="color:rgba(255,255,255,0.4);padding:24px 0">' + tx('pkg.load_error', 'Could not load packages.') + '</p>';
       }
