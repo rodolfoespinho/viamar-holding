@@ -129,6 +129,7 @@
   "sched.legend_high": "High Season — 2 departures/day",
   "sched.note": "Times shown are departure times. The crossing takes approximately 45 minutes.",
   "isl_cta": "View our packages →",
+  "flex_close": "Close",
   "sched.daily": "Every day",
   "sched.weekday_row": "Weekdays<span>Mon — Fri</span>",
   "sched.weekend_row": "Weekend<span>Sat + Sun</span>",
