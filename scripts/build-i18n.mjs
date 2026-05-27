@@ -95,6 +95,72 @@ function rewriteInternalLinks(root, lang) {
   });
 }
 
+// Rewrite relative asset paths to root-absolute so /en/, /es/, /fr/ pages
+// resolve correctly. Only touches paths that are NOT already absolute, not a
+// URL, not protocol-relative, not anchor/data/mailto/tel.
+function isRelativePath(p) {
+  if (!p) return false;
+  if (/^(https?:|\/\/|data:|mailto:|tel:|whatsapp:|#|\/)/i.test(p)) return false;
+  return true;
+}
+function absolutize(p) {
+  return '/' + p.replace(/^\.?\/+/, '');
+}
+function rewriteAssetPaths(root, lang) {
+  if (lang === 'pt') return;
+  // src on <img>, <source>, <video>, <audio>, <iframe>, <script>, <embed>
+  root.querySelectorAll('[src]').forEach(el => {
+    const v = el.getAttribute('src');
+    if (isRelativePath(v)) el.setAttribute('src', absolutize(v));
+  });
+  // poster on <video>
+  root.querySelectorAll('[poster]').forEach(el => {
+    const v = el.getAttribute('poster');
+    if (isRelativePath(v)) el.setAttribute('poster', absolutize(v));
+  });
+  // srcset (comma-separated list of "url descriptor")
+  root.querySelectorAll('[srcset]').forEach(el => {
+    const v = el.getAttribute('srcset');
+    if (!v) return;
+    const next = v.split(',').map(part => {
+      const trimmed = part.trim();
+      const sp = trimmed.indexOf(' ');
+      const url = sp === -1 ? trimmed : trimmed.slice(0, sp);
+      const rest = sp === -1 ? '' : trimmed.slice(sp);
+      return (isRelativePath(url) ? absolutize(url) : url) + rest;
+    }).join(', ');
+    el.setAttribute('srcset', next);
+  });
+  // <link href> for non-alternate stylesheet/icon/preload
+  root.querySelectorAll('link[href]').forEach(el => {
+    const rel = (el.getAttribute('rel') || '').toLowerCase();
+    if (rel.includes('alternate') || rel.includes('canonical')) return;
+    const v = el.getAttribute('href');
+    if (isRelativePath(v)) el.setAttribute('href', absolutize(v));
+  });
+  // data-img used by JS galleries
+  root.querySelectorAll('[data-img]').forEach(el => {
+    const v = el.getAttribute('data-img');
+    if (isRelativePath(v)) el.setAttribute('data-img', absolutize(v));
+  });
+  // Inline style="...url(...)..." on any element
+  root.querySelectorAll('[style]').forEach(el => {
+    const v = el.getAttribute('style');
+    if (!v || !v.includes('url(')) return;
+    const next = v.replace(/url\((['"]?)([^'")]+)\1\)/g, (m, q, u) =>
+      isRelativePath(u) ? `url(${q}${absolutize(u)}${q})` : m);
+    if (next !== v) el.setAttribute('style', next);
+  });
+  // <style> blocks (CSS inside <head>) — rewrite url(...) too
+  root.querySelectorAll('style').forEach(el => {
+    const css = el.innerHTML;
+    if (!css || !css.includes('url(')) return;
+    const next = css.replace(/url\((['"]?)([^'")]+)\1\)/g, (m, q, u) =>
+      isRelativePath(u) ? `url(${q}${absolutize(u)}${q})` : m);
+    if (next !== css) el.set_content(next);
+  });
+}
+
 function updateFareHarborUrls(root, lang) {
   const fhLang = FH_LANG[lang] || 'en-us';
   // Update <a href> with fareharbor.com (booking links)
@@ -215,6 +281,10 @@ async function buildForLang(page, lang) {
 
   // 4. Update FareHarbor URLs (both <a> and the calendar <script>)
   updateFareHarborUrls(root, lang);
+
+  // 5. Absolutize relative asset paths so /en/, /es/, /fr/ resolve images,
+  //    videos, posters, srcset, style url(...) and data-img to the root.
+  rewriteAssetPaths(root, lang);
 
   // 5. Output
   const outDir = join(ROOT, lang);

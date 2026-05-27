@@ -80,7 +80,7 @@
         "name": "Viamar Ferry Berlenga",
         "legalName": "Viamar",
         "url": "https://viamar-berlenga.com",
-        "logo": { "@type": "ImageObject", "url": "https://viamar-berlenga.com/img/logo%20viamar.png" },
+        "logo": { "@type": "ImageObject", "url": "https://viamar-berlenga.com/img/logo-viamar.png" },
         "description": "Operador histórico de ferry entre Peniche e a Ilha da Berlenga desde 1958. O maior barco da rota (Cabo Avelar Pessoa, 180 passageiros), maior permanência na ilha (5 horas) e preço mais acessível (€19,90 ida e volta adulto). Licenciado IMT.",
         "foundingDate": "1958",
         "telephone": "+351911001099",
@@ -199,12 +199,11 @@
 
   
   <link rel="preconnect" href="https://fonts.googleapis.com" >
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" as="image" href="/img/hero.webp" fetchpriority="high">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,700;0,900;1,700;1,900&display=swap" rel="stylesheet" >
 
   
-  <script src="https://fareharbor.com/embeds/script/calendar/viamar-berlenga/?full-items=yes&flow=738388&u=0add1569-0a96-4a96-bd93-bfeafd85b4a5&from-ssl=yes&language=pt-pt" async></script>
-
-  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
 <link rel="icon" type="image/svg+xml" href="/favicon.svg" >
   <link rel="apple-touch-icon" href="/logo-viamar.png" >
   <link rel="manifest" href="/manifest.json" >
@@ -909,7 +908,7 @@
     }
     .gb-item:nth-child(1) {
       grid-row: 1 / 3;
-      background-image: url('img/farol-peniche.png');
+      background-image: url('img/farol-peniche.webp');
       background-color: #0d3b2e;
     }
     .gb-item:nth-child(2) {
@@ -1239,6 +1238,27 @@
   
 
   
+  
+  
+  
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
   <link rel="alternate" hreflang="pt-PT" href="https://viamar-berlenga.com/" >
   <link rel="alternate" hreflang="en" href="https://viamar-berlenga.com/en/" >
   <link rel="alternate" hreflang="es" href="https://viamar-berlenga.com/es/" >
@@ -1464,7 +1484,7 @@
 
   
   <div class="gallery-bento">
-    <div class="gb-item" data-img="img/farol-peniche.png"><div class="gb-label" data-i18n="gb1">Cabo Carvoeiro, Peniche</div></div>
+    <div class="gb-item" data-img="img/farol-peniche.webp"><div class="gb-label" data-i18n="gb1">Cabo Carvoeiro, Peniche</div></div>
     <div class="gb-item" data-img="img/freepik__enhance-the-cinematic-feel-of-this-shot__34300.webp"><div class="gb-label" data-i18n="gb2">Vista aérea da Ilha</div></div>
     <div class="gb-item" data-img="img/IMG_0984.webp"><div class="gb-label" data-i18n="gb3">Ferry Viamar</div></div>
     <div class="gb-item" data-img="img/freepik__enhance-the-cinematic-feel-on-this-photo__59586.webp"><div class="gb-label" data-i18n="gb4">Porto Natural da Berlenga</div></div>
@@ -1770,7 +1790,7 @@
   </a>
 
   
-  <script src="/i18n/loader.js"></script>
+  <script defer src="/i18n/loader.js"></script>
   <script>
     // === LEGACY INLINE DICT — REMOVED in i18n refactor. See /i18n/*.json ===
     const _legacyDict = {
@@ -2481,7 +2501,7 @@
 
   <script defer src="/_vercel/insights/script.js"></script>
   
-  <script src="https://fareharbor.com/embeds/api/v1/?autolightframe=yes"></script>
+  <script defer src="https://fareharbor.com/embeds/api/v1/?autolightframe=yes"></script>
 
 
 </body>
