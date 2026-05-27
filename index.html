@@ -857,10 +857,13 @@
 
     /* Flex Ticket modal */
     .flex-modal {
+      position: fixed; inset: 0; margin: auto;
       border: none; padding: 0; border-radius: 16px;
       max-width: 520px; width: calc(100% - 32px);
+      max-height: calc(100vh - 32px);
       background: #fff; color: var(--navy);
       box-shadow: 0 30px 80px rgba(7,17,31,0.35), 0 0 0 1px rgba(7,17,31,0.06);
+      overflow: auto;
     }
     .flex-modal::backdrop { background: rgba(7,17,31,0.55); backdrop-filter: blur(4px); }
     .flex-modal[open] { animation: flex-modal-in .22s ease-out; }
@@ -1273,6 +1276,13 @@
       .cookie-accept, .cookie-reject { flex: 1; }
     }
   </style>
+
+  
+  
+  
+  
+  
+  
 
   
   
