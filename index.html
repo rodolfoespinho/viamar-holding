@@ -577,6 +577,40 @@
     .wa-icon { width: 22px; height: 22px; flex-shrink: 0; }
     .wa-text { white-space: nowrap; }
 
+    /* ── Mobile sticky booking bar ── */
+    .cta-sticky {
+      position: fixed; left: 0; right: 0; bottom: 0; z-index: 480;
+      display: none; align-items: center; gap: 12px;
+      background: rgba(7,17,31,0.92);
+      backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+      border-top: 1px solid rgba(6,182,212,0.28);
+      padding: 11px 14px calc(11px + env(safe-area-inset-bottom));
+      transform: translateY(120%);
+      transition: transform .35s cubic-bezier(.22,1,.36,1);
+      box-shadow: 0 -10px 30px rgba(0,0,0,0.35);
+    }
+    .cta-sticky.show { transform: translateY(0); }
+    .cta-sticky .cs-info { flex: 1; min-width: 0; line-height: 1.25; }
+    .cta-sticky .cs-l1 { font-size: 11px; color: #7fd3e6; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; }
+    .cta-sticky .cs-l2 { font-size: 15px; color: #fff; font-weight: 800; display: flex; align-items: baseline; gap: 6px; }
+    .cta-sticky .cs-l2 .cs-note { font-size: 11px; color: #9fb3c8; font-weight: 600; }
+    .cta-sticky .cs-btn {
+      flex: none; background: var(--gold); color: #3a2400;
+      font-weight: 800; font-size: 14.5px; padding: 13px 20px;
+      border-radius: 11px; text-decoration: none; white-space: nowrap;
+      box-shadow: 0 6px 18px rgba(245,158,11,0.4);
+      transition: background .2s, transform .1s;
+    }
+    .cta-sticky .cs-btn:hover { background: var(--gold-h); }
+    .cta-sticky .cs-btn:active { transform: translateY(1px); }
+    /* show only on phones/tablets */
+    @media (max-width: 768px) { .cta-sticky { display: flex; } }
+    /* keep the WhatsApp FAB clear of the bar when it is visible */
+    body:has(.cta-sticky.show) .whatsapp-fab { bottom: calc(74px + env(safe-area-inset-bottom)); transition: bottom .35s ease; }
+    /* never fight the mobile menu or the cookie banner */
+    body.menu-open .cta-sticky,
+    body:has(.cookie-banner:not(.hidden)) .cta-sticky { transform: translateY(120%) !important; }
+
 
     /* ── SEO content section ── */
     .seo-section {
@@ -1399,6 +1433,48 @@
   
 
   
+  
+  
+  
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
   <link rel="alternate" hreflang="pt-PT" href="https://viamar-berlenga.com/" >
   <link rel="alternate" hreflang="en" href="https://viamar-berlenga.com/en/" >
   <link rel="alternate" hreflang="es" href="https://viamar-berlenga.com/es/" >
@@ -1411,7 +1487,6 @@
   <div class="ann-bar">
     <span data-i18n="ann_main">Fins de semana de <strong>julho</strong> e <strong>agosto</strong> quase esgotados!</span>
     <span class="sep">·</span>
-    <span data-i18n="ann_season">Época inicia a 9 de Maio —</span>
     <a href="https://fareharbor.com/embeds/book/viamar-berlenga/items/?full-items=yes&flow=738388" data-i18n="ann_cta" style="color:var(--navy);font-weight:800;text-decoration:underline;text-underline-offset:2px;margin-left:4px;">Garante já o teu lugar!</a>
   </div>
 
@@ -1498,7 +1573,7 @@
   
   <section class="hero">
     
-    <video class="hero-video-mobile" autoplay muted loop playsinline webkit-playsinline preload="auto" aria-hidden="true">
+    <video class="hero-video-mobile" autoplay muted loop playsinline webkit-playsinline preload="metadata" poster="/video-poster-mobile.jpg" aria-hidden="true">
       <source src="video-section.mp4" type="video/mp4">
     </video>
     <div class="hero-overlay-mobile" aria-hidden="true"></div>
@@ -1655,7 +1730,7 @@
           <h2 class="sec-h" data-i18n="rev.h2">O que dizem os nossos passageiros</h2>
           <p class="sec-sub" style="margin-bottom:0" data-i18n="rev.sub">Mais de 700 avaliações verificadas no Google. Escrito por famílias, casais e grupos que fizeram a travessia connosco.</p>
         </div>
-        <div class="rating-card">
+        <a class="rating-card" href="https://maps.app.goo.gl/nmH2PLgkWPfLwGdk9" target="_blank" rel="noopener" style="text-decoration:none;cursor:pointer">
           <div class="r-score">4.5</div>
           <div>
             <div class="r-stars">★★★★½</div>
@@ -1665,7 +1740,7 @@
               <span data-i18n="r_google">Google Reviews · Verificado</span>
             </div>
           </div>
-        </div>
+        </a>
       </div>
       <div class="reviews-carousel">
         <button type="button" class="rev-nav rev-nav--prev" id="rev-prev" aria-label="Avaliação anterior" data-i18n-attr="rev.prev:aria-label">
@@ -1683,7 +1758,6 @@
               <div>
                 <div class="rev-name">Mariana Ferreira</div>
                 <div class="rev-org" data-i18n="rev1.org">Lisboa</div>
-                <div class="rev-date" data-i18n="rev1.date">Agosto 2024</div>
               </div>
             </div>
           </div>
@@ -1695,7 +1769,6 @@
               <div>
                 <div class="rev-name" data-i18n="rev2.name">Ricardo & Família</div>
                 <div class="rev-org" data-i18n="rev2.org">Porto</div>
-                <div class="rev-date" data-i18n="rev2.date">Julho 2024</div>
               </div>
             </div>
           </div>
@@ -1707,7 +1780,6 @@
               <div>
                 <div class="rev-name">Klaus Wagner</div>
                 <div class="rev-org" data-i18n="rev3.org">Alemanha</div>
-                <div class="rev-date" data-i18n="rev3.date">Junho 2024</div>
               </div>
             </div>
           </div>
@@ -1719,7 +1791,6 @@
               <div>
                 <div class="rev-name">Carla &amp; Diego</div>
                 <div class="rev-org" data-i18n="rev4.org">Madrid</div>
-                <div class="rev-date" data-i18n="rev4.date">Setembro 2024</div>
               </div>
             </div>
           </div>
@@ -1731,7 +1802,6 @@
               <div>
                 <div class="rev-name">James &amp; Olivia</div>
                 <div class="rev-org" data-i18n="rev5.org">Reino Unido</div>
-                <div class="rev-date" data-i18n="rev5.date">Julho 2024</div>
               </div>
             </div>
           </div>
@@ -1743,12 +1813,14 @@
               <div>
                 <div class="rev-name">Sofia</div>
                 <div class="rev-org" data-i18n="rev6.org">Coimbra</div>
-                <div class="rev-date" data-i18n="rev6.date">Junho 2024</div>
               </div>
             </div>
           </div>
         </div>
         <div class="reviews-dots" id="reviews-dots" aria-hidden="true"></div>
+      </div>
+      <div style="text-align:center;margin-top:28px">
+        <a href="https://maps.app.goo.gl/nmH2PLgkWPfLwGdk9" target="_blank" rel="noopener" data-i18n="rev.all" style="display:inline-block;padding:12px 24px;border:1px solid rgba(255,255,255,0.2);border-radius:10px;color:#fff;text-decoration:none;font-weight:700;font-size:14px;background:rgba(255,255,255,0.04)">Ler as 706 avaliações no Google →</a>
       </div>
     </div>
   </section>
@@ -1899,7 +1971,7 @@
         <h1 data-i18n="seo.h1">Ferry Peniche — <span>Ilha da Berlenga</span></h1>
         <p data-i18n="seo.p1">A Viamar é o operador histórico das travessias marítimas entre o Porto de Pesca de Peniche e a Ilha da Berlenga, com mais de 60 anos de experiência a transportar famílias e aventureiros à reserva natural mais protegida do litoral português. A bordo do <em>Cabo Avelar Pessoa</em> — o maior barco da rota, com capacidade para 180 passageiros — a travessia demora entre 40 a 45 minutos e oferece vistas únicas sobre a costa Oeste de Portugal.</p>
         <p data-i18n="seo.p2">A Ilha da Berlenga é uma Reserva da Biosfera UNESCO desde 1984, reconhecida pela sua biodiversidade marinha excepcional, falésias dramáticas e águas de uma transparência rara no Atlântico. Com apenas 1 km² de área terrestre, a ilha abriga praias isoladas, grutas marinhas, o histórico Forte de São João Baptista (construído em 1509) e uma vida selvagem única na Europa. A visita típica dura entre 4 a 6 horas — tempo suficiente para mergulhar nas praias, explorar as grutas e sentir o isolamento atlântico que torna a Berlenga num destino verdadeiramente singular.</p>
-        <p data-i18n="seo.p3">Com uma avaliação de 4.5 estrelas em mais de 706 avaliações verificadas no Google, licença IMT (Instituto da Mobilidade e Transportes) e mais de 25 000 passageiros transportados por ano, a Viamar é a escolha de confiança para visitar a Ilha da Berlenga. Todos os bilhetes incluem cancelamento gratuito até 24 horas antes da partida. A época de 2026 inicia a <strong>9 de Maio</strong> — os fins de semana de julho e agosto esgotam-se rapidamente. Reserve com antecedência para garantir o seu lugar.</p>
+        <p data-i18n="seo.p3">Com uma avaliação de 4.5 estrelas em mais de 706 avaliações verificadas no Google, licença IMT (Instituto da Mobilidade e Transportes) e mais de 25 000 passageiros transportados por ano, a Viamar é a escolha de confiança para visitar a Ilha da Berlenga. Todos os bilhetes incluem cancelamento gratuito até 24 horas antes da partida. A época de 2026 decorre de Maio a Setembro — os fins de semana de julho e agosto esgotam-se rapidamente. Reserve com antecedência para garantir o seu lugar.</p>
       </div>
       <div class="seo-feature-img">
         <img src="img/photo1.webp" alt="Praia da Ilha da Berlenga — baía principal e cais de desembarque" loading="lazy" >
@@ -1910,6 +1982,7 @@
       <div class="photo-item"><img src="img/photo3.webp" alt="Passageiros a embarcar com a Viamar — cais da Ilha da Berlenga" loading="lazy" ></div>
     </div>
   </section>
+
 
   <footer class="site-footer">
     <div class="ft-inner">
@@ -1969,7 +2042,15 @@
     </div>
   </div>
 
-  
+
+  <div class="cta-sticky" id="ctaSticky">
+    <div class="cs-info">
+      <div class="cs-l1" data-i18n="sticky_label">Ida e volta · Berlenga</div>
+      <div class="cs-l2">19,90€ <span class="cs-note" data-i18n="sticky_note">lugares limitados/dia</span></div>
+    </div>
+    <a href="https://fareharbor.com/embeds/book/viamar-berlenga/items/?full-items=yes&flow=738388" class="cs-btn" data-i18n="sticky_cta">Reservar →</a>
+  </div>
+
   <a href="https://wa.me/351911001099?text=Estou%20interessado%20em%20visitar%20a%20Ilha%20da%20Berlenga%20com%20a%20Viamar!" class="whatsapp-fab" target="_blank" rel="noopener" aria-label="Contactar via WhatsApp">
     <svg class="wa-icon" viewBox="0 0 24 24" fill="currentColor">
       <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"></path>
@@ -1977,7 +2058,23 @@
     <span class="wa-text" data-i18n="wa_text">Fale connosco</span>
   </a>
 
-  
+  <script>
+    // Mobile sticky booking bar — reveal after scrolling past the hero
+    (function () {
+      var bar = document.getElementById('ctaSticky');
+      var hero = document.querySelector('.hero');
+      if (!bar || !hero) return;
+      function onScroll() {
+        var trigger = hero.offsetTop + hero.offsetHeight * 0.6;
+        bar.classList.toggle('show', window.scrollY > trigger);
+      }
+      window.addEventListener('scroll', onScroll, { passive: true });
+      window.addEventListener('resize', onScroll, { passive: true });
+      onScroll();
+    })();
+  </script>
+
+
   <script defer src="/i18n/loader.js"></script>
   <script>
     // === LEGACY INLINE DICT — REMOVED in i18n refactor. See /i18n/*.json ===
