@@ -377,5 +377,6 @@
   "news.sub": "Recebe avisos de abertura de datas e alertas de lotação antes de esgotarem. Sem spam — só o essencial da época.",
   "news.btn": "Quero ser avisado",
   "news.note": "Cancelas quando quiseres. Os teus dados ficam só connosco.",
-  "news.placeholder": "o-teu@email.com"
+  "news.placeholder": "o-teu@email.com",
+  "popup_cta": "Comprar já!"
 }

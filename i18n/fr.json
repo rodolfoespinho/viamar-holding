@@ -377,5 +377,6 @@
   "news.sub": "Soyez prévenu de l'ouverture des dates et avant que les traversées soient complètes. Pas de spam — l'essentiel de la saison.",
   "news.btn": "Prévenez-moi",
   "news.note": "Désinscription à tout moment. Vos données restent chez nous.",
-  "news.placeholder": "votre@email.com"
+  "news.placeholder": "votre@email.com",
+  "popup_cta": "Réservez !"
 }

@@ -1318,6 +1318,60 @@
       .pkg-grid .pkg-card:nth-child(5) { grid-column: auto; }
     }
 
+    /* ── Promo Popup — último post (1:1) ── */
+    .promo-overlay {
+      position: fixed; inset: 0; z-index: 9000;
+      background: rgba(4,10,20,0.82);
+      backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+      display: flex; align-items: center; justify-content: center;
+      padding: 18px;
+      opacity: 0; visibility: hidden;
+      transition: opacity 0.4s ease, visibility 0.4s ease;
+    }
+    .promo-overlay.active { opacity: 1; visibility: visible; }
+    .promo-modal {
+      position: relative; width: 100%; max-width: 420px;
+      background: var(--navy);
+      border-radius: 18px; overflow: hidden;
+      transform: translateY(-16px) scale(0.96);
+      transition: transform 0.5s cubic-bezier(0.22,1.4,0.36,1);
+      box-shadow: 0 0 0 1px rgba(245,158,11,0.16), 0 40px 90px rgba(0,0,0,0.85);
+      max-height: calc(100svh - 36px);
+      display: flex; flex-direction: column;
+    }
+    .promo-overlay.active .promo-modal { transform: translateY(0) scale(1); }
+    .promo-img-link { display: block; line-height: 0; position: relative; min-height: 0; }
+    .promo-img-link img {
+      display: block; width: 100%; height: auto;
+      aspect-ratio: 1 / 1; object-fit: cover;
+    }
+    .promo-close {
+      position: absolute; top: 12px; right: 12px; z-index: 5;
+      width: 34px; height: 34px; border-radius: 50%;
+      background: rgba(7,17,31,0.55); border: 1px solid rgba(255,255,255,0.18);
+      backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px);
+      display: flex; align-items: center; justify-content: center;
+      cursor: pointer; color: #fff;
+      transition: background 0.2s, transform 0.2s;
+    }
+    .promo-close:hover { background: rgba(7,17,31,0.9); transform: scale(1.06); }
+    .promo-cta-bar { padding: 14px; background: var(--navy); flex-shrink: 0; }
+    .promo-cta {
+      display: flex; align-items: center; justify-content: center; gap: 8px;
+      width: 100%; background: var(--gold); color: var(--navy);
+      font-size: 15px; font-weight: 900; letter-spacing: 0.3px;
+      padding: 14px 22px; border-radius: 11px; text-decoration: none;
+      transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+      box-shadow: 0 4px 22px rgba(245,158,11,0.30);
+    }
+    .promo-cta:hover { background: var(--gold-h); transform: translateY(-2px); box-shadow: 0 10px 32px rgba(245,158,11,0.44); }
+    .promo-cta svg { width: 18px; height: 18px; flex-shrink: 0; }
+    @media (max-width: 480px) {
+      .promo-modal { max-width: 360px; border-radius: 16px; }
+      .promo-cta { font-size: 14.5px; padding: 13px 20px; }
+      .promo-close { top: 10px; right: 10px; width: 32px; height: 32px; }
+    }
+
     /* ── Cookie banner ── */
     .cookie-banner {
       position: fixed; bottom: 0; left: 0; right: 0; z-index: 500;
@@ -1360,6 +1414,20 @@
       .cookie-accept, .cookie-reject { flex: 1; }
     }
   </style>
+
+  
+  
+  
+  
+  
+  
+
+  
+  
+  
+  
+  
+  
 
   
   
@@ -2857,6 +2925,47 @@
       });
       renderDots();
       updateArrows();
+    })();
+  </script>
+
+  
+  <div class="promo-overlay" id="promoPopup" role="dialog" aria-modal="true" aria-label="Ilha da Berlenga com a Viamar — 20% de desconto">
+    <div class="promo-modal">
+      <button type="button" class="promo-close" id="promoClose" aria-label="Fechar" data-i18n-attr="flex_close:aria-label">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+      </button>
+      <a class="promo-img-link" href="https://fareharbor.com/embeds/book/viamar-berlenga/items/?full-items=yes&flow=738388">
+        <img src="/img/promo-20.jpg" width="1000" height="1000" alt="Ilha da Berlenga com a Viamar — 20% de desconto" >
+      </a>
+      <div class="promo-cta-bar">
+        <a class="promo-cta" href="https://fareharbor.com/embeds/book/viamar-berlenga/items/?full-items=yes&flow=738388">
+          <span data-i18n="popup_cta">Comprar já!</span>
+        </a>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      var overlay = document.getElementById('promoPopup');
+      if (!overlay) return;
+      var KEY = 'viamar_promo_20pc';
+      function onKey(e) { if (e.key === 'Escape') close(); }
+      function close() {
+        overlay.classList.remove('active');
+        try { sessionStorage.setItem(KEY, '1'); } catch (e) {}
+        document.removeEventListener('keydown', onKey);
+      }
+      try { if (sessionStorage.getItem(KEY)) return; } catch (e) {}
+      document.getElementById('promoClose').addEventListener('click', close);
+      overlay.addEventListener('click', function (e) { if (e.target === overlay) close(); });
+      // Booking links also dismiss so it doesn't pop again on return
+      overlay.querySelectorAll('a[href*="fareharbor"]').forEach(function (a) {
+        a.addEventListener('click', function () { try { sessionStorage.setItem(KEY, '1'); } catch (e) {} });
+      });
+      setTimeout(function () {
+        overlay.classList.add('active');
+        document.addEventListener('keydown', onKey);
+      }, 900);
     })();
   </script>
 

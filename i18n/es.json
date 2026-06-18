@@ -377,5 +377,6 @@
   "news.sub": "Recibe avisos de nuevas fechas y antes de que se agoten las plazas. Sin spam, solo lo esencial de la temporada.",
   "news.btn": "Avisadme",
   "news.note": "Cancela cuando quieras. Tus datos se quedan solo con nosotros.",
-  "news.placeholder": "tu@email.com"
+  "news.placeholder": "tu@email.com",
+  "popup_cta": "¡Reserva ya!"
 }

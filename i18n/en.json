@@ -377,5 +377,6 @@
   "news.sub": "Get notified when new dates open and before sailings sell out. No spam — just the season's essentials.",
   "news.btn": "Notify me",
   "news.note": "Unsubscribe anytime. Your data stays with us only.",
-  "news.placeholder": "your@email.com"
+  "news.placeholder": "your@email.com",
+  "popup_cta": "Book now!"
 }
