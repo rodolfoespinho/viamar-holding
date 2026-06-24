@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang="pt-PT" data-lang="pt">
 <head>
-  
+  <meta charset="UTF-8">
+
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-FFZJB37SGK"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -11,7 +12,6 @@
     gtag('config', 'AW-10891382542');
   </script>
 
-  
   <script>
     !function(f,b,e,v,n,t,s)
     {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
@@ -24,32 +24,25 @@
     fbq('init', '956111340728300');
     fbq('init', '1533625365142697');
     fbq('track', 'PageView');
-    fbq('track', 'ViewContent', { content_name: 'Bilhetes e Pacotes', content_category: 'product_listing' });
+    fbq('track', 'ViewContent', { content_name: 'Experiência de Mergulho', content_category: 'product_detail' });
   </script>
   <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=956111340728300&ev=PageView&noscript=1" /></noscript>
-  
 
-  <meta charset="UTF-8" >
   <meta name="viewport" content="width=device-width, initial-scale=1.0" >
-  <title>Bilhetes | Viamar Ferry Berlenga — Travessias e Experiências</title>
-  <meta name="description" content="Bilhetes de ferry e experiências na Ilha da Berlenga — ida e volta a partir de €17,90. Escolhe a tua experiência com a Viamar.">
-  <link rel="canonical" href="https://viamar-berlenga.com/pacotes.html">
+  <title>Experiência de Mergulho na Berlenga | Viamar × Haliotis</title>
+  <meta name="description" content="Batismo de mergulho nas Berlengas com a Haliotis, em parceria com a Viamar. Reserva a travessia e inscreve-te no mergulho em dois passos simples.">
+  <link rel="canonical" href="https://viamar-berlenga.com/mergulho.html">
 
-  
-  
-  
-  
-  
-  
   <meta property="og:type" content="website" >
-  <meta property="og:title" content="Bilhetes Viamar — Travessias e Experiências na Berlenga">
-  <meta property="og:description" content="Bilhetes de ferry e experiências na Ilha da Berlenga a partir de €17,90.">
-  <meta property="og:image" content="https://viamar-berlenga.com/img/og-social.jpg" >
+  <meta property="og:title" content="Experiência de Mergulho na Berlenga — Viamar × Haliotis">
+  <meta property="og:description" content="Batismo de mergulho nas águas cristalinas da Berlenga com instrutores PADI. Reserva em dois passos.">
+  <meta property="og:image" content="https://viamar-berlenga.com/img/mergulho-haliotis.jpg" >
   <meta property="og:image:width" content="1200" >
   <meta property="og:image:height" content="630" >
+  <meta property="og:url" content="https://viamar-berlenga.com/mergulho.html">
   <link rel="preconnect" href="https://fonts.googleapis.com" >
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,700;0,900;1,700;1,900&display=swap" rel="stylesheet" >
-  
+
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" >
   <link rel="apple-touch-icon" href="/logo-viamar.png" >
   <meta name="theme-color" content="#07111f" >
@@ -57,13 +50,14 @@
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     :root {
-      --navy:  #07111f;
-      --aqua:  #06b6d4;
-      --gold:  #f59e0b;
-      --gold-h:#d97706;
-      --g400:  #94a3b8;
-      --g600:  #475569;
-      --r:     12px;
+      --navy:   #07111f;
+      --aqua:   #06b6d4;
+      --gold:   #f59e0b;
+      --gold-h: #d97706;
+      --orange: #f97316;
+      --g400:   #94a3b8;
+      --g600:   #475569;
+      --r:      12px;
     }
     html { scroll-behavior: smooth; }
     body { font-family: 'Inter', sans-serif; background: var(--navy); color: #fff; overflow-x: hidden; }
@@ -133,106 +127,132 @@
     .lang-drop-item:hover { background: rgba(255,255,255,0.08); color: #fff; }
     .lang-drop-item.active { color: #fff; background: rgba(255,255,255,0.1); }
 
-    /* ── Page header ── */
-    .page-hero {
-      padding: 100px 40px 80px;
+    /* ── Hero ── */
+    .merg-hero {
+      position: relative;
+      padding: 104px 40px 88px;
       background:
-        linear-gradient(180deg, rgba(7,17,31,0.62) 0%, rgba(7,17,31,0.88) 100%),
-        url('img/freepik__upgrade-this-cinematic-shot__91289.webp') center 40% / cover no-repeat;
+        linear-gradient(180deg, rgba(7,17,31,0.55) 0%, rgba(7,17,31,0.86) 70%, var(--navy) 100%),
+        url('img/mergulho-haliotis.jpg') center 42% / cover no-repeat;
       border-bottom: 1px solid rgba(255,255,255,0.06);
     }
-    .page-hero-inner { max-width: 1280px; margin: 0 auto; }
-    .page-tag { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; color: var(--aqua); margin-bottom: 12px; }
-    .page-h1 { font-family: 'Playfair Display', serif; font-size: clamp(32px, 4vw, 52px); font-weight: 900; color: #fff; line-height: 1.1; margin-bottom: 16px; }
-    .page-sub { font-size: 16px; color: rgba(255,255,255,0.5); max-width: 520px; line-height: 1.75; }
-
-    /* ── Packages ── */
-    .packages-wrap { max-width: 1280px; margin: 0 auto; padding: 72px 40px; }
-    .pkg-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
-
-    /* Card base */
-    .pkg-card {
-      position: relative; height: 420px;
-      border-radius: 20px; overflow: hidden;
-      cursor: pointer;
-      transition: transform .35s cubic-bezier(.4,0,.2,1), box-shadow .35s;
+    .merg-hero-inner { max-width: 920px; margin: 0 auto; text-align: center; }
+    .merg-partners {
+      display: inline-flex; align-items: center; gap: 16px;
+      padding: 9px 18px; margin-bottom: 22px;
+      background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 100px; backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
     }
-    .pkg-card:hover { transform: translateY(-6px); box-shadow: 0 28px 60px rgba(0,0,0,0.6); }
-    .pkg-card.featured { grid-column: 1 / -1; height: 500px; }
-    .pkg-card.coming-soon { cursor: default; }
-    .pkg-card.coming-soon:hover { transform: none; box-shadow: none; }
-    .pkg-card.coming-soon .pkg-footer { justify-content: flex-end; }
-    .pkg-card.coming-soon.has-price .pkg-footer { justify-content: space-between; }
-    .pkg-grid .pkg-card.coming-soon:last-child { grid-column: 1 / -1; height: 300px; }
+    .merg-partners img { height: 22px; width: auto; display: block; }
+    .merg-partners .pp-x { color: rgba(255,255,255,0.4); font-size: 13px; font-weight: 700; }
+    .merg-partners .pp-haliotis { height: 17px; filter: brightness(0) invert(1); opacity: 0.92; }
+    .merg-h1 { font-family: 'Playfair Display', serif; font-size: clamp(34px, 5vw, 58px); font-weight: 900; line-height: 1.08; margin-bottom: 18px; }
+    .merg-h1 em { font-style: italic; color: var(--aqua); }
+    .merg-sub { font-size: 17px; color: rgba(255,255,255,0.62); max-width: 600px; margin: 0 auto; line-height: 1.7; }
 
-    /* Photo layer */
-    .pkg-card-img {
-      position: absolute; inset: 0; z-index: 0;
-      background-size: cover; background-position: center 25%;
-      background-color: #0a1a2e;
-      transition: transform .55s cubic-bezier(.4,0,.2,1);
+    /* ── Quick facts ── */
+    .merg-facts { max-width: 1040px; margin: -40px auto 0; padding: 0 40px; position: relative; z-index: 5; }
+    .merg-facts-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+    .fact {
+      display: flex; align-items: center; gap: 14px;
+      background: #0d192a; border: 1px solid rgba(255,255,255,0.09);
+      border-radius: 14px; padding: 16px 18px;
+      box-shadow: 0 18px 40px rgba(0,0,0,0.35);
     }
-    .pkg-card:hover .pkg-card-img { transform: scale(1.06); }
-    .pkg-card.coming-soon .pkg-card-img { filter: saturate(0.4) brightness(0.65); }
+    .fact-icon { flex-shrink: 0; width: 40px; height: 40px; border-radius: 11px; display: flex; align-items: center; justify-content: center; background: rgba(6,182,212,0.13); color: var(--aqua); }
+    .fact-t { font-size: 14px; font-weight: 700; color: #fff; line-height: 1.2; }
+    .fact-s { font-size: 12px; color: rgba(255,255,255,0.5); margin-top: 2px; }
 
-    /* Content layer */
-    .pkg-card-content {
-      position: absolute; inset: 0; z-index: 2;
-      display: flex; flex-direction: column; justify-content: space-between;
-      padding: 20px;
-      background: linear-gradient(to top,
-        rgba(7,17,31,0.96) 30%,
-        rgba(7,17,31,0.12) 62%,
-        transparent 100%);
+    /* ── Steps ── */
+    .merg-wrap { max-width: 1040px; margin: 0 auto; padding: 56px 40px 24px; }
+    .merg-how-label {
+      text-align: center; font-size: 11px; font-weight: 800; letter-spacing: 2.5px;
+      text-transform: uppercase; color: var(--aqua); margin-bottom: 34px;
     }
-    .pkg-card-top { display: flex; justify-content: flex-start; align-items: center; gap: 8px; flex-wrap: wrap; }
-    .pkg-card-bottom { display: flex; flex-direction: column; gap: 8px; }
-
-    /* Badge */
-    .pkg-badge {
-      display: inline-flex; align-items: center;
-      font-size: 10.5px; font-weight: 700;
-      padding: 5px 13px; border-radius: 100px;
-      text-transform: uppercase; letter-spacing: .75px;
-      backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+    .steps { display: flex; flex-direction: column; gap: 18px; }
+    .step {
+      position: relative;
+      display: grid; grid-template-columns: 52px minmax(0,1fr) 210px; gap: 26px; align-items: stretch;
+      background: linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.018));
+      border: 1px solid rgba(255,255,255,0.08); border-radius: 20px;
+      padding: 30px 32px;
+      transition: border-color .25s, transform .25s, box-shadow .25s;
     }
+    .step:hover { border-color: rgba(255,255,255,0.18); transform: translateY(-3px); box-shadow: 0 26px 54px rgba(0,0,0,0.42); }
 
-    /* Name */
-    .pkg-name {
-      font-family: 'Playfair Display', serif;
-      font-size: 18px; font-weight: 900; color: #fff; line-height: 1.15;
+    /* Rail: number + connector */
+    .step-rail { position: relative; display: flex; justify-content: center; }
+    .step-num {
+      width: 48px; height: 48px; border-radius: 50%; z-index: 2;
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Playfair Display', serif; font-weight: 900; font-size: 22px;
     }
-    .pkg-card.featured .pkg-name { font-size: 26px; }
-
-    /* Feature chips */
-    .pkg-feats { display: flex; gap: 14px; flex-wrap: wrap; }
-    .pkg-feats span { font-size: 12px; color: rgba(255,255,255,0.6); display: flex; align-items: center; gap: 5px; }
-    .pkg-feats span::before { content: '·'; color: var(--aqua); font-size: 18px; line-height: 1; font-weight: 900; }
-
-    /* Footer row */
-    .pkg-footer { display: flex; align-items: flex-end; justify-content: space-between; gap: 12px; padding-top: 4px; }
-    .pkg-price-info { display: flex; flex-direction: column; gap: 1px; }
-    .pkg-from { font-size: 11px; color: rgba(255,255,255,0.45); text-transform: uppercase; letter-spacing: .06em; }
-    .pkg-amount { font-size: 30px; font-weight: 900; color: #fff; line-height: 1; }
-    .pkg-card.featured .pkg-amount { font-size: 36px; }
-    .pkg-unit { font-size: 12px; color: rgba(255,255,255,0.45); font-weight: 400; }
-
-    /* CTA button */
-    .btn-reserve {
-      flex-shrink: 0; padding: 12px 22px;
-      background: var(--gold); color: var(--navy);
-      border-radius: 10px; font-weight: 800; font-size: 13px;
-      text-decoration: none; text-align: center;
-      transition: background .2s, transform .15s;
-      white-space: nowrap; letter-spacing: .02em;
+    .step:nth-child(1) .step-rail::after {
+      content: ''; position: absolute; top: 54px; bottom: -40px; left: 50%;
+      transform: translateX(-50%); width: 2px;
+      background: linear-gradient(180deg, var(--gold), var(--aqua));
     }
-    .btn-reserve:hover { background: var(--gold-h); transform: scale(1.03); }
-    .btn-soon {
-      flex-shrink: 0; padding: 12px 22px;
-      border: 1.5px dashed rgba(255,255,255,0.32); border-radius: 10px;
-      font-size: 12px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase;
-      color: rgba(255,255,255,0.5); cursor: default; white-space: nowrap;
+    .step:nth-child(1) .step-num { color: var(--navy); background: var(--gold); box-shadow: 0 0 0 5px rgba(245,158,11,0.16); }
+    .step:nth-child(2) .step-num { color: var(--navy); background: var(--aqua); box-shadow: 0 0 0 5px rgba(6,182,212,0.16); }
+
+    /* Body */
+    .step-body { min-width: 0; }
+    .step-kicker { display: inline-block; font-size: 10.5px; font-weight: 800; letter-spacing: 1.5px; text-transform: uppercase; padding: 5px 11px; border-radius: 100px; margin-bottom: 12px; }
+    .step:nth-child(1) .step-kicker { background: rgba(245,158,11,0.16); color: var(--gold); }
+    .step:nth-child(2) .step-kicker { background: rgba(6,182,212,0.16); color: var(--aqua); }
+    .step-title { font-family: 'Playfair Display', serif; font-size: 25px; font-weight: 800; line-height: 1.18; margin-bottom: 10px; }
+    .step-text { font-size: 14.5px; color: rgba(255,255,255,0.64); line-height: 1.7; margin-bottom: 14px; }
+    .step-text strong { color: #fff; font-weight: 700; }
+    .step-note {
+      display: flex; gap: 9px; align-items: flex-start;
+      font-size: 13px; color: rgba(255,255,255,0.72); line-height: 1.6;
+      background: rgba(245,158,11,0.08); border: 1px solid rgba(245,158,11,0.22);
+      border-radius: 10px; padding: 11px 14px; margin-bottom: 18px;
     }
+    .step-note svg { flex-shrink: 0; color: var(--gold); margin-top: 1px; }
+    .step:nth-child(2) .step-note { background: rgba(6,182,212,0.08); border-color: rgba(6,182,212,0.22); }
+    .step:nth-child(2) .step-note svg { color: var(--aqua); }
+    .step-cta {
+      display: inline-flex; align-items: center; gap: 9px;
+      padding: 14px 26px; border-radius: 11px; font-weight: 800; font-size: 14.5px;
+      text-decoration: none; letter-spacing: .01em;
+      transition: background .2s, transform .15s, box-shadow .2s;
+    }
+    .step:nth-child(1) .step-cta { background: var(--gold); color: var(--navy); }
+    .step:nth-child(1) .step-cta:hover { background: var(--gold-h); transform: translateY(-2px); box-shadow: 0 14px 30px rgba(245,158,11,0.28); }
+    .step:nth-child(2) .step-cta { background: var(--aqua); color: var(--navy); }
+    .step:nth-child(2) .step-cta:hover { background: #0891b2; transform: translateY(-2px); box-shadow: 0 14px 30px rgba(6,182,212,0.28); }
+
+    /* Activity badge (right column — desktop only) */
+    .step-meta {
+      display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; gap: 8px;
+      padding: 26px 18px; background: rgba(7,17,31,0.5);
+      border: 1px solid rgba(255,255,255,0.08); border-radius: 16px;
+    }
+    .step-meta-icon { width: 56px; height: 56px; border-radius: 15px; display: flex; align-items: center; justify-content: center; margin-bottom: 4px; }
+    .step:nth-child(1) .step-meta-icon { background: rgba(245,158,11,0.14); color: var(--gold); }
+    .step:nth-child(2) .step-meta-icon { background: rgba(6,182,212,0.14); color: var(--aqua); }
+    .step-meta-label { font-family: 'Playfair Display', serif; font-size: 20px; font-weight: 800; color: #fff; line-height: 1.12; }
+    .step-meta-sub { font-size: 12.5px; color: rgba(255,255,255,0.5); }
+
+    /* ── Details strip ── */
+    .merg-details { max-width: 1040px; margin: 0 auto; padding: 32px 40px 72px; }
+    .merg-card {
+      display: grid; grid-template-columns: 1.25fr 1fr; gap: 32px; align-items: center;
+      background: linear-gradient(180deg, rgba(6,182,212,0.06), rgba(255,255,255,0.02));
+      border: 1px solid rgba(255,255,255,0.08); border-radius: 18px;
+      padding: 30px 34px;
+    }
+    .merg-inc-label { font-size: 11px; font-weight: 800; letter-spacing: 1.6px; text-transform: uppercase; color: var(--aqua); margin-bottom: 16px; }
+    .merg-inc { list-style: none; display: flex; flex-direction: column; gap: 11px; }
+    .merg-inc li { display: flex; align-items: center; gap: 11px; font-size: 14.5px; color: rgba(255,255,255,0.78); }
+    .merg-inc li svg { flex-shrink: 0; color: var(--aqua); }
+    .merg-price { text-align: right; border-left: 1px solid rgba(255,255,255,0.08); padding-left: 32px; }
+    .merg-price-label { font-size: 11px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: rgba(255,255,255,0.42); margin-bottom: 6px; }
+    .merg-price-amount { font-family: 'Playfair Display', serif; font-size: 46px; font-weight: 900; line-height: 1; }
+    .merg-price-break { font-size: 12.5px; color: rgba(255,255,255,0.5); margin-top: 8px; line-height: 1.5; }
+    .merg-back { display: inline-flex; align-items: center; gap: 7px; margin-top: 28px; font-size: 13.5px; font-weight: 600; color: rgba(255,255,255,0.55); text-decoration: none; transition: color .2s; }
+    .merg-back:hover { color: #fff; }
 
     /* ── Footer ── */
     .site-footer { background: #030a14; border-top: 1px solid rgba(255,255,255,0.07); }
@@ -252,49 +272,6 @@
     .ft-bottom a { color: rgba(255,255,255,0.35); text-decoration: none; }
     .ft-atlas { font-weight: 800; letter-spacing: 1px; color: rgba(255,255,255,0.45) !important; transition: color .2s; }
     .ft-atlas:hover { color: rgba(255,255,255,0.85) !important; }
-    @media (max-width: 900px) {
-      .ft-inner { grid-template-columns: 1fr 1fr; gap: 28px; padding: 40px 20px 32px; }
-      .ft-bottom { padding: 16px 20px; flex-direction: column; align-items: flex-start; gap: 4px; }
-    }
-    @media (max-width: 480px) { .ft-inner { grid-template-columns: 1fr; gap: 24px; } }
-
-    /* ── Trip Protection notice ── */
-    .trip-protect-note {
-      background: rgba(245,158,11,0.05);
-      border-top: 1px solid rgba(245,158,11,0.14);
-      border-bottom: 1px solid rgba(245,158,11,0.14);
-    }
-    .trip-protect-inner {
-      max-width: 1280px; margin: 0 auto; padding: 22px 40px;
-      display: flex; align-items: center; gap: 18px; flex-wrap: wrap;
-    }
-    .trip-protect-icon {
-      flex-shrink: 0; width: 38px; height: 38px;
-      background: rgba(245,158,11,0.12); border-radius: 50%;
-      display: flex; align-items: center; justify-content: center;
-      color: var(--gold);
-    }
-    .trip-protect-body { flex: 1; min-width: 200px; }
-    .trip-protect-label {
-      display: block; font-size: 11px; font-weight: 800;
-      text-transform: uppercase; letter-spacing: 0.1em;
-      color: var(--gold); margin-bottom: 4px;
-    }
-    .trip-protect-body p {
-      font-size: 13px; color: rgba(255,255,255,0.5); line-height: 1.65; margin: 0;
-    }
-    .trip-protect-body p strong { color: rgba(255,255,255,0.78); }
-    .trip-protect-link {
-      flex-shrink: 0; font-size: 12px; font-weight: 700;
-      color: var(--gold); text-decoration: none;
-      border: 1px solid rgba(245,158,11,0.35); padding: 8px 16px;
-      border-radius: 6px; white-space: nowrap; transition: background .2s;
-    }
-    .trip-protect-link:hover { background: rgba(245,158,11,0.1); }
-    @media (max-width: 600px) {
-      .trip-protect-inner { padding: 18px 20px; gap: 12px; }
-      .trip-protect-link { width: 100%; text-align: center; }
-    }
 
     /* ── Responsive ── */
     @media (max-width: 900px) {
@@ -304,15 +281,27 @@
       .nav-lang { display: none; }
       .nav-lang-drop { display: flex; }
       .nav-hamburger { display: flex; }
-      .page-hero { padding: 48px 20px 40px; }
-      .packages-wrap { padding: 48px 20px; }
-      .pkg-grid { grid-template-columns: 1fr; gap: 14px; }
-      .pkg-card { height: 360px; }
-      .pkg-card-content { padding: 16px; }
-      .pkg-feats { gap: 8px; }
-      .pkg-card.featured { grid-column: auto; height: 420px; }
-      .pkg-grid .pkg-card.coming-soon:last-child { grid-column: auto; height: 360px; }
-      .site-footer { padding: 24px 20px; }
+      .merg-hero { padding: 56px 20px 52px; }
+      .merg-facts { margin-top: -30px; padding: 0 20px; }
+      .merg-facts-grid { grid-template-columns: 1fr; gap: 10px; }
+      .fact { padding: 14px 16px; }
+      .merg-wrap { padding: 40px 20px 16px; }
+      .merg-details { padding: 24px 20px 56px; }
+      /* steps: 2 columns — the activity badge is desktop-only */
+      .step { grid-template-columns: 48px minmax(0,1fr); gap: 18px; padding: 24px 22px; }
+      .step:nth-child(1) .step-rail::after { bottom: -36px; }
+      .step-meta { display: none; }
+      .ft-inner { grid-template-columns: 1fr 1fr; gap: 28px; padding: 40px 20px 32px; }
+      .ft-bottom { padding: 16px 20px; flex-direction: column; align-items: flex-start; gap: 4px; }
+    }
+    @media (max-width: 600px) {
+      .step { grid-template-columns: 40px minmax(0,1fr); gap: 16px; padding: 22px 18px; }
+      .step-num { width: 40px; height: 40px; font-size: 18px; }
+      .step:nth-child(1) .step-rail::after { left: 20px; top: 50px; }
+      .step-cta { width: 100%; justify-content: center; }
+      .merg-card { grid-template-columns: 1fr; gap: 24px; padding: 26px 22px; }
+      .merg-price { text-align: left; border-left: none; padding-left: 0; border-top: 1px solid rgba(255,255,255,0.08); padding-top: 22px; }
+      .ft-inner { grid-template-columns: 1fr; gap: 24px; }
     }
   </style>
 
@@ -366,155 +355,14 @@
   
 
   
-  
-  
-  
-  
-  
-
-  
-  
-  
-  
-  
-  
-
-  
-  
-  
-  
-  
-  
-
-  
-  
-  
-  
-  
-  
-
-  
-  
-  
-  
-  
-  
-
-  
-  
-  
-  
-  
-  
-
-  
-  
-  
-  
-  
-  
-
-  
-  
-  
-  
-  
-  
-
-  
-  
-  
-  
-  
-  
-
-  
-  
-  
-  
-  
-  
-
-  
-  
-  
-  
-  
-  
-
-  
-  
-  
-  
-  
-  
-
-  
-  
-  
-  
-  
-  
-
-  
-  
-  
-  
-  
-  
-
-  
-  
-  
-  
-  
-  
-
-  
-  
-  
-  
-  
-  
-
-  
-  
-  
-  
-  
-  
-
-  
-  
-  
-  
-  
-  
-
-  
-  
-  
-  
-  
-  
-
-  
-  
-  
-  
-  
-  
-
-  
-  <link rel="alternate" hreflang="pt-PT" href="https://viamar-berlenga.com/pacotes.html" >
-  <link rel="alternate" hreflang="en" href="https://viamar-berlenga.com/en/pacotes.html" >
-  <link rel="alternate" hreflang="es" href="https://viamar-berlenga.com/es/pacotes.html" >
-  <link rel="alternate" hreflang="fr" href="https://viamar-berlenga.com/fr/pacotes.html" >
-  <link rel="alternate" hreflang="x-default" href="https://viamar-berlenga.com/pacotes.html" >
+  <link rel="alternate" hreflang="pt-PT" href="https://viamar-berlenga.com/mergulho.html" >
+  <link rel="alternate" hreflang="en" href="https://viamar-berlenga.com/en/mergulho.html" >
+  <link rel="alternate" hreflang="es" href="https://viamar-berlenga.com/es/mergulho.html" >
+  <link rel="alternate" hreflang="fr" href="https://viamar-berlenga.com/fr/mergulho.html" >
+  <link rel="alternate" hreflang="x-default" href="https://viamar-berlenga.com/mergulho.html" >
 </head>
 <body>
 
-  
   <nav>
     <div class="nav-logo">
       <a href="/"><img src="/logo-viamar.png" alt="Viamar Ferry Berlenga" ></a>
@@ -554,7 +402,6 @@
     </div>
   </nav>
 
-  
   <div class="mobile-menu" id="mobileMenu">
     <button class="mobile-menu-close" id="menuClose" aria-label="Fechar menu">
       <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
@@ -586,34 +433,103 @@
   </div>
 
   
-  <div class="page-hero">
-    <div class="page-hero-inner">
-      <div class="page-tag" data-i18n="pkg_tag">Travessias &amp; Experiências</div>
-      <h1 class="page-h1" data-i18n="pkg_h1">Escolhe a tua experiência</h1>
-      <p class="page-sub" data-i18n="pkg_sub">Desde a travessia simples até atividades na ilha — temos algo para cada aventureiro.</p>
+  <header class="merg-hero">
+    <div class="merg-hero-inner">
+      <div class="merg-partners">
+        <img src="/logo-viamar.png" alt="Viamar" >
+        <span class="pp-x">&times;</span>
+        <img class="pp-haliotis" src="/img/haliotis-logo.svg" alt="Haliotis" >
+      </div>
+      <h1 class="merg-h1" data-i18n="merg.h1">Experiência de <em>Mergulho</em> na Berlenga</h1>
+      <p class="merg-sub" data-i18n="merg.sub">Um batismo de mergulho nas águas cristalinas da Berlenga, com instrutores certificados PADI. Reserva em dois passos simples.</p>
     </div>
-  </div>
+  </header>
 
   
-  <div class="packages-wrap">
-    <div class="pkg-grid" id="pkgGrid">
+  <section class="merg-facts">
+    <div class="merg-facts-grid">
+      <div class="fact">
+        <div class="fact-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"></path><circle cx="12" cy="12" r="3"></circle></svg></div>
+        <div><div class="fact-t" data-i18n="merg.fact1_t">Todos os níveis</div><div class="fact-s" data-i18n="merg.fact1_s">Sem experiência prévia</div></div>
+      </div>
+      <div class="fact">
+        <div class="fact-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"></circle><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"></path></svg></div>
+        <div><div class="fact-t" data-i18n="merg.fact2_t">Instrutor PADI</div><div class="fact-s" data-i18n="merg.fact2_s">Equipamento incluído</div></div>
+      </div>
+      <div class="fact">
+        <div class="fact-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"></path></svg></div>
+        <div><div class="fact-t" data-i18n="merg.fact3_t">Máx. 6 por sessão</div><div class="fact-s" data-i18n="merg.fact3_s">Grupo reduzido</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="merg-wrap">
+    <div class="merg-how-label" data-i18n="merg.how_label">Como funciona — 2 passos</div>
+    <div class="steps">
+
       
+      <article class="step">
+        <div class="step-rail"><div class="step-num">1</div></div>
+        <div class="step-body">
+          <span class="step-kicker" data-i18n="merg.s1_kicker">Passo 1 · Viamar</span>
+          <h2 class="step-title" data-i18n="merg.s1_title">Reserva a tua travessia de barco</h2>
+          <p class="step-text" data-i18n="merg.s1_text">Compra o teu bilhete de barco ida e volta para a Berlenga. Abre a janela de reserva, escolhe a data e conclui a compra com a Viamar.</p>
+          <div class="step-note">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
+            <span data-i18n="merg.s1_note"><strong>Guarda o número de reserva</strong> que recebes no email de confirmação — vais precisar dele no Passo 2.</span>
+          </div>
+          <a class="step-cta" href="https://fareharbor.com/embeds/book/viamar-berlenga/items/377881/?flow=738388&u=0add1569-0a96-4a96-bd93-bfeafd85b4a5&from-ssl=yes&language=pt-pt&back=https%3A%2F%2Fviamar-berlenga.com%2F" data-i18n="merg.s1_cta">Reservar travessia →</a>
+        </div>
+        <aside class="step-meta">
+          <div class="step-meta-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 9a3 3 0 0 1 0 6v2a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-2a3 3 0 0 1 0-6V7a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2Z"></path><path d="M13 5v2M13 17v2M13 11v2"></path></svg></div>
+          <div class="step-meta-label" data-i18n="merg.s1_meta">Travessia</div>
+          <div class="step-meta-sub" data-i18n="merg.s1_meta_sub">Ida e volta</div>
+        </aside>
+      </article>
+
+      
+      <article class="step">
+        <div class="step-rail"><div class="step-num">2</div></div>
+        <div class="step-body">
+          <span class="step-kicker" data-i18n="merg.s2_kicker">Passo 2 · Haliotis</span>
+          <h2 class="step-title" data-i18n="merg.s2_title">Inscreve-te no mergulho</h2>
+          <p class="step-text" data-i18n="merg.s2_text">Na página da Haliotis, escreve o teu <strong>número de reserva Viamar</strong> no campo <strong>Informação Adicional</strong>, preenche os restantes dados e conclui a reserva e o pagamento.</p>
+          <div class="step-note">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><polyline points="9 12 11 14 15 10"></polyline></svg>
+            <span data-i18n="merg.s2_note">A Haliotis confirma a disponibilidade e os detalhes do batismo de mergulho.</span>
+          </div>
+          <a class="step-cta" href="https://haliotis.pt/pt/cursos/peniche/haliotis-viamar-batismo-de-mergulho-nas-berlengas-795" target="_blank" rel="noopener" data-i18n="merg.s2_cta">Ir para a inscrição Haliotis →</a>
+        </div>
+        <aside class="step-meta">
+          <div class="step-meta-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s2.5-4 6-4 4 2 6 2 3.5-2 6-2 2 2 2 2"></path><path d="M2 17s2.5-4 6-4 4 2 6 2 3.5-2 6-2 2 2 2 2"></path><circle cx="8" cy="5" r="1.6"></circle></svg></div>
+          <div class="step-meta-label" data-i18n="merg.s2_meta">Mergulho</div>
+          <div class="step-meta-sub" data-i18n="merg.s2_meta_sub">Batismo PADI</div>
+        </aside>
+      </article>
+
     </div>
-  </div>
+  </section>
 
   
-  <div class="trip-protect-note">
-    <div class="trip-protect-inner">
-      <div class="trip-protect-icon" aria-hidden="true">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><polyline points="9 12 11 14 15 10"></polyline></svg>
+  <section class="merg-details">
+    <div class="merg-card">
+      <div>
+        <div class="merg-inc-label" data-i18n="merg.inc_label">O que inclui</div>
+        <ul class="merg-inc">
+          <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg><span data-i18n="merg.inc_1">Instrutor certificado PADI</span></li>
+          <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg><span data-i18n="merg.inc_2">Equipamento completo de mergulho</span></li>
+          <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg><span data-i18n="merg.inc_3">Travessia de barco ida e volta</span></li>
+          <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg><span data-i18n="merg.inc_4">Máx. 6 pessoas por sessão</span></li>
+        </ul>
       </div>
-      <div class="trip-protect-body">
-        <strong class="trip-protect-label" data-i18n="trip_protection.label">Taxa de Proteção de Viagem</strong>
-        <p data-i18n="trip_protection.note">Se adicionou a <strong>Taxa de Proteção de Viagem</strong> na reserva, pode remarcar ou cancelar a sua viagem até <strong>30 minutos antes da partida</strong>. <strong>Atenção: o valor desta taxa não é reembolsável.</strong></p>
+      <div class="merg-price">
+        <div class="merg-price-label" data-i18n="merg.price_label">A partir de</div>
+        <div class="merg-price-amount">129,90€</div>
+        <div class="merg-price-break" data-i18n="merg.price_break">Travessia + batismo de mergulho</div>
       </div>
-      <a href="/faqs.html#trip-protection" class="trip-protect-link" data-i18n="trip_protection.faq_link">Saber mais nas FAQ →</a>
     </div>
-  </div>
+    <a href="/pacotes.html" class="merg-back" data-i18n="merg.back">← Voltar aos bilhetes</a>
+  </section>
 
   <footer class="site-footer">
     <div class="ft-inner">
@@ -659,14 +575,8 @@
     </div>
   </footer>
 
-  
   <script defer src="/i18n/loader.js"></script>
   <script>
-    // Re-render the product grid whenever language changes.
-    document.addEventListener('viamar:lang-applied', function () {
-      if (typeof loadProducts === 'function') loadProducts();
-    });
-
     // Hamburger
     const hamburger = document.getElementById('hamburger');
     const mobileMenu = document.getElementById('mobileMenu');
@@ -693,7 +603,7 @@
     mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMenu));
 
     // Lang dropdown
-    const langDropBtn  = document.getElementById('langDropBtn');
+    const langDropBtn   = document.getElementById('langDropBtn');
     const langDropPanel = document.getElementById('langDropPanel');
     langDropBtn.addEventListener('click', e => {
       e.stopPropagation();
@@ -705,166 +615,30 @@
       langDropBtn.classList.remove('open');
     });
 
-    // Products
-    const FH_BASE_URL = 'https://fareharbor.com/embeds/book/viamar-berlenga/';
+    // Keep FareHarbor links in sync with current language
     const FH_LANG = { pt: 'pt-pt', en: 'en-us', es: 'es-es', fr: 'fr-fr' };
-    function fhCommon(lang) {
-      return 'flow=738388&u=0add1569-0a96-4a96-bd93-bfeafd85b4a5&from-ssl=yes&language=' +
-        (FH_LANG[lang] || 'en-us') +
-        '&back=https%3A%2F%2Fviamar-berlenga.com%2F';
-    }
-    function tx(key, fallback) {
-      const dict = window.viamarDict;
-      if (dict && dict[key] !== undefined) return dict[key];
-      return fallback;
-    }
-    const BADGE_STYLES = {
-      gold:           'background:#f59e0b;color:#07111f',
-      pop:            'background:#06b6d4;color:#07111f;font-weight:800;padding:7px 18px;font-size:11px;box-shadow:0 0 16px rgba(6,182,212,0.55),0 2px 10px rgba(6,182,212,0.35)',
-      aqua:           'background:rgba(6,182,212,0.15);color:#06b6d4;border:1px solid #06b6d4',
-      amber:          'background:rgba(245,158,11,0.15);color:#f59e0b;border:1px solid rgba(245,158,11,0.4)',
-      partner_orange: 'background:#f97316;color:#fff;font-size:9.5px;letter-spacing:.8px;padding:5px 11px',
-      partner_yellow: 'background:#fbbf24;color:#1a2332;font-size:9.5px;letter-spacing:.8px;padding:5px 11px',
-    };
-    function esc(s) { return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
-    function fmtPrice(n) { return Number(n).toLocaleString('pt-PT', { minimumFractionDigits: 2, maximumFractionDigits: 2 }); }
-
-    async function loadProducts() {
-      const grid = document.getElementById('pkgGrid');
-      if (!grid) return;
-      try {
-        const res  = await fetch('/data/products.json');
-        if (!res.ok) throw new Error();
-        const data = await res.json();
-        const lang = window.viamarLang || 'pt';
-        const suffix = lang === 'pt' ? '' : '_' + lang;
-        const pick = (item, base) => item[base + suffix] || item[base + '_en'] || item[base];
-        const FH_C = fhCommon(lang);
-        function bookingFor(item) {
-          if (item.fh_pk) return `${FH_BASE_URL}items/${item.fh_pk}/?${FH_C}`;
-          // Fallback: ensure booking_url has correct language
-          try {
-            const u = new URL(data.booking_url);
-            u.searchParams.set('language', FH_LANG[lang] || 'en-us');
-            return u.toString();
-          } catch (e) { return data.booking_url; }
-        }
-        const sorted = data.items.slice().sort((a, b) =>
-          (b.featured ? 2 : b.coming_soon ? 0 : 1) - (a.featured ? 2 : a.coming_soon ? 0 : 1)
-        );
-        grid.innerHTML = sorted.map(item => {
-          const badge    = pick(item, 'badge');
-          const name     = pick(item, 'name');
-          const desc     = pick(item, 'desc');
-          const features = pick(item, 'features') || [];
-          const hasPrice = item.price_adult > 0;
-          const cardClass = item.featured ? 'pkg-card featured'
-            : item.coming_soon ? (hasPrice ? 'pkg-card coming-soon has-price' : 'pkg-card coming-soon')
-            : 'pkg-card';
-          const btnText  = item.cta_key
-            ? tx(item.cta_key, tx('pkg.book', 'Book now'))
-            : tx('pkg.book', 'Book now');
-          const soonText = tx('pkg.soon', 'Coming Soon');
-          // Items with their own page (e.g. Mergulho → 2-step instructions) link
-          // to that page instead of opening the FareHarbor lightframe directly.
-          const itemUrl  = item.page_url
-            ? (lang === 'pt' ? item.page_url : '/' + lang + item.page_url)
-            : bookingFor(item);
-          const priceUnit = item.price_child
-            ? tx('pkg.per_adult', '/ adult')
-            : tx('pkg.per_person', '/ person');
-          const priceBlock = !item.price_adult
-            ? ``
-            : `<div class="pkg-price-info">
-                <div class="pkg-from">${tx('pkg.from', 'From')}</div>
-                <div><span class="pkg-amount">${fmtPrice(item.price_adult)}€</span><span class="pkg-unit"> ${esc(priceUnit)}</span></div>
-              </div>`;
-          const ctaBlock = item.coming_soon
-            ? `<span class="btn-soon">${soonText}</span>`
-            : `<a href="${esc(itemUrl)}" class="btn-reserve">${btnText} →</a>`;
-          const bgPos = item.img_position || 'center 25%';
-          const bgDiv = `<div class="pkg-card-img"${item.image ? ` style="background-image:url('${esc(item.image)}');background-position:${esc(bgPos)}"` : ''}></div>`;
-          const feat1 = features[0] || '';
-          const feat2 = features[1] || '';
-          const feat3 = features[2] || '';
-          return `<div class="${cardClass}">
-  ${bgDiv}
-  <div class="pkg-card-content">
-    <div class="pkg-card-top">
-      <span class="pkg-badge" style="${BADGE_STYLES[item.badge_type] || BADGE_STYLES.gold}">${esc(badge)}</span>
-      ${item.partner ? `<span class="pkg-badge" style="${BADGE_STYLES[item.partner_style] || ''}">${esc(item.partner)}</span>` : ''}
-    </div>
-    <div class="pkg-card-bottom">
-      <div class="pkg-name">${esc(name)}</div>
-      <div class="pkg-feats">
-        ${feat1 ? `<span>${esc(feat1)}</span>` : ''}
-        ${feat2 ? `<span>${esc(feat2)}</span>` : ''}
-        ${feat3 ? `<span>${esc(feat3)}</span>` : ''}
-      </div>
-      <div class="pkg-footer">${priceBlock}${ctaBlock}</div>
-    </div>
-  </div>
-</div>`;
-        }).join('');
-        if (window.lucide && typeof window.lucide.createIcons === 'function') window.lucide.createIcons();
-      } catch(e) {
-        grid.innerHTML = '<p style="color:rgba(255,255,255,0.4);padding:24px 0">' + tx('pkg.load_error', 'Could not load packages.') + '</p>';
-      }
-    }
-    // Initial load + re-render on language change
-    document.addEventListener('viamar:lang-applied', loadProducts);
-    if (window.viamarLang) loadProducts();
-
-    // Keep all FareHarbor links in sync with current language
     function updateFareHarborLinks(lang) {
       const fhLang = FH_LANG[lang] || 'en-us';
       document.querySelectorAll('a[href*="fareharbor.com/embeds/book"]').forEach(a => {
-        try {
-          const u = new URL(a.href, window.location.origin);
-          u.searchParams.set('language', fhLang);
-          a.href = u.toString();
-        } catch (e) {}
+        try { const u = new URL(a.href, window.location.origin); u.searchParams.set('language', fhLang); a.href = u.toString(); } catch (e) {}
       });
     }
     document.addEventListener('viamar:lang-applied', (e) => updateFareHarborLinks(e.detail.lang));
     if (window.viamarLang) updateFareHarborLinks(window.viamarLang);
 
-    // Google Ads + Meta Pixel — mousedown+capture garante disparo antes do FareHarbor autolightframe interceptar o clique
+    // Meta Pixel + Google Ads on FareHarbor CTA (mousedown+capture fires before lightframe intercepts)
     document.addEventListener('mousedown', function(e) {
       if (e.target.closest('a[href*="fareharbor.com/embeds/book"]')) {
         gtag('event', 'conversion', { send_to: 'AW-10891382542/sIVNCPq6ifIaEI6etcko' });
         if (typeof fbq === 'function') {
-          fbq('track', 'Lead', { content_name: 'FareHarbor CTA Click', content_category: 'booking_intent' });
+          fbq('track', 'Lead', { content_name: 'Mergulho — FareHarbor CTA', content_category: 'booking_intent' });
           fbq('track', 'InitiateCheckout');
         }
       }
     }, true);
-
-    // FareHarbor booking confirmation → Meta Pixel Purchase
-    window.addEventListener('message', function(e) {
-      if (!e.origin || e.origin.indexOf('fareharbor.com') === -1) return;
-      var d = e.data;
-      if (!d) return;
-      var isBooking = (
-        d.type === 'fh:book' ||
-        d.type === 'booking' ||
-        d.type === 'lightframe:book' ||
-        d.action === 'booking_created' ||
-        d.event === 'booking_created'
-      );
-      if (isBooking && typeof fbq === 'function') {
-        fbq('track', 'Purchase', {
-          currency: 'EUR',
-          value: d.total_amount || d.amount || d.value || 0,
-          content_type: 'product',
-          content_name: 'Ferry Berlenga'
-        });
-      }
-    }, false);
   </script>
 
   <script defer src="/_vercel/insights/script.js"></script>
-  
   <script defer src="https://fareharbor.com/embeds/api/v1/?autolightframe=yes"></script>
 </body>
 </html>

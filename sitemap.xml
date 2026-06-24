@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://viamar-berlenga.com/</loc>
-    <lastmod>2026-05-27</lastmod>
+    <lastmod>2026-06-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <xhtml:link rel="alternate" hreflang="pt-PT" href="https://viamar-berlenga.com/" />
@@ -13,7 +13,7 @@
   </url>
   <url>
     <loc>https://viamar-berlenga.com/en/</loc>
-    <lastmod>2026-05-27</lastmod>
+    <lastmod>2026-06-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <xhtml:link rel="alternate" hreflang="pt-PT" href="https://viamar-berlenga.com/" />
@@ -24,7 +24,7 @@
   </url>
   <url>
     <loc>https://viamar-berlenga.com/es/</loc>
-    <lastmod>2026-05-27</lastmod>
+    <lastmod>2026-06-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <xhtml:link rel="alternate" hreflang="pt-PT" href="https://viamar-berlenga.com/" />
@@ -35,7 +35,7 @@
   </url>
   <url>
     <loc>https://viamar-berlenga.com/fr/</loc>
-    <lastmod>2026-05-27</lastmod>
+    <lastmod>2026-06-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <xhtml:link rel="alternate" hreflang="pt-PT" href="https://viamar-berlenga.com/" />
@@ -46,7 +46,7 @@
   </url>
   <url>
     <loc>https://viamar-berlenga.com/pacotes.html</loc>
-    <lastmod>2026-05-27</lastmod>
+    <lastmod>2026-06-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="pt-PT" href="https://viamar-berlenga.com/pacotes.html" />
@@ -57,7 +57,7 @@
   </url>
   <url>
     <loc>https://viamar-berlenga.com/en/pacotes.html</loc>
-    <lastmod>2026-05-27</lastmod>
+    <lastmod>2026-06-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="pt-PT" href="https://viamar-berlenga.com/pacotes.html" />
@@ -68,7 +68,7 @@
   </url>
   <url>
     <loc>https://viamar-berlenga.com/es/pacotes.html</loc>
-    <lastmod>2026-05-27</lastmod>
+    <lastmod>2026-06-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="pt-PT" href="https://viamar-berlenga.com/pacotes.html" />
@@ -79,7 +79,7 @@
   </url>
   <url>
     <loc>https://viamar-berlenga.com/fr/pacotes.html</loc>
-    <lastmod>2026-05-27</lastmod>
+    <lastmod>2026-06-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="pt-PT" href="https://viamar-berlenga.com/pacotes.html" />
@@ -89,8 +89,52 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://viamar-berlenga.com/pacotes.html" />
   </url>
   <url>
+    <loc>https://viamar-berlenga.com/mergulho.html</loc>
+    <lastmod>2026-06-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="pt-PT" href="https://viamar-berlenga.com/mergulho.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://viamar-berlenga.com/en/mergulho.html" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://viamar-berlenga.com/es/mergulho.html" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://viamar-berlenga.com/fr/mergulho.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://viamar-berlenga.com/mergulho.html" />
+  </url>
+  <url>
+    <loc>https://viamar-berlenga.com/en/mergulho.html</loc>
+    <lastmod>2026-06-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="pt-PT" href="https://viamar-berlenga.com/mergulho.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://viamar-berlenga.com/en/mergulho.html" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://viamar-berlenga.com/es/mergulho.html" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://viamar-berlenga.com/fr/mergulho.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://viamar-berlenga.com/mergulho.html" />
+  </url>
+  <url>
+    <loc>https://viamar-berlenga.com/es/mergulho.html</loc>
+    <lastmod>2026-06-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="pt-PT" href="https://viamar-berlenga.com/mergulho.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://viamar-berlenga.com/en/mergulho.html" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://viamar-berlenga.com/es/mergulho.html" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://viamar-berlenga.com/fr/mergulho.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://viamar-berlenga.com/mergulho.html" />
+  </url>
+  <url>
+    <loc>https://viamar-berlenga.com/fr/mergulho.html</loc>
+    <lastmod>2026-06-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="pt-PT" href="https://viamar-berlenga.com/mergulho.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://viamar-berlenga.com/en/mergulho.html" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://viamar-berlenga.com/es/mergulho.html" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://viamar-berlenga.com/fr/mergulho.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://viamar-berlenga.com/mergulho.html" />
+  </url>
+  <url>
     <loc>https://viamar-berlenga.com/historia.html</loc>
-    <lastmod>2026-05-27</lastmod>
+    <lastmod>2026-06-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="pt-PT" href="https://viamar-berlenga.com/historia.html" />
@@ -101,7 +145,7 @@
   </url>
   <url>
     <loc>https://viamar-berlenga.com/en/historia.html</loc>
-    <lastmod>2026-05-27</lastmod>
+    <lastmod>2026-06-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="pt-PT" href="https://viamar-berlenga.com/historia.html" />
@@ -112,7 +156,7 @@
   </url>
   <url>
     <loc>https://viamar-berlenga.com/es/historia.html</loc>
-    <lastmod>2026-05-27</lastmod>
+    <lastmod>2026-06-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="pt-PT" href="https://viamar-berlenga.com/historia.html" />
@@ -123,7 +167,7 @@
   </url>
   <url>
     <loc>https://viamar-berlenga.com/fr/historia.html</loc>
-    <lastmod>2026-05-27</lastmod>
+    <lastmod>2026-06-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="pt-PT" href="https://viamar-berlenga.com/historia.html" />
@@ -134,7 +178,7 @@
   </url>
   <url>
     <loc>https://viamar-berlenga.com/ilha.html</loc>
-    <lastmod>2026-05-27</lastmod>
+    <lastmod>2026-06-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="pt-PT" href="https://viamar-berlenga.com/ilha.html" />
@@ -145,7 +189,7 @@
   </url>
   <url>
     <loc>https://viamar-berlenga.com/en/ilha.html</loc>
-    <lastmod>2026-05-27</lastmod>
+    <lastmod>2026-06-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="pt-PT" href="https://viamar-berlenga.com/ilha.html" />
@@ -156,7 +200,7 @@
   </url>
   <url>
     <loc>https://viamar-berlenga.com/es/ilha.html</loc>
-    <lastmod>2026-05-27</lastmod>
+    <lastmod>2026-06-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="pt-PT" href="https://viamar-berlenga.com/ilha.html" />
@@ -167,7 +211,7 @@
   </url>
   <url>
     <loc>https://viamar-berlenga.com/fr/ilha.html</loc>
-    <lastmod>2026-05-27</lastmod>
+    <lastmod>2026-06-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="pt-PT" href="https://viamar-berlenga.com/ilha.html" />
@@ -178,7 +222,7 @@
   </url>
   <url>
     <loc>https://viamar-berlenga.com/faqs.html</loc>
-    <lastmod>2026-05-27</lastmod>
+    <lastmod>2026-06-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="pt-PT" href="https://viamar-berlenga.com/faqs.html" />
@@ -189,7 +233,7 @@
   </url>
   <url>
     <loc>https://viamar-berlenga.com/en/faqs.html</loc>
-    <lastmod>2026-05-27</lastmod>
+    <lastmod>2026-06-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="pt-PT" href="https://viamar-berlenga.com/faqs.html" />
@@ -200,7 +244,7 @@
   </url>
   <url>
     <loc>https://viamar-berlenga.com/es/faqs.html</loc>
-    <lastmod>2026-05-27</lastmod>
+    <lastmod>2026-06-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="pt-PT" href="https://viamar-berlenga.com/faqs.html" />
@@ -211,7 +255,7 @@
   </url>
   <url>
     <loc>https://viamar-berlenga.com/fr/faqs.html</loc>
-    <lastmod>2026-05-27</lastmod>
+    <lastmod>2026-06-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="pt-PT" href="https://viamar-berlenga.com/faqs.html" />
@@ -222,7 +266,7 @@
   </url>
   <url>
     <loc>https://viamar-berlenga.com/termos.html</loc>
-    <lastmod>2026-05-27</lastmod>
+    <lastmod>2026-06-24</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
     <xhtml:link rel="alternate" hreflang="pt-PT" href="https://viamar-berlenga.com/termos.html" />
@@ -233,7 +277,7 @@
   </url>
   <url>
     <loc>https://viamar-berlenga.com/en/termos.html</loc>
-    <lastmod>2026-05-27</lastmod>
+    <lastmod>2026-06-24</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
     <xhtml:link rel="alternate" hreflang="pt-PT" href="https://viamar-berlenga.com/termos.html" />
@@ -244,7 +288,7 @@
   </url>
   <url>
     <loc>https://viamar-berlenga.com/es/termos.html</loc>
-    <lastmod>2026-05-27</lastmod>
+    <lastmod>2026-06-24</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
     <xhtml:link rel="alternate" hreflang="pt-PT" href="https://viamar-berlenga.com/termos.html" />
@@ -255,7 +299,7 @@
   </url>
   <url>
     <loc>https://viamar-berlenga.com/fr/termos.html</loc>
-    <lastmod>2026-05-27</lastmod>
+    <lastmod>2026-06-24</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
     <xhtml:link rel="alternate" hreflang="pt-PT" href="https://viamar-berlenga.com/termos.html" />

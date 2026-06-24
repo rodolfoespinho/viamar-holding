@@ -19,7 +19,7 @@ import { fileURLToPath } from 'node:url';
 import { parse } from 'node-html-parser';
 
 const ROOT = process.cwd();
-const PAGES = ['index.html', 'pacotes.html', 'historia.html', 'ilha.html', 'faqs.html', 'termos.html'];
+const PAGES = ['index.html', 'pacotes.html', 'mergulho.html', 'historia.html', 'ilha.html', 'faqs.html', 'termos.html'];
 const TARGET_LANGS = ['en', 'es', 'fr']; // PT canonical lives at root
 const ALL_LANGS = ['pt', ...TARGET_LANGS];
 const BASE_URL = 'https://viamar-berlenga.com';
@@ -27,6 +27,7 @@ const BASE_URL = 'https://viamar-berlenga.com';
 const PAGE_META = {
   'index.html':    { prefix: 'meta.index',    priority: '1.0', changefreq: 'weekly'  },
   'pacotes.html':  { prefix: 'meta.pacotes',  priority: '0.9', changefreq: 'weekly'  },
+  'mergulho.html': { prefix: 'meta.mergulho', priority: '0.7', changefreq: 'monthly' },
   'ilha.html':     { prefix: 'meta.ilha',     priority: '0.8', changefreq: 'monthly' },
   'historia.html': { prefix: 'meta.historia', priority: '0.8', changefreq: 'monthly' },
   'faqs.html':     { prefix: 'meta.faqs',     priority: '0.7', changefreq: 'monthly' },
