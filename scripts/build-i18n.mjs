@@ -21,6 +21,8 @@ import { parse } from 'node-html-parser';
 const ROOT = process.cwd();
 const PAGES = ['index.html', 'pacotes.html', 'mergulho.html', 'historia.html', 'ilha.html', 'faqs.html', 'termos.html'];
 const TARGET_LANGS = ['en', 'es', 'fr']; // PT canonical lives at root
+// Pages still built and reachable by direct link, but kept out of the sitemap
+const SITEMAP_EXCLUDE = new Set(['mergulho.html']);
 const ALL_LANGS = ['pt', ...TARGET_LANGS];
 const BASE_URL = 'https://viamar-berlenga.com';
 
@@ -317,6 +319,7 @@ async function buildSitemap() {
   lines.push('<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">');
 
   for (const page of PAGES) {
+    if (SITEMAP_EXCLUDE.has(page)) continue;
     const meta = PAGE_META[page] || { priority: '0.5', changefreq: 'monthly' };
     for (const lang of ALL_LANGS) {
       lines.push('  <url>');

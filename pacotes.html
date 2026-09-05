@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="pt-PT" data-lang="pt">
 <head>
+  <meta charset="UTF-8">
   
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-FFZJB37SGK"></script>
   <script>
@@ -29,10 +30,9 @@
   <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=956111340728300&ev=PageView&noscript=1" /></noscript>
   
 
-  <meta charset="UTF-8" >
   <meta name="viewport" content="width=device-width, initial-scale=1.0" >
   <title>Bilhetes | Viamar Ferry Berlenga — Travessias e Experiências</title>
-  <meta name="description" content="Bilhetes de ferry e experiências na Ilha da Berlenga — ida e volta a partir de €25. Escolhe a tua experiência com a Viamar.">
+  <meta name="description" content="Bilhetes de ferry e experiências na Ilha da Berlenga — ida e volta a partir de €19,90. Escolhe a tua experiência com a Viamar.">
   <link rel="canonical" href="https://viamar-berlenga.com/pacotes.html">
 
   
@@ -43,7 +43,7 @@
   
   <meta property="og:type" content="website" >
   <meta property="og:title" content="Bilhetes Viamar — Travessias e Experiências na Berlenga">
-  <meta property="og:description" content="Bilhetes de ferry e experiências na Ilha da Berlenga a partir de €25.">
+  <meta property="og:description" content="Bilhetes de ferry e experiências na Ilha da Berlenga a partir de €19,90.">
   <meta property="og:image" content="https://viamar-berlenga.com/img/og-social.jpg" >
   <meta property="og:image:width" content="1200" >
   <meta property="og:image:height" content="630" >
@@ -209,6 +209,17 @@
     .pkg-feats span { font-size: 12px; color: rgba(255,255,255,0.6); display: flex; align-items: center; gap: 5px; }
     .pkg-feats span::before { content: '·'; color: var(--aqua); font-size: 18px; line-height: 1; font-weight: 900; }
 
+    /* "Subject to availability" note */
+    .pkg-disclaimer {
+      display: inline-flex; align-items: center; gap: 6px;
+      align-self: flex-start;
+      font-size: 11px; font-weight: 600; letter-spacing: .02em;
+      color: var(--aqua);
+      background: rgba(6,182,212,0.11);
+      border: 1px solid rgba(6,182,212,0.32);
+      padding: 4px 11px 4px 9px; border-radius: 100px;
+    }
+    .pkg-disclaimer svg { width: 13px; height: 13px; flex-shrink: 0; }
     /* Footer row */
     .pkg-footer { display: flex; align-items: flex-end; justify-content: space-between; gap: 12px; padding-top: 4px; }
     .pkg-price-info { display: flex; flex-direction: column; gap: 1px; }
@@ -727,7 +738,13 @@
       partner_yellow: 'background:#fbbf24;color:#1a2332;font-size:9.5px;letter-spacing:.8px;padding:5px 11px',
     };
     function esc(s) { return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
-    function fmtPrice(n) { return Number(n).toLocaleString('pt-PT', { minimumFractionDigits: 2, maximumFractionDigits: 2 }); }
+    const MONEY_LOCALE = { pt: 'pt-PT', es: 'es-ES', fr: 'fr-FR', en: 'en-IE' };
+    function fmtPrice(n) {
+      const lang = window.viamarLang || 'pt';
+      return Number(n).toLocaleString(MONEY_LOCALE[lang] || 'pt-PT', {
+        style: 'currency', currency: 'EUR', minimumFractionDigits: 2, maximumFractionDigits: 2
+      });
+    }
 
     async function loadProducts() {
       const grid = document.getElementById('pkgGrid');
@@ -756,6 +773,7 @@
           const badge    = pick(item, 'badge');
           const name     = pick(item, 'name');
           const desc     = pick(item, 'desc');
+          const disclaimer = pick(item, 'disclaimer');
           const features = pick(item, 'features') || [];
           const hasPrice = item.price_adult > 0;
           const cardClass = item.featured ? 'pkg-card featured'
@@ -777,7 +795,7 @@
             ? ``
             : `<div class="pkg-price-info">
                 <div class="pkg-from">${tx('pkg.from', 'From')}</div>
-                <div><span class="pkg-amount">${fmtPrice(item.price_adult)}€</span><span class="pkg-unit"> ${esc(priceUnit)}</span></div>
+                <div><span class="pkg-amount">${fmtPrice(item.price_adult)}</span><span class="pkg-unit"> ${esc(priceUnit)}</span></div>
               </div>`;
           const ctaBlock = item.coming_soon
             ? `<span class="btn-soon">${soonText}</span>`
@@ -801,6 +819,7 @@
         ${feat2 ? `<span>${esc(feat2)}</span>` : ''}
         ${feat3 ? `<span>${esc(feat3)}</span>` : ''}
       </div>
+      ${disclaimer ? `<div class="pkg-disclaimer"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>${esc(disclaimer)}</div>` : ''}
       <div class="pkg-footer">${priceBlock}${ctaBlock}</div>
     </div>
   </div>
